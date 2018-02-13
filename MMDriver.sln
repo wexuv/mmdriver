@@ -5,8 +5,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MMDriver", "MMDriver.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test", "test\test.vcxproj", "{C5AB980F-22D3-4482-8C61-1740BDEE83AF}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lua", "lua\lua.vcxproj", "{1760843B-2167-4208-A6D0-E303F7D62116}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -25,16 +23,12 @@ Global
 		{041F4CF5-9B17-4F63-A18E-2015419E8179}.Release|x64.Build.0 = Release|x64
 		{C5AB980F-22D3-4482-8C61-1740BDEE83AF}.Debug|Win32.ActiveCfg = Debug|Win32
 		{C5AB980F-22D3-4482-8C61-1740BDEE83AF}.Debug|Win32.Build.0 = Debug|Win32
-		{C5AB980F-22D3-4482-8C61-1740BDEE83AF}.Debug|x64.ActiveCfg = Debug|Win32
+		{C5AB980F-22D3-4482-8C61-1740BDEE83AF}.Debug|x64.ActiveCfg = Debug|x64
+		{C5AB980F-22D3-4482-8C61-1740BDEE83AF}.Debug|x64.Build.0 = Debug|x64
 		{C5AB980F-22D3-4482-8C61-1740BDEE83AF}.Release|Win32.ActiveCfg = Release|Win32
 		{C5AB980F-22D3-4482-8C61-1740BDEE83AF}.Release|Win32.Build.0 = Release|Win32
-		{C5AB980F-22D3-4482-8C61-1740BDEE83AF}.Release|x64.ActiveCfg = Release|Win32
-		{1760843B-2167-4208-A6D0-E303F7D62116}.Debug|Win32.ActiveCfg = Debug|Win32
-		{1760843B-2167-4208-A6D0-E303F7D62116}.Debug|Win32.Build.0 = Debug|Win32
-		{1760843B-2167-4208-A6D0-E303F7D62116}.Debug|x64.ActiveCfg = Debug|Win32
-		{1760843B-2167-4208-A6D0-E303F7D62116}.Release|Win32.ActiveCfg = Release|Win32
-		{1760843B-2167-4208-A6D0-E303F7D62116}.Release|Win32.Build.0 = Release|Win32
-		{1760843B-2167-4208-A6D0-E303F7D62116}.Release|x64.ActiveCfg = Release|Win32
+		{C5AB980F-22D3-4482-8C61-1740BDEE83AF}.Release|x64.ActiveCfg = Release|x64
+		{C5AB980F-22D3-4482-8C61-1740BDEE83AF}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

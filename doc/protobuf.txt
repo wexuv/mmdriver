@@ -1,0 +1,4 @@
+下载cmake
+source code用protobuf-master/cmake
+选择路径生成相应的vs工程文件.
+不要选择 protobuf_BUILD_TESTS,没有gmock

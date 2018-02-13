@@ -33,19 +33,7 @@ namespace driver
 		gServiceManager.Run();
 	}
 }
-class tmp
-{
-public:
-	tmp(tint32 n,tint32 i) {level=n;index=i;}
-	tint32 level;
-	tint32 index;
-	bool operator<(tmp const& t) const
-	{
-		if( level > t.level)
-			return true;
-		return false;
-	}
-};
+
 int main(int argc, char* argv[])
 {
 	__ENTER_PROJECT

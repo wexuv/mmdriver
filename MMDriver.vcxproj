@@ -19,36 +19,36 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="lib\lua\src\lapi.c" />
-    <ClCompile Include="lib\lua\src\lauxlib.c" />
-    <ClCompile Include="lib\lua\src\lbaselib.c" />
-    <ClCompile Include="lib\lua\src\lcode.c" />
-    <ClCompile Include="lib\lua\src\ldblib.c" />
-    <ClCompile Include="lib\lua\src\ldebug.c" />
-    <ClCompile Include="lib\lua\src\ldo.c" />
-    <ClCompile Include="lib\lua\src\ldump.c" />
-    <ClCompile Include="lib\lua\src\lfunc.c" />
-    <ClCompile Include="lib\lua\src\lgc.c" />
-    <ClCompile Include="lib\lua\src\linit.c" />
-    <ClCompile Include="lib\lua\src\liolib.c" />
-    <ClCompile Include="lib\lua\src\llex.c" />
-    <ClCompile Include="lib\lua\src\lmathlib.c" />
-    <ClCompile Include="lib\lua\src\lmem.c" />
-    <ClCompile Include="lib\lua\src\loadlib.c" />
-    <ClCompile Include="lib\lua\src\lobject.c" />
-    <ClCompile Include="lib\lua\src\lopcodes.c" />
-    <ClCompile Include="lib\lua\src\loslib.c" />
-    <ClCompile Include="lib\lua\src\lparser.c" />
-    <ClCompile Include="lib\lua\src\lstate.c" />
-    <ClCompile Include="lib\lua\src\lstring.c" />
-    <ClCompile Include="lib\lua\src\lstrlib.c" />
-    <ClCompile Include="lib\lua\src\ltable.c" />
-    <ClCompile Include="lib\lua\src\ltablib.c" />
-    <ClCompile Include="lib\lua\src\ltm.c" />
-    <ClCompile Include="lib\lua\src\lundump.c" />
-    <ClCompile Include="lib\lua\src\lvm.c" />
-    <ClCompile Include="lib\lua\src\lzio.c" />
-    <ClCompile Include="lib\lua\src\print.c" />
+    <ClCompile Include="lib\lua\include\lapi.c" />
+    <ClCompile Include="lib\lua\include\lauxlib.c" />
+    <ClCompile Include="lib\lua\include\lbaselib.c" />
+    <ClCompile Include="lib\lua\include\lcode.c" />
+    <ClCompile Include="lib\lua\include\ldblib.c" />
+    <ClCompile Include="lib\lua\include\ldebug.c" />
+    <ClCompile Include="lib\lua\include\ldo.c" />
+    <ClCompile Include="lib\lua\include\ldump.c" />
+    <ClCompile Include="lib\lua\include\lfunc.c" />
+    <ClCompile Include="lib\lua\include\lgc.c" />
+    <ClCompile Include="lib\lua\include\linit.c" />
+    <ClCompile Include="lib\lua\include\liolib.c" />
+    <ClCompile Include="lib\lua\include\llex.c" />
+    <ClCompile Include="lib\lua\include\lmathlib.c" />
+    <ClCompile Include="lib\lua\include\lmem.c" />
+    <ClCompile Include="lib\lua\include\loadlib.c" />
+    <ClCompile Include="lib\lua\include\lobject.c" />
+    <ClCompile Include="lib\lua\include\lopcodes.c" />
+    <ClCompile Include="lib\lua\include\loslib.c" />
+    <ClCompile Include="lib\lua\include\lparser.c" />
+    <ClCompile Include="lib\lua\include\lstate.c" />
+    <ClCompile Include="lib\lua\include\lstring.c" />
+    <ClCompile Include="lib\lua\include\lstrlib.c" />
+    <ClCompile Include="lib\lua\include\ltable.c" />
+    <ClCompile Include="lib\lua\include\ltablib.c" />
+    <ClCompile Include="lib\lua\include\ltm.c" />
+    <ClCompile Include="lib\lua\include\lundump.c" />
+    <ClCompile Include="lib\lua\include\lvm.c" />
+    <ClCompile Include="lib\lua\include\lzio.c" />
+    <ClCompile Include="lib\lua\include\print.c" />
     <ClCompile Include="src\common\base64.cpp" />
     <ClCompile Include="src\common\cpumemstat.cpp" />
     <ClCompile Include="src\common\exception.cpp" />
@@ -113,29 +113,29 @@
     <ClInclude Include="include\network\socketbinder.h" />
     <ClInclude Include="include\service\service.h" />
     <ClInclude Include="include\service\servicemanager.h" />
-    <ClInclude Include="lib\lua\src\lapi.h" />
-    <ClInclude Include="lib\lua\src\lauxlib.h" />
-    <ClInclude Include="lib\lua\src\lcode.h" />
-    <ClInclude Include="lib\lua\src\ldebug.h" />
-    <ClInclude Include="lib\lua\src\ldo.h" />
-    <ClInclude Include="lib\lua\src\lfunc.h" />
-    <ClInclude Include="lib\lua\src\lgc.h" />
-    <ClInclude Include="lib\lua\src\llex.h" />
-    <ClInclude Include="lib\lua\src\llimits.h" />
-    <ClInclude Include="lib\lua\src\lmem.h" />
-    <ClInclude Include="lib\lua\src\lobject.h" />
-    <ClInclude Include="lib\lua\src\lopcodes.h" />
-    <ClInclude Include="lib\lua\src\lparser.h" />
-    <ClInclude Include="lib\lua\src\lstate.h" />
-    <ClInclude Include="lib\lua\src\lstring.h" />
-    <ClInclude Include="lib\lua\src\ltable.h" />
-    <ClInclude Include="lib\lua\src\ltm.h" />
-    <ClInclude Include="lib\lua\src\lua.h" />
-    <ClInclude Include="lib\lua\src\luaconf.h" />
-    <ClInclude Include="lib\lua\src\lualib.h" />
-    <ClInclude Include="lib\lua\src\lundump.h" />
-    <ClInclude Include="lib\lua\src\lvm.h" />
-    <ClInclude Include="lib\lua\src\lzio.h" />
+    <ClInclude Include="lib\lua\include\lapi.h" />
+    <ClInclude Include="lib\lua\include\lauxlib.h" />
+    <ClInclude Include="lib\lua\include\lcode.h" />
+    <ClInclude Include="lib\lua\include\ldebug.h" />
+    <ClInclude Include="lib\lua\include\ldo.h" />
+    <ClInclude Include="lib\lua\include\lfunc.h" />
+    <ClInclude Include="lib\lua\include\lgc.h" />
+    <ClInclude Include="lib\lua\include\llex.h" />
+    <ClInclude Include="lib\lua\include\llimits.h" />
+    <ClInclude Include="lib\lua\include\lmem.h" />
+    <ClInclude Include="lib\lua\include\lobject.h" />
+    <ClInclude Include="lib\lua\include\lopcodes.h" />
+    <ClInclude Include="lib\lua\include\lparser.h" />
+    <ClInclude Include="lib\lua\include\lstate.h" />
+    <ClInclude Include="lib\lua\include\lstring.h" />
+    <ClInclude Include="lib\lua\include\ltable.h" />
+    <ClInclude Include="lib\lua\include\ltm.h" />
+    <ClInclude Include="lib\lua\include\lua.h" />
+    <ClInclude Include="lib\lua\include\luaconf.h" />
+    <ClInclude Include="lib\lua\include\lualib.h" />
+    <ClInclude Include="lib\lua\include\lundump.h" />
+    <ClInclude Include="lib\lua\include\lvm.h" />
+    <ClInclude Include="lib\lua\include\lzio.h" />
     <ClInclude Include="test\ClientService.h" />
     <ClInclude Include="test\Config.h" />
     <ClInclude Include="test\ConnectionPool.h" />
@@ -153,7 +153,7 @@
     <ClInclude Include="test\User.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="lib\lua\src\Makefile" />
+    <None Include="lib\lua\include\Makefile" />
     <None Include="test\ScriptInterface.inl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -234,7 +234,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;__WINDOWS__;_CRT_SECURE_NO_WARNINGS;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.\include\common\;.\include\service\;.\include\network\;.\lib\threadpool\;.\lib\boost\;.\lib\;.\lib\lua\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\include\common\;.\include\service\;.\include\network\;.\lib\threadpool\;.\lib\boost\;.\lib\;.\lib\lua\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
