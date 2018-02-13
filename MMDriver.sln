@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MMDriver", "MMDriver.vcxproj", "{041F4CF5-9B17-4F63-A18E-2015419E8179}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test", "test\test.vcxproj", "{C5AB980F-22D3-4482-8C61-1740BDEE83AF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lua", "lua\lua.vcxproj", "{1760843B-2167-4208-A6D0-E303F7D62116}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{041F4CF5-9B17-4F63-A18E-2015419E8179}.Debug|Win32.ActiveCfg = Debug|Win32
+		{041F4CF5-9B17-4F63-A18E-2015419E8179}.Debug|Win32.Build.0 = Debug|Win32
+		{041F4CF5-9B17-4F63-A18E-2015419E8179}.Debug|x64.ActiveCfg = Debug|x64
+		{041F4CF5-9B17-4F63-A18E-2015419E8179}.Debug|x64.Build.0 = Debug|x64
+		{041F4CF5-9B17-4F63-A18E-2015419E8179}.Release|Win32.ActiveCfg = Release|Win32
+		{041F4CF5-9B17-4F63-A18E-2015419E8179}.Release|Win32.Build.0 = Release|Win32
+		{041F4CF5-9B17-4F63-A18E-2015419E8179}.Release|x64.ActiveCfg = Release|x64
+		{041F4CF5-9B17-4F63-A18E-2015419E8179}.Release|x64.Build.0 = Release|x64
+		{C5AB980F-22D3-4482-8C61-1740BDEE83AF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C5AB980F-22D3-4482-8C61-1740BDEE83AF}.Debug|Win32.Build.0 = Debug|Win32
+		{C5AB980F-22D3-4482-8C61-1740BDEE83AF}.Debug|x64.ActiveCfg = Debug|Win32
+		{C5AB980F-22D3-4482-8C61-1740BDEE83AF}.Release|Win32.ActiveCfg = Release|Win32
+		{C5AB980F-22D3-4482-8C61-1740BDEE83AF}.Release|Win32.Build.0 = Release|Win32
+		{C5AB980F-22D3-4482-8C61-1740BDEE83AF}.Release|x64.ActiveCfg = Release|Win32
+		{1760843B-2167-4208-A6D0-E303F7D62116}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1760843B-2167-4208-A6D0-E303F7D62116}.Debug|Win32.Build.0 = Debug|Win32
+		{1760843B-2167-4208-A6D0-E303F7D62116}.Debug|x64.ActiveCfg = Debug|Win32
+		{1760843B-2167-4208-A6D0-E303F7D62116}.Release|Win32.ActiveCfg = Release|Win32
+		{1760843B-2167-4208-A6D0-E303F7D62116}.Release|Win32.Build.0 = Release|Win32
+		{1760843B-2167-4208-A6D0-E303F7D62116}.Release|x64.ActiveCfg = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

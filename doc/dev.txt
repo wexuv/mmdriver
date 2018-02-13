@@ -1,0 +1,9 @@
+cpumemstat的 windows实现有问题，要求输出进程的cpu占有率，不是整体cpu使用率
+  另外内存的占用还没实现 
+  
+ threadpool 的 schedule导致多线程调用 tick? 为何callback会被连续调用两次------多线程了。。。逗比
+ 
+ clientsocket 缓存区大小如何设定，改为变量吗？
+ 
+ socket 需要支持epoll模式
+ 

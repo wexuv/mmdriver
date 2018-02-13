@@ -1,0 +1,10 @@
+使用boost库不需要包含所有的boost源代码文件，使用bcp工具进行分离，将依赖的文件加到工程目录中
+
+1. 命令行进入下载的boost包的根目录
+2. bootstrap.bat，得到bjam.exe
+3. bjam tools/bcp，在dist\bin目录下会得到bcp.exe
+使用bcp工具就可以分离出想要的文件了，例如
+dist\bin\bcp shared_ptr.hpp c:\boostX
+ 
+参考资料：
+http://www.boost.org/doc/libs/1_49_0/tools/bcp/doc/html/index.html

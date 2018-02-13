@@ -1,0 +1,16 @@
+syntax = "proto3";
+package google.protobuf;
+//#netservice -> httpservice, check login
+//@NH
+message NH_REQ_LOGIN
+{
+	string	account			= 1;	//登陆账号
+	string	validateinfo	= 2;	//登陆验证信息
+}
+//#httpservice -> netservice, check login
+//@NH
+message HN_RET_LOGIN
+{
+	string	account			= 1;	//登陆账号
+	int32	result			= 2;	//验证结果
+}

@@ -1,0 +1,14 @@
+编译curl的lib库
+1。首先确认当前的VC环境是哪个版本，找到相应的bin目录，执行VCVARS32.BAT，确认配置好版本。终极解决方案是重新安装相应的vc,没那么笨吧！
+2。打开Open VS2012 x86 Native Tools Command Prompt，如果是其他版本，自行修改。或者用下面的方式创建对应的cmd.exe的快捷方式
+	%comspec% /k ""C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\vcvarsall.bat"" x86
+3。找到libcurl源代码下的winbuild目录，阅读确认BUILD.WINDOWS.txt中的内容。
+4。如3中没有特殊修改，执行nmake /f Makefile.vc mode=static VC=12，其中vc=12是指定相应的版本。
+5。在curl源代码builds目录下，找到相应的lib库。
+
+第二种方法：
+1。打开projects\Windows目录下对应的vc版本工程文件
+2。根据需要是否编译openssl等依赖库，取消curl工程中的对应的预定义
+3。一定要选择好对应的VS编译选项：代码生成->运行库中MT还是MTD,  x64还是win32平台，　release还是debug等
+4。build目录下找到相应的lib文件。
+4。引用curllib的vs工程文件中需要预定义CURL_STATICLIB，引入库libcurld.lib，如有其他问题，尝试引入wldap32.lib，ws2_32.lib
