@@ -24,7 +24,7 @@ echo =========================
 echo update Server Code successfull!
 
 set Compliler="D:\Program Files (x86)\Xoreax\IncrediBuild\BuildConsole.exe"
-%Compliler% %ServerPath%\MMDriver.sln /cfg="Debug|x64" /Prj="MMDriver" /ShowAgent /ShowTime
+%Compliler% %ServerPath%\MMDriver.sln /Rebuild /cfg="Debug|x64" /Prj="MMDriver" /ShowAgent /ShowTime
 
 set Msg=""
 if %errorlevel% equ 0 set Msg=compile successfull.
