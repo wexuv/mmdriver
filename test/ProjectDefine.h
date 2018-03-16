@@ -10,7 +10,7 @@
 
 #ifdef _DEBUG
 #pragma comment(lib,"libcurld.lib")
-#elif
+#else
 #pragma comment(lib,"libcurl.lib")
 #endif
 
@@ -26,7 +26,7 @@
 
 #ifdef _DEBUG
 #pragma comment(lib,"libprotobufd.lib")
-#elif
+#else
 #pragma comment(lib,"libprotobuf.lib")
 #endif
 
