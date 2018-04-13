@@ -48,405 +48,405 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="test\main.cpp">
+    <ClCompile Include="..\..\lib\lua\include\lapi.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\lauxlib.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\lbaselib.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\lcode.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\ldblib.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\ldebug.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\ldo.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\ldump.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\lfunc.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\lgc.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\linit.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\liolib.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\llex.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\lmathlib.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\lmem.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\loadlib.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\lobject.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\lopcodes.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\loslib.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\lparser.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\lstate.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\lstring.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\lstrlib.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\ltable.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\ltablib.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\ltm.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\lundump.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\lvm.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\lzio.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\lua\include\print.c">
+      <Filter>3rd\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\ClientService.cpp">
       <Filter>test</Filter>
     </ClCompile>
-    <ClCompile Include="src\common\cpumemstat.cpp">
+    <ClCompile Include="..\..\test\Config.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\ConnectionPool.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\HttpService.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\Item.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\main.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\Message.pb.cc">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\MessageTest.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\MonitorService.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\NetService.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\Packet.pb.cc">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\PacketTest.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\ScriptService.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\User.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\base64.cpp">
       <Filter>src\common</Filter>
     </ClCompile>
-    <ClCompile Include="src\common\exception.cpp">
+    <ClCompile Include="..\..\src\common\cpumemstat.cpp">
       <Filter>src\common</Filter>
     </ClCompile>
-    <ClCompile Include="src\common\lib.cpp">
+    <ClCompile Include="..\..\src\common\exception.cpp">
       <Filter>src\common</Filter>
     </ClCompile>
-    <ClCompile Include="src\common\log.cpp">
+    <ClCompile Include="..\..\src\common\lib.cpp">
       <Filter>src\common</Filter>
     </ClCompile>
-    <ClCompile Include="src\common\misc.cpp">
+    <ClCompile Include="..\..\src\common\log.cpp">
       <Filter>src\common</Filter>
     </ClCompile>
-    <ClCompile Include="src\common\types.cpp">
+    <ClCompile Include="..\..\src\common\luabinder.cpp">
       <Filter>src\common</Filter>
     </ClCompile>
-    <ClCompile Include="src\service\servicemanager.cpp">
+    <ClCompile Include="..\..\src\common\message.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\misc.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\msg_queue.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\pool.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\share_memory.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\share_memory_api.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\time_ex.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\timer_ex.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\types.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\clientsocket.cpp">
+      <Filter>src\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\packet.cpp">
+      <Filter>src\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\serversocket.cpp">
+      <Filter>src\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\socketapi.cpp">
+      <Filter>src\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\socketbinder.cpp">
+      <Filter>src\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\service\service.cpp">
       <Filter>src\service</Filter>
     </ClCompile>
-    <ClCompile Include="src\common\time_ex.cpp">
-      <Filter>src\common</Filter>
-    </ClCompile>
-    <ClCompile Include="test\MonitorService.cpp">
-      <Filter>test</Filter>
-    </ClCompile>
-    <ClCompile Include="src\common\timer_ex.cpp">
-      <Filter>src\common</Filter>
-    </ClCompile>
-    <ClCompile Include="src\service\service.cpp">
+    <ClCompile Include="..\..\src\service\servicemanager.cpp">
       <Filter>src\service</Filter>
-    </ClCompile>
-    <ClCompile Include="src\common\msg_queue.cpp">
-      <Filter>src\common</Filter>
-    </ClCompile>
-    <ClCompile Include="src\common\share_memory.cpp">
-      <Filter>src\common</Filter>
-    </ClCompile>
-    <ClCompile Include="src\common\share_memory_api.cpp">
-      <Filter>src\common</Filter>
-    </ClCompile>
-    <ClCompile Include="src\network\clientsocket.cpp">
-      <Filter>src\network</Filter>
-    </ClCompile>
-    <ClCompile Include="src\network\serversocket.cpp">
-      <Filter>src\network</Filter>
-    </ClCompile>
-    <ClCompile Include="src\network\socketapi.cpp">
-      <Filter>src\network</Filter>
-    </ClCompile>
-    <ClCompile Include="test\NetService.cpp">
-      <Filter>test</Filter>
-    </ClCompile>
-    <ClCompile Include="src\network\socketbinder.cpp">
-      <Filter>src\network</Filter>
-    </ClCompile>
-    <ClCompile Include="test\ConnectionPool.cpp">
-      <Filter>test</Filter>
-    </ClCompile>
-    <ClCompile Include="src\common\message.cpp">
-      <Filter>src\common</Filter>
-    </ClCompile>
-    <ClCompile Include="test\ClientService.cpp">
-      <Filter>test</Filter>
-    </ClCompile>
-    <ClCompile Include="src\network\packet.cpp">
-      <Filter>src\network</Filter>
-    </ClCompile>
-    <ClCompile Include="test\PacketTest.cpp">
-      <Filter>test</Filter>
-    </ClCompile>
-    <ClCompile Include="src\common\pool.cpp">
-      <Filter>src\common</Filter>
-    </ClCompile>
-    <ClCompile Include="src\common\base64.cpp">
-      <Filter>src\common</Filter>
-    </ClCompile>
-    <ClCompile Include="test\Message.pb.cc">
-      <Filter>test</Filter>
-    </ClCompile>
-    <ClCompile Include="src\common\luabinder.cpp">
-      <Filter>src\common</Filter>
-    </ClCompile>
-    <ClCompile Include="test\ScriptService.cpp">
-      <Filter>test</Filter>
-    </ClCompile>
-    <ClCompile Include="test\User.cpp">
-      <Filter>test</Filter>
-    </ClCompile>
-    <ClCompile Include="test\HttpService.cpp">
-      <Filter>test</Filter>
-    </ClCompile>
-    <ClCompile Include="test\Config.cpp">
-      <Filter>test</Filter>
-    </ClCompile>
-    <ClCompile Include="test\MessageTest.cpp">
-      <Filter>test</Filter>
-    </ClCompile>
-    <ClCompile Include="test\Packet.pb.cc">
-      <Filter>test</Filter>
-    </ClCompile>
-    <ClCompile Include="test\Item.cpp">
-      <Filter>test</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\lapi.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\lauxlib.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\lbaselib.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\lcode.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\ldblib.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\ldebug.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\ldo.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\ldump.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\lfunc.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\lgc.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\linit.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\liolib.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\llex.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\lmathlib.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\lmem.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\loadlib.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\lobject.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\lopcodes.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\loslib.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\lparser.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\lstate.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\lstring.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\lstrlib.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\ltable.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\ltablib.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\ltm.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\lundump.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\lvm.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\lzio.c">
-      <Filter>3rd\lua</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lua\include\print.c">
-      <Filter>3rd\lua</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\common\cpumemstat.h">
+    <ClInclude Include="..\..\lib\lua\include\lapi.h">
+      <Filter>3rd\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\lua\include\lauxlib.h">
+      <Filter>3rd\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\lua\include\lcode.h">
+      <Filter>3rd\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\lua\include\ldebug.h">
+      <Filter>3rd\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\lua\include\ldo.h">
+      <Filter>3rd\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\lua\include\lfunc.h">
+      <Filter>3rd\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\lua\include\lgc.h">
+      <Filter>3rd\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\lua\include\llex.h">
+      <Filter>3rd\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\lua\include\llimits.h">
+      <Filter>3rd\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\lua\include\lmem.h">
+      <Filter>3rd\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\lua\include\lobject.h">
+      <Filter>3rd\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\lua\include\lopcodes.h">
+      <Filter>3rd\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\lua\include\lparser.h">
+      <Filter>3rd\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\lua\include\lstate.h">
+      <Filter>3rd\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\lua\include\lstring.h">
+      <Filter>3rd\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\lua\include\ltable.h">
+      <Filter>3rd\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\lua\include\ltm.h">
+      <Filter>3rd\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\lua\include\lua.h">
+      <Filter>3rd\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\lua\include\luaconf.h">
+      <Filter>3rd\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\lua\include\lualib.h">
+      <Filter>3rd\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\lua\include\lundump.h">
+      <Filter>3rd\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\lua\include\lvm.h">
+      <Filter>3rd\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\lua\include\lzio.h">
+      <Filter>3rd\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\ClientService.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\Config.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\ConnectionPool.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\HttpService.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\Item.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\Message.pb.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\MessageTest.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\MonitorService.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\NetService.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\Packet.pb.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\PacketTest.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\ProjectDefine.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\ScriptService.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\ServiceDefine.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\User.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\common\base64.h">
       <Filter>include\common</Filter>
     </ClInclude>
-    <ClInclude Include="include\common\define.h">
+    <ClInclude Include="..\..\include\common\cpumemstat.h">
       <Filter>include\common</Filter>
     </ClInclude>
-    <ClInclude Include="include\common\driver.h">
+    <ClInclude Include="..\..\include\common\define.h">
       <Filter>include\common</Filter>
     </ClInclude>
-    <ClInclude Include="include\common\exception.h">
+    <ClInclude Include="..\..\include\common\driver.h">
       <Filter>include\common</Filter>
     </ClInclude>
-    <ClInclude Include="include\common\lib.h">
+    <ClInclude Include="..\..\include\common\exception.h">
       <Filter>include\common</Filter>
     </ClInclude>
-    <ClInclude Include="include\common\log.h">
+    <ClInclude Include="..\..\include\common\lib.h">
       <Filter>include\common</Filter>
     </ClInclude>
-    <ClInclude Include="include\common\misc.h">
+    <ClInclude Include="..\..\include\common\log.h">
       <Filter>include\common</Filter>
     </ClInclude>
-    <ClInclude Include="include\common\std_ex.h">
+    <ClInclude Include="..\..\include\common\luabinder.h">
       <Filter>include\common</Filter>
     </ClInclude>
-    <ClInclude Include="include\common\types.h">
+    <ClInclude Include="..\..\include\common\message.h">
       <Filter>include\common</Filter>
     </ClInclude>
-    <ClInclude Include="include\service\servicemanager.h">
+    <ClInclude Include="..\..\include\common\misc.h">
+      <Filter>include\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\common\msg_queue.h">
+      <Filter>include\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\common\pool.h">
+      <Filter>include\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\common\random.h">
+      <Filter>include\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\common\share_memory.h">
+      <Filter>include\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\common\share_memory_api.h">
+      <Filter>include\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\common\std_ex.h">
+      <Filter>include\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\common\time_ex.h">
+      <Filter>include\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\common\timer_ex.h">
+      <Filter>include\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\common\types.h">
+      <Filter>include\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\network\clientsocket.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\network\packet.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\network\serversocket.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\network\socketapi.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\network\socketbinder.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\service\service.h">
       <Filter>include\service</Filter>
     </ClInclude>
-    <ClInclude Include="include\common\time_ex.h">
-      <Filter>include\common</Filter>
-    </ClInclude>
-    <ClInclude Include="test\MonitorService.h">
-      <Filter>test</Filter>
-    </ClInclude>
-    <ClInclude Include="include\common\timer_ex.h">
-      <Filter>include\common</Filter>
-    </ClInclude>
-    <ClInclude Include="include\service\service.h">
+    <ClInclude Include="..\..\include\service\servicemanager.h">
       <Filter>include\service</Filter>
-    </ClInclude>
-    <ClInclude Include="include\common\msg_queue.h">
-      <Filter>include\common</Filter>
-    </ClInclude>
-    <ClInclude Include="include\common\share_memory.h">
-      <Filter>include\common</Filter>
-    </ClInclude>
-    <ClInclude Include="include\common\share_memory_api.h">
-      <Filter>include\common</Filter>
-    </ClInclude>
-    <ClInclude Include="include\network\serversocket.h">
-      <Filter>include\network</Filter>
-    </ClInclude>
-    <ClInclude Include="include\network\clientsocket.h">
-      <Filter>include\network</Filter>
-    </ClInclude>
-    <ClInclude Include="include\network\socketapi.h">
-      <Filter>include\network</Filter>
-    </ClInclude>
-    <ClInclude Include="test\NetService.h">
-      <Filter>test</Filter>
-    </ClInclude>
-    <ClInclude Include="include\network\socketbinder.h">
-      <Filter>include\network</Filter>
-    </ClInclude>
-    <ClInclude Include="test\ConnectionPool.h">
-      <Filter>test</Filter>
-    </ClInclude>
-    <ClInclude Include="include\common\message.h">
-      <Filter>include\common</Filter>
-    </ClInclude>
-    <ClInclude Include="test\ClientService.h">
-      <Filter>test</Filter>
-    </ClInclude>
-    <ClInclude Include="include\network\packet.h">
-      <Filter>include\network</Filter>
-    </ClInclude>
-    <ClInclude Include="test\PacketTest.h">
-      <Filter>test</Filter>
-    </ClInclude>
-    <ClInclude Include="include\common\pool.h">
-      <Filter>include\common</Filter>
-    </ClInclude>
-    <ClInclude Include="include\common\base64.h">
-      <Filter>include\common</Filter>
-    </ClInclude>
-    <ClInclude Include="test\Message.pb.h">
-      <Filter>test</Filter>
-    </ClInclude>
-    <ClInclude Include="include\common\random.h">
-      <Filter>include\common</Filter>
-    </ClInclude>
-    <ClInclude Include="include\common\luabinder.h">
-      <Filter>include\common</Filter>
-    </ClInclude>
-    <ClInclude Include="test\ScriptService.h">
-      <Filter>test</Filter>
-    </ClInclude>
-    <ClInclude Include="test\User.h">
-      <Filter>test</Filter>
-    </ClInclude>
-    <ClInclude Include="test\HttpService.h">
-      <Filter>test</Filter>
-    </ClInclude>
-    <ClInclude Include="test\Config.h">
-      <Filter>test</Filter>
-    </ClInclude>
-    <ClInclude Include="test\MessageTest.h">
-      <Filter>test</Filter>
-    </ClInclude>
-    <ClInclude Include="test\ProjectDefine.h">
-      <Filter>test</Filter>
-    </ClInclude>
-    <ClInclude Include="test\Packet.pb.h">
-      <Filter>test</Filter>
-    </ClInclude>
-    <ClInclude Include="test\ServiceDefine.h">
-      <Filter>test</Filter>
-    </ClInclude>
-    <ClInclude Include="test\Item.h">
-      <Filter>test</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lua\include\lapi.h">
-      <Filter>3rd\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lua\include\lauxlib.h">
-      <Filter>3rd\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lua\include\lcode.h">
-      <Filter>3rd\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lua\include\ldebug.h">
-      <Filter>3rd\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lua\include\ldo.h">
-      <Filter>3rd\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lua\include\lfunc.h">
-      <Filter>3rd\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lua\include\lgc.h">
-      <Filter>3rd\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lua\include\llex.h">
-      <Filter>3rd\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lua\include\llimits.h">
-      <Filter>3rd\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lua\include\lmem.h">
-      <Filter>3rd\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lua\include\lobject.h">
-      <Filter>3rd\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lua\include\lopcodes.h">
-      <Filter>3rd\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lua\include\lparser.h">
-      <Filter>3rd\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lua\include\lstate.h">
-      <Filter>3rd\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lua\include\lstring.h">
-      <Filter>3rd\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lua\include\ltable.h">
-      <Filter>3rd\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lua\include\ltm.h">
-      <Filter>3rd\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lua\include\lua.h">
-      <Filter>3rd\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lua\include\luaconf.h">
-      <Filter>3rd\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lua\include\lualib.h">
-      <Filter>3rd\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lua\include\lundump.h">
-      <Filter>3rd\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lua\include\lvm.h">
-      <Filter>3rd\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lua\include\lzio.h">
-      <Filter>3rd\lua</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="test\ScriptInterface.inl">
-      <Filter>test</Filter>
+    <None Include="..\..\lib\lua\include\Makefile">
+      <Filter>3rd\lua</Filter>
     </None>
-    <None Include="lib\lua\include\Makefile">
-      <Filter>3rd\lua</Filter>
+    <None Include="..\..\test\ScriptInterface.inl">
+      <Filter>test</Filter>
     </None>
   </ItemGroup>
 </Project>
