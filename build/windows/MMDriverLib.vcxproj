@@ -157,7 +157,7 @@
     <None Include="..\..\test\ScriptInterface.inl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{041F4CF5-9B17-4F63-A18E-2015419E8179}</ProjectGuid>
+    <ProjectGuid>{A6163522-F1BA-4A84-896B-F74507F3E529}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>MMDriver</RootNamespace>
   </PropertyGroup>
@@ -179,7 +179,7 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>

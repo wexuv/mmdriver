@@ -142,13 +142,16 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;__WINDOWS__;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\..\include\common\;..\..\..\include\service\;..\..\..\lib\threadpool\;..\..\..\lib\boost\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\include\common\;..\..\include\service\;..\..\include\network\;..\..\lib\threadpool\;..\..\lib\boost\;..\..\lib\;..\..\lib\lua\include\</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\..\Bin\;..\..\lib\curl\lib\;..\..\lib\google\libs</AdditionalLibraryDirectories>
+      <AdditionalDependencies>MMDriver.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
