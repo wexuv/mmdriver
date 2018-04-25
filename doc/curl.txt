@@ -1,3 +1,4 @@
+windows64平台
 编译curl的lib库
 1。首先确认当前的VC环境是哪个版本，找到相应的bin目录，执行VCVARS32.BAT，确认配置好版本。终极解决方案是重新安装相应的vc,没那么笨吧！
 2。打开Open VS2012 x86 Native Tools Command Prompt，如果是其他版本，自行修改。或者用下面的方式创建对应的cmd.exe的快捷方式
@@ -12,3 +13,7 @@
 3。一定要选择好对应的VS编译选项：代码生成->运行库中MT还是MTD,  x64还是win32平台，　release还是debug等
 4。build目录下找到相应的lib文件。
 4。引用curllib的vs工程文件中需要预定义CURL_STATICLIB，引入库libcurld.lib，如有其他问题，尝试引入wldap32.lib，ws2_32.lib
+
+linux
+解压curl-7.57.0.tar.gz
+在curl-7.57.0目录下直接make，生成./lib/.libs/libcurl.a

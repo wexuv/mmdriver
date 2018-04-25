@@ -21,7 +21,7 @@ namespace driver
 			return false;
 
 		tchar szLogFile[MAX_FILE_NAME_LENGTH];
-		sprintf_s(szLogFile,"%s/NetService_%d",g_Config.m_LogPath.c_str(),GetServiceID());
+		tsnprintf(szLogFile,MAX_FILE_NAME_LENGTH,"%s/NetService_%d",g_Config.m_LogPath.c_str(),GetServiceID());
 
 		m_stLogEngine.init(0xFF, szLogFile);
 

@@ -43,11 +43,11 @@ namespace driver
 		tchar szBuff[4096] = {0};
 		tint32 nReadLength = fread(szBuff,sizeof(tchar),sizeof(szBuff)-1,fp);
 		fclose(fp);
-		AssertEx(nReadLength > 0 && nReadLength < sizeof(szBuff),"");
+		AssertEx(nReadLength > 0 && nReadLength < (tint32)sizeof(szBuff),"");
 
-		for(tint32 nIndex = 0, nFileldIndex = 0; nIndex < nReadLength && nFileldIndex < STAT_COUNT)
+		for(tint32 nIndex = 0, nFileldIndex = 0; nIndex < nReadLength && nFileldIndex < STAT_COUNT;)
 		{
-			for( ; nIndex < nReadLength && isspace(szBuff[nIndex); nIndex ++)
+			for( ; nIndex < nReadLength && isspace(szBuff[nIndex]); nIndex ++)
 			{
 				if(!(nIndex < nReadLength))
 					break;
@@ -70,7 +70,7 @@ namespace driver
 					break;
 				}
 			}
-			for( ; nIndex < nReadLength && !isspace(szBuff[nIndex); nIndex ++)
+			for( ; nIndex < nReadLength && !isspace(szBuff[nIndex]); nIndex ++)
 			{
 				if(!(nIndex < nReadLength))
 					break;
@@ -143,27 +143,27 @@ namespace driver
 		tchar szBuff[4096] = {0};
 		tint32 nReadLength = fread(szBuff,sizeof(tchar),sizeof(szBuff) - 1, fp);
 		fclose(fp);
-		AssertEx(nReadLength >= 0 && nReadLength < sizeof(szBuff), "");
+		AssertEx(nReadLength >= 0 && nReadLength < (tint32)sizeof(szBuff), "");
 
 		const tchar* pvmsize = strstr(szBuff,"VmSize:");
 		if(pvmsize != null_ptr)
 		{
 			pvmsize += strlen("VmSize:");
-			for( ; pvmsize < &(szBuff[sizeof(szBuff)-1] && isspace(*pvmsize)); pvmsize ++);
-			if( pvmsize < &(szBuff[sizeof(szBuff)-1])
+			for( ; pvmsize < &(szBuff[sizeof(szBuff)-1]) && isspace(*pvmsize); pvmsize ++);
+			if( pvmsize < &(szBuff[sizeof(szBuff)-1]))
 			{
 				m_vmsize = strtoul(pvmsize,null_ptr,0);
 			}
 		}
 
-		const tchar* pvmsize = strstr(szBuff,"VmRSS:");
-		if(pvmsize != null_ptr)
+		const tchar* pvmrss = strstr(szBuff,"VmRSS:");
+		if(pvmrss != null_ptr)
 		{
-			pvmsize += strlen("VmRSS:");
-			for( ; pvmsize < &(szBuff[sizeof(szBuff)-1] && isspace(*pvmsize)); pvmsize ++);
-			if( pvmsize < &(szBuff[sizeof(szBuff)-1])
+			pvmrss += strlen("VmRSS:");
+			for( ; pvmrss < &(szBuff[sizeof(szBuff)-1]) && isspace(*pvmrss); pvmrss ++);
+			if( pvmrss < &(szBuff[sizeof(szBuff)-1]))
 			{
-				m_vmsize = strtoul(pvmsize,null_ptr,0);
+				m_vmrss = strtoul(pvmrss,null_ptr,0);
 			}
 		}
 #endif
@@ -187,27 +187,6 @@ namespace driver
 		return 0;
 	}
 
-	void LogCpuMemStat(const tchar* szDesc)
-	{
-		__ENTER_PROJECT
-
-#if defined(__LINUX__)
-
-			static CpuMemStat s_CpuMemStat;
-		s_CpuMemStat.ReBuildCpu();
-		s_CpuMemStat.ReBuildMem();
-
-		DiskLog(LOGDEF_INST(CpuMem),
-			"Desc(%s),CPU(%0.2f),VmSize(%llu),VmRss(%llu)",
-			szDesc != null_ptr ? szDesc : "unknown",
-			s_CpuMemStat.GetCpuRate(),
-			s_CpuMemStat.GetVmSize(),
-			s_CpuMemStat.GetVmRSS());
-
-#endif
-
-		__LEAVE_PROJECT
-	}
 #if defined(__WINDOWS__)
 	tint64 CpuMemStat::CompareFileTime ( FILETIME time1, FILETIME time2 )//转换为整数时间
 	{

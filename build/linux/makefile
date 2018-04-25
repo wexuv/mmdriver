@@ -1,0 +1,34 @@
+include ./makefile_public
+
+TARGET = $(BIN_DIR)/MMDriver
+INSTALL= $(BIN_DIR)/
+
+CPP_BASE_FILE = ../../src/common/*.cpp ../../src/service/*.cpp ../../src/network/*.cpp
+CPP_FILE = $(wildcard ../../test/*.cpp ../../test/*.cc $(CPP_BASE_FILE) ../../lib/lua/include/*.c)
+
+O_CPPFILE = $(patsubst %.c, %.o, $(patsubst %.cpp, %.o, $(patsubst %.cc, %.o, $(CPP_FILE)))) 
+O_FILE    = $(O_CPPFILE) 
+
+MYSQL_INC_DIR = /usr/local/mysql/include
+MYSQL_LIB_DIR = /usr/local/mysql/lib
+ 
+SERVER_CPPFLAGS = $(CPPFLAGS) -I$(MYSQL_INC_DIR) -DDEBUG -D__LINUX__ -std=c++0x
+SERVER_LDFLAGS = $(LDFLAGS) -lpthread -L$(MYSQL_LIB_DIR) -lmysqlclient_r
+ 
+all : $(TARGET)
+
+$(TARGET) : $(O_FILE)
+	$(CXX)  -o $@ $(O_FILE) $(SERVER_LDFLAGS)
+
+%.o : %.cpp
+	$(CXX) $(SERVER_CPPFLAGS) -c $< -o $@
+
+clean :
+	rm -f $(TARGET)
+	rm -f $(O_FILE);
+
+install :
+	cp $(TARGET) $(INSTALL)	
+
+mkdir :
+	if (test -d ./.objs) ; then pwd ; else mkdir ./.objs ; fi

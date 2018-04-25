@@ -36,7 +36,6 @@ namespace driver
 
 		~IPool() 
 		{
-			int a = 0;
 		};
 	};
 

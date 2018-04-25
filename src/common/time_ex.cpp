@@ -1,12 +1,5 @@
 #include "time_ex.h"
 
-#if defined(__WINDOWS__)
-#include "shlwapi.h"
-#pragma comment(lib,"shlwapi.lib")
-#elif defined(__LINUX__)
-#include <direct.h>
-#endif 
-
 namespace driver 
 {
 	void _Sleep(tuint32 nMilSec)
@@ -49,7 +42,7 @@ namespace driver
 #elif defined(__LINUX__)
 		struct timeval _tcurent;
 		struct timezone _tz;
-		gettimeofday(&_tcurent,&tz);
+		gettimeofday(&_tcurent,&_tz);
 		return (tuint64)((tfloat64)_tcurent.tv_sec*1000 + (tfloat64)_tcurent.tv_usec/1000);
 #else
 #error windows or linux is required.

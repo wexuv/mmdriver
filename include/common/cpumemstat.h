@@ -5,11 +5,6 @@
 #include "define.h"
 #include "lib.h"
 
-#if defined(__WINDOWS__)
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-#endif 
-
 namespace driver
 {
 	//获取指定进程的CPU占用时间和内存使用量
@@ -66,11 +61,6 @@ namespace driver
 #endif 
 		time_t		m_lastcalltime;
 	};
-
-
-
-	void LogCpuMemStat(const tchar* szDesc);
-
 }
 
 #endif //_CPUMEMSTAT_H_

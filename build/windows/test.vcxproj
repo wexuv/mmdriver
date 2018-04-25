@@ -112,7 +112,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\..\Bin\;..\..\lib\curl\lib\;..\..\lib\google\libs</AdditionalLibraryDirectories>
-      <AdditionalDependencies>MMDriver.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>MMDriverD.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

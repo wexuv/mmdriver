@@ -5,7 +5,7 @@
 #include "define.h"
 #include "lib.h"
 #include "boost/threadpool.hpp"
-#include "Service.h"
+#include "service.h"
 #include "std_ex.h"
 #include "log.h"
 
@@ -39,8 +39,9 @@ namespace driver
 		void RunLogic(const ServiceState enmRunStatus);
 		bool RunLogicBreakCondition(const ServiceState enmRunStatus);
 
-	protected:
 		void Wait(tint32 nSecondTimeout);
+
+		void LogCpuMemStat(const tchar* szDesc);
 
 	protected:
 		bool IsAllServiceStatusEqual(ServiceState enmStatus);

@@ -26,34 +26,6 @@ extern "C" {
 
 namespace driver 
 {
-	struct LuaNil{};
-
-	inline void LuaPushValue(lua_State* L, bool value)				{  lua_pushboolean(L, value);  }
-	inline void LuaPushValue(lua_State* L, char value)				{  lua_pushinteger(L, value);  }
-	inline void LuaPushValue(lua_State* L, unsigned char value)		{  lua_pushinteger(L, value);  }
-	inline void LuaPushValue(lua_State* L, short value)				{  lua_pushinteger(L, value);  }
-	inline void LuaPushValue(lua_State* L, unsigned short value)	{  lua_pushinteger(L, value);  }
-	inline void LuaPushValue(lua_State* L, int value)				{  lua_pushinteger(L, value);  }
-	inline void LuaPushValue(lua_State* L, unsigned int value)		{  lua_pushinteger(L, value);  }
-	inline void LuaPushValue(lua_State* L, long value)				{  lua_pushinteger(L, value);  }
-	inline void LuaPushValue(lua_State* L, unsigned long value)		{  lua_pushinteger(L, value);  }
-	inline void LuaPushValue(lua_State* L, long long value)			{  lua_pushinteger(L, (lua_Integer)value);  }
-	inline void LuaPushValue(lua_State* L, double value)			{  lua_pushnumber(L, (lua_Number)value);  }
-	inline void LuaPushValue(lua_State* L, float value)				{  lua_pushnumber(L, (lua_Number)value);  }
-	inline void LuaPushValue(lua_State* L, const char* value)		{  lua_pushstring(L, value);  }
-	inline void LuaPushValue(lua_State* L, const LuaNil&)			{  lua_pushnil(L);  }
-	inline void LuaPushValue(lua_State* L, lua_CFunction value)		{  lua_pushcclosure(L, value, 0);  }
-
-	inline void LuaPushValue(lua_State* L, std::string& value)								{  lua_pushstring(L, value.c_str());  }
-	inline void LuaPushValue(lua_State* L, const std::string& value)						{  lua_pushstring(L, value.c_str());  }
-
-	template<class ValueType> 
-	inline void	LuaPushValue(lua_State* L, ValueType& value)		
-	{  
-		luabinder binder(L);
-		binder.PushUserType( &value , value.GetRTTIName());
-	}
-
 	class luabinder
 	{
 	public:
@@ -89,5 +61,33 @@ namespace driver
 	protected:
 		lua_State* m_L;
 	};
+
+	struct LuaNil{};
+
+	inline void LuaPushValue(lua_State* L, bool value)				{  lua_pushboolean(L, value);  }
+	inline void LuaPushValue(lua_State* L, char value)				{  lua_pushinteger(L, value);  }
+	inline void LuaPushValue(lua_State* L, unsigned char value)		{  lua_pushinteger(L, value);  }
+	inline void LuaPushValue(lua_State* L, short value)				{  lua_pushinteger(L, value);  }
+	inline void LuaPushValue(lua_State* L, unsigned short value)	{  lua_pushinteger(L, value);  }
+	inline void LuaPushValue(lua_State* L, int value)				{  lua_pushinteger(L, value);  }
+	inline void LuaPushValue(lua_State* L, unsigned int value)		{  lua_pushinteger(L, value);  }
+	inline void LuaPushValue(lua_State* L, long value)				{  lua_pushinteger(L, value);  }
+	inline void LuaPushValue(lua_State* L, unsigned long value)		{  lua_pushinteger(L, value);  }
+	inline void LuaPushValue(lua_State* L, long long value)			{  lua_pushinteger(L, (lua_Integer)value);  }
+	inline void LuaPushValue(lua_State* L, double value)			{  lua_pushnumber(L, (lua_Number)value);  }
+	inline void LuaPushValue(lua_State* L, float value)				{  lua_pushnumber(L, (lua_Number)value);  }
+	inline void LuaPushValue(lua_State* L, const char* value)		{  lua_pushstring(L, value);  }
+	inline void LuaPushValue(lua_State* L, const LuaNil&)			{  lua_pushnil(L);  }
+	inline void LuaPushValue(lua_State* L, lua_CFunction value)		{  lua_pushcclosure(L, value, 0);  }
+
+	inline void LuaPushValue(lua_State* L, std::string& value)								{  lua_pushstring(L, value.c_str());  }
+	inline void LuaPushValue(lua_State* L, const std::string& value)						{  lua_pushstring(L, value.c_str());  }
+
+	template<class ValueType> 
+	inline void	LuaPushValue(lua_State* L, ValueType& value)		
+	{  
+		luabinder binder(L);
+		binder.PushUserType( &value , value.GetRTTIName());
+	}
 }
 #endif //_LUABINDER_H_

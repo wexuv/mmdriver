@@ -36,9 +36,6 @@ namespace driver
 		friend class ServerSocket;
 		friend class SocketBinder;
 
-	private:
-		ClientSocket& operator=( const ClientSocket &rhs ) {};
-		ClientSocket( const ClientSocket &rhs ) {};
 	public:
 		ClientSocket (void);
 		~ClientSocket (void);

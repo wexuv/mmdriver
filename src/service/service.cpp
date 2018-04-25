@@ -1,4 +1,4 @@
-#include "Service.h"
+#include "service.h"
 
 namespace driver
 {
@@ -69,6 +69,9 @@ namespace driver
 			break;
 
 		case SS_SHUTDOWN_OK:
+			break;
+
+		default:
 			break;
 		}
 

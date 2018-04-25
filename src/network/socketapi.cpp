@@ -1,10 +1,14 @@
-#include "clientsocket.h"
+#include "socketapi.h"
+#include "lib.h"
 
 namespace driver
 {
 	namespace socketapi
 	{
+
+#if defined(__WINDOWS__)
 		WindowsSocketAutoInit _global_wsai;
+#endif
 
 		SOCKET socket_ex(tint32 domain,tint32 type, tint32 protocol)
 		{
@@ -85,7 +89,7 @@ namespace driver
 
 #elif defined(__LINUX__)
 
-			tint32 flags = fcntl(fd, F_GETFL, 0);
+			tint32 flags = fcntl(s, F_GETFL, 0);
 			if (flags < 0)
 			{
 				return false;
@@ -102,7 +106,7 @@ namespace driver
 				flags &= ~O_NDELAY;
 			}
 
-			flags = fcntl(fd, F_SETFL, flags);
+			flags = fcntl(s, F_SETFL, flags);
 
 			if(flags < 0)
 			{
@@ -253,6 +257,7 @@ namespace driver
 			tint32 nRecv = ::recv(s,buf,len,flags);
 			if(nRecv == SOCKET_ERROR)
 			{
+				tint32 iErrNo = net_error_no();
 				if (EAGAIN == iErrNo || EWOULDBLOCK == iErrNo)
 				{
 					return conn_error_code_would_block;
@@ -290,6 +295,7 @@ namespace driver
 
 			if(nSent == SOCKET_ERROR)
 			{
+				tint32 iErrNo = net_error_no();
 				if (EAGAIN == iErrNo || EWOULDBLOCK == iErrNo)
 				{
 					return conn_error_code_would_block;
@@ -373,7 +379,7 @@ namespace driver
 			case ETIMEDOUT:
 			case ENETUNREACH:
 			case EADDRINUSE:
-			case EWOULDBLOCK:
+			//case EWOULDBLOCK:=EAGAIN
 			case ECONNRESET:
 			case EPIPE:
 			case ENOTCONN:

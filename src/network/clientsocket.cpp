@@ -189,7 +189,7 @@ namespace driver
 				if(nReadLen == 0)
 					return true;
 
-				if(nReadLen > m_recv_buffer_len)
+				if(nReadLen > (tint32)m_recv_buffer_len)
 					return false;
 
 				m_recv_buffer_len -= nReadLen;

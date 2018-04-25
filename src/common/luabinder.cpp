@@ -1,5 +1,5 @@
 #include "luabinder.h"
-#include "..\test\ScriptInterface.inl"
+//#include "..\test\ScriptInterface.inl"
 
 namespace driver
 {
@@ -234,68 +234,68 @@ namespace driver
 
 		luaL_openlibs(m_L);
 
-		//¼ÓÔØ¾²Ì¬¿âº¯Êý(c++)->(lua)
-		lua_pushcfunction( m_L,luaopen_ObjUser);
-		if (lua_pcall( m_L,0,0,0)) 
-		{
-			//GfxWriteLog(LOG_TAG_ERROR, LOG_SWITCH_ERROR , "Lua Error: " , lua_tostring(m_L,-1) );
-			lua_pop( m_L , -1 );
-		}
+		////¼ÓÔØ¾²Ì¬¿âº¯Êý(c++)->(lua)
+		//lua_pushcfunction( m_L,luaopen_ObjUser);
+		//if (lua_pcall( m_L,0,0,0)) 
+		//{
+		//	//GfxWriteLog(LOG_TAG_ERROR, LOG_SWITCH_ERROR , "Lua Error: " , lua_tostring(m_L,-1) );
+		//	lua_pop( m_L , -1 );
+		//}
 
-		//test
-		DoFile("./Script/test.lua");
-		LUA_STACK_START_CHECK( m_L );
-		lua_getglobal( m_L, "test" );
+		////test
+		//DoFile("./Script/test.lua");
 
-		ObjUser obj;
-		obj.SetID(2);
+		//LUA_STACK_START_CHECK( m_L );
+		//lua_getglobal( m_L, "test" );
 
-		LuaPushValue(m_L,obj);
-		tint32 nRet = lua_pcall(m_L,1,1,0);
-		if(nRet != 0)
-		{
-			std::string sErrorStr = lua_tostring(m_L, -1);
+		//ObjUser obj;
+		//obj.SetID(2);
 
-			lua_pop(m_L,1);
+		//LuaPushValue(m_L,obj);
+		//tint32 nRet = lua_pcall(m_L,1,1,0);
+		//if(nRet != 0)
+		//{
+		//	std::string sErrorStr = lua_tostring(m_L, -1);
 
-			AssertEx(false,"123");
+		//	lua_pop(m_L,1);
 
-			return false;
-		}
+		//	AssertEx(false,"123");
 
-		tuint32 nID = (tuint32)lua_tointeger(m_L,-1);
+		//	return false;
+		//}
 
-		lua_pop( m_L , 1 );
+		//tuint32 nID = (tuint32)lua_tointeger(m_L,-1);
 
-		LUA_STACK_END_CHECK( m_L, 0 );
+		//lua_pop( m_L , 1 );
 
-		{
-			LUA_STACK_START_CHECK( m_L );
-			lua_getglobal( m_L, "test" );
+		//LUA_STACK_END_CHECK( m_L, 0 );
 
-			ObjUser obj;
-			obj.SetID(1);
+		//{
+		//	LUA_STACK_START_CHECK( m_L );
+		//	lua_getglobal( m_L, "test" );
 
-			LuaPushValue(m_L,obj);
-			tint32 nRet = lua_pcall(m_L,1,1,0);
-			if(nRet != 0)
-			{
-				std::string sErrorStr = lua_tostring(m_L, -1);
+		//	ObjUser obj;
+		//	obj.SetID(1);
 
-				lua_pop(m_L,1);
+		//	LuaPushValue(m_L,obj);
+		//	tint32 nRet = lua_pcall(m_L,1,1,0);
+		//	if(nRet != 0)
+		//	{
+		//		std::string sErrorStr = lua_tostring(m_L, -1);
 
-				AssertEx(false,"123");
+		//		lua_pop(m_L,1);
 
-				return false;
-			}
+		//		AssertEx(false,"123");
 
-			tuint32 nID = (tuint32)lua_tointeger(m_L,-1);
+		//		return false;
+		//	}
 
-			lua_pop( m_L , 1 );
+		//	tuint32 nID = (tuint32)lua_tointeger(m_L,-1);
 
-			LUA_STACK_END_CHECK( m_L, 0 );
+		//	lua_pop( m_L , 1 );
 
-		}
+		//	LUA_STACK_END_CHECK( m_L, 0 );
+		//}
 		return true;
 	}
 

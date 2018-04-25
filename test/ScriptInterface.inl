@@ -37,6 +37,7 @@ namespace driver
 	{
 		luabinder binder(L);
 		ObjUser* h = (driver::ObjUser*) binder.CheckUserType(1,"ObjUser");
+		AssertEx(h!=null_ptr,"ObjUserPtr = null_ptr");
 		return 0;
 	}
 	static const luaL_reg lib_ObjUser[] = {
@@ -73,6 +74,7 @@ namespace driver
 	{
 		luabinder binder(L);
 		ScriptService* h = (driver::ScriptService*) binder.CheckUserType(1,"ScriptService");
+		AssertEx(h!=null_ptr,"ScriptService = null_ptr");
 		return 0;
 	}
 	static const luaL_reg lib_ScriptService[] = {

@@ -1,16 +1,6 @@
 #include "share_memory_api.h"
 #include "exception.h"
 
-#if defined(__WINDOWS__)
-#include <windows.h>
-#elif defined(__LINUX__)
-#include <sys/ipc.h>
-#include <sys/shm.h>
-#else
-#error windows or linux is required.
-#endif
-
-
 namespace driver {
 
 	namespace sharememory_api{
@@ -28,7 +18,7 @@ namespace driver {
 
 #elif defined(__LINUX__)
 
-			SMHandle hd = shmget(uikey,uiSize,IPC_CREAT|IPC_EXCL|0666);
+			SMHandle hd = shmget(uiKey,uiSize,IPC_CREAT|IPC_EXCL|0666);
 			return hd;
 #else
 #error windows or linux is required.
@@ -52,7 +42,7 @@ namespace driver {
 
 #elif defined(__LINUX__)
 
-			SMHandle hd = shmget(uikey,uiSize,0666);
+			SMHandle hd = shmget(uiKey,uiSize,0666);
 			return hd;
 #else
 #error windows or linux is required.

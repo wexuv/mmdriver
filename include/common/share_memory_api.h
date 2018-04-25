@@ -2,6 +2,7 @@
 #define __SHARE_MEMEORY__API_H__
 
 #include "types.h"
+#include "lib.h"
 
 namespace driver 
 {

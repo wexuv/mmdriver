@@ -41,6 +41,7 @@ namespace driver
 	while(0)
 
 #if defined(__WINDOWS__)
+
 #define __FUNCTION_NAME__	__FUNCTION__
 
 #define tvsnprintf	_vsnprintf

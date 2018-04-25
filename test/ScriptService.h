@@ -1,7 +1,7 @@
 #ifndef _SCRIPT_SERVICE_H_
 #define _SCRIPT_SERVICE_H_
 
-#include "Service.h"
+#include "service.h"
 #include "log.h"
 #include "luabinder.h"
 #include "User.h"

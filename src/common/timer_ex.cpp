@@ -36,7 +36,7 @@ namespace driver
 	{
 		if(m_nInterval > 0)
 		{
-			if(rkTimeData.m_nMiliSec - m_kLastTrigger.m_nMiliSec >= m_nInterval)
+			if((tint64)(rkTimeData.m_nMiliSec - m_kLastTrigger.m_nMiliSec) >= m_nInterval)
 			{
 				m_funCallback(rkTimeData);
 				m_kLastTrigger = rkTimeData;

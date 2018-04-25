@@ -204,4 +204,27 @@ namespace driver
 
 		__LEAVE_FUNCTION
 	};
+
+
+	void ServiceManager::LogCpuMemStat(const tchar* szDesc)
+	{
+		__ENTER_PROJECT
+
+#if defined(__LINUX__)
+
+		static CpuMemStat s_CpuMemStat;
+		s_CpuMemStat.ReBuildCpu();
+		s_CpuMemStat.ReBuildMem();
+
+		m_stLogEngine.log(log_mask_info, "[ServiceManager::%s] Desc(%s),CPU(%0.2f),VmSize(%llu),VmRss(%llu)\n",
+			__FUNCTION_NAME__, 
+			szDesc != null_ptr ? szDesc : "unknown",
+			s_CpuMemStat.GetCpuRate(),
+			s_CpuMemStat.GetVmSize(),
+			s_CpuMemStat.GetVmRSS());
+
+#endif
+
+		__LEAVE_PROJECT
+	}
 }

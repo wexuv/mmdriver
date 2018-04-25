@@ -1,7 +1,6 @@
 
 #include "pool.h"
-#include <windows.h>
-#include <WinBase.h>
+#include "lib.h"
 
 namespace driver
 {
@@ -116,129 +115,129 @@ namespace driver
 		return m_ObjClassName.c_str();
 	}
 
-	class Test : public PoolObj<Test>
-	{
-	public:
-		Test()
-		{
-			a++;
-		}
-	public:
-		static int a;
-		int b;
-	};
-	int Test::a = 0;
+	//class Test : public PoolObj<Test>
+	//{
+	//public:
+	//	Test()
+	//	{
+	//		a++;
+	//	}
+	//public:
+	//	static int a;
+	//	int b;
+	//};
+	//int Test::a = 0;
 
-	class TestObj : public Test,PoolObj<TestObj>
-	{
-	};
+	//class TestObj : public Test,PoolObj<TestObj>
+	//{
+	//};
 
-	class Test2 {};
-	class Test2Obj : public Test2,public PoolObj<Test2Obj> {};
+	//class Test2 {};
+	//class Test2Obj : public Test2,public PoolObj<Test2Obj> {};
 
-	class Test3 : public Test2
-	{
-		int a;
-		int b;
-		int c;
-		int d;
-	};
-	class Test3Obj : public Test3,public PoolObj<Test3Obj> {};
+	//class Test3 : public Test2
+	//{
+	//	int a;
+	//	int b;
+	//	int c;
+	//	int d;
+	//};
+	//class Test3Obj : public Test3,public PoolObj<Test3Obj> {};
 
-	class Test4
-	{
-	public:
-		int a;
-		int b;
-		int c;
-		int d;
-	};
+	//class Test4
+	//{
+	//public:
+	//	int a;
+	//	int b;
+	//	int c;
+	//	int d;
+	//};
 
-	class B
-	{
-	public:
-		B()
-		{
-			Test* p = new Test;
-			delete p;
+	//class B
+	//{
+	//public:
+	//	B()
+	//	{
+	//		Test* p = new Test;
+	//		delete p;
 
-			//PoolObj *p1 = new PoolObj;
-			//delete p1;
+	//		//PoolObj *p1 = new PoolObj;
+	//		//delete p1;
 
-			std::shared_ptr<Test> p1(new Test);
+	//		std::shared_ptr<Test> p1(new Test);
 
-			std::shared_ptr<Test3> p3(new Test3);
+	//		std::shared_ptr<Test3> p3(new Test3);
 
-			Test2* p2 = new Test2;
-			delete p2;
+	//		Test2* p2 = new Test2;
+	//		delete p2;
 
-			Test3Obj* t3 = NULL;
-			DWORD now = GetTickCount();
-			for(int i = 0; i < 2000000; ++i)
-			{
-				t3 = new Test3Obj();
+	//		Test3Obj* t3 = NULL;
+	//		DWORD now = GetTickCount();
+	//		for(int i = 0; i < 2000000; ++i)
+	//		{
+	//			t3 = new Test3Obj();
 
-				Test3Obj* t33 = new Test3Obj();
+	//			Test3Obj* t33 = new Test3Obj();
 
-				//delete t3;
-				//delete t33;
-			}
-			printf("%d\n",GetTickCount()-now);
+	//			//delete t3;
+	//			//delete t33;
+	//		}
+	//		printf("%d\n",GetTickCount()-now);
 
-			Test4* t4 = NULL;
-			now = GetTickCount();
-			for(int i = 0; i < 2000000; ++i)
-			{
-				t4 = new Test4();
-				Test4* t44 = new Test4();
+	//		Test4* t4 = NULL;
+	//		now = GetTickCount();
+	//		for(int i = 0; i < 2000000; ++i)
+	//		{
+	//			t4 = new Test4();
+	//			Test4* t44 = new Test4();
 
-				delete t4;
-				delete t44;
-			}
-			printf("%d\n",GetTickCount()-now);
+	//			delete t4;
+	//			delete t44;
+	//		}
+	//		printf("%d\n",GetTickCount()-now);
 
-			now = GetTickCount();
-			for(int i = 0; i < 2000000; ++i)
-			{
-				t3 = new Test3Obj();
-				Test3Obj* t33 = new Test3Obj();
+	//		now = GetTickCount();
+	//		for(int i = 0; i < 2000000; ++i)
+	//		{
+	//			t3 = new Test3Obj();
+	//			Test3Obj* t33 = new Test3Obj();
 
-				delete t3;
-				delete t33;
-			}
-			printf("%d\n",GetTickCount()-now);
+	//			delete t3;
+	//			delete t33;
+	//		}
+	//		printf("%d\n",GetTickCount()-now);
 
 
-			IPool* pPool = &(Pool<Test3>::instance());
+	//		IPool* pPool = &(Pool<Test3>::instance());
 
-			printf("%s,alloc_count:%d,pool size:%d,pool used:%d,pool obj size:%d,construct:%d\n",
-				pPool->pool_name(),pPool->alloc_acount(),pPool->pool_size(),pPool->pool_used(),pPool->pool_obj_size(),p1->a);
+	//		printf("%s,alloc_count:%d,pool size:%d,pool used:%d,pool obj size:%d,construct:%d\n",
+	//			pPool->pool_name(),pPool->alloc_acount(),pPool->pool_size(),pPool->pool_used(),pPool->pool_obj_size(),p1->a);
 
-			IPool::PoolManager& rManager = IPool::instance();
+	//		IPool::PoolManager& rManager = IPool::instance();
 
-			for(IPool::PoolManager::iterator iter = rManager.begin(); iter != rManager.end(); ++ iter)
-			{
-				printf("%s,alloc_count:%d,pool size:%d,pool used:%d,pool obj size:%d,construct:%d\n",
-					(*iter)->pool_name(),(*iter)->alloc_acount(),(*iter)->pool_size(),(*iter)->pool_used(),(*iter)->pool_obj_size(),p1->a);
-			}
-			int a = 0;
-		}
-	};
+	//		for(IPool::PoolManager::iterator iter = rManager.begin(); iter != rManager.end(); ++ iter)
+	//		{
+	//			printf("%s,alloc_count:%d,pool size:%d,pool used:%d,pool obj size:%d,construct:%d\n",
+	//				(*iter)->pool_name(),(*iter)->alloc_acount(),(*iter)->pool_size(),(*iter)->pool_used(),(*iter)->pool_obj_size(),p1->a);
+	//		}
+	//		int a = 0;
+	//	}
+	//};
 
-	class C
-	{
-	public:
-		C()
-		{
-			B* b = new B();
-			delete b;
-		}
-		~C()
-		{
-			B* b = new B();
-			delete b;
-		}
-	};
+	//class C
+	//{
+	//public:
+	//	C()
+	//	{
+	//		B* b = new B();
+	//		delete b;
+	//	}
+	//	~C()
+	//	{
+	//		B* b = new B();
+	//		delete b;
+	//	}
+	//};
 
 	//C c;
 }

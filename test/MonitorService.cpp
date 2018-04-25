@@ -20,7 +20,7 @@ namespace driver
 			return false;
 
 		tchar szLogFile[MAX_FILE_NAME_LENGTH];
-		sprintf_s(szLogFile,"%s/MonitorService_%d",g_Config.m_LogPath.c_str(),GetServiceID());
+		tsnprintf(szLogFile,MAX_FILE_NAME_LENGTH,"%s/MonitorService_%d",g_Config.m_LogPath.c_str(),GetServiceID());
 
 		m_stLogEngine.init(0xFF, szLogFile);
 
@@ -70,10 +70,6 @@ namespace driver
 
 		tfloat32 fCpuRate = m_kCpuMemStat.GetCpuRate();
 
-		m_stLogEngine.log(log_mask_info, "[MonitorService::%s] CpuRate(%0.2f)\n", __FUNCTION_NAME__,m_kCpuMemStat.GetCpuRate());
-
-#if defined(__WINDOWS__)
-		printf("[MonitorService::%s] CpuRate(%0.2f)\n",__FUNCTION_NAME__,fCpuRate);
-#endif 
+		m_stLogEngine.log(log_mask_info, "[MonitorService::%s] CpuRate(%0.2f)\n", __FUNCTION_NAME__,fCpuRate);
 	}
 }

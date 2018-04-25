@@ -29,7 +29,7 @@ namespace driver
 			return false;
 
 		tchar szLogFile[MAX_FILE_NAME_LENGTH];
-		sprintf_s(szLogFile,"%s/HttpService_%d",g_Config.m_LogPath.c_str(),GetServiceID());
+		tsnprintf(szLogFile,MAX_FILE_NAME_LENGTH,"%s/HttpService_%d",g_Config.m_LogPath.c_str(),GetServiceID());
 
 		m_stLogEngine.init(0xFF, szLogFile);
 
@@ -118,18 +118,18 @@ namespace driver
 		Service::Tick(rkTimeData);
 
 		tchar buf[2048] = {0};
-		tuint16 unbufSize = 2048;
+		tuint16 bufSize = 2048;
 
 		tint32 nMsgCount = 0;
-		while(PopMessage(buf,unbufSize))
+		while(PopMessage(buf,bufSize))
 		{
 			MessageHead kPacketHead;
-			kPacketHead.Decode(buf,unbufSize);
+			kPacketHead.Decode(buf,bufSize);
 
 			char* pBodyBuff = buf + sizeof(MessageHead);
-			tint32 nBufSize = unbufSize - sizeof(MessageHead);
+			tint32 nBufSize = bufSize - sizeof(MessageHead);
 
-			if(kPacketHead.m_nSize > unbufSize)
+			if(kPacketHead.m_nSize != nBufSize)
 				return;
 
 			HandleMsgUserLogin(kPacketHead,pBodyBuff);
@@ -154,19 +154,19 @@ namespace driver
 		pHeaderList = curl_slist_append(pHeaderList,"Content-Encoding:gzip");
 
 		tchar szKeyBuf[128] = {0};
-		sprintf_s(szKeyBuf,"AppKey:%s","aaa");
+		tsnprintf(szKeyBuf,sizeof(szKeyBuf),"AppKey:%s","aaa");
 		pHeaderList = curl_slist_append(pHeaderList,szKeyBuf);
 
 		tchar szOpCodeBuf[128] = {0};
-		sprintf_s(szOpCodeBuf,"opcode:%s","aaa");
+		tsnprintf(szOpCodeBuf,sizeof(szOpCodeBuf),"opcode:%s","aaa");
 		pHeaderList = curl_slist_append(pHeaderList,szOpCodeBuf);
 
 		tchar szSignatureBuf[128] = {0};
-		sprintf_s(szSignatureBuf,"Signature:%s","aaa");
+		tsnprintf(szSignatureBuf,sizeof(szSignatureBuf),"Signature:%s","aaa");
 		pHeaderList = curl_slist_append(pHeaderList,szSignatureBuf);
 
 		tchar szLengthBuf[128] = {0};
-		sprintf_s(szLengthBuf,"Content-Length:%d",szPostData.length());
+		tsnprintf(szLengthBuf,sizeof(szLengthBuf),"Content-Length:%d",(tint32)szPostData.length());
 		pHeaderList = curl_slist_append(pHeaderList,szLengthBuf);
 
 

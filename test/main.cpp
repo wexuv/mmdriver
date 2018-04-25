@@ -13,8 +13,8 @@ using namespace driver;
 	STATIC_ASSERT(_MSC_VER == 1600);
 #elif defined(__LINUX__)
 	STATIC_ASSERT(__GNUC__ == 4);
-	STATIC_ASSERT(__GNUC_MINOR__ == 4);
-	STATIC_ASSERT(__GNUC_PATCHLEVEL__ == 6);
+	STATIC_ASSERT(__GNUC_MINOR__ == 8);
+	STATIC_ASSERT(__GNUC_PATCHLEVEL__ == 5);
 #else
 	#error windows or linux is required.
 #endif

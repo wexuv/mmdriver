@@ -14,13 +14,18 @@
 #include <stdlib.h>
 
 #if defined(__WINDOWS__)
+#define WIN32_LEAN_AND_MEAN
 #include <direct.h>
 #include <io.h>
+#include <windows.h>
 #elif defined(__LINUX__)
 #include <sys/stat.h>
 #include <sys/utsname.h>
 #include <sys/time.h>
 #include <unistd.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#include <fcntl.h>
 #else
 #error windows or linux is required.
 #endif

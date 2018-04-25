@@ -2,6 +2,7 @@
 #define __SOCKET_API_H__
 
 #include "define.h"
+#include "types.h"
 
 #if defined(__WINDOWS__)
 
