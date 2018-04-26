@@ -58,6 +58,7 @@
     <ClCompile Include="..\..\src\common\message.cpp" />
     <ClCompile Include="..\..\src\common\misc.cpp" />
     <ClCompile Include="..\..\src\common\msg_queue.cpp" />
+    <ClCompile Include="..\..\src\common\outputstream.cpp" />
     <ClCompile Include="..\..\src\common\pool.cpp" />
     <ClCompile Include="..\..\src\common\share_memory.cpp" />
     <ClCompile Include="..\..\src\common\share_memory_api.cpp" />
@@ -98,6 +99,7 @@
     <ClInclude Include="..\..\include\common\message.h" />
     <ClInclude Include="..\..\include\common\misc.h" />
     <ClInclude Include="..\..\include\common\msg_queue.h" />
+    <ClInclude Include="..\..\include\common\outputstream.h" />
     <ClInclude Include="..\..\include\common\pool.h" />
     <ClInclude Include="..\..\include\common\random.h" />
     <ClInclude Include="..\..\include\common\share_memory.h" />

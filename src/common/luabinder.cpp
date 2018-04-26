@@ -344,4 +344,35 @@ namespace driver
 			lua_pop( m_L , -1 );
 		}
 	}
+
+	void luastate::DumpStack( OutputStreamFile& file) 
+	{
+		int i;
+		int top = lua_gettop(m_L);
+		for (i = 1; i <= top; i++) {  /* repeat for each level */
+			int t = lua_type(m_L, i);
+			switch (t) {
+
+			case LUA_TSTRING:  /* strings */
+				file.Print("`%s'", lua_tostring(m_L, i));
+				break;
+
+			case LUA_TBOOLEAN:  /* booleans */
+				file.Print(lua_toboolean(m_L, i) ? "true" : "false");
+				break;
+
+			case LUA_TNUMBER:  /* numbers */
+				file.Print("%g", lua_tonumber(m_L, i));
+				break;
+
+			default:  /* other values */
+				file.Print("%s:0x%0x", lua_typename(m_L, t) , lua_topointer(m_L , i ) );
+				break;
+
+			}
+			file.Print("  ");  /* put a separator */
+		}
+		file.Print("\n");  /* end the listing */
+	}
+
 }

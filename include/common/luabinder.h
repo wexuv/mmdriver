@@ -4,6 +4,7 @@
 #include "types.h"
 #include "lib.h"
 #include "define.h"
+#include "outputstream.h"
 
 extern "C" {  
 #include <lua.h>
@@ -58,7 +59,9 @@ namespace driver
 
 		void RegisterInitFunction( lua_CFunction fpInit );
 
-	protected:
+		void DumpStack( OutputStreamFile& file);
+
+	public:
 		lua_State* m_L;
 	};
 

@@ -3,6 +3,7 @@
 
 #include "exception.h"
 #include "types.h"
+#include "outputstream.h"
 
 namespace driver 
 {
@@ -63,7 +64,8 @@ namespace driver
 		tchar* get_log_level_title (tint32 log_level);
 
 	private:
-		FILE*	m_file;			// 和当前日志文件名称对应的文件处理器
+		OutputStreamFile	m_file;
+		//FILE*	m_file;			// 和当前日志文件名称对应的文件处理器
 		tchar	m_file_name[MAX_FILE_NAME_LENGTH+1];	// 当前文件名（包括路径）
 		tchar	m_file_prefix[MAX_FILE_NAME_LENGTH+1];	// 文件名前缀（完整的文件名包括前缀+日期+序列号）
 		tint32	m_log_mask;		// 日志掩码

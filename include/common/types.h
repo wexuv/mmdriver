@@ -1,6 +1,9 @@
 #ifndef _TYPES_H_
 #define _TYPES_H_
 
+#include <string>
+#include <iostream>
+
 namespace driver 
 {
 	typedef char				tchar;
@@ -29,6 +32,8 @@ namespace driver
 	typedef tfloat32			tfloatptr;
 #endif
 
+	typedef std::string			tstring;
+	typedef std::stringstream	tstringstream;
 }
 
 #endif //_TYPES_H_

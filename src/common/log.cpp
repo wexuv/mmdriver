@@ -17,7 +17,6 @@ namespace driver
 
 	Log_Engine::Log_Engine (void)
 	{
-		m_file = NULL;
 		m_file_name[0] = '\0';
 		m_file_prefix[0] = '\0';
 		m_log_mask = -1;
@@ -26,11 +25,7 @@ namespace driver
 
 	Log_Engine::~Log_Engine (void)
 	{
-		if (NULL != m_file)
-		{
-			fclose(m_file);
-			m_file = NULL;
-		}
+		m_file.Close();
 	}
 
 	bool Log_Engine::init (int32_t log_mask, const char* file_prefix)
@@ -49,21 +44,15 @@ namespace driver
 		char date[MAX_TIME_STRING_LENGTH+1] = {0};
 		get_string_current_date(date,MAX_TIME_STRING_LENGTH);
 
-		tsnprintf(m_file_name, MAX_FILE_NAME_LENGTH, "./%s-%s.log", m_file_prefix, date);
+		tsnprintf(m_file_name, MAX_FILE_NAME_LENGTH, "%s-%s.log", m_file_prefix, date);
 
-		m_file = fopen(m_file_name, "a+");
-		if (NULL == m_file)
-		{
-			return false;
-		}
+		bool re = m_file.Open(m_file_name, "a+");
 
-		return true;
+		return re;
 	}
 
 	bool Log_Engine::log (int32_t log_level, const char* content, ...)
 	{
-		va_list vl;
-		va_start(vl, content);
 
 		if (whether_do_log(log_level) && check_file())
 		{
@@ -71,18 +60,16 @@ namespace driver
 			get_string_current_date_time(date_time,MAX_TIME_STRING_LENGTH);
 
 			char* title = get_log_level_title(log_level);
-			fprintf(m_file, "[%s][%s]", date_time, title);
+			m_file.Print("[%s][%s]", date_time, title);
 
-			vfprintf(m_file, content, vl);
-
-			fflush(m_file);
-
+			va_list vl;
+			va_start(vl, content);
+			m_file.PrintArg(content, vl);
+			m_file.Flush();
 			va_end(vl);
 
 			return true;
 		}
-
-		va_end(vl);
 		return false;
 	}
 
@@ -95,7 +82,7 @@ namespace driver
 
 			char* title = get_log_level_title(log_level);
 
-			fprintf(m_file, "[%s][%s][buffer size:%4u]", date_time, title, size);
+			m_file.Print("[%s][%s][buffer size:%4u]", date_time, title, size);
 
 			if (size > max_dump_info_size)
 			{
@@ -106,14 +93,14 @@ namespace driver
 			{
 				if(0 == (i % max_dump_line_size))
 				{
-					fprintf(m_file, "\n[%s] %04u>\t", date_time, (i/max_dump_line_size + 1));
+					m_file.Print("\n[%s] %04u>\t", date_time, (i/max_dump_line_size + 1));
 				}
-				fprintf(m_file, "%02X ", (unsigned char)buff[i]);
+				m_file.Print("%02X ", (unsigned char)buff[i]);
 			}
 
-			fprintf(m_file, "\n");
+			m_file.Print("\n");
 
-			fflush(m_file);
+			m_file.Flush();
 
 			return true;
 		}
@@ -124,10 +111,9 @@ namespace driver
 	bool Log_Engine::check_file (void)
 	{
 		// 1.如果文件未打开，则打开它
-		if (NULL == m_file)
+		if (!m_file.IsOpen())
 		{
-			m_file = fopen(m_file_name, "a+");
-			if (NULL == m_file)
+			if(!m_file.Open(m_file_name, "a+"))
 			{
 				return false;
 			}
@@ -138,15 +124,14 @@ namespace driver
 		get_string_current_date(date,MAX_TIME_STRING_LENGTH);
 
 		char tmp_file_name[MAX_FILE_NAME_LENGTH+1] = {0};
-		tsnprintf(tmp_file_name, MAX_FILE_NAME_LENGTH, "./log/%s-%s.log", m_file_prefix, date);
+		tsnprintf(tmp_file_name, MAX_FILE_NAME_LENGTH, "%s-%s.log", m_file_prefix, date);
 
 		if (strcmp(m_file_name, tmp_file_name) != 0)
 		{
-			fclose(m_file);
+			m_file.Close();
 
 			STRNCPY(m_file_name, tmp_file_name, sizeof(m_file_name));
-			m_file = fopen(m_file_name, "a+");
-			if (NULL == m_file)
+			if(!m_file.Open(m_file_name, "a+"))
 			{
 				return false;
 			}
@@ -165,9 +150,8 @@ namespace driver
 		if(stat(m_file_name, &file_stat) < 0)
 		{
 			// 文件有可能中途被删除
-			fclose(m_file);
-			m_file = fopen(m_file_name, "a+");
-			if (NULL == m_file)
+			m_file.Close();
+			if(!m_file.Open(m_file_name, "a+"))
 			{
 				return false;
 			}
@@ -192,13 +176,12 @@ namespace driver
 			}
 		}
 
-		fclose(m_file);
+		m_file.Close();
 
 		rename(m_file_name, tmp_file_name);
 		++m_file_count;
 
-		m_file = fopen(m_file_name, "a+");
-		if (NULL == m_file)
+		if(!m_file.Open(m_file_name, "a+"))
 		{
 			return false;
 		}

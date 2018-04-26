@@ -246,6 +246,9 @@
     <ClCompile Include="..\..\src\service\servicemanager.cpp">
       <Filter>src\service</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\common\outputstream.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\lib\lua\include\lapi.h">
@@ -439,6 +442,9 @@
     </ClInclude>
     <ClInclude Include="..\..\include\service\servicemanager.h">
       <Filter>include\service</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\common\outputstream.h">
+      <Filter>include\common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
