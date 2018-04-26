@@ -26,9 +26,7 @@ namespace driver
 			return false;
 
 		AssertEx(!m_pkThreadPool,"");
-		LogCpuMemStat("create thread pool");
 		m_pkThreadPool = ThreadPoolPtr(new ThreadPool(nThreadCount));
-		LogCpuMemStat("create thread pool ok");
 
 		m_stLogEngine.log(log_mask_info, "[ServiceManager::%s] create thread pool(%d) ok\n", __FUNCTION_NAME__, nThreadCount);
 
