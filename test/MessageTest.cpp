@@ -10,9 +10,9 @@ namespace driver
 
 	}
 
-	bool M_REQ_Login::Encode(tchar* pBuff, tint32& nBufSize) 
+	bool M_REQ_Login::Encode(tchar* pBuff, tuint16& nBufSize) const
 	{
-		if(!m_MessageData.SerializePartialToArray(pBuff,m_MessageData.ByteSize()))
+		if(!m_MessageData.SerializePartialToArray(pBuff,nBufSize))
 		{
 			return false;
 		}
@@ -21,9 +21,9 @@ namespace driver
 		return true;
 	}
 
-	bool M_REQ_Login::Decode(const tchar* pBuff, tint32 sSize) 
+	bool M_REQ_Login::Decode(const tchar* pBuff, tuint16 nBufSize) 
 	{
-		if(!m_MessageData.ParseFromArray(pBuff,sSize))
+		if(!m_MessageData.ParseFromArray(pBuff,nBufSize))
 		{
 			return false;
 
@@ -39,9 +39,9 @@ namespace driver
 
 	}
 
-	bool M_RET_Login::Encode(tchar* pBuff, tint32& nBufSize) 
+	bool M_RET_Login::Encode(tchar* pBuff, tuint16& nBufSize) const
 	{ 
-		if(!m_MessageData.SerializePartialToArray(pBuff,m_MessageData.ByteSize()))
+		if(!m_MessageData.SerializePartialToArray(pBuff,nBufSize))
 		{
 			return false;
 		}
@@ -50,9 +50,9 @@ namespace driver
 		return true;
 	}
 
-	bool M_RET_Login::Decode(const tchar* pBuff, tint32 sSize) 
+	bool M_RET_Login::Decode(const tchar* pBuff, tuint16 nBufSize) 
 	{
-		if(!m_MessageData.ParseFromArray(pBuff,sSize))
+		if(!m_MessageData.ParseFromArray(pBuff,nBufSize))
 		{
 			return false;
 

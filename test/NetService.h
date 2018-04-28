@@ -9,6 +9,8 @@
 #include "ConnectionPool.h"
 #include "packet.h"
 #include "PacketTest.h"
+#include "msg_channel.h"
+#include "MessageTest.h"
 
 namespace driver
 {
@@ -54,7 +56,7 @@ namespace driver
 		void HandleUserLogin(ClientSocket* pkClientSocket,const PacketHead& rkPacketHead,const tchar* pBuff);
 		void HandleDefault(ClientSocket* pkClientSocket,const PacketHead& rkPacketHead,const tchar* pBuff);
 
-		void _SendMessageTo();
+		bool SendMsgToHttp(const Message* pkMessage);
 
 	private:
 		ServerSocket		m_ServerSocket;
@@ -62,7 +64,11 @@ namespace driver
 		ConnectionPool		m_ConnectionPool;
 		PacketHandler		m_pDispatcher[PACKET_ID_MAX];
 
-		Log_Engine	m_stLogEngine;
+		Log_Engine		m_stLogEngine;
+		MessageChannel	m_kMCLogin2Http;
+
+		MessageHead		m_kMsgHead;
+		MessageEncoder	m_kMsgEncoder;
 	};
 }
 

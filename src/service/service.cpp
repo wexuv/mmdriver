@@ -14,8 +14,6 @@ namespace driver
 	{
 		m_TimerExPtrVec.clear();
 		m_MessageHandlerVec.clear();
-
-		m_kShareMemory.detach_share_memory();
 	}
 
 	tint32 Service::GetServiceID(void)
@@ -96,62 +94,6 @@ namespace driver
 	bool Service::Init()
 	{
 		return true;
-	}
-	
-	bool Service::InitMessageQueue(tuint32 unKey, tint32 nInputSize,tint32 nOutputSize)
-	{
-		size_t tAllocInputSize = m_kMsgInput.alloc_size(nInputSize);
-		size_t tAllocOutputSize = m_kMsgOutput.alloc_size(nOutputSize);
-
-		m_kShareMemory.attach_share_memory(unKey,tAllocInputSize + tAllocOutputSize);
-
-		char* pInputMem = m_kShareMemory.create_segment(tAllocInputSize);
-		if (!m_kMsgInput.init((char*)pInputMem, tAllocInputSize, nInputSize, m_kShareMemory.get_mode()))
-		{
-			return false;
-		}
-
-		char* pOutputMem = m_kShareMemory.create_segment(tAllocOutputSize);
-		if (!m_kMsgOutput.init((char*)pOutputMem, tAllocOutputSize, nOutputSize, m_kShareMemory.get_mode()))
-		{
-			return false;
-		}
-		return true;
-	}
-
-	bool Service::PushMessage(const tchar* pMsgBuff, tuint16 usMsgSize)
-	{
-		return m_kMsgInput.append(pMsgBuff, usMsgSize);
-	}
-	bool Service::PopMessage(tchar* pMsgBuff, tuint16& usMsgSize)
-	{
-		size_t tTmpSize = usMsgSize;
-
-		if(m_kMsgOutput.pop(pMsgBuff, tTmpSize))
-		{
-			usMsgSize = (tuint16)tTmpSize;
-			return true;
-		}
-
-		return false;
-	}
-
-	bool Service::_sendMessage(const tchar* pMsgBuff, tuint16 usMsgSize)
-	{
-		return m_kMsgOutput.append(pMsgBuff, usMsgSize);
-	}
-
-	bool Service::_recvMessasge (tchar* pMsgBuff, tuint16& usMsgSize)
-	{
-		size_t tTmpSize = usMsgSize;
-
-		if(m_kMsgInput.pop(pMsgBuff, tTmpSize))
-		{
-			usMsgSize = (tuint16)tTmpSize;
-			return true;
-		}
-
-		return false;
 	}
 
 	bool Service::Shutdown()

@@ -8,13 +8,9 @@
 #include "timer_ex.h"
 #include "exception.h"
 #include "message.h"
-#include "msg_queue.h"
 
 namespace driver
 {
-
-#define MSG_QUEUE_SIZE_DEFAULT		0x10000000		// 16M
-
 	enum ServiceState
 	{
 		SS_NONE,
@@ -87,24 +83,6 @@ namespace driver
 		ServiceState	m_enmServiceState;
 
 		tint32			m_nServiceID;
-
-
-	/*通信和共享内存
-	通过共享内存和环形队列进行消息传递
-	如果是两个service之间通信，可以直接通过共享内存访问环形队列
-	1对多的情况下，需要通过service manager进行消息转发
-	*/
-	protected:
-		bool InitMessageQueue(tuint32 unKey, tint32 nInputSize = MSG_QUEUE_SIZE_DEFAULT,tint32 nOutputSize = MSG_QUEUE_SIZE_DEFAULT);
-		bool PushMessage(const tchar* pMsgBuff, tuint16 usMsgSize);
-		bool PopMessage(tchar* pMsgBuff, tuint16& usMsgSize);
-		bool _sendMessage(const tchar* pMsgBuff, tuint16 usMsgSize);
-		bool _recvMessasge (tchar* pMsgBuff, tuint16& usMsgSize);
-
-	private:
-		Share_Memory	m_kShareMemory;
-		Msg_Queue		m_kMsgOutput;
-		Msg_Queue		m_kMsgInput;
 	};
 
 	typedef std::shared_ptr<Service>	ServicePtr;

@@ -28,9 +28,9 @@ namespace driver
 	public:
 		MessageID GetMessageID() const{ return MSG_NH_REQ_LOGIN; }
 
-		virtual bool Encode(tchar* pBuff, tint32& nBufSize);
+		virtual bool Encode(tchar* pBuff, tuint16& nBufSize) const;
 
-		virtual bool Decode(const tchar* pBuff, tint32 sSize);
+		virtual bool Decode(const tchar* pBuff, tuint16 nBufSize);
 
 	public:
 		google::protobuf::NH_REQ_LOGIN	m_MessageData;
@@ -45,9 +45,9 @@ namespace driver
 	public:
 		MessageID GetMessageID() const{ return MSG_HN_RET_LOGIN; }
 
-		virtual bool Encode(tchar* pBuff, tint32& nBufSize);
+		virtual bool Encode(tchar* pBuff, tuint16& nBufSize) const;
 
-		virtual bool Decode(const tchar* pBuff, tint32 sSize);
+		virtual bool Decode(const tchar* pBuff, tuint16 nBufSize);
 
 	public:
 		google::protobuf::HN_RET_LOGIN	m_MessageData;

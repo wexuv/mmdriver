@@ -9,8 +9,8 @@ namespace driver
 {
 	void _do_assert_(const tchar* szFile,tuint32 nline,const tchar* szFunc,const tchar* szExpr, const tchar* szMsg, bool bReThrow)
 	{
-		//static bsMutex bstAssertMutex;
-		//bstMutexScopedLock LockGuard(bstAssertMutex);
+		static bstMutex bstAssertMutex;
+		bstMutexScopedLock LockGuard(bstAssertMutex);
 
 		tchar szTemp[1024] = {0};
 		tsnprintf(szTemp,sizeof(szTemp), "\n[%s]\n[%s][%d][%s][%s]\n[%s]",

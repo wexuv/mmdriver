@@ -252,6 +252,9 @@
     <ClCompile Include="..\..\src\common\luaobject.cpp">
       <Filter>src\common</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\common\msg_channel.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\lib\lua\include\lapi.h">
@@ -450,6 +453,9 @@
       <Filter>include\common</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\common\luaobject.h">
+      <Filter>include\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\common\msg_channel.h">
       <Filter>include\common</Filter>
     </ClInclude>
   </ItemGroup>

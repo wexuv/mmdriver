@@ -6,6 +6,11 @@
 
 namespace driver
 {
+	enum
+	{
+		MESSAGE_BUF_SIZE = (tuint16)0xFFFF,	//消息缓存区最大长度
+	};
+
 	typedef tuint16	MessageID;
 
 	class MessageHead
@@ -24,7 +29,7 @@ namespace driver
 		virtual ~MessageHead(void) ;
 
 	public:
-		virtual bool Encode(char* pBuff, tint32 nSize);
+		virtual bool Encode(char* pBuff, tuint16& nBufSize) const;
 		virtual bool Decode(const char* pBuff, tint32 nSize);
 	};
 
@@ -37,37 +42,42 @@ namespace driver
 	public:
 		virtual MessageID GetMessageID() const = 0;
 
-		//virtual bool Encode(char* pBuff, tuint16& sSize);
-		//virtual bool Decode(const char* pBuff, tuint16 sSize);
+		virtual bool Encode(char* pBuff, tuint16& nBufSize) const = 0;
+		virtual bool Decode(const char* pBuff, tuint16 nBufSize) = 0;
 	};
 
 	typedef std::shared_ptr<const Message>	MessageConstPtr;
 
-	class MessageEncode
+	class MessageEncoder
 	{
 	public:
-		MessageEncode();
-		virtual ~MessageEncode();
+		MessageEncoder()
+		{
+			Clear();
+		}
+		virtual ~MessageEncoder() {};
 
 	public:
-		virtual bool Encode(char* pBuff, tuint16& sSize);
+		inline void Clear()
+		{
+			m_szMsgBuf[0] = '\0';
+			m_usMsgSize = 0;
+		}
+		inline tchar* GetBuff() 
+		{ 
+			return m_szMsgBuf; 
+		}
+
+		inline tuint16 GetSize() 
+		{ 
+			return m_usMsgSize; 
+		}
+
+		bool	Encode(const Message* pkMessage, MessageHead& rkHead);
 
 	private:
-		//char m_MsgBuff[max_package_size];
-		tuint16 m_usMsgSize;
-	};
-
-	class MessageDecoder
-	{
-	public:
-		MessageDecoder();
-		virtual ~MessageDecoder();
-
-	public:
-		bool RegistPacket(Message* pkMessage);
-
-		virtual bool Decode(const char* pBuff, tuint16 sSize);
-
+		tchar	m_szMsgBuf[MESSAGE_BUF_SIZE];
+		tuint16	m_usMsgSize;
 	};
 }
 

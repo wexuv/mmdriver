@@ -1,7 +1,5 @@
-
 #include "NetService.h"
 #include "PacketTest.h"
-#include "MessageTest.h"
 #include "Config.h"
 
 namespace driver
@@ -25,7 +23,7 @@ namespace driver
 
 		m_stLogEngine.init(0xFF, szLogFile);
 
-		InitMessageQueue(123);
+		m_kMCLogin2Http.InitMessageQueue(123);
 
 		m_ServerSocket.SetOnConnectFun(&NetService::OnNewConnec,this);
 
@@ -221,23 +219,31 @@ namespace driver
 		M_REQ_Login msgReqLogin;
 		msgReqLogin.m_MessageData.set_account(ptLogin.m_PacketData.account());
 		msgReqLogin.m_MessageData.set_validateinfo(ptLogin.m_PacketData.validateinfo());
-		if(!msgReqLogin.Encode(buf+sizeof(MessageHead),nSize))
-		{
-			return;
-		}
-
-		MessageHead kMessageHead;
-		kMessageHead.m_usMessageID = msgReqLogin.GetMessageID();
-		kMessageHead.m_nSize = nSize;
-		kMessageHead.Encode(buf,sizeof(buf));
-
-		_sendMessage(buf,tuint16(sizeof(MessageHead)+nSize));
+		SendMsgToHttp(&msgReqLogin);
 
 		__LEAVE_FUNCTION
 	}
 	void NetService::HandleDefault(ClientSocket* pkClientSocket,const PacketHead& rkPacketHead,const tchar* pBuff)
 	{
 		__ENTER_FUNCTION
+
+		m_stLogEngine.log(log_mask_info, "[NetService::%s] undefind packet id:%d,len:%d\n", __FUNCTION_NAME__,rkPacketHead.nPacketID,rkPacketHead.usPacketSize);
+
 		__LEAVE_FUNCTION
+	}
+
+	bool NetService::SendMsgToHttp(const Message* pkMessage)
+	{
+		__ENTER_FUNCTION
+
+		if(!m_kMsgEncoder.Encode(pkMessage,m_kMsgHead))
+			return false;
+
+		m_kMCLogin2Http.SendMessageOutput(m_kMsgEncoder.GetBuff(),m_kMsgEncoder.GetSize());
+		return true;
+
+		__LEAVE_FUNCTION
+
+		return false;
 	}
 }

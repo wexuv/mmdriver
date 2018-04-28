@@ -64,6 +64,9 @@ boost相关
 
 //线程相关
 #include "boost/thread.hpp"
+typedef boost::mutex	bstMutex;
+typedef boost::mutex::scoped_lock	bstMutexScopedLock;
+
 //////////////////////////////////////
 
 

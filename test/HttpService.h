@@ -5,6 +5,7 @@
 #include "service.h"
 #include "log.h"
 #include "ProjectDefine.h"
+#include "msg_channel.h"
 
 namespace driver
 {
@@ -33,7 +34,8 @@ namespace driver
 		void HandleMsgUserLogin(const MessageHead& rkMsgHead,const tchar* pBuff);
 
 	private:
-		Log_Engine	m_stLogEngine;
+		Log_Engine		m_stLogEngine;
+		MessageChannel	m_kMCLogin2Http;
 
 		CURL*		m_pCurl;
 

@@ -16,9 +16,9 @@ namespace driver
 	{
 
 	}
-	bool MessageHead::Encode(char* pBuff, tint32 nSize)
+	bool MessageHead::Encode(char* pBuff, tuint16& nBufSize) const
 	{
-		if(nSize < (tint32)sizeof(MessageHead))
+		if(nBufSize < (tint32)sizeof(MessageHead))
 			return false;
 
 		memcpy(pBuff,&m_nSize,sizeof(m_nSize));
@@ -63,9 +63,26 @@ namespace driver
 
 	}
 
-	bool MessageDecoder::Decode(const char* pBuff, tuint16 sSize)
+	bool MessageEncoder::Encode(const Message* pkMessage, MessageHead& rkHead)
 	{
+		tuint16 nMessageLen = 0;
+		if(pkMessage != NULL)
+		{
+			nMessageLen = MESSAGE_BUF_SIZE - sizeof(MessageHead);
+			if(!pkMessage->Encode(m_szMsgBuf+sizeof(MessageHead),nMessageLen))
+			{
+				return false;
+			}
+		}
 
+		rkHead.m_usMessageID = pkMessage->GetMessageID();
+		rkHead.m_nSize = nMessageLen;
+
+		tuint16 usHeadLen = sizeof(MessageHead);
+		if(!rkHead.Encode(m_szMsgBuf,usHeadLen))
+			return false;
+
+		m_usMsgSize = usHeadLen + nMessageLen;
 		return true;
 	}
 }

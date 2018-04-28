@@ -404,6 +404,11 @@ namespace driver
 
 		luaobject* pkNewObj = GetLuaObjectFromStack( -1 );
 
+		if(pkNewObj != null_ptr)
+		{
+			pkNewObj->SetName(strName);
+		}
+
 		lua_pop( m_L , 1 );
 		LUA_STACK_END_CHECK( m_L, 0 );
 

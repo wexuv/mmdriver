@@ -33,7 +33,7 @@ namespace driver
 
 		m_stLogEngine.init(0xFF, szLogFile);
 
-		InitMessageQueue(123);
+		m_kMCLogin2Http.InitMessageQueue(123);
 
 		if(!InitCurl())
 			return false;
@@ -121,7 +121,7 @@ namespace driver
 		tuint16 bufSize = 2048;
 
 		tint32 nMsgCount = 0;
-		while(PopMessage(buf,bufSize))
+		while(m_kMCLogin2Http.RecvMessageOutput(buf,bufSize))
 		{
 			MessageHead kMessageHead;
 			kMessageHead.Decode(buf,bufSize);
