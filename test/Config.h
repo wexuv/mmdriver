@@ -12,10 +12,14 @@ namespace driver
 		~Config();
 
 	public:
+		void Clear();
 		bool Init();
 
 	public:
-		std::string		m_LogPath; 
+		tstring		m_szServerIP;
+		tint32		m_nServerPort;
+
+		tstring		m_LogPath; 
 	};
 
 	extern Config g_Config;

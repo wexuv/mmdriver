@@ -55,6 +55,7 @@
     <ClCompile Include="..\..\src\common\lib.cpp" />
     <ClCompile Include="..\..\src\common\log.cpp" />
     <ClCompile Include="..\..\src\common\luabinder.cpp" />
+    <ClCompile Include="..\..\src\common\luaobject.cpp" />
     <ClCompile Include="..\..\src\common\message.cpp" />
     <ClCompile Include="..\..\src\common\misc.cpp" />
     <ClCompile Include="..\..\src\common\msg_queue.cpp" />
@@ -96,6 +97,7 @@
     <ClInclude Include="..\..\include\common\lib.h" />
     <ClInclude Include="..\..\include\common\log.h" />
     <ClInclude Include="..\..\include\common\luabinder.h" />
+    <ClInclude Include="..\..\include\common\luaobject.h" />
     <ClInclude Include="..\..\include\common\message.h" />
     <ClInclude Include="..\..\include\common\misc.h" />
     <ClInclude Include="..\..\include\common\msg_queue.h" />

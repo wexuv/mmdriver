@@ -5,6 +5,7 @@
 #include "lib.h"
 #include "define.h"
 #include "outputstream.h"
+#include "luaobject.h"
 
 extern "C" {  
 #include <lua.h>
@@ -22,6 +23,8 @@ extern "C" {
 #define LUA_STACK_START_CHECK( L )                            
 #define LUA_STACK_END_CHECK( L, S )                           
 #endif
+
+#define LUA_TARRAY      ( LUA_TTHREAD + 1 )
 
 #define LUA_EXPORT_OBJECT_FUNC( className )	(&luaopen_##className)
 
@@ -55,13 +58,19 @@ namespace driver
 		bool init(void* inst);
 		bool close();
 
+		lua_State* GetLuaState() {return m_L;};
+
 		bool DoFile(const std::string& strName);
 
 		void RegisterInitFunction( lua_CFunction fpInit );
 
 		void DumpStack( OutputStreamFile& file);
 
-	public:
+		tint32     GetLuaObjectType( tint32 index );
+		luaobject* GetLuaObject(const tstring& strName);
+		luaobject* GetLuaObjectFromStack(tint32 index);
+
+	protected:
 		lua_State* m_L;
 	};
 

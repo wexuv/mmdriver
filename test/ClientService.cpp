@@ -44,14 +44,14 @@ namespace driver
 				}
 			}
 
-			const char ip[] = "192.168.137.1";
-			const tint16 port = 6666;			
+			tstring ip = g_Config.m_szServerIP;
+			const tint16 port = g_Config.m_nServerPort;
 
-			if(!m_ClientSocket.connect(ip,port))
+			if(!m_ClientSocket.connect(ip.c_str(),port))
 			{
 				tint32 err = socketapi::net_error_no();
 
-				m_stLogEngine.log(log_mask_info, "[ClientService::%s] connect %s:%d failed,err::%d\n", __FUNCTION_NAME__,ip,port,err);
+				m_stLogEngine.log(log_mask_info, "[ClientService::%s] connect %s:%d failed,err::%d\n", __FUNCTION_NAME__,ip.c_str(),port,err);
 				return;
 			}
 
@@ -61,7 +61,7 @@ namespace driver
 
 			m_SocketBinder.bind(&m_ClientSocket);
 
-			m_stLogEngine.log(log_mask_info, "[ClientService::%s] connect %s:%d success\n", __FUNCTION_NAME__,ip,port);
+			m_stLogEngine.log(log_mask_info, "[ClientService::%s] connect %s:%d success\n", __FUNCTION_NAME__,ip.c_str(),port);
 		}
 		else
 		{

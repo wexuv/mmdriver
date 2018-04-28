@@ -44,18 +44,18 @@ namespace driver
 
 		if (!m_ServerSocket.valid())
 		{
-			const char ip[] = "192.168.137.1";
-			const tint16 port = 6666;
+			tstring ip = g_Config.m_szServerIP;
+			const tint16 port = g_Config.m_nServerPort;
 
-			if(!m_ServerSocket.open(port,ip))
+			if(!m_ServerSocket.open(port,ip.c_str()))
 			{
 				tint32 err = socketapi::net_error_no();
 
-				m_stLogEngine.log(log_mask_info, "[NetService::%s] open %s:%d failed,err::%d\n", __FUNCTION_NAME__,ip,port,err);
+				m_stLogEngine.log(log_mask_info, "[NetService::%s] open %s:%d failed,err::%d\n", __FUNCTION_NAME__,ip.c_str(),port,err);
 			}
 			else
 			{
-				m_stLogEngine.log(log_mask_info, "[NetService::%s] open %s:%d success\n", __FUNCTION_NAME__,ip,port);
+				m_stLogEngine.log(log_mask_info, "[NetService::%s] open %s:%d success\n", __FUNCTION_NAME__,ip.c_str(),port);
 			}
 		}
 		else
@@ -109,10 +109,13 @@ namespace driver
 		//CÀà£º192.168.0.0 ~ 192.168.255.255
 		if ((uIP >= 0x0A000000 && uIP <= 0x0AFFFFFF) ||
 			(uIP >= 0xAC100000 && uIP <= 0xAC1FFFFF) ||
-			(uIP >= 0xC0A80000 && uIP <= 0xC0A8FFFF))
+			(uIP >= 0xC0A80000 && uIP <= 0xC0A8FFFF) ||
+			(uIP >= 0x7F000001 && uIP <= 0x7F000001))
 		{
 			return true;
 		}
+
+		m_stLogEngine.log(log_mask_info, "[NetService::%s] IP:%d Check faild\n", __FUNCTION_NAME__,uIP);
 
 		return false;
 	}

@@ -375,4 +375,72 @@ namespace driver
 		file.Print("\n");  /* end the listing */
 	}
 
+	tint32 luastate::GetLuaObjectType( tint32 index )
+	{
+		int type =  lua_type( m_L, index);
+		if(type == LUA_TTABLE)
+		{
+			//#pragma NOTE("这种判断方式无法支持部分元素是字符串索引的Lua数组")
+			lua_checkstack(m_L, 1);
+			lua_rawgeti( m_L, -1, 1 );
+			type = lua_type(m_L, -1);
+			lua_pop(m_L, 1);
+			if( type == LUA_TNIL )
+			{
+				return LUA_TTABLE;
+			}
+			else
+			{
+				return LUA_TARRAY;
+			}
+		}
+		return type;
+	}
+
+	luaobject* luastate::GetLuaObject(const tstring& strName)
+	{
+		LUA_STACK_START_CHECK( m_L );
+		lua_getglobal( m_L, strName.c_str() );
+
+		luaobject* pkNewObj = GetLuaObjectFromStack( -1 );
+
+		lua_pop( m_L , 1 );
+		LUA_STACK_END_CHECK( m_L, 0 );
+
+		return pkNewObj;
+	}
+
+	luaobject* luastate::GetLuaObjectFromStack(tint32 index)
+	{
+		luaobject* pkNewObj = NULL;
+		tint32 type = GetLuaObjectType( index );
+		switch ( type )
+		{
+		//case LUA_TNUMBER:
+		//	pkNewObj = tnew LS_LuaFloat( m_L , index );
+		//	break;
+		case LUA_TTABLE:
+			pkNewObj = new luatable( this , index );
+			break;
+		case LUA_TSTRING:
+			pkNewObj = new luastring( this , index );
+			break;
+		//case LUA_TBOOLEAN:
+		//	pkNewObj = tnew LS_LuaBoolean( m_L , index );
+		//	break;
+		//case LUA_TFUNCTION:
+		//	pkNewObj = tnew LS_LuaFuncObject( m_L , index );
+		//	break;
+		//case LUA_TARRAY:
+		//	pkNewObj = tnew LS_LuaArray(m_L,index);
+		//	break;
+		default:
+			break;
+		}
+		if ( pkNewObj != NULL )
+		{
+			pkNewObj->GetFromStack();
+		}
+		return pkNewObj;
+	}
 }

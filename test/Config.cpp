@@ -1,5 +1,5 @@
-
 #include "Config.h"
+#include "luabinder.h"
 
 namespace driver
 {
@@ -7,6 +7,7 @@ namespace driver
 
 	Config::Config()
 	{
+		Clear();
 		Init();
 	}
 
@@ -14,10 +15,75 @@ namespace driver
 	{
 	}
 
+	void Config::Clear()
+	{
+		m_szServerIP = "";
+		m_nServerPort = 0;
+
+		m_LogPath = "";
+	}
+
 	bool Config::Init()
 	{
-		
-		m_LogPath = "./Log/";
+		luastate* pkLuaState = new luastate();
+
+		pkLuaState->init(this);
+
+		pkLuaState->DoFile("./Script/config.lua");
+
+		luaobject* pluaObj = pkLuaState->GetLuaObject("Log");
+		if(pluaObj != null_ptr)
+		{
+			AssertEx(pluaObj->IsTable(),"");
+
+			luatable* pLuaTable = static_cast<luatable*>(pluaObj);
+			luaobject* pLogPath = pLuaTable->GetLuaObject("LogFilePath");
+
+			if(pLogPath != null_ptr)
+			{
+				AssertEx(pLogPath->IsString(),"");
+				luastring* pluastring = static_cast<luastring*>(pLogPath);
+				m_LogPath = pluastring->GetString();
+			}
+
+			SAFE_DELETE(pluaObj);
+		}
+
+		pluaObj = pkLuaState->GetLuaObject("LogFilePath");
+		if(pluaObj != null_ptr)
+		{
+			AssertEx(pluaObj->IsString(),"");
+			luastring* pluastring = static_cast<luastring*>(pluaObj);
+
+			m_LogPath = pluastring->GetString();
+
+			SAFE_DELETE(pluaObj);
+		}
+
+		pluaObj = pkLuaState->GetLuaObject("ServerSettings");
+		if(pluaObj != null_ptr)
+		{
+			AssertEx(pluaObj->IsTable(),"");
+
+			luatable* pLuaTable = static_cast<luatable*>(pluaObj);
+			luaobject* pIp = pLuaTable->GetLuaObject("Ip");
+
+			if(pIp != null_ptr)
+			{
+				AssertEx(pIp->IsString(),"");
+				luastring* pluastring = static_cast<luastring*>(pIp);
+				m_szServerIP = pluastring->GetString();
+			}
+
+			luaobject* pPort = pLuaTable->GetLuaObject("Port");
+			{
+				AssertEx(pPort->IsString(),"");
+				luastring* pluastring = static_cast<luastring*>(pPort);
+				m_nServerPort = 6666;//pluastring->GetString();
+			}
+
+			SAFE_DELETE(pluaObj);
+		}
 		return true;
 	}
 }
