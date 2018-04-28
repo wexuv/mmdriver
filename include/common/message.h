@@ -24,8 +24,8 @@ namespace driver
 		virtual ~MessageHead(void) ;
 
 	public:
-		virtual bool Encode(char* pBuff, tint32& sSize);
-		virtual bool Decode(const char* pBuff, tint32 sSize);
+		virtual bool Encode(char* pBuff, tint32 nSize);
+		virtual bool Decode(const char* pBuff, tint32 nSize);
 	};
 
 	class Message

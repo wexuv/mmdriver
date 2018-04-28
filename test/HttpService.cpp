@@ -123,16 +123,16 @@ namespace driver
 		tint32 nMsgCount = 0;
 		while(PopMessage(buf,bufSize))
 		{
-			MessageHead kPacketHead;
-			kPacketHead.Decode(buf,bufSize);
+			MessageHead kMessageHead;
+			kMessageHead.Decode(buf,bufSize);
 
 			char* pBodyBuff = buf + sizeof(MessageHead);
 			tint32 nBufSize = bufSize - sizeof(MessageHead);
 
-			if(kPacketHead.m_nSize != nBufSize)
+			if(kMessageHead.m_nSize != nBufSize)
 				return;
 
-			HandleMsgUserLogin(kPacketHead,pBodyBuff);
+			HandleMsgUserLogin(kMessageHead,pBodyBuff);
 
 			++nMsgCount;
 
@@ -214,7 +214,7 @@ namespace driver
 		if(!msgReqLogin.Decode(pBuff,rkMsgHead.m_nSize))
 			return;
 
-		printf("%s,%s\n",msgReqLogin.m_MessageData.account().c_str(),msgReqLogin.m_MessageData.validateinfo().c_str());
+		printf("User Verification:%s,%s\n",msgReqLogin.m_MessageData.account().c_str(),msgReqLogin.m_MessageData.validateinfo().c_str());
 
 		__LEAVE_FUNCTION
 	}

@@ -16,9 +16,9 @@ namespace driver
 	{
 
 	}
-	bool MessageHead::Encode(char* pBuff, tint32& sSize)
+	bool MessageHead::Encode(char* pBuff, tint32 nSize)
 	{
-		if(sSize < (tint32)sizeof(MessageHead))
+		if(nSize < (tint32)sizeof(MessageHead))
 			return false;
 
 		memcpy(pBuff,&m_nSize,sizeof(m_nSize));
@@ -34,9 +34,9 @@ namespace driver
 		memcpy(pBuff,&m_nDstServiceID,sizeof(m_nDstServiceID));
 		return true;
 	}
-	bool MessageHead::Decode(const char* pBuff, tint32 sSize)
+	bool MessageHead::Decode(const char* pBuff, tint32 nSize)
 	{
-		if(sSize < (tint32)sizeof(m_nSize) + (tint32)sizeof(m_usMessageID))
+		if(nSize < (tint32)sizeof(m_nSize) + (tint32)sizeof(m_usMessageID))
 			return false;
 
 		memcpy(&m_nSize,pBuff,sizeof(m_nSize));

@@ -416,9 +416,9 @@ namespace driver
 		tint32 type = GetLuaObjectType( index );
 		switch ( type )
 		{
-		//case LUA_TNUMBER:
-		//	pkNewObj = tnew LS_LuaFloat( m_L , index );
-		//	break;
+		case LUA_TNUMBER:
+			pkNewObj = new luanumber( this , index );
+			break;
 		case LUA_TTABLE:
 			pkNewObj = new luatable( this , index );
 			break;

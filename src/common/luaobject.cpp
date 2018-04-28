@@ -8,6 +8,20 @@ namespace driver
 		"string", "table", "function", "userdata", "thread"
 	};
 
+	luanumber::luanumber( luastate* l ):luaobject(l)
+	{
+		m_fValue = 0.0f;
+	}
+	luanumber::luanumber( luastate* l , int index ):luaobject(l,index)
+	{
+		m_fValue = 0.0f;
+	}
+
+	void luanumber::GetFromStack( )
+	{
+		m_fValue = static_cast<double>(lua_tonumber(m_pkLuaState->GetLuaState(), m_iStackIndex));
+	}
+
 	luastring::luastring(luastate* l ):luaobject(l)
 	{ 
 		m_strValue = "";

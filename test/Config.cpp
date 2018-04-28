@@ -8,7 +8,6 @@ namespace driver
 	Config::Config()
 	{
 		Clear();
-		Init();
 	}
 
 	Config::~Config()
@@ -67,7 +66,6 @@ namespace driver
 
 			luatable* pLuaTable = static_cast<luatable*>(pluaObj);
 			luaobject* pIp = pLuaTable->GetLuaObject("Ip");
-
 			if(pIp != null_ptr)
 			{
 				AssertEx(pIp->IsString(),"");
@@ -76,10 +74,11 @@ namespace driver
 			}
 
 			luaobject* pPort = pLuaTable->GetLuaObject("Port");
+			if(pPort != null_ptr)
 			{
-				AssertEx(pPort->IsString(),"");
-				luastring* pluastring = static_cast<luastring*>(pPort);
-				m_nServerPort = 6666;//pluastring->GetString();
+				AssertEx(pPort->IsNumber(),"");
+				luanumber* pluanumber = static_cast<luanumber*>(pPort);
+				m_nServerPort = static_cast<tint32>(pluanumber->GetNumber());
 			}
 
 			SAFE_DELETE(pluaObj);

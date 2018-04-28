@@ -5,6 +5,7 @@
 #include "ClientService.h"
 #include "ScriptService.h"
 #include "HttpService.h"
+#include "Config.h"
 
 using namespace driver;
 
@@ -23,6 +24,8 @@ namespace driver
 {
 	void RunServiceManager()
 	{
+		g_Config.Init();
+
 		gServiceManager.Create(2);
 		gServiceManager.Register(new MonitorService());
 		gServiceManager.Register(new HttpService());

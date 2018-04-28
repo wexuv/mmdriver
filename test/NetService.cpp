@@ -211,10 +211,10 @@ namespace driver
 			return;
 		}
 
-		MessageHead kHead;
-		kHead.m_usMessageID = kRet.GetPacketID();
-		kHead.m_nSize = nSize;
-		kHead.Encode(buf,nSize);
+		PacketHead kHead;
+		kHead.nPacketID = kRet.GetPacketID();
+		kHead.usPacketSize = nSize;
+		memcpy(buf,&kHead,sizeof(kHead));
 
 		pkClientSocket->send_data(buf,tuint16(sizeof(PacketHead)+nSize));
 
@@ -225,7 +225,13 @@ namespace driver
 		{
 			return;
 		}
-		_sendMessage(buf,tuint16(sizeof(PacketHead)+nSize));
+
+		MessageHead kMessageHead;
+		kMessageHead.m_usMessageID = msgReqLogin.GetMessageID();
+		kMessageHead.m_nSize = nSize;
+		kMessageHead.Encode(buf,sizeof(buf));
+
+		_sendMessage(buf,tuint16(sizeof(MessageHead)+nSize));
 
 		__LEAVE_FUNCTION
 	}

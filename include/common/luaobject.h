@@ -41,6 +41,24 @@ namespace driver
 		tstring   m_strName;
 	};
 
+	class luanumber : public luaobject
+	{
+	public:
+		luanumber( luastate* l );
+		luanumber( luastate* l , int index );
+		virtual ~luanumber(){};
+
+		virtual bool		IsNumber()		const{ return true; }
+		virtual const char*	GetTypeName()	const{ return "number"; }
+		virtual void		GetFromStack();
+
+	public:
+		virtual tfloat64     GetNumber() const {return m_fValue;};
+
+	protected:
+		 tfloat64	m_fValue;
+	};
+
 	class luastring : public luaobject
 	{
 	public:
