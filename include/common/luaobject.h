@@ -5,6 +5,7 @@
 #include "lib.h"
 #include "define.h"
 #include "outputstream.h"
+#include "stringutility.h"
 
 namespace driver 
 {
@@ -28,6 +29,11 @@ namespace driver
 		virtual bool IsFunction()            const{ return false; }
 		virtual bool IsUserData()            const{ return false; }
 
+		virtual tfloat64	ToFloat()	const { AssertEx(false,"");return 0.0f;}
+		virtual tint32		ToInt()		const { AssertEx(false,"");return 0;}
+		virtual bool		ToBool()	const { AssertEx(false,"");return false;}
+		virtual tstring		ToString()	const { AssertEx(false,"");return "";}
+
 		virtual const char* GetTypeName()  const{ return "nil"; }
 		virtual void        GetFromStack()   = 0;
 
@@ -41,6 +47,8 @@ namespace driver
 		tstring   m_strName;
 	};
 
+	typedef std::map<tstring,luaobject*> LuaObjectMap;
+
 	class luanumber : public luaobject
 	{
 	public:
@@ -51,6 +59,11 @@ namespace driver
 		virtual bool		IsNumber()		const{ return true; }
 		virtual const char*	GetTypeName()	const{ return "number"; }
 		virtual void		GetFromStack();
+
+		virtual tfloat64	ToFloat()	const { return m_fValue;}
+		virtual tint32		ToInt()		const { return (tint32)m_fValue;}
+		virtual bool		ToBool()	const {	return ((int)m_fValue) != 0;}
+		virtual tstring		ToString()	const;
 
 	public:
 		virtual tfloat64     GetNumber() const {return m_fValue;};
@@ -69,6 +82,8 @@ namespace driver
 		virtual bool		IsString()     const{ return true; }
 		virtual const char* GetTypeName()  const{ return "string"; }
 		virtual void		GetFromStack();
+
+		virtual tstring		ToString()	const {return m_strValue;}
 
 	public:
 		virtual tstring     GetString() const {return m_strValue;};
@@ -90,9 +105,12 @@ namespace driver
 
 	public:
 		luaobject* GetLuaObject(const tstring& strName);
+		luaobject* GetLuaObject(const bsvector<tstring>& strVec);
+
+	private:
+		luaobject* GetChild(const tstring& strName);
 
 	protected:
-		typedef std::map<tstring,luaobject*> LuaObjectMap;
 		LuaObjectMap	m_KeyObjs;
 	};
 }

@@ -22,6 +22,15 @@ namespace driver
 		m_fValue = static_cast<double>(lua_tonumber(m_pkLuaState->GetLuaState(), m_iStackIndex));
 	}
 
+	tstring luanumber::ToString() const
+	{
+		tchar szValue[32];
+
+		tsnprintf(szValue, 32, "%.10g", ToFloat());
+
+		return tstring(szValue);
+	}
+
 	luastring::luastring(luastate* l ):luaobject(l)
 	{ 
 		m_strValue = "";
@@ -83,9 +92,7 @@ namespace driver
 				lua_pop(ls, 2);
 				return;
 			}
-
 			luaobject* pvar = m_pkLuaState->GetLuaObjectFromStack(-1);
-
 			if( pvar )
 			{
 				LuaObjectMap::iterator iter = m_KeyObjs.find( pname );
@@ -104,11 +111,39 @@ namespace driver
 
 	luaobject* luatable::GetLuaObject(const tstring& strName)
 	{
-		LuaObjectMap::iterator iter = m_KeyObjs.find( strName );
-		if ( iter != m_KeyObjs.end() )
+		bsvector<tstring> luaVec = string_utility::SplitString(strName,'.');
+		if(luaVec.empty())
+			return null_ptr;
+
+		return GetLuaObject(luaVec);
+	}
+
+	luaobject* luatable::GetLuaObject(const bsvector<tstring>& strVec)
+	{
+		if(strVec.empty())
+			return null_ptr;
+
+		luaobject* obj = this;
+
+		bsvector<tstring>::const_iterator iterVec = strVec.begin();
+		for( ; iterVec != strVec.end(); ++ iterVec)
 		{
-			return iter->second;
+			if ( obj == null_ptr )
+				return null_ptr;
+			if( !obj->IsTable())
+				return null_ptr;
+			luatable* objChild = static_cast<luatable*>(obj);
+			obj = objChild->GetChild(*iterVec);
 		}
-		return NULL;
+		return obj;
+	}
+
+	luaobject* luatable::GetChild(const tstring& strName)
+	{
+		LuaObjectMap::iterator iter = m_KeyObjs.find( strName );
+		if ( iter == m_KeyObjs.end() )
+			return null_ptr;
+
+		return iter->second;
 	}
 }

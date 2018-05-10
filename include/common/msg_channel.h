@@ -9,7 +9,7 @@
 namespace driver
 {
 
-#define MSG_QUEUE_SIZE_DEFAULT		0x10000000		// 16M
+#define MSG_QUEUE_SIZE_DEFAULT		0x1000000		// 16M
 
 	class MessageChannel
 	{

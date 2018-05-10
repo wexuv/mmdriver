@@ -29,11 +29,15 @@ namespace driver
 			return false;
 
 		tchar szLogFile[MAX_FILE_NAME_LENGTH];
-		tsnprintf(szLogFile,MAX_FILE_NAME_LENGTH,"%s/HttpService_%d",g_Config.m_LogPath.c_str(),GetServiceID());
+		tsnprintf(szLogFile,MAX_FILE_NAME_LENGTH,"%s/HttpService_%d",g_Config.m_strLogPath.c_str(),GetServiceID());
 
 		m_stLogEngine.init(0xFF, szLogFile);
 
-		m_kMCLogin2Http.InitMessageQueue(123);
+		luaobject* pChannelKey = g_Config.GetLuaObject("MessageChannel.LOGIN_HTTP.key");
+		if(pChannelKey == null_ptr)
+			return false;
+
+		m_kMCLogin2Http.InitMessageQueue(pChannelKey->ToInt());
 
 		if(!InitCurl())
 			return false;

@@ -64,7 +64,7 @@ namespace driver
 
 		void RegisterInitFunction( lua_CFunction fpInit );
 
-		void DumpStack( OutputStreamFile& file);
+		void DumpStack( OutputStream& file);
 
 		tint32     GetLuaObjectType( tint32 index );
 		luaobject* GetLuaObject(const tstring& strName);

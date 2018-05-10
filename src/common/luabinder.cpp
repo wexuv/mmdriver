@@ -345,7 +345,7 @@ namespace driver
 		}
 	}
 
-	void luastate::DumpStack( OutputStreamFile& file) 
+	void luastate::DumpStack( OutputStream& file) 
 	{
 		int i;
 		int top = lua_gettop(m_L);
@@ -354,7 +354,7 @@ namespace driver
 			switch (t) {
 
 			case LUA_TSTRING:  /* strings */
-				file.Print("`%s'", lua_tostring(m_L, i));
+				file.Print("'%s'", lua_tostring(m_L, i));
 				break;
 
 			case LUA_TBOOLEAN:  /* booleans */
@@ -400,6 +400,7 @@ namespace driver
 	luaobject* luastate::GetLuaObject(const tstring& strName)
 	{
 		LUA_STACK_START_CHECK( m_L );
+
 		lua_getglobal( m_L, strName.c_str() );
 
 		luaobject* pkNewObj = GetLuaObjectFromStack( -1 );
@@ -410,6 +411,7 @@ namespace driver
 		}
 
 		lua_pop( m_L , 1 );
+
 		LUA_STACK_END_CHECK( m_L, 0 );
 
 		return pkNewObj;

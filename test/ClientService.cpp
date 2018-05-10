@@ -20,7 +20,7 @@ namespace driver
 			return false;
 
 		tchar szLogFile[MAX_FILE_NAME_LENGTH];
-		tsnprintf(szLogFile,MAX_FILE_NAME_LENGTH,"%s/ClientService_%d",g_Config.m_LogPath.c_str(),GetServiceID());
+		tsnprintf(szLogFile,MAX_FILE_NAME_LENGTH,"%s/ClientService_%d",g_Config.m_strLogPath.c_str());
 
 		m_stLogEngine.init(0xFF, szLogFile);
 
@@ -44,8 +44,21 @@ namespace driver
 				}
 			}
 
-			tstring ip = g_Config.m_szServerIP;
-			const tint16 port = g_Config.m_nServerPort;
+			luaobject* pIp = g_Config.GetLuaObject("ServerSettings.Ip");
+			if(pIp == null_ptr)
+			{
+				m_stLogEngine.log(log_mask_info, "[ClientService::%s] ip config error\n", __FUNCTION_NAME__);
+				return;
+			}
+			luaobject* pPort = g_Config.GetLuaObject("ServerSettings.Port");
+			if(pPort == null_ptr)
+			{
+				m_stLogEngine.log(log_mask_info, "[ClientService::%s] port config error\n", __FUNCTION_NAME__);
+				return;
+			}
+
+			tstring ip = pIp->ToString();
+			const tint16 port = (tint16)pPort->ToInt();
 
 			if(!m_ClientSocket.connect(ip.c_str(),port))
 			{

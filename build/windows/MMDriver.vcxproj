@@ -64,6 +64,7 @@
     <ClCompile Include="..\..\src\common\pool.cpp" />
     <ClCompile Include="..\..\src\common\share_memory.cpp" />
     <ClCompile Include="..\..\src\common\share_memory_api.cpp" />
+    <ClCompile Include="..\..\src\common\stringutility.cpp" />
     <ClCompile Include="..\..\src\common\timer_ex.cpp" />
     <ClCompile Include="..\..\src\common\time_ex.cpp" />
     <ClCompile Include="..\..\src\common\types.cpp" />
@@ -109,6 +110,7 @@
     <ClInclude Include="..\..\include\common\share_memory.h" />
     <ClInclude Include="..\..\include\common\share_memory_api.h" />
     <ClInclude Include="..\..\include\common\std_ex.h" />
+    <ClInclude Include="..\..\include\common\stringutility.h" />
     <ClInclude Include="..\..\include\common\timer_ex.h" />
     <ClInclude Include="..\..\include\common\time_ex.h" />
     <ClInclude Include="..\..\include\common\types.h" />

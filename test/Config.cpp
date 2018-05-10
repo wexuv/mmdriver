@@ -16,73 +16,65 @@ namespace driver
 
 	void Config::Clear()
 	{
-		m_szServerIP = "";
-		m_nServerPort = 0;
+		m_pkLuaState = null_ptr;
 
-		m_LogPath = "";
+		LuaObjectMap::iterator iter = m_CacheObjs.begin();
+		for( ; iter != m_CacheObjs.end(); ++ iter)
+		{
+			SAFE_DELETE(iter->second);
+		}
+		m_CacheObjs.clear();
+
+		m_strLogPath = "";
 	}
 
 	bool Config::Init()
 	{
-		luastate* pkLuaState = new luastate();
+		m_pkLuaState = new luastate();
 
-		pkLuaState->init(this);
+		m_pkLuaState->init(this);
 
-		pkLuaState->DoFile("./Script/config.lua");
+		m_pkLuaState->DoFile("./Script/config.lua");
 
-		luaobject* pluaObj = pkLuaState->GetLuaObject("Log");
+		luaobject* pluaObj = GetLuaObject("LogFilePath");
 		if(pluaObj != null_ptr)
 		{
-			AssertEx(pluaObj->IsTable(),"");
-
-			luatable* pLuaTable = static_cast<luatable*>(pluaObj);
-			luaobject* pLogPath = pLuaTable->GetLuaObject("LogFilePath");
-
-			if(pLogPath != null_ptr)
-			{
-				AssertEx(pLogPath->IsString(),"");
-				luastring* pluastring = static_cast<luastring*>(pLogPath);
-				m_LogPath = pluastring->GetString();
-			}
-
-			SAFE_DELETE(pluaObj);
+			m_strLogPath = pluaObj->ToString();
 		}
 
-		pluaObj = pkLuaState->GetLuaObject("LogFilePath");
-		if(pluaObj != null_ptr)
-		{
-			AssertEx(pluaObj->IsString(),"");
-			luastring* pluastring = static_cast<luastring*>(pluaObj);
-
-			m_LogPath = pluastring->GetString();
-
-			SAFE_DELETE(pluaObj);
-		}
-
-		pluaObj = pkLuaState->GetLuaObject("ServerSettings");
-		if(pluaObj != null_ptr)
-		{
-			AssertEx(pluaObj->IsTable(),"");
-
-			luatable* pLuaTable = static_cast<luatable*>(pluaObj);
-			luaobject* pIp = pLuaTable->GetLuaObject("Ip");
-			if(pIp != null_ptr)
-			{
-				AssertEx(pIp->IsString(),"");
-				luastring* pluastring = static_cast<luastring*>(pIp);
-				m_szServerIP = pluastring->GetString();
-			}
-
-			luaobject* pPort = pLuaTable->GetLuaObject("Port");
-			if(pPort != null_ptr)
-			{
-				AssertEx(pPort->IsNumber(),"");
-				luanumber* pluanumber = static_cast<luanumber*>(pPort);
-				m_nServerPort = static_cast<tint32>(pluanumber->GetNumber());
-			}
-
-			SAFE_DELETE(pluaObj);
-		}
 		return true;
+	}
+
+	luaobject* Config::GetLuaObject(const tstring& strName)
+	{
+		bsvector<tstring> luaVec = string_utility::SplitString(strName,'.');
+		if(luaVec.empty())
+			return null_ptr;
+
+		tstring strRoot = *(luaVec.begin());
+		luaVec.erase(luaVec.begin());
+
+		LuaObjectMap::iterator iter = m_CacheObjs.find(strRoot);
+		if(iter != m_CacheObjs.end())
+		{
+			if(iter->second->IsTable())
+			{
+				luatable* objTable = static_cast<luatable*>(iter->second);
+				return objTable->GetLuaObject(luaVec);
+			}
+			return iter->second;
+		}
+		luaobject* pluaObj = m_pkLuaState->GetLuaObject(strRoot);
+		if(pluaObj != null_ptr)
+		{
+			m_CacheObjs.insert(LuaObjectMap::value_type(strRoot,pluaObj));
+			if(pluaObj->IsTable())
+			{
+				luatable* objTable = static_cast<luatable*>(pluaObj);
+				return objTable->GetLuaObject(luaVec);
+			}
+			return pluaObj;
+		}
+		return null_ptr;
 	}
 }

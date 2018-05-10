@@ -2,6 +2,7 @@
 #define _CONFIG_H_
 
 #include "driver.h"
+#include "luaobject.h"
 
 namespace driver
 {
@@ -16,10 +17,13 @@ namespace driver
 		bool Init();
 
 	public:
-		tstring		m_szServerIP;
-		tint32		m_nServerPort;
+		luaobject* GetLuaObject(const tstring& strName);
 
-		tstring		m_LogPath; 
+	public:
+		luastate*		m_pkLuaState;
+		LuaObjectMap	m_CacheObjs;
+
+		tstring			m_strLogPath;
 	};
 
 	extern Config g_Config;
