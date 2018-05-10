@@ -9,7 +9,7 @@ namespace driver
 {
 
 	/*
-	线程安全，非线程安全?
+	线程安全
 	*/
 	void _do_assert_(const tchar* szFile,tuint32 nline,const tchar* szFunc,const tchar* szExpr, const tchar* szMsg, bool bReThrow);
 

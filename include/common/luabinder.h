@@ -67,11 +67,15 @@ namespace driver
 		void DumpStack( OutputStream& file);
 
 		tint32     GetLuaObjectType( tint32 index );
-		luaobject* GetLuaObject(const tstring& strName);
+		luaobject* GetLuaObjectFromCache(const tstring& strName);
 		luaobject* GetLuaObjectFromStack(tint32 index);
 
+	private:
+		luaobject* GetLuaObject(const tstring& strName);
+
 	protected:
-		lua_State* m_L;
+		lua_State*		m_L;
+		LuaObjectMap	m_CacheObjs;
 	};
 
 	struct LuaNil{};

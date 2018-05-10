@@ -16,13 +16,13 @@ namespace driver
 		void Clear();
 		bool Init();
 
-	public:
 		luaobject* GetLuaObject(const tstring& strName);
 
 	public:
-		luastate*		m_pkLuaState;
-		LuaObjectMap	m_CacheObjs;
+		bstMutex		m_bstAssertMutex;
 
+		luastate*		m_pkLuaState;
+	
 		tstring			m_strLogPath;
 	};
 

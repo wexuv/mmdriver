@@ -20,7 +20,7 @@ namespace driver
 			return false;
 
 		tchar szLogFile[MAX_FILE_NAME_LENGTH];
-		tsnprintf(szLogFile,MAX_FILE_NAME_LENGTH,"%s/ClientService_%d",g_Config.m_strLogPath.c_str());
+		tsnprintf(szLogFile,MAX_FILE_NAME_LENGTH,"%s/ClientService_%d",g_Config.m_strLogPath.c_str(),GetServiceID());
 
 		m_stLogEngine.init(0xFF, szLogFile);
 

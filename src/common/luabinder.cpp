@@ -304,6 +304,13 @@ namespace driver
 		lua_close(m_L);
 		m_L = null_ptr;
 
+		LuaObjectMap::iterator iter = m_CacheObjs.begin();
+		for( ; iter != m_CacheObjs.end(); ++ iter)
+		{
+			SAFE_DELETE(iter->second);
+		}
+		m_CacheObjs.clear();
+
 		return true;
 	}
 
@@ -415,6 +422,39 @@ namespace driver
 		LUA_STACK_END_CHECK( m_L, 0 );
 
 		return pkNewObj;
+	}
+
+	luaobject* luastate::GetLuaObjectFromCache(const tstring& strName)
+	{
+		bsvector<tstring> luaVec = string_utility::SplitString(strName,'.');
+		if(luaVec.empty())
+			return null_ptr;
+
+		tstring strRoot = *(luaVec.begin());
+		luaVec.erase(luaVec.begin());
+
+		LuaObjectMap::iterator iter = m_CacheObjs.find(strRoot);
+		if(iter != m_CacheObjs.end())
+		{
+			if(iter->second->IsTable())
+			{
+				luatable* objTable = static_cast<luatable*>(iter->second);
+				return objTable->GetLuaObject(luaVec);
+			}
+			return iter->second;
+		}
+		luaobject* pluaObj = GetLuaObject(strRoot);
+		if(pluaObj != null_ptr)
+		{
+			m_CacheObjs.insert(LuaObjectMap::value_type(strRoot,pluaObj));
+			if(pluaObj->IsTable())
+			{
+				luatable* objTable = static_cast<luatable*>(pluaObj);
+				return objTable->GetLuaObject(luaVec);
+			}
+			return pluaObj;
+		}
+		return null_ptr;
 	}
 
 	luaobject* luastate::GetLuaObjectFromStack(tint32 index)
