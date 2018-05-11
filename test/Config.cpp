@@ -29,11 +29,7 @@ namespace driver
 
 		m_pkLuaState->DoFile("./Script/config.lua");
 
-		luaobject* pluaObj = GetLuaObject("LogFilePath");
-		if(pluaObj != null_ptr)
-		{
-			m_strLogPath = pluaObj->ToString();
-		}
+		m_strLogPath = m_pkLuaState->GetLuaObjectFromCache<tstring>("LogFilePath");
 
 		return true;
 	}

@@ -457,6 +457,36 @@ namespace driver
 		return null_ptr;
 	}
 
+	tint32 luastate::GetLuaObjectFromCache(LuaTypeWrapper<tint32>, const tstring& strName)
+	{
+		luaobject* pluaObj = GetLuaObjectFromCache(strName);
+		if(pluaObj != null_ptr)
+		{
+			return pluaObj->ToInt();
+		}
+		return 0;
+	}
+
+	tfloat64 luastate::GetLuaObjectFromCache(LuaTypeWrapper<tfloat64>, const tstring& strName)
+	{
+		luaobject* pluaObj = GetLuaObjectFromCache(strName);
+		if(pluaObj != null_ptr)
+		{
+			return pluaObj->ToFloat();
+		}
+		return 0.0f;
+	}
+
+	tstring luastate::GetLuaObjectFromCache(LuaTypeWrapper<tstring>, const tstring& strName)
+	{
+		luaobject* pluaObj = GetLuaObjectFromCache(strName);
+		if(pluaObj != null_ptr)
+		{
+			return pluaObj->ToString();
+		}
+		return "";
+	}
+
 	luaobject* luastate::GetLuaObjectFromStack(tint32 index)
 	{
 		luaobject* pkNewObj = NULL;

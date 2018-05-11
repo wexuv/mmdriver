@@ -17,6 +17,7 @@ namespace driver
 	class NetService : public Service
 	{
 		typedef void (NetService::*PacketHandler)(ClientSocket* pkClientSocket,const PacketHead& rkPacketHead,const tchar* pBuff); 
+		typedef void (NetService::*MessageHandler)(const MessageHead& rkMsgHead,const tchar* pBuff); 
 
 	public:
 		NetService();
@@ -26,6 +27,9 @@ namespace driver
 		tint32	GetServiceType() {return ServiceType::LOGIN;};
 		virtual bool Init();
 		virtual void Tick(const TimeData& rkTimeData);
+
+		void TickNetwork(const TimeData& rkTimeData);
+		void TickHttpMsg(const TimeData& rkTimeData);
 
 	public:
 		//ÐÂÁ´½Ó
@@ -52,17 +56,25 @@ namespace driver
 		*/
 		virtual tuint32 PeekPacket(ClientSocket* pkClientSocket,const tchar* pInBuf, size_t nInBufLen);
 
+	//packet handler
 	private:
-		void HandleUserLogin(ClientSocket* pkClientSocket,const PacketHead& rkPacketHead,const tchar* pBuff);
-		void HandleDefault(ClientSocket* pkClientSocket,const PacketHead& rkPacketHead,const tchar* pBuff);
+		void HandlePacketUserLogin(ClientSocket* pkClientSocket,const PacketHead& rkPacketHead,const tchar* pBuff);
+		void HandlePacketDefault(ClientSocket* pkClientSocket,const PacketHead& rkPacketHead,const tchar* pBuff);
 
+	//message handler
+	private:
+		void HandleMsgUserLoginRet(const MessageHead& rkMsgHead,const tchar* pBuff);
+		void HandleMsgDefault(const MessageHead& rkMsgHead,const tchar* pBuff);
+
+	private:
 		bool SendMsgToHttp(const Message* pkMessage);
 
 	private:
 		ServerSocket		m_ServerSocket;
 		SocketBinder		m_SocketBinder;
 		ConnectionPool		m_ConnectionPool;
-		PacketHandler		m_pDispatcher[PACKET_ID_MAX];
+		PacketHandler		m_pPacketDispatcher[PACKET_ID_MAX];
+		MessageHandler		m_pMessageDispatcher[MESSAGE_ID_MAX];
 
 		Log_Engine		m_stLogEngine;
 		MessageChannel	m_kMCLogin2Http;

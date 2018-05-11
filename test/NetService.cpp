@@ -32,10 +32,15 @@ namespace driver
 
 		for(tint32 i = PACKET_ID_MIN; i < PACKET_ID_MAX; ++ i)
 		{
-			m_pDispatcher[i] = &NetService::HandleDefault;
+			m_pPacketDispatcher[i] = &NetService::HandlePacketDefault;
 		}
-		m_pDispatcher[PACKET_CG_LOGIN] = &NetService::HandleUserLogin;
+		m_pPacketDispatcher[PACKET_CG_LOGIN] = &NetService::HandlePacketUserLogin;
 
+		for(tint32 i = MESSAGE_ID_MIN; i < MESSAGE_ID_MAX; ++ i)
+		{
+			m_pMessageDispatcher[i] = &NetService::HandleMsgDefault;
+		}
+		m_pMessageDispatcher[MSG_HN_RET_LOGIN] = &NetService::HandleMsgUserLoginRet;
 		return true;
 	}
 
@@ -43,6 +48,13 @@ namespace driver
 	{
 		Service::Tick(rkTimeData);
 
+		TickNetwork(rkTimeData);
+
+		TickHttpMsg(rkTimeData);
+	}
+
+	void NetService::TickNetwork(const TimeData& rkTimeData)
+	{
 		if (!m_ServerSocket.valid())
 		{
 			luaobject* pIp = g_Config.GetLuaObject("ServerSettings.Ip");
@@ -78,6 +90,45 @@ namespace driver
 			m_SocketBinder.recv();
 
 			m_SocketBinder.send();
+		}
+	}
+
+	void NetService::TickHttpMsg(const TimeData& rkTimeData)
+	{
+		tchar buf[2048] = {0};
+		tuint16 bufSize = 2048;
+
+		tint32 nMsgCount = 0;
+		while(m_kMCLogin2Http.RecvMessasgeInput(buf,bufSize))
+		{
+			MessageHead kMessageHead;
+			kMessageHead.Decode(buf,bufSize);
+
+			char* pBodyBuff = buf + sizeof(MessageHead);
+			tint32 nBufSize = bufSize - sizeof(MessageHead);
+
+			if(kMessageHead.m_nSize != nBufSize)
+				return;
+
+			MessageID msgID = kMessageHead.m_usMessageID;
+			if(msgID >= 0 && msgID < MESSAGE_ID_MAX)
+			{
+				if(m_pPacketDispatcher[msgID] != null_ptr)
+				{
+					(this->*m_pMessageDispatcher[msgID])(kMessageHead,pBodyBuff);
+				}
+				else
+				{
+					m_stLogEngine.log(log_mask_info, "[NetService::%s] unhandler message %d\n", __FUNCTION_NAME__,msgID);
+				}
+			}
+			else
+			{
+				m_stLogEngine.log(log_mask_info, "[NetService::%s] unknown message %d\n", __FUNCTION_NAME__,msgID);
+			}
+
+			++nMsgCount;
+
 		}
 	}
 
@@ -178,9 +229,9 @@ namespace driver
 		PacketID nPacketID = kPacketHead.nPacketID;
 		if(nPacketID >= 0 && nPacketID < PACKET_ID_MAX)
 		{
-			if(m_pDispatcher[nPacketID] != null_ptr)
+			if(m_pPacketDispatcher[nPacketID] != null_ptr)
 			{
-				(this->*m_pDispatcher[nPacketID])(pkClientSocket,kPacketHead,pReadBuf);
+				(this->*m_pPacketDispatcher[nPacketID])(pkClientSocket,kPacketHead,pReadBuf);
 			}
 			else
 			{
@@ -195,7 +246,7 @@ namespace driver
 		return sizeof(PacketHead) + kPacketHead.usPacketSize;
 	}
 
-	void NetService::HandleUserLogin(ClientSocket* pkClientSocket,const PacketHead& rkPacketHead,const tchar* pBuff)
+	void NetService::HandlePacketUserLogin(ClientSocket* pkClientSocket,const PacketHead& rkPacketHead,const tchar* pBuff)
 	{
 		__ENTER_FUNCTION
 
@@ -239,7 +290,7 @@ namespace driver
 
 		__LEAVE_FUNCTION
 	}
-	void NetService::HandleDefault(ClientSocket* pkClientSocket,const PacketHead& rkPacketHead,const tchar* pBuff)
+	void NetService::HandlePacketDefault(ClientSocket* pkClientSocket,const PacketHead& rkPacketHead,const tchar* pBuff)
 	{
 		__ENTER_FUNCTION
 
@@ -261,5 +312,29 @@ namespace driver
 		__LEAVE_FUNCTION
 
 		return false;
+	}
+
+	void NetService::HandleMsgDefault(const MessageHead& rkMsgHead,const tchar* pBuff)
+	{
+		__ENTER_FUNCTION
+
+		m_stLogEngine.log(log_mask_info, "[NetService::%s] undefind message id:%d,len:%d,info(%d,%d,%d,%d)\n", __FUNCTION_NAME__
+			,rkMsgHead.m_usMessageID,rkMsgHead.m_nSize
+			,rkMsgHead.m_nSrcServiceType,rkMsgHead.m_nScrServiceID,rkMsgHead.m_nDstServiceType,rkMsgHead.m_nDstServiceID);
+
+		__LEAVE_FUNCTION
+	}
+
+	void NetService::HandleMsgUserLoginRet(const MessageHead& rkMsgHead,const tchar* pBuff)
+	{
+		__ENTER_FUNCTION
+
+		M_RET_Login msgRetLogin;
+		if(!msgRetLogin.Decode(pBuff,rkMsgHead.m_nSize))
+			return;
+
+		printf("User login ret:%s,%d\n",msgRetLogin.m_MessageData.account().c_str(),msgRetLogin.m_MessageData.result());
+
+		__LEAVE_FUNCTION
 	}
 }

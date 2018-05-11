@@ -29,13 +29,18 @@ namespace driver
 
 		void TestCurl();
 
+		bool SendMsgToNetServer(const Message* pkMessage);
+
 	//message handler
 	private:
 		void HandleMsgUserLogin(const MessageHead& rkMsgHead,const tchar* pBuff);
 
 	private:
 		Log_Engine		m_stLogEngine;
-		MessageChannel	m_kMCLogin2Http;
+		MessageChannel	m_kMCHttp2Login;
+
+		MessageHead		m_kMsgHead;
+		MessageEncoder	m_kMsgEncoder;
 
 		CURL*		m_pCurl;
 

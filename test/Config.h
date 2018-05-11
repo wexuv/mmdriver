@@ -18,6 +18,7 @@ namespace driver
 
 		luaobject* GetLuaObject(const tstring& strName);
 
+
 	public:
 		bstMutex		m_bstAssertMutex;
 

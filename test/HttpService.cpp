@@ -37,7 +37,7 @@ namespace driver
 		if(pChannelKey == null_ptr)
 			return false;
 
-		m_kMCLogin2Http.InitMessageQueue(pChannelKey->ToInt());
+		m_kMCHttp2Login.InitMessageQueue(pChannelKey->ToInt());
 
 		if(!InitCurl())
 			return false;
@@ -125,7 +125,7 @@ namespace driver
 		tuint16 bufSize = 2048;
 
 		tint32 nMsgCount = 0;
-		while(m_kMCLogin2Http.RecvMessageOutput(buf,bufSize))
+		while(m_kMCHttp2Login.RecvMessageOutput(buf,bufSize))
 		{
 			MessageHead kMessageHead;
 			kMessageHead.Decode(buf,bufSize);
@@ -220,6 +220,27 @@ namespace driver
 
 		printf("User Verification:%s,%s\n",msgReqLogin.m_MessageData.account().c_str(),msgReqLogin.m_MessageData.validateinfo().c_str());
 
+		M_RET_Login msgRet;
+		msgRet.m_MessageData.set_account(msgReqLogin.m_MessageData.account());
+		msgRet.m_MessageData.set_result(1);
+
+		SendMsgToNetServer(&msgRet);
+
 		__LEAVE_FUNCTION
+	}
+
+	bool HttpService::SendMsgToNetServer(const Message* pkMessage)
+	{
+		__ENTER_FUNCTION
+
+		if(!m_kMsgEncoder.Encode(pkMessage,m_kMsgHead))
+			return false;
+
+		m_kMCHttp2Login.SendMessageInput(m_kMsgEncoder.GetBuff(),m_kMsgEncoder.GetSize());
+		return true;
+
+		__LEAVE_FUNCTION
+
+			return false;
 	}
 }

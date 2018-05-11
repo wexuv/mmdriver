@@ -30,6 +30,8 @@ extern "C" {
 
 namespace driver 
 {
+	template<class T> struct LuaTypeWrapper {};
+
 	class luabinder
 	{
 	public:
@@ -66,9 +68,16 @@ namespace driver
 
 		void DumpStack( OutputStream& file);
 
-		tint32     GetLuaObjectType( tint32 index );
-		luaobject* GetLuaObjectFromCache(const tstring& strName);
-		luaobject* GetLuaObjectFromStack(tint32 index);
+		tint32		GetLuaObjectType( tint32 index );
+		luaobject*	GetLuaObjectFromStack(tint32 index);
+
+		luaobject*	GetLuaObjectFromCache(const tstring& strName);
+
+		//辅助接口,不能判定返回值是否获取，需调用端自行判定返回值的合法性，或者直接调用luaobject*	GetLuaObjectFromCache接口
+		tint32		GetLuaObjectFromCache(LuaTypeWrapper<tint32>, const tstring& strName);
+		tfloat64	GetLuaObjectFromCache(LuaTypeWrapper<tfloat64>, const tstring& strName);
+		tstring		GetLuaObjectFromCache(LuaTypeWrapper<tstring>, const tstring& strName);
+		template<class T> T	GetLuaObjectFromCache(const tstring& strName) { return GetLuaObjectFromCache(LuaTypeWrapper<T>(), strName);};
 
 	private:
 		luaobject* GetLuaObject(const tstring& strName);
