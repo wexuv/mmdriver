@@ -2,8 +2,12 @@ LogFilePath="./Log";
 
 ServerSettings =
 {
-	Ip = "127.0.0.1";
-	Port = 6666;
+	Server1 = 
+	{
+		ID = 1;
+		Ip = "127.0.0.1";
+		Port = 6666;
+	}
 }
 
 MessageChannel =

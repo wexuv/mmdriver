@@ -28,6 +28,7 @@ namespace driver
 		m_pkLuaState->init(this);
 
 		m_pkLuaState->DoFile("./Script/config.lua");
+		m_pkLuaState->DoFile("./Script/service.lua");
 
 		m_strLogPath = m_pkLuaState->GetLuaObjectFromCache<tstring>("LogFilePath");
 

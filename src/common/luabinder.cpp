@@ -335,7 +335,9 @@ namespace driver
 		if ( bErr ) 
 		{
 			std::string sErrorStr = lua_tostring(m_L, -1);
-			//GfxWriteLog(LOG_ERROR_FILELINE, LOG_SWITCH_ERROR ,"The Error: %s", sErrorStr.c_str());
+
+			AssertEx(false,sErrorStr.c_str());
+
 			lua_pop( m_L , -1 );
 			return false;	
 		}
@@ -436,10 +438,14 @@ namespace driver
 		LuaObjectMap::iterator iter = m_CacheObjs.find(strRoot);
 		if(iter != m_CacheObjs.end())
 		{
-			if(iter->second->IsTable())
+			if(!luaVec.empty())
 			{
-				luatable* objTable = static_cast<luatable*>(iter->second);
-				return objTable->GetLuaObject(luaVec);
+				if(iter->second->IsTable())
+				{
+					luatable* objTable = static_cast<luatable*>(iter->second);
+					return objTable->GetLuaObject(luaVec);					
+				}
+				return null_ptr;
 			}
 			return iter->second;
 		}
@@ -447,11 +453,16 @@ namespace driver
 		if(pluaObj != null_ptr)
 		{
 			m_CacheObjs.insert(LuaObjectMap::value_type(strRoot,pluaObj));
-			if(pluaObj->IsTable())
+			if(!luaVec.empty())
 			{
-				luatable* objTable = static_cast<luatable*>(pluaObj);
-				return objTable->GetLuaObject(luaVec);
+				if(pluaObj->IsTable())
+				{
+					luatable* objTable = static_cast<luatable*>(pluaObj);
+					return objTable->GetLuaObject(luaVec);
+				}
+				return null_ptr;
 			}
+
 			return pluaObj;
 		}
 		return null_ptr;

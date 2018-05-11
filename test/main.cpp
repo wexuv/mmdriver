@@ -26,7 +26,23 @@ namespace driver
 	{
 		g_Config.Init();
 
-		gServiceManager.Create(2);
+		luaobject* pLuaServiceObj = g_Config.GetLuaObject("Service");
+		if(pLuaServiceObj == null_ptr)
+		{
+			AssertEx(false,"load service config failed");
+			return;
+		}
+		luaobject* pLuaThreadObj = g_Config.GetLuaObject("ThreadCount");
+		if(pLuaThreadObj == null_ptr)
+		{
+			AssertEx(false,"load thread info failed");
+			return;
+		}
+
+		tint32 nThreadCount = pLuaThreadObj->ToInt();
+		gServiceManager.Create(nThreadCount);
+
+
 		gServiceManager.Register(new MonitorService());
 		gServiceManager.Register(new HttpService());
 		gServiceManager.Register(new NetService());
