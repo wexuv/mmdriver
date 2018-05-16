@@ -68,8 +68,6 @@ namespace driver
 		curl_easy_setopt(m_pCurl,CURLOPT_WRITEFUNCTION,_OnHttpReceive);
 		curl_easy_setopt(m_pCurl,CURLOPT_WRITEDATA,this);
 
-		TestCurl();
-
 		return true;
 		__LEAVE_FUNCTION
 		return false;
@@ -143,7 +141,7 @@ namespace driver
 		}
 	}
 
-	void HttpService::TestCurl()
+	void HttpService::TestCurl(tuint32 uid, const tstring& strAccount,const tstring& strValidateInfo)
 	{
 		__ENTER_FUNCTION
 
@@ -189,7 +187,14 @@ namespace driver
 		if(nRet != CURLE_OK)
 		{
 			m_stLogEngine.log(log_mask_info,"perform fail(%d)",nRet);
+
 			//¥ÌŒÛ¥¶¿Ì
+			M_RET_Login msgRet;
+			msgRet.m_MessageData.set_uid(uid);
+			msgRet.m_MessageData.set_account(strAccount);
+			msgRet.m_MessageData.set_result(0);
+
+			SendMsgToNetServer(&msgRet);
 			return;
 		}
 
@@ -201,10 +206,24 @@ namespace driver
 			boost::property_tree::json_parser::read_json(iss,treeRoot);
 
 			m_stLogEngine.log(log_mask_info,m_szReceiveData.c_str());
+
+			M_RET_Login msgRet;
+			msgRet.m_MessageData.set_uid(uid);
+			msgRet.m_MessageData.set_account("ddddd");
+			msgRet.m_MessageData.set_result(1);
+
+			SendMsgToNetServer(&msgRet);
 		}
 		catch (...)
 		{
 			m_stLogEngine.log(log_mask_info,"json parser error:%s",m_szReceiveData.c_str());
+
+			M_RET_Login msgRet;
+			msgRet.m_MessageData.set_uid(uid);
+			msgRet.m_MessageData.set_account("ddddd");
+			msgRet.m_MessageData.set_result(0);
+
+			SendMsgToNetServer(&msgRet);
 		}
 
 		__LEAVE_FUNCTION
@@ -220,11 +239,7 @@ namespace driver
 
 		printf("User Verification:%s,%s\n",msgReqLogin.m_MessageData.account().c_str(),msgReqLogin.m_MessageData.validateinfo().c_str());
 
-		M_RET_Login msgRet;
-		msgRet.m_MessageData.set_account(msgReqLogin.m_MessageData.account());
-		msgRet.m_MessageData.set_result(1);
-
-		SendMsgToNetServer(&msgRet);
+		TestCurl(msgReqLogin.m_MessageData.uid(),msgReqLogin.m_MessageData.account().c_str(),msgReqLogin.m_MessageData.validateinfo().c_str());
 
 		__LEAVE_FUNCTION
 	}
@@ -232,6 +247,11 @@ namespace driver
 	bool HttpService::SendMsgToNetServer(const Message* pkMessage)
 	{
 		__ENTER_FUNCTION
+
+		m_kMsgHead.m_nSrcServiceType = GetServiceType();
+		m_kMsgHead.m_nScrServiceID = GetServiceID();
+		m_kMsgHead.m_nDstServiceType = ServiceType::LOGIN;
+		m_kMsgHead.m_nDstServiceID = -1;
 
 		if(!m_kMsgEncoder.Encode(pkMessage,m_kMsgHead))
 			return false;
@@ -241,6 +261,6 @@ namespace driver
 
 		__LEAVE_FUNCTION
 
-			return false;
+		return false;
 	}
 }

@@ -4,13 +4,15 @@ package google.protobuf;
 //@NH
 message NH_REQ_LOGIN
 {
-	string	account			= 1;	//登陆账号
-	string	validateinfo	= 2;	//登陆验证信息
+	uint32	uid				= 1;	//uid
+	string	account			= 2;	//登陆账号
+	string	validateinfo	= 3;	//登陆验证信息
 }
 //#httpservice -> netservice, check login
 //@NH
 message HN_RET_LOGIN
 {
-	string	account			= 1;	//登陆账号
-	int32	result			= 2;	//验证结果
+	uint32	uid				= 1;	//uid
+	string	account			= 2;	//登陆账号
+	int32	result			= 3;	//验证结果
 }

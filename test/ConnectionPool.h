@@ -33,8 +33,8 @@ namespace driver
 
 		void clear()
 		{
+			m_nUID = 0;
 			m_nUserID = -1;
-
 			m_nStatus = UNUSED;
 
 			close();
@@ -55,6 +55,7 @@ namespace driver
 		}
 
 	public:
+		tuint32				m_nUID;		//连接后的唯一标记
 		tuint32				m_nUserID;
 		std::string			m_sAccount;
 	

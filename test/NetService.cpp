@@ -41,6 +41,8 @@ namespace driver
 			m_pMessageDispatcher[i] = &NetService::HandleMsgDefault;
 		}
 		m_pMessageDispatcher[MSG_HN_RET_LOGIN] = &NetService::HandleMsgUserLoginRet;
+
+		m_uIDGenerator = 1;
 		return true;
 	}
 
@@ -57,13 +59,13 @@ namespace driver
 	{
 		if (!m_ServerSocket.valid())
 		{
-			luaobject* pIp = g_Config.GetLuaObject("ServerSettings.Ip");
+			luaobject* pIp = g_Config.GetLuaObject("ServerSettings.Server1.Ip");
 			if(pIp == null_ptr)
 			{
 				m_stLogEngine.log(log_mask_info, "[ServerSettings::%s] ip config error\n", __FUNCTION_NAME__);
 				return;
 			}
-			luaobject* pPort = g_Config.GetLuaObject("ServerSettings.Port");
+			luaobject* pPort = g_Config.GetLuaObject("ServerSettings.Server1.Port");
 			if(pPort == null_ptr)
 			{
 				m_stLogEngine.log(log_mask_info, "[ServerSettings::%s] port config error\n", __FUNCTION_NAME__);
@@ -145,6 +147,7 @@ namespace driver
 			pkConnectInfo->SetOnDisConnectFun(&NetService::OnDisConnect,this);
 			pkConnectInfo->SetOnRecvMessageFun(&NetService::OnRecvMessage,this);
 			pkConnectInfo->SetStatus(Connection::CONNECTED);
+			pkConnectInfo->m_nUID = m_uIDGenerator ++;
 
 			m_SocketBinder.bind(pkConnectInfo);
 		}
@@ -211,6 +214,9 @@ namespace driver
 		if(nInBufLen < sizeof(tuint16) + sizeof(PacketID))
 			return 0;
 
+		if(null_ptr == pkClientSocket)
+			return 0;
+
 		const tchar* pReadBuf = pInBuf;
 		size_t nLeftBufLen = nInBufLen;
 
@@ -229,9 +235,13 @@ namespace driver
 		PacketID nPacketID = kPacketHead.nPacketID;
 		if(nPacketID >= 0 && nPacketID < PACKET_ID_MAX)
 		{
+			Connection* pConnect = static_cast<Connection*>(pkClientSocket);
+			if(pConnect == null_ptr)
+				return 0;
+
 			if(m_pPacketDispatcher[nPacketID] != null_ptr)
 			{
-				(this->*m_pPacketDispatcher[nPacketID])(pkClientSocket,kPacketHead,pReadBuf);
+				(this->*m_pPacketDispatcher[nPacketID])(pConnect,kPacketHead,pReadBuf);
 			}
 			else
 			{
@@ -246,19 +256,18 @@ namespace driver
 		return sizeof(PacketHead) + kPacketHead.usPacketSize;
 	}
 
-	void NetService::HandlePacketUserLogin(ClientSocket* pkClientSocket,const PacketHead& rkPacketHead,const tchar* pBuff)
+	void NetService::HandlePacketUserLogin(Connection* pConnect,const PacketHead& rkPacketHead,const tchar* pBuff)
 	{
 		__ENTER_FUNCTION
 
+		if(pConnect == null_ptr)
+			return;		
+		
 		P_Login ptLogin;
 		if(!ptLogin.Decode(pBuff,rkPacketHead.usPacketSize))
 			return;
 
 		printf("Server recv:%s\n",ptLogin.m_PacketData.account().c_str());
-
-		Connection* pConnect = static_cast<Connection*>(pkClientSocket);
-		if(pConnect == null_ptr)
-			return;
 
 		pConnect->SetStatus(Connection::VERIFYING);
 		pConnect->m_sAccount = ptLogin.m_PacketData.account();
@@ -266,13 +275,13 @@ namespace driver
 		//È¥ÈÏÖ¤°¡
 
 		P_LoginRet kRet;
-		kRet.m_nResult = (tint32)pkClientSocket->get_fd();
+		kRet.m_nResult = (tint32)pConnect->get_fd();
 
 		char buf[32];
 		tint32 nSize = 32;
 		if(!kRet.Encode(buf+sizeof(PacketHead),nSize))
 		{
-			pkClientSocket->close();
+			pConnect->close();
 			return;
 		}
 
@@ -281,16 +290,17 @@ namespace driver
 		kHead.usPacketSize = nSize;
 		memcpy(buf,&kHead,sizeof(kHead));
 
-		pkClientSocket->send_data(buf,tuint16(sizeof(PacketHead)+nSize));
+		pConnect->send_data(buf,tuint16(sizeof(PacketHead)+nSize));
 
 		M_REQ_Login msgReqLogin;
+		msgReqLogin.m_MessageData.set_uid(pConnect->m_nUID);
 		msgReqLogin.m_MessageData.set_account(ptLogin.m_PacketData.account());
 		msgReqLogin.m_MessageData.set_validateinfo(ptLogin.m_PacketData.validateinfo());
 		SendMsgToHttp(&msgReqLogin);
 
 		__LEAVE_FUNCTION
 	}
-	void NetService::HandlePacketDefault(ClientSocket* pkClientSocket,const PacketHead& rkPacketHead,const tchar* pBuff)
+	void NetService::HandlePacketDefault(Connection* pConnect,const PacketHead& rkPacketHead,const tchar* pBuff)
 	{
 		__ENTER_FUNCTION
 
@@ -302,6 +312,11 @@ namespace driver
 	bool NetService::SendMsgToHttp(const Message* pkMessage)
 	{
 		__ENTER_FUNCTION
+
+		m_kMsgHead.m_nSrcServiceType = GetServiceType();
+		m_kMsgHead.m_nScrServiceID = GetServiceID();
+		m_kMsgHead.m_nDstServiceType = ServiceType::HTTP;
+		m_kMsgHead.m_nDstServiceID = -1;
 
 		if(!m_kMsgEncoder.Encode(pkMessage,m_kMsgHead))
 			return false;
@@ -333,7 +348,7 @@ namespace driver
 		if(!msgRetLogin.Decode(pBuff,rkMsgHead.m_nSize))
 			return;
 
-		printf("User login ret:%s,%d\n",msgRetLogin.m_MessageData.account().c_str(),msgRetLogin.m_MessageData.result());
+		printf("User login ret:%d,%s,%d\n",msgRetLogin.m_MessageData.uid(),msgRetLogin.m_MessageData.account().c_str(),msgRetLogin.m_MessageData.result());
 
 		__LEAVE_FUNCTION
 	}

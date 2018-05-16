@@ -39,7 +39,8 @@ void protobuf_AssignDesc_Message_2eproto() {
       "Message.proto");
   GOOGLE_CHECK(file != NULL);
   NH_REQ_LOGIN_descriptor_ = file->message_type(0);
-  static const int NH_REQ_LOGIN_offsets_[2] = {
+  static const int NH_REQ_LOGIN_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NH_REQ_LOGIN, uid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NH_REQ_LOGIN, account_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NH_REQ_LOGIN, validateinfo_),
   };
@@ -55,7 +56,8 @@ void protobuf_AssignDesc_Message_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NH_REQ_LOGIN, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NH_REQ_LOGIN, _is_default_instance_));
   HN_RET_LOGIN_descriptor_ = file->message_type(1);
-  static const int HN_RET_LOGIN_offsets_[2] = {
+  static const int HN_RET_LOGIN_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HN_RET_LOGIN, uid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HN_RET_LOGIN, account_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HN_RET_LOGIN, result_),
   };
@@ -104,10 +106,11 @@ void protobuf_AddDesc_Message_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\rMessage.proto\022\017google.protobuf\"5\n\014NH_R"
-    "EQ_LOGIN\022\017\n\007account\030\001 \001(\t\022\024\n\014validateinf"
-    "o\030\002 \001(\t\"/\n\014HN_RET_LOGIN\022\017\n\007account\030\001 \001(\t"
-    "\022\016\n\006result\030\002 \001(\005b\006proto3", 144);
+    "\n\rMessage.proto\022\017google.protobuf\"B\n\014NH_R"
+    "EQ_LOGIN\022\013\n\003uid\030\001 \001(\r\022\017\n\007account\030\002 \001(\t\022\024"
+    "\n\014validateinfo\030\003 \001(\t\"<\n\014HN_RET_LOGIN\022\013\n\003"
+    "uid\030\001 \001(\r\022\017\n\007account\030\002 \001(\t\022\016\n\006result\030\003 \001"
+    "(\005b\006proto3", 170);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Message.proto", &protobuf_RegisterTypes);
   NH_REQ_LOGIN::default_instance_ = new NH_REQ_LOGIN();
@@ -137,6 +140,7 @@ static void MergeFromFail(int line) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int NH_REQ_LOGIN::kUidFieldNumber;
 const int NH_REQ_LOGIN::kAccountFieldNumber;
 const int NH_REQ_LOGIN::kValidateinfoFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -163,6 +167,7 @@ void NH_REQ_LOGIN::SharedCtor() {
     _is_default_instance_ = false;
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
+  uid_ = 0u;
   account_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   validateinfo_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -205,6 +210,7 @@ NH_REQ_LOGIN* NH_REQ_LOGIN::New(::google::protobuf::Arena* arena) const {
 }
 
 void NH_REQ_LOGIN::Clear() {
+  uid_ = 0u;
   account_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   validateinfo_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -219,9 +225,24 @@ bool NH_REQ_LOGIN::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string account = 1;
+      // optional uint32 uid = 1;
       case 1: {
-        if (tag == 10) {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &uid_)));
+
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_account;
+        break;
+      }
+
+      // optional string account = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_account:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_account()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -231,13 +252,13 @@ bool NH_REQ_LOGIN::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_validateinfo;
+        if (input->ExpectTag(26)) goto parse_validateinfo;
         break;
       }
 
-      // optional string validateinfo = 2;
-      case 2: {
-        if (tag == 18) {
+      // optional string validateinfo = 3;
+      case 3: {
+        if (tag == 26) {
          parse_validateinfo:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_validateinfo()));
@@ -276,24 +297,29 @@ failure:
 void NH_REQ_LOGIN::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:google.protobuf.NH_REQ_LOGIN)
-  // optional string account = 1;
+  // optional uint32 uid = 1;
+  if (this->uid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->uid(), output);
+  }
+
+  // optional string account = 2;
   if (this->account().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->account().data(), this->account().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "google.protobuf.NH_REQ_LOGIN.account");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->account(), output);
+      2, this->account(), output);
   }
 
-  // optional string validateinfo = 2;
+  // optional string validateinfo = 3;
   if (this->validateinfo().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->validateinfo().data(), this->validateinfo().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "google.protobuf.NH_REQ_LOGIN.validateinfo");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->validateinfo(), output);
+      3, this->validateinfo(), output);
   }
 
   // @@protoc_insertion_point(serialize_end:google.protobuf.NH_REQ_LOGIN)
@@ -302,7 +328,12 @@ void NH_REQ_LOGIN::SerializeWithCachedSizes(
 ::google::protobuf::uint8* NH_REQ_LOGIN::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:google.protobuf.NH_REQ_LOGIN)
-  // optional string account = 1;
+  // optional uint32 uid = 1;
+  if (this->uid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->uid(), target);
+  }
+
+  // optional string account = 2;
   if (this->account().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->account().data(), this->account().length(),
@@ -310,10 +341,10 @@ void NH_REQ_LOGIN::SerializeWithCachedSizes(
       "google.protobuf.NH_REQ_LOGIN.account");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->account(), target);
+        2, this->account(), target);
   }
 
-  // optional string validateinfo = 2;
+  // optional string validateinfo = 3;
   if (this->validateinfo().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->validateinfo().data(), this->validateinfo().length(),
@@ -321,7 +352,7 @@ void NH_REQ_LOGIN::SerializeWithCachedSizes(
       "google.protobuf.NH_REQ_LOGIN.validateinfo");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->validateinfo(), target);
+        3, this->validateinfo(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:google.protobuf.NH_REQ_LOGIN)
@@ -331,14 +362,21 @@ void NH_REQ_LOGIN::SerializeWithCachedSizes(
 int NH_REQ_LOGIN::ByteSize() const {
   int total_size = 0;
 
-  // optional string account = 1;
+  // optional uint32 uid = 1;
+  if (this->uid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->uid());
+  }
+
+  // optional string account = 2;
   if (this->account().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->account());
   }
 
-  // optional string validateinfo = 2;
+  // optional string validateinfo = 3;
   if (this->validateinfo().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -365,6 +403,9 @@ void NH_REQ_LOGIN::MergeFrom(const ::google::protobuf::Message& from) {
 
 void NH_REQ_LOGIN::MergeFrom(const NH_REQ_LOGIN& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from.uid() != 0) {
+    set_uid(from.uid());
+  }
   if (from.account().size() > 0) {
 
     account_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.account_);
@@ -397,6 +438,7 @@ void NH_REQ_LOGIN::Swap(NH_REQ_LOGIN* other) {
   InternalSwap(other);
 }
 void NH_REQ_LOGIN::InternalSwap(NH_REQ_LOGIN* other) {
+  std::swap(uid_, other->uid_);
   account_.Swap(&other->account_);
   validateinfo_.Swap(&other->validateinfo_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -414,7 +456,21 @@ void NH_REQ_LOGIN::InternalSwap(NH_REQ_LOGIN* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // NH_REQ_LOGIN
 
-// optional string account = 1;
+// optional uint32 uid = 1;
+void NH_REQ_LOGIN::clear_uid() {
+  uid_ = 0u;
+}
+ ::google::protobuf::uint32 NH_REQ_LOGIN::uid() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.NH_REQ_LOGIN.uid)
+  return uid_;
+}
+ void NH_REQ_LOGIN::set_uid(::google::protobuf::uint32 value) {
+  
+  uid_ = value;
+  // @@protoc_insertion_point(field_set:google.protobuf.NH_REQ_LOGIN.uid)
+}
+
+// optional string account = 2;
 void NH_REQ_LOGIN::clear_account() {
   account_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -457,7 +513,7 @@ void NH_REQ_LOGIN::clear_account() {
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.NH_REQ_LOGIN.account)
 }
 
-// optional string validateinfo = 2;
+// optional string validateinfo = 3;
 void NH_REQ_LOGIN::clear_validateinfo() {
   validateinfo_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -505,6 +561,7 @@ void NH_REQ_LOGIN::clear_validateinfo() {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int HN_RET_LOGIN::kUidFieldNumber;
 const int HN_RET_LOGIN::kAccountFieldNumber;
 const int HN_RET_LOGIN::kResultFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -531,6 +588,7 @@ void HN_RET_LOGIN::SharedCtor() {
     _is_default_instance_ = false;
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
+  uid_ = 0u;
   account_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   result_ = 0;
 }
@@ -572,8 +630,20 @@ HN_RET_LOGIN* HN_RET_LOGIN::New(::google::protobuf::Arena* arena) const {
 }
 
 void HN_RET_LOGIN::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<HN_RET_LOGIN*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(uid_, result_);
   account_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  result_ = 0;
+
+#undef ZR_HELPER_
+#undef ZR_
+
 }
 
 bool HN_RET_LOGIN::MergePartialFromCodedStream(
@@ -586,9 +656,24 @@ bool HN_RET_LOGIN::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string account = 1;
+      // optional uint32 uid = 1;
       case 1: {
-        if (tag == 10) {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &uid_)));
+
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_account;
+        break;
+      }
+
+      // optional string account = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_account:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_account()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -598,13 +683,13 @@ bool HN_RET_LOGIN::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(16)) goto parse_result;
+        if (input->ExpectTag(24)) goto parse_result;
         break;
       }
 
-      // optional int32 result = 2;
-      case 2: {
-        if (tag == 16) {
+      // optional int32 result = 3;
+      case 3: {
+        if (tag == 24) {
          parse_result:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -641,19 +726,24 @@ failure:
 void HN_RET_LOGIN::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:google.protobuf.HN_RET_LOGIN)
-  // optional string account = 1;
+  // optional uint32 uid = 1;
+  if (this->uid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->uid(), output);
+  }
+
+  // optional string account = 2;
   if (this->account().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->account().data(), this->account().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "google.protobuf.HN_RET_LOGIN.account");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->account(), output);
+      2, this->account(), output);
   }
 
-  // optional int32 result = 2;
+  // optional int32 result = 3;
   if (this->result() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->result(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->result(), output);
   }
 
   // @@protoc_insertion_point(serialize_end:google.protobuf.HN_RET_LOGIN)
@@ -662,7 +752,12 @@ void HN_RET_LOGIN::SerializeWithCachedSizes(
 ::google::protobuf::uint8* HN_RET_LOGIN::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:google.protobuf.HN_RET_LOGIN)
-  // optional string account = 1;
+  // optional uint32 uid = 1;
+  if (this->uid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->uid(), target);
+  }
+
+  // optional string account = 2;
   if (this->account().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->account().data(), this->account().length(),
@@ -670,12 +765,12 @@ void HN_RET_LOGIN::SerializeWithCachedSizes(
       "google.protobuf.HN_RET_LOGIN.account");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->account(), target);
+        2, this->account(), target);
   }
 
-  // optional int32 result = 2;
+  // optional int32 result = 3;
   if (this->result() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->result(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->result(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:google.protobuf.HN_RET_LOGIN)
@@ -685,14 +780,21 @@ void HN_RET_LOGIN::SerializeWithCachedSizes(
 int HN_RET_LOGIN::ByteSize() const {
   int total_size = 0;
 
-  // optional string account = 1;
+  // optional uint32 uid = 1;
+  if (this->uid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->uid());
+  }
+
+  // optional string account = 2;
   if (this->account().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->account());
   }
 
-  // optional int32 result = 2;
+  // optional int32 result = 3;
   if (this->result() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -719,6 +821,9 @@ void HN_RET_LOGIN::MergeFrom(const ::google::protobuf::Message& from) {
 
 void HN_RET_LOGIN::MergeFrom(const HN_RET_LOGIN& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from.uid() != 0) {
+    set_uid(from.uid());
+  }
   if (from.account().size() > 0) {
 
     account_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.account_);
@@ -750,6 +855,7 @@ void HN_RET_LOGIN::Swap(HN_RET_LOGIN* other) {
   InternalSwap(other);
 }
 void HN_RET_LOGIN::InternalSwap(HN_RET_LOGIN* other) {
+  std::swap(uid_, other->uid_);
   account_.Swap(&other->account_);
   std::swap(result_, other->result_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -767,7 +873,21 @@ void HN_RET_LOGIN::InternalSwap(HN_RET_LOGIN* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // HN_RET_LOGIN
 
-// optional string account = 1;
+// optional uint32 uid = 1;
+void HN_RET_LOGIN::clear_uid() {
+  uid_ = 0u;
+}
+ ::google::protobuf::uint32 HN_RET_LOGIN::uid() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.HN_RET_LOGIN.uid)
+  return uid_;
+}
+ void HN_RET_LOGIN::set_uid(::google::protobuf::uint32 value) {
+  
+  uid_ = value;
+  // @@protoc_insertion_point(field_set:google.protobuf.HN_RET_LOGIN.uid)
+}
+
+// optional string account = 2;
 void HN_RET_LOGIN::clear_account() {
   account_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -810,7 +930,7 @@ void HN_RET_LOGIN::clear_account() {
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.HN_RET_LOGIN.account)
 }
 
-// optional int32 result = 2;
+// optional int32 result = 3;
 void HN_RET_LOGIN::clear_result() {
   result_ = 0;
 }

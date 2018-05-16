@@ -16,7 +16,7 @@ namespace driver
 {
 	class NetService : public Service
 	{
-		typedef void (NetService::*PacketHandler)(ClientSocket* pkClientSocket,const PacketHead& rkPacketHead,const tchar* pBuff); 
+		typedef void (NetService::*PacketHandler)(Connection* pConnect,const PacketHead& rkPacketHead,const tchar* pBuff); 
 		typedef void (NetService::*MessageHandler)(const MessageHead& rkMsgHead,const tchar* pBuff); 
 
 	public:
@@ -58,8 +58,8 @@ namespace driver
 
 	//packet handler
 	private:
-		void HandlePacketUserLogin(ClientSocket* pkClientSocket,const PacketHead& rkPacketHead,const tchar* pBuff);
-		void HandlePacketDefault(ClientSocket* pkClientSocket,const PacketHead& rkPacketHead,const tchar* pBuff);
+		void HandlePacketUserLogin(Connection* pConnect,const PacketHead& rkPacketHead,const tchar* pBuff);
+		void HandlePacketDefault(Connection* pConnect,const PacketHead& rkPacketHead,const tchar* pBuff);
 
 	//message handler
 	private:
@@ -81,6 +81,8 @@ namespace driver
 
 		MessageHead		m_kMsgHead;
 		MessageEncoder	m_kMsgEncoder;
+
+		tuint32			m_uIDGenerator;
 	};
 }
 

@@ -44,13 +44,13 @@ namespace driver
 				}
 			}
 
-			luaobject* pIp = g_Config.GetLuaObject("ServerSettings.Ip");
+			luaobject* pIp = g_Config.GetLuaObject("ServerSettings.Server1.Ip");
 			if(pIp == null_ptr)
 			{
 				m_stLogEngine.log(log_mask_info, "[ClientService::%s] ip config error\n", __FUNCTION_NAME__);
 				return;
 			}
-			luaobject* pPort = g_Config.GetLuaObject("ServerSettings.Port");
+			luaobject* pPort = g_Config.GetLuaObject("ServerSettings.Server1.Port");
 			if(pPort == null_ptr)
 			{
 				m_stLogEngine.log(log_mask_info, "[ClientService::%s] port config error\n", __FUNCTION_NAME__);

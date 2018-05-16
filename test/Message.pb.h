@@ -98,9 +98,15 @@ class NH_REQ_LOGIN : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional string account = 1;
+  // optional uint32 uid = 1;
+  void clear_uid();
+  static const int kUidFieldNumber = 1;
+  ::google::protobuf::uint32 uid() const;
+  void set_uid(::google::protobuf::uint32 value);
+
+  // optional string account = 2;
   void clear_account();
-  static const int kAccountFieldNumber = 1;
+  static const int kAccountFieldNumber = 2;
   const ::std::string& account() const;
   void set_account(const ::std::string& value);
   void set_account(const char* value);
@@ -109,9 +115,9 @@ class NH_REQ_LOGIN : public ::google::protobuf::Message {
   ::std::string* release_account();
   void set_allocated_account(::std::string* account);
 
-  // optional string validateinfo = 2;
+  // optional string validateinfo = 3;
   void clear_validateinfo();
-  static const int kValidateinfoFieldNumber = 2;
+  static const int kValidateinfoFieldNumber = 3;
   const ::std::string& validateinfo() const;
   void set_validateinfo(const ::std::string& value);
   void set_validateinfo(const char* value);
@@ -127,6 +133,7 @@ class NH_REQ_LOGIN : public ::google::protobuf::Message {
   bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr account_;
   ::google::protobuf::internal::ArenaStringPtr validateinfo_;
+  ::google::protobuf::uint32 uid_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_Message_2eproto();
   friend void protobuf_AssignDesc_Message_2eproto();
@@ -193,9 +200,15 @@ class HN_RET_LOGIN : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional string account = 1;
+  // optional uint32 uid = 1;
+  void clear_uid();
+  static const int kUidFieldNumber = 1;
+  ::google::protobuf::uint32 uid() const;
+  void set_uid(::google::protobuf::uint32 value);
+
+  // optional string account = 2;
   void clear_account();
-  static const int kAccountFieldNumber = 1;
+  static const int kAccountFieldNumber = 2;
   const ::std::string& account() const;
   void set_account(const ::std::string& value);
   void set_account(const char* value);
@@ -204,9 +217,9 @@ class HN_RET_LOGIN : public ::google::protobuf::Message {
   ::std::string* release_account();
   void set_allocated_account(::std::string* account);
 
-  // optional int32 result = 2;
+  // optional int32 result = 3;
   void clear_result();
-  static const int kResultFieldNumber = 2;
+  static const int kResultFieldNumber = 3;
   ::google::protobuf::int32 result() const;
   void set_result(::google::protobuf::int32 value);
 
@@ -216,6 +229,7 @@ class HN_RET_LOGIN : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr account_;
+  ::google::protobuf::uint32 uid_;
   ::google::protobuf::int32 result_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_Message_2eproto();
@@ -233,7 +247,21 @@ class HN_RET_LOGIN : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // NH_REQ_LOGIN
 
-// optional string account = 1;
+// optional uint32 uid = 1;
+inline void NH_REQ_LOGIN::clear_uid() {
+  uid_ = 0u;
+}
+inline ::google::protobuf::uint32 NH_REQ_LOGIN::uid() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.NH_REQ_LOGIN.uid)
+  return uid_;
+}
+inline void NH_REQ_LOGIN::set_uid(::google::protobuf::uint32 value) {
+  
+  uid_ = value;
+  // @@protoc_insertion_point(field_set:google.protobuf.NH_REQ_LOGIN.uid)
+}
+
+// optional string account = 2;
 inline void NH_REQ_LOGIN::clear_account() {
   account_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -276,7 +304,7 @@ inline void NH_REQ_LOGIN::set_allocated_account(::std::string* account) {
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.NH_REQ_LOGIN.account)
 }
 
-// optional string validateinfo = 2;
+// optional string validateinfo = 3;
 inline void NH_REQ_LOGIN::clear_validateinfo() {
   validateinfo_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -323,7 +351,21 @@ inline void NH_REQ_LOGIN::set_allocated_validateinfo(::std::string* validateinfo
 
 // HN_RET_LOGIN
 
-// optional string account = 1;
+// optional uint32 uid = 1;
+inline void HN_RET_LOGIN::clear_uid() {
+  uid_ = 0u;
+}
+inline ::google::protobuf::uint32 HN_RET_LOGIN::uid() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.HN_RET_LOGIN.uid)
+  return uid_;
+}
+inline void HN_RET_LOGIN::set_uid(::google::protobuf::uint32 value) {
+  
+  uid_ = value;
+  // @@protoc_insertion_point(field_set:google.protobuf.HN_RET_LOGIN.uid)
+}
+
+// optional string account = 2;
 inline void HN_RET_LOGIN::clear_account() {
   account_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -366,7 +408,7 @@ inline void HN_RET_LOGIN::set_allocated_account(::std::string* account) {
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.HN_RET_LOGIN.account)
 }
 
-// optional int32 result = 2;
+// optional int32 result = 3;
 inline void HN_RET_LOGIN::clear_result() {
   result_ = 0;
 }

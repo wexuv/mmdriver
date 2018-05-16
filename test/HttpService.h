@@ -27,7 +27,7 @@ namespace driver
 
 		static size_t _OnHttpReceive(char* ptr,size_t size,size_t nmemb, void* userdata);
 
-		void TestCurl();
+		void TestCurl(tuint32 uid, const tstring& strAccount,const tstring& strValidateInfo);
 
 		bool SendMsgToNetServer(const Message* pkMessage);
 
