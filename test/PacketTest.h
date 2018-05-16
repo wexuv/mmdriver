@@ -26,7 +26,7 @@ namespace driver
 	public:
 		PacketID GetPacketID() const {return PACKET_CG_LOGIN;};
 
-		virtual bool Encode(tchar* pBuff, tint32& nBufSize);
+		virtual bool Encode(tchar* pBuff, tint32& nBufSize) const;
 
 		virtual bool Decode(const tchar* pBuff, tint32 sSize);
 
@@ -43,12 +43,12 @@ namespace driver
 	public:
 		PacketID GetPacketID() const {return PACKET_GC_LOGIN;};
 
-		virtual bool Encode(tchar* pBuff, tint32& nBufSize);
+		virtual bool Encode(tchar* pBuff, tint32& nBufSize)  const;
 
 		virtual bool Decode(const tchar* pBuff, tint32 sSize);
 
 	public:
-		tint32 m_nResult;
+		google::protobuf::GC_LOGIN	m_PacketData;
 	};
 
 }

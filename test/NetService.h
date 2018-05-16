@@ -69,9 +69,10 @@ namespace driver
 	private:
 		bool SendMsgToHttp(const Message* pkMessage);
 
+		Connection*		GetUser(tuint32 uID);
+
 	private:
 		ServerSocket		m_ServerSocket;
-		SocketBinder		m_SocketBinder;
 		ConnectionPool		m_ConnectionPool;
 		PacketHandler		m_pPacketDispatcher[PACKET_ID_MAX];
 		MessageHandler		m_pMessageDispatcher[MESSAGE_ID_MAX];
@@ -83,6 +84,8 @@ namespace driver
 		MessageEncoder	m_kMsgEncoder;
 
 		tuint32			m_uIDGenerator;
+
+		std::map<tuint32,Connection*>	m_kOnlineUser;
 	};
 }
 

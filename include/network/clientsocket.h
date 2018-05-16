@@ -51,7 +51,7 @@ namespace driver
 
 		bool set_buf_size(size_t nRecvBufSize = max_c2s_pkg_size,size_t nSendBufSize = max_s2c_pkg_size);
 
-		//非线程安全，消息缓存，不会立即发送
+		//非线程安全，消息缓存，不会立即发送,必须与send_data_ex配合使用
 		tint32 send_data (const char* data, tuint16 size);
 
 		//非线程安全，消息会立即发送

@@ -146,7 +146,8 @@ namespace driver
 
 			pkClientSocket->set_fd(iFD);
 			pkClientSocket->set_ip_info(uIP,usPort);
-			
+			m_ClientContainer.push_back(pkClientSocket);
+
 			return true;
 		}
 
@@ -164,5 +165,67 @@ namespace driver
 			++iAcceptCount;
 		}
 		return iAcceptCount;
+	}
+
+	bool ServerSocket::recv()
+	{
+		//recv 
+		fd_set kReadFDSet;
+		fd_set kWriteFDSet;
+		fd_set kExceptSet;
+
+		FD_ZERO(&kReadFDSet);
+		FD_ZERO(&kWriteFDSet);
+		FD_ZERO(&kExceptSet);
+
+		timeval stTv;
+		stTv.tv_sec	 = 0;
+		stTv.tv_usec = 1000;
+
+		SOCKET iMaxFD = INVALID_SOCKET;
+
+		for(ClientContainer::iterator iter = m_ClientContainer.begin(); iter != m_ClientContainer.end();)
+		{
+			if(*iter == null_ptr || !(*iter)->valid())
+			{
+				iter = m_ClientContainer.erase(iter);
+			}
+			else
+			{
+				FD_SET((*iter)->get_fd(), &kReadFDSet);
+
+				if ((*iter)->get_fd() > iMaxFD)
+				{
+					iMaxFD = (*iter)->get_fd();
+				}
+
+				 ++ iter;
+			}
+		}
+
+		if (iMaxFD > 0)
+		{
+			++iMaxFD; 
+
+			tint32 iRet = select(static_cast<tint32>(iMaxFD), &kReadFDSet, &kWriteFDSet, &kExceptSet, &stTv);
+			if(iRet <= 0)
+			{
+				return false;
+			}
+
+			for(ClientContainer::iterator iter = m_ClientContainer.begin(); iter != m_ClientContainer.end(); ++ iter)
+			{
+				if (FD_ISSET((*iter)->get_fd(), &kReadFDSet))
+				{
+					// ½ÓÊÕÍøÂç°ü
+					(*iter)->recv_ex();
+				}
+			}
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 }

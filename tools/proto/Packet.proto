@@ -42,3 +42,10 @@ message CG_LOGIN
 	string	reservedstring3				= 21;
 	string	reservedstring4				= 22;
 }
+
+//#login ret
+//@GC
+message GC_LOGIN
+{
+	int32 result = 1;
+}

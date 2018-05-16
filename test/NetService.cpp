@@ -89,9 +89,7 @@ namespace driver
 		else
 		{
 			m_ServerSocket.accept_ex(10);
-			m_SocketBinder.recv();
-
-			m_SocketBinder.send();
+			m_ServerSocket.recv();
 		}
 	}
 
@@ -149,7 +147,7 @@ namespace driver
 			pkConnectInfo->SetStatus(Connection::CONNECTED);
 			pkConnectInfo->m_nUID = m_uIDGenerator ++;
 
-			m_SocketBinder.bind(pkConnectInfo);
+			m_kOnlineUser.insert(std::map<tuint32,Connection*>::value_type(pkConnectInfo->m_nUID,pkConnectInfo));
 		}
 
 		return pkConnectInfo;
@@ -160,7 +158,20 @@ namespace driver
 		if(pkClientSocket == null_ptr)
 			return;
 
-		m_SocketBinder.unbind(pkClientSocket);
+		Connection* pCon = static_cast<Connection*>(pkClientSocket);
+		if(null_ptr != pCon)
+		{
+			tuint32 nUID = pCon->m_nUID;
+			std::map<tuint32,Connection*>::iterator iter = m_kOnlineUser.find(nUID);
+			if(iter != m_kOnlineUser.end())
+			{
+				m_kOnlineUser.erase(iter);
+			}
+			else
+			{
+				AssertEx(false,"can't find online user when disconnect");
+			}
+		}
 
 		Connection* pConnect = static_cast<Connection*>(pkClientSocket);
 		if(pConnect != null_ptr)
@@ -218,21 +229,21 @@ namespace driver
 			return 0;
 
 		const tchar* pReadBuf = pInBuf;
-		size_t nLeftBufLen = nInBufLen;
+		tint32 nLeftBufLen = (tint32)nInBufLen;
 
 		PacketHead kPacketHead;
-
-		memcpy(&kPacketHead,pReadBuf,sizeof(PacketHead));
+		if(!kPacketHead.Decode(pReadBuf,nLeftBufLen))
+			return 0;
 
 		pReadBuf += sizeof(PacketHead);
 		nLeftBufLen -= sizeof(PacketHead);
 
-		if(kPacketHead.usPacketSize > nLeftBufLen)
+		if(kPacketHead.m_usPacketSize > nLeftBufLen)
 			return 0;
 
 		//DecryptBuf(pBuff);
 
-		PacketID nPacketID = kPacketHead.nPacketID;
+		PacketID nPacketID = kPacketHead.m_nPacketID;
 		if(nPacketID >= 0 && nPacketID < PACKET_ID_MAX)
 		{
 			Connection* pConnect = static_cast<Connection*>(pkClientSocket);
@@ -253,7 +264,7 @@ namespace driver
 			m_stLogEngine.log(log_mask_info, "[NetService::%s] unknown packet %d\n", __FUNCTION_NAME__,nPacketID);
 		}
 
-		return sizeof(PacketHead) + kPacketHead.usPacketSize;
+		return sizeof(PacketHead) + kPacketHead.m_usPacketSize;
 	}
 
 	void NetService::HandlePacketUserLogin(Connection* pConnect,const PacketHead& rkPacketHead,const tchar* pBuff)
@@ -264,7 +275,7 @@ namespace driver
 			return;		
 		
 		P_Login ptLogin;
-		if(!ptLogin.Decode(pBuff,rkPacketHead.usPacketSize))
+		if(!ptLogin.Decode(pBuff,rkPacketHead.m_usPacketSize))
 			return;
 
 		printf("Server recv:%s\n",ptLogin.m_PacketData.account().c_str());
@@ -273,25 +284,6 @@ namespace driver
 		pConnect->m_sAccount = ptLogin.m_PacketData.account();
 
 		//È¥ÈÏÖ¤°¡
-
-		P_LoginRet kRet;
-		kRet.m_nResult = (tint32)pConnect->get_fd();
-
-		char buf[32];
-		tint32 nSize = 32;
-		if(!kRet.Encode(buf+sizeof(PacketHead),nSize))
-		{
-			pConnect->close();
-			return;
-		}
-
-		PacketHead kHead;
-		kHead.nPacketID = kRet.GetPacketID();
-		kHead.usPacketSize = nSize;
-		memcpy(buf,&kHead,sizeof(kHead));
-
-		pConnect->send_data(buf,tuint16(sizeof(PacketHead)+nSize));
-
 		M_REQ_Login msgReqLogin;
 		msgReqLogin.m_MessageData.set_uid(pConnect->m_nUID);
 		msgReqLogin.m_MessageData.set_account(ptLogin.m_PacketData.account());
@@ -304,7 +296,7 @@ namespace driver
 	{
 		__ENTER_FUNCTION
 
-		m_stLogEngine.log(log_mask_info, "[NetService::%s] undefind packet id:%d,len:%d\n", __FUNCTION_NAME__,rkPacketHead.nPacketID,rkPacketHead.usPacketSize);
+		m_stLogEngine.log(log_mask_info, "[NetService::%s] undefind packet id:%d,len:%d\n", __FUNCTION_NAME__,rkPacketHead.m_nPacketID,rkPacketHead.m_usPacketSize);
 
 		__LEAVE_FUNCTION
 	}
@@ -350,6 +342,40 @@ namespace driver
 
 		printf("User login ret:%d,%s,%d\n",msgRetLogin.m_MessageData.uid(),msgRetLogin.m_MessageData.account().c_str(),msgRetLogin.m_MessageData.result());
 
+		Connection* pUser = GetUser(msgRetLogin.m_MessageData.uid());
+		if(pUser == null_ptr)
+		{
+			m_stLogEngine.log(log_mask_info, "[NetService::%s] uid:%d acc:%s disconnect\n", __FUNCTION_NAME__
+				,msgRetLogin.m_MessageData.uid(),msgRetLogin.m_MessageData.account().c_str());
+			return;
+		}
+
+		P_LoginRet kRet;
+		kRet.m_PacketData.set_result(msgRetLogin.m_MessageData.result());
+
+		PacketEncoder encoder;
+		if(encoder.Encode(kRet))
+		{
+			pUser->send_ex(encoder.GetBuff(),encoder.GetSize());
+		}
+
 		__LEAVE_FUNCTION
+	}
+
+	Connection* NetService::GetUser(tuint32 uID)
+	{
+		__ENTER_FUNCTION
+
+		std::map<tuint32,Connection*>::iterator iter = m_kOnlineUser.find(uID);
+		if(iter != m_kOnlineUser.end())
+		{
+			return iter->second;
+		}
+
+		return null_ptr;
+
+		__LEAVE_FUNCTION
+
+		return null_ptr;
 	}
 }

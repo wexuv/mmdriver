@@ -113,21 +113,21 @@ namespace driver
 			return 0;
 
 		const tchar* pReadBuf = pInBuf;
-		size_t nLeftBufLen = nInBufLen;
+		tint32 nLeftBufLen = (tint32)nInBufLen;
 
 		PacketHead kPacketHead;
-
-		memcpy(&kPacketHead,pReadBuf,sizeof(PacketHead));
+		if(!kPacketHead.Decode(pReadBuf,nLeftBufLen))
+			return 0;
 
 		pReadBuf += sizeof(PacketHead);
 		nLeftBufLen -= sizeof(PacketHead);
 
-		if(kPacketHead.usPacketSize > nLeftBufLen)
+		if(kPacketHead.m_usPacketSize > nLeftBufLen)
 			return 0;
 
 		//DecryptBuf(pBuff);
 
-		switch(kPacketHead.nPacketID)
+		switch(kPacketHead.m_nPacketID)
 		{
 		case PACKET_GC_LOGIN:
 			{
@@ -139,7 +139,7 @@ namespace driver
 			break;
 		}
 
-		return sizeof(PacketHead) + kPacketHead.usPacketSize;
+		return sizeof(PacketHead) + kPacketHead.m_usPacketSize;
 	}
 
 	void ClientService::OnDisConnect(ClientSocket* pkClientSocket)
@@ -179,21 +179,13 @@ namespace driver
 
 	bool ClientService::_sendMessage(Packet& rkPacket)
 	{
-		static const tint32 BufSize = 64;
-		char buf[BufSize];
-		tint32 nSize = 64;
-		if(!rkPacket.Encode(buf+sizeof(PacketHead),nSize))
+		PacketEncoder encoder;
+		if(!encoder.Encode(rkPacket))
 			return false;
-
-		PacketHead kHead;
-		kHead.nPacketID = rkPacket.GetPacketID();
-		kHead.usPacketSize = (tuint16)nSize;
-
-		memcpy(buf,&kHead,sizeof(PacketHead));
 
 		//EncryptBuf(buf);
 
-		m_ClientSocket.send_data(buf,tuint16(sizeof(PacketHead)+nSize));
+		m_ClientSocket.send_data(encoder.GetBuff(),encoder.GetSize());
 
 		return true;
 	}
@@ -201,10 +193,10 @@ namespace driver
 	void ClientService::OnLoginRet(ClientSocket* pkClientSocket,const PacketHead& rkPacketHead,const tchar* pBuff)
 	{
 		P_LoginRet ptLoginRet;
-		if(!ptLoginRet.Decode(pBuff,rkPacketHead.usPacketSize))
+		if(!ptLoginRet.Decode(pBuff,rkPacketHead.m_usPacketSize))
 			return;
 
-		printf("Client recv:%d\n",ptLoginRet.m_nResult);
+		printf("Client recv:%d\n",ptLoginRet.m_PacketData.result());
 	}
 
 }

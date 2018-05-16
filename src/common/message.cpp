@@ -1,4 +1,6 @@
 #include "message.h"
+#include "define.h"
+#include "exception.h"
 
 namespace driver
 {
@@ -65,15 +67,12 @@ namespace driver
 
 	bool MessageEncoder::Encode(const Message* pkMessage, MessageHead& rkHead)
 	{
-		tuint16 nMessageLen = 0;
-		if(pkMessage != NULL)
-		{
-			nMessageLen = MESSAGE_BUF_SIZE - sizeof(MessageHead);
-			if(!pkMessage->Encode(m_szMsgBuf+sizeof(MessageHead),nMessageLen))
-			{
-				return false;
-			}
-		}
+		if(pkMessage == null_ptr)
+			return false;
+
+		tuint16 nMessageLen = MESSAGE_BUF_SIZE - sizeof(MessageHead);
+		if(!pkMessage->Encode(m_szMsgBuf+sizeof(MessageHead),nMessageLen))
+			return false;
 
 		rkHead.m_usMessageID = pkMessage->GetMessageID();
 		rkHead.m_nSize = nMessageLen;

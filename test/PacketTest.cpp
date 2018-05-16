@@ -11,7 +11,7 @@ namespace driver
 
 	}
 
-	bool P_Login::Encode(tchar* pBuff, tint32& nBufSize) 
+	bool P_Login::Encode(tchar* pBuff, tint32& nBufSize) const
 	{ 
 		if(!m_PacketData.SerializePartialToArray(pBuff,m_PacketData.ByteSize()))
 		{
@@ -34,25 +34,29 @@ namespace driver
 
 	P_LoginRet::P_LoginRet()
 	{
-		m_nResult = 0;
 	}
 	P_LoginRet::~P_LoginRet()
 	{
 
 	}
 
-	bool P_LoginRet::Encode(tchar* pBuff, tint32& nBufSize) 
+	bool P_LoginRet::Encode(tchar* pBuff, tint32& nBufSize) const
 	{ 
-		memcpy(pBuff,&m_nResult,sizeof(m_nResult));
-
-		nBufSize = sizeof(m_nResult);
+		if(!m_PacketData.SerializePartialToArray(pBuff,m_PacketData.ByteSize()))
+		{
+			return false;
+		}
+		nBufSize = m_PacketData.ByteSize();
 
 		return true;
 	}
 
 	bool P_LoginRet::Decode(const tchar* pBuff, tint32 sSize) 
 	{
-		memcpy(&m_nResult,pBuff,sizeof(m_nResult));
+		if(!m_PacketData.ParseFromArray(pBuff,sSize))
+		{
+			return false;
+		}
 		return true;
 	}
 }

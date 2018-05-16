@@ -9,6 +9,7 @@ namespace driver
 	class ServerSocket
 	{
 		typedef boost::function<ClientSocket* (tuint32 uClientIP,tuint16 uClientPort)> OnConnect; 
+		typedef std::list<ClientSocket*> ClientContainer;
 
 	public:
 		ServerSocket (void);
@@ -23,6 +24,8 @@ namespace driver
 		bool accept();
 
 		tint32 accept_ex(tint32 iMaxAccept);
+
+		bool recv();
 
 	public:
 		/*设置连接回调函数
@@ -39,6 +42,8 @@ namespace driver
 		SOCKET			m_socket_fd;
 
 		OnConnect		m_funOnConnect;
+
+		ClientContainer	m_ClientContainer;
 	};
 }
 

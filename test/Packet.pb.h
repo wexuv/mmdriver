@@ -39,6 +39,7 @@ void protobuf_AssignDesc_Packet_2eproto();
 void protobuf_ShutdownFile_Packet_2eproto();
 
 class CG_LOGIN;
+class GC_LOGIN;
 
 enum CG_LOGIN_VALIDATETYPE {
   CG_LOGIN_VALIDATETYPE_TEST = 0,
@@ -364,6 +365,84 @@ class CG_LOGIN : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static CG_LOGIN* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GC_LOGIN : public ::google::protobuf::Message {
+ public:
+  GC_LOGIN();
+  virtual ~GC_LOGIN();
+
+  GC_LOGIN(const GC_LOGIN& from);
+
+  inline GC_LOGIN& operator=(const GC_LOGIN& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GC_LOGIN& default_instance();
+
+  void Swap(GC_LOGIN* other);
+
+  // implements Message ----------------------------------------------
+
+  inline GC_LOGIN* New() const { return New(NULL); }
+
+  GC_LOGIN* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GC_LOGIN& from);
+  void MergeFrom(const GC_LOGIN& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(GC_LOGIN* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 result = 1;
+  void clear_result();
+  static const int kResultFieldNumber = 1;
+  ::google::protobuf::int32 result() const;
+  void set_result(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:google.protobuf.GC_LOGIN)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  ::google::protobuf::int32 result_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_Packet_2eproto();
+  friend void protobuf_AssignDesc_Packet_2eproto();
+  friend void protobuf_ShutdownFile_Packet_2eproto();
+
+  void InitAsDefaultInstance();
+  static GC_LOGIN* default_instance_;
 };
 // ===================================================================
 
@@ -1000,7 +1079,27 @@ inline void CG_LOGIN::set_allocated_reservedstring4(::std::string* reservedstrin
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.CG_LOGIN.reservedstring4)
 }
 
+// -------------------------------------------------------------------
+
+// GC_LOGIN
+
+// optional int32 result = 1;
+inline void GC_LOGIN::clear_result() {
+  result_ = 0;
+}
+inline ::google::protobuf::int32 GC_LOGIN::result() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.GC_LOGIN.result)
+  return result_;
+}
+inline void GC_LOGIN::set_result(::google::protobuf::int32 value) {
+  
+  result_ = value;
+  // @@protoc_insertion_point(field_set:google.protobuf.GC_LOGIN.result)
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
