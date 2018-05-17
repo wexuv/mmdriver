@@ -2,7 +2,7 @@
 #define __SERVER_SOCKET_H__
 
 #include "lib.h"
-#include "socketbinder.h"
+#include "clientsocket.h"
 
 namespace driver 
 {

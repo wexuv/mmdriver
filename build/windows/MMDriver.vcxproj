@@ -72,7 +72,6 @@
     <ClCompile Include="..\..\src\network\packet.cpp" />
     <ClCompile Include="..\..\src\network\serversocket.cpp" />
     <ClCompile Include="..\..\src\network\socketapi.cpp" />
-    <ClCompile Include="..\..\src\network\socketbinder.cpp" />
     <ClCompile Include="..\..\src\service\service.cpp" />
     <ClCompile Include="..\..\src\service\servicemanager.cpp" />
     <ClCompile Include="..\..\test\ClientService.cpp" />
@@ -118,7 +117,6 @@
     <ClInclude Include="..\..\include\network\packet.h" />
     <ClInclude Include="..\..\include\network\serversocket.h" />
     <ClInclude Include="..\..\include\network\socketapi.h" />
-    <ClInclude Include="..\..\include\network\socketbinder.h" />
     <ClInclude Include="..\..\include\service\service.h" />
     <ClInclude Include="..\..\include\service\servicemanager.h" />
     <ClInclude Include="..\..\lib\lua\include\lapi.h" />

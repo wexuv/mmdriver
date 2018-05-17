@@ -72,17 +72,13 @@ namespace driver
 			m_ClientSocket.SetOnDisConnectFun(&ClientService::OnDisConnect,this);
 			m_ClientSocket.SetOnRecvMessageFun(&ClientService::OnRecvMessage,this);
 
-			m_SocketBinder.bind(&m_ClientSocket);
-
 			m_stLogEngine.log(log_mask_info, "[ClientService::%s] connect %s:%d success\n", __FUNCTION_NAME__,ip.c_str(),port);
 		}
 		else
 		{
-			m_SocketBinder.recv();
+			m_ClientSocket.recv();
 
 			HeartBeat();
-
-			m_SocketBinder.send();
 		}
 	}
 
@@ -144,8 +140,6 @@ namespace driver
 
 	void ClientService::OnDisConnect(ClientSocket* pkClientSocket)
 	{
-		m_SocketBinder.unbind(&m_ClientSocket);
-
 		//µ×²ã¸ºÔðclose;
 		//m_ClientSocket.close();
 	}
@@ -172,7 +166,6 @@ namespace driver
 		{
 			printf("rand disconnect %d\n",GetServiceID());
 
-			m_SocketBinder.unbind(&m_ClientSocket);
 			m_ClientSocket.close();
 		}
 	}

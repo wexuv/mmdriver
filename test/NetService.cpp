@@ -356,7 +356,7 @@ namespace driver
 		PacketEncoder encoder;
 		if(encoder.Encode(kRet))
 		{
-			pUser->send_ex(encoder.GetBuff(),encoder.GetSize());
+			pUser->send_data(encoder.GetBuff(),encoder.GetSize());
 		}
 
 		__LEAVE_FUNCTION

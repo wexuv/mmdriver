@@ -5,7 +5,6 @@
 #include "service.h"
 #include "log.h"
 #include "serversocket.h"
-#include "socketbinder.h"
 #include "ConnectionPool.h"
 #include "PacketTest.h"
 
@@ -42,7 +41,6 @@ namespace driver
 
 	private:
 		ClientSocket	m_ClientSocket;
-		SocketBinder	m_SocketBinder;
 
 		tuint64			m_nLastTickTime;
 

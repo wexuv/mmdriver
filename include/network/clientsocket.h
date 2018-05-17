@@ -34,7 +34,6 @@ namespace driver
 		typedef boost::function<tint32(ClientSocket* pkClientSocket,const char* pRecvBuf, size_t nRecvBufLen)> OnRecvMessage; 
 
 		friend class ServerSocket;
-		friend class SocketBinder;
 
 	public:
 		ClientSocket (void);
@@ -51,11 +50,17 @@ namespace driver
 
 		bool set_buf_size(size_t nRecvBufSize = max_c2s_pkg_size,size_t nSendBufSize = max_s2c_pkg_size);
 
-		//非线程安全，消息缓存，不会立即发送,必须与send_data_ex配合使用
-		tint32 send_data (const char* data, tuint16 size);
+		//非线程安全，消息缓存，不会立即发送,必须与send_cache_data配合使用
+		tint32 send_cache (const char* data, tuint16 size);
+
+		//非线程安全，发送缓存消息
+		tint32 send_cache_data();
 
 		//非线程安全，消息会立即发送
-		tint32 send_ex (const char* data, tuint16 size);
+		tint32 send_data (const char* data, tuint16 size);
+
+		//检测是否有消息需要接受，有则触发收包
+		bool recv();
 
 		/*******************************
 		//主动客户端使用
@@ -95,9 +100,6 @@ namespace driver
 
 		//接受网络包，并不调用消息处理函数
 		tint32 recv_data (void);
-
-		//非线程安全，发送缓存消息
-		tint32 send_data_ex();
 
 		void set_ip_info (tuint32 ip, tuint16 port);
 

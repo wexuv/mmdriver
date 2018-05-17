@@ -5,7 +5,6 @@
 #include "service.h"
 #include "log.h"
 #include "serversocket.h"
-#include "socketbinder.h"
 #include "ConnectionPool.h"
 #include "packet.h"
 #include "PacketTest.h"
@@ -74,6 +73,7 @@ namespace driver
 	private:
 		ServerSocket		m_ServerSocket;
 		ConnectionPool		m_ConnectionPool;
+
 		PacketHandler		m_pPacketDispatcher[PACKET_ID_MAX];
 		MessageHandler		m_pMessageDispatcher[MESSAGE_ID_MAX];
 

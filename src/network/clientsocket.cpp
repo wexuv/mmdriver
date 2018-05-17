@@ -167,6 +167,47 @@ namespace driver
 		}
 	}
 
+
+	bool ClientSocket::recv()
+	{
+		//recv 
+		fd_set kReadFDSet;
+		fd_set kWriteFDSet;
+		fd_set kExceptSet;
+
+		FD_ZERO(&kReadFDSet);
+		FD_ZERO(&kWriteFDSet);
+		FD_ZERO(&kExceptSet);
+
+		timeval stTv;
+		stTv.tv_sec	 = 0;
+		stTv.tv_usec = 1000;
+
+		SOCKET iMaxFD = get_fd();
+
+		FD_SET(get_fd(), &kReadFDSet);
+
+		if (iMaxFD > 0)
+		{
+			tint32 iRet = select(static_cast<tint32>(iMaxFD+1), &kReadFDSet, &kWriteFDSet, &kExceptSet, &stTv);
+			if(iRet <= 0)
+			{
+				return false;
+			}
+
+			if (FD_ISSET(get_fd(), &kReadFDSet))
+			{
+				// 接收网络包
+				recv_ex();
+			}
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
 	bool ClientSocket::recv_ex()
 	{
 		if(!m_funOnRecvMessage)
@@ -258,7 +299,7 @@ namespace driver
 	}
 
 	//非线程安全，消息不会立即发送
-	tint32 ClientSocket::send_data (const char* data, tuint16 size)
+	tint32 ClientSocket::send_cache (const char* data, tuint16 size)
 	{
 		tint32 ret = conn_error_code_success;
 
@@ -295,7 +336,7 @@ namespace driver
 	}
 
 	//发送缓存消息
-	tint32 ClientSocket::send_data_ex()
+	tint32 ClientSocket::send_cache_data()
 	{
 		if (tcp_status_connected != m_socket_status || m_socket_fd ==INVALID_SOCKET)
 		{
@@ -340,7 +381,7 @@ namespace driver
 		}
 	}
 
-	tint32 ClientSocket::send_ex (const char* data, tuint16 size)
+	tint32 ClientSocket::send_data (const char* data, tuint16 size)
 	{
 		tint32 ret = conn_error_code_success;
 		if (NULL == data || 0 == size)
