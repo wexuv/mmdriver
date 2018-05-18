@@ -8,6 +8,8 @@ namespace driver
 		m_enmServiceState = SS_NONE;
 
 		m_nServiceID = invalid_id;
+
+		m_nUpdateTime = 0;
 	}
 
 	Service::~Service()
@@ -44,16 +46,21 @@ namespace driver
 	void Service::Run(const TimeData& rkTimeData)
 	{
 		SetRunningState(RS_RUNNING);
-
+		SetUpdateTime(rkTimeData.m_nMiliSec);
 		__ENTER_FUNCTION
 
 		switch(m_enmServiceState)
 		{
 		case SS_START:
+			m_enmServiceState = SS_START_PROCESS;
 			Init();
-			m_enmServiceState = SS_START_OK;
 			break;
-
+		case SS_START_PROCESS:
+			if(IsStartOK())
+			{
+				m_enmServiceState = SS_START_OK;
+			}
+			break;
 		case SS_START_OK:
 			break;
 
@@ -62,8 +69,15 @@ namespace driver
 			break;
 
 		case SS_SHUTDOWN:
+			m_enmServiceState = SS_SHUTDOWN_PROCESS;
 			Shutdown();
-			m_enmServiceState = SS_SHUTDOWN_OK;
+			break;
+
+		case SS_SHUTDOWN_PROCESS:
+			if(IsShutdownOK())
+			{
+				m_enmServiceState = SS_SHUTDOWN_OK;
+			}
 			break;
 
 		case SS_SHUTDOWN_OK:
@@ -79,6 +93,16 @@ namespace driver
 	}
 
 	bool Service::NeedSchedule()
+	{
+		return m_enmServiceState != SS_SHUTDOWN_OK;
+	}
+
+	bool Service::IsStartOK()
+	{
+		return true;
+	}
+
+	bool Service::IsShutdownOK()
 	{
 		return true;
 	}
@@ -98,8 +122,6 @@ namespace driver
 
 	bool Service::Shutdown()
 	{
-		m_TimerExPtrVec.clear();
-		m_MessageHandlerVec.clear();
 		return true;
 	}
 

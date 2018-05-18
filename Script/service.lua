@@ -5,10 +5,11 @@ ThreadCount=2;
 ServiceType=
 {
 	INVALID = -1;
-	LOGIN = 0;	--登录
-	HTTP = 1;	--http
-	MONITOR = 2;--监控
-	CLIENT = 3;	--主动发起连接
+	LOGIN = 0;			--登录
+	HTTP = 1;			--http
+	HTTPMANAGER = 2,	--http调度服务
+	MONITOR = 3;		--监控
+	CLIENT = 4;			--主动发起连接
 	MAX = 20,
 };
 

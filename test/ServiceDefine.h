@@ -11,10 +11,11 @@ namespace driver
 		enum
 		{
 			INVALID = -1,
-			LOGIN,	//登录
-			HTTP,	//http
-			MONITOR,//监控
-			CLIENT,	//主动发起连接
+			LOGIN,			//登录
+			HTTP,			//http
+			HTTPMANAGER,	//HTTPService调度服务
+			MONITOR,		//监控
+			CLIENT,			//主动发起连接
 			MAX,
 		};
 	};

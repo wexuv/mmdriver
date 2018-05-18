@@ -53,7 +53,6 @@ namespace driver
 
 	bool Log_Engine::log (int32_t log_level, const char* content, ...)
 	{
-
 		if (whether_do_log(log_level) && check_file())
 		{
 			char date_time[MAX_TIME_STRING_LENGTH+1] = {0};

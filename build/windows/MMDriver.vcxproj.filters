@@ -255,6 +255,9 @@
     <ClCompile Include="..\..\src\common\stringutility.cpp">
       <Filter>src\common</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\test\HttpManagerService.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\lib\lua\include\lapi.h">
@@ -457,6 +460,9 @@
     </ClInclude>
     <ClInclude Include="..\..\include\common\stringutility.h">
       <Filter>include\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\HttpManagerService.h">
+      <Filter>test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

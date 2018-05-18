@@ -16,11 +16,13 @@ namespace driver
 		SS_NONE,
 
 		SS_START,
+		SS_START_PROCESS,
 		SS_START_OK,
 
 		SS_RUN,
 
 		SS_SHUTDOWN,
+		SS_SHUTDOWN_PROCESS,
 		SS_SHUTDOWN_OK,
 	};
 
@@ -62,11 +64,16 @@ namespace driver
 	private:
 		void Run(const TimeData& rkTimeData);
 
+		inline void	   SetUpdateTime(tuint64 nTime) { m_nUpdateTime = nTime; }
+		inline tuint64 GetUpdateTime() { return m_nUpdateTime; }
+
 	protected:
 		/*
 		返回false时，该服务不会被安排调度。
 		*/
 		virtual bool NeedSchedule();
+		virtual bool IsStartOK();
+		virtual bool IsShutdownOK();
 
 		virtual bool Init();
 
@@ -83,6 +90,8 @@ namespace driver
 		ServiceState	m_enmServiceState;
 
 		tint32			m_nServiceID;
+
+		tuint64			m_nUpdateTime;
 	};
 
 	typedef std::shared_ptr<Service>	ServicePtr;

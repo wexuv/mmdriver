@@ -77,6 +77,7 @@
     <ClCompile Include="..\..\test\ClientService.cpp" />
     <ClCompile Include="..\..\test\Config.cpp" />
     <ClCompile Include="..\..\test\ConnectionPool.cpp" />
+    <ClCompile Include="..\..\test\HttpManagerService.cpp" />
     <ClCompile Include="..\..\test\HttpService.cpp" />
     <ClCompile Include="..\..\test\Item.cpp" />
     <ClCompile Include="..\..\test\main.cpp" />
@@ -145,6 +146,7 @@
     <ClInclude Include="..\..\test\ClientService.h" />
     <ClInclude Include="..\..\test\Config.h" />
     <ClInclude Include="..\..\test\ConnectionPool.h" />
+    <ClInclude Include="..\..\test\HttpManagerService.h" />
     <ClInclude Include="..\..\test\HttpService.h" />
     <ClInclude Include="..\..\test\Item.h" />
     <ClInclude Include="..\..\test\Message.pb.h" />

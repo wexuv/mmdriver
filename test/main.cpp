@@ -4,7 +4,7 @@
 #include "NetService.h"
 #include "ClientService.h"
 #include "ScriptService.h"
-#include "HttpService.h"
+#include "HttpManagerService.h"
 #include "Config.h"
 
 using namespace driver;
@@ -42,14 +42,33 @@ namespace driver
 		tint32 nThreadCount = pLuaThreadObj->ToInt();
 		gServiceManager.Create(nThreadCount);
 
+		MonitorService* pMonitorService = new MonitorService();
+		gServiceManager.Register(pMonitorService);
 
-		gServiceManager.Register(new MonitorService());
-		gServiceManager.Register(new HttpService());
-		gServiceManager.Register(new NetService());
+		HttpManagerService* pHttpManagerService = new HttpManagerService();
+		gServiceManager.Register(pHttpManagerService);
+		for(tint32 i = 0; i < 1; ++ i)
+		{
+			HttpService* pHttpService = pHttpManagerService->NewHttpService();
+			gServiceManager.Register(pHttpService);
+		}
+
+		NetService* pNetService = new NetService();
+		gServiceManager.Register(pNetService);
+
 		//gServiceManager.Register(new ScriptService());
-		gServiceManager.Register(new ClientService());
-		gServiceManager.Register(new ClientService());
+		ClientService* pClientService1 = new ClientService();
+		ClientService* pClientService2 = new ClientService();
+		gServiceManager.Register(pClientService1);
+		gServiceManager.Register(pClientService2);
+
 		gServiceManager.Run();
+
+		SAFE_DELETE(pClientService2);
+		SAFE_DELETE(pClientService1);
+		SAFE_DELETE(pNetService);
+		SAFE_DELETE(pHttpManagerService);
+		SAFE_DELETE(pMonitorService);
 	}
 }
 

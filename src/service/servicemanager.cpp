@@ -134,12 +134,23 @@ namespace driver
 				if((*iter)->NeedSchedule())
 				{
 					(*iter)->SetRunningState(RS_SCHEDULE);
+					(*iter)->SetUpdateTime(rkTimeData.m_nMiliSec);
 					m_pkThreadPool->schedule(boost::bind(&Service::Run,*iter,rkTimeData));
 				}
 				break;
 			case RS_SCHEDULE:
+				if(rkTimeData.m_nMiliSec - (*iter)->GetUpdateTime() > 1000)
+				{
+					m_stLogEngine.log(log_mask_info, "[ServiceManager::%s] Schedule Slowly,Type(%d),ID(%d),Time(%llu)\n", __FUNCTION_NAME__,
+						(*iter)->GetServiceType(),(*iter)->GetServiceID(),rkTimeData.m_nMiliSec - (*iter)->GetUpdateTime());
+				}
 				break;
 			case RS_RUNNING:
+				if(rkTimeData.m_nMiliSec - (*iter)->GetUpdateTime() > 1000)
+				{
+					m_stLogEngine.log(log_mask_info, "[ServiceManager::%s] Run Slowly,Type(%d),ID(%d),Time(%llu)\n", __FUNCTION_NAME__,
+						(*iter)->GetServiceType(),(*iter)->GetServiceID(),rkTimeData.m_nMiliSec - (*iter)->GetUpdateTime());
+				}
 				break;
 			default:
 				break;

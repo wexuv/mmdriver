@@ -11,6 +11,7 @@ namespace driver
 {
 	class HttpService : public Service
 	{
+		friend class HttpManagerService;
 	public:
 		HttpService();
 		virtual ~HttpService();
