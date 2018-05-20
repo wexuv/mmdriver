@@ -27,21 +27,18 @@ namespace driver
 
 		virtual bool IsShutdownOK();
 
-	private:
-		bool SendMsgToNetServer(const Message* pkMessage);
-
 	//message handler
 	private:
-		void HandleMsgUserLogin(const MessageHead& rkMsgHead,const tchar* pBuff);
+		void TranslateMsg(const MessageHead& rkMsgHead,const tchar* pBuff);
 
 	private:
 		Log_Engine		m_stLogEngine;
-		MessageChannel	m_kMCHttp2Login;
-
-		MessageHead		m_kMsgHead;
-		MessageEncoder	m_kMsgEncoder;
+		MessageChannel	m_kMsgChannel;
 
 		bsvector<HttpService*>	m_HttpServicePool;
+
+		tint32			m_nInputMsgCount;	
+		tint32			m_nOutputMsgCount;
 	};
 }
 

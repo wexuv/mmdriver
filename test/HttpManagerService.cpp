@@ -7,6 +7,8 @@ namespace driver
 {
 	HttpManagerService::HttpManagerService()
 	{
+		m_nInputMsgCount = 0;
+		m_nOutputMsgCount = 0;
 	}
 
 	HttpManagerService::~HttpManagerService()
@@ -29,11 +31,14 @@ namespace driver
 
 		m_stLogEngine.init(0xFF, szLogFile);
 
-		luaobject* pChannelKey = g_Config.GetLuaObject("MessageChannel.LOGIN_HTTP.key");
+		luaobject* pChannelKey = g_Config.GetLuaObject("Service.HttpManager.msgchannel.channel1.key");
 		if(pChannelKey == null_ptr)
 			return false;
 
-		m_kMCHttp2Login.InitMessageQueue(pChannelKey->ToInt());
+		m_kMsgChannel.InitMessageQueue(pChannelKey->ToInt());
+
+		m_nInputMsgCount = 0;
+		m_nOutputMsgCount = 0;
 
 		return true;
 	}
@@ -56,26 +61,59 @@ namespace driver
 		tchar buf[2048] = {0};
 		tuint16 bufSize = 2048;
 
-		tint32 nMsgCount = 0;
-		//while(m_kMCHttp2Login.RecvMessageOutput(buf,bufSize))
-		//{
-		//	MessageHead kMessageHead;
-		//	kMessageHead.Decode(buf,bufSize);
+		//接受外部消息，分配到httpservice
+		while(m_kMsgChannel.RecvMessageOutput(buf,bufSize))
+		{
+			MessageHead kMessageHead;
+			kMessageHead.Decode(buf,bufSize);
 
-		//	char* pBodyBuff = buf + sizeof(MessageHead);
-		//	tint32 nBufSize = bufSize - sizeof(MessageHead);
+			char* pBodyBuff = buf + sizeof(MessageHead);
+			tint32 nBufSize = bufSize - sizeof(MessageHead);
 
-		//	if(kMessageHead.m_nSize != nBufSize)
-		//		return;
+			if(kMessageHead.m_nSize != nBufSize)
+				return;
 
-		//	HandleMsgUserLogin(kMessageHead,pBodyBuff);
+			//dispatch to http service
+			bsvector<HttpService*>::iterator iter = m_HttpServicePool.begin();
+			for( ; iter != m_HttpServicePool.end(); ++ iter)
+			{
+				if(*iter == null_ptr)
+					continue;
+				if((*iter)->IsFree())
+				{
+					(*iter)->m_kMCHttp2Login.SendMessageOutput(buf,bufSize);
+				}
+			}
 
-		//	++nMsgCount;
+			++m_nInputMsgCount;
+		}
 
-		//}
+		//从httpservice收消息，再转发出去
+		bsvector<HttpService*>::iterator iter = m_HttpServicePool.begin();
+		for( ; iter != m_HttpServicePool.end(); ++ iter)
+		{
+			if(*iter == null_ptr)
+				continue;
+			HttpService& rHttpService = *(*iter);
+			while(rHttpService.m_kMCHttp2Login.RecvMessasgeInput(buf,bufSize))
+			{
+				MessageHead kMessageHead;
+				kMessageHead.Decode(buf,bufSize);
+
+				char* pBodyBuff = buf + sizeof(MessageHead);
+				tint32 nBufSize = bufSize - sizeof(MessageHead);
+
+				if(kMessageHead.m_nSize != nBufSize)
+					return;
+
+				m_kMsgChannel.SendMessageInput(buf,bufSize);
+
+				++m_nOutputMsgCount;
+			}
+		}
 	}
 
-	void HttpManagerService::HandleMsgUserLogin(const MessageHead& rkMsgHead,const tchar* pBuff)
+	void HttpManagerService::TranslateMsg(const MessageHead& rkMsgHead,const tchar* pBuff)
 	{
 		__ENTER_FUNCTION
 
@@ -86,26 +124,6 @@ namespace driver
 		printf("User Verification:%s,%s\n",msgReqLogin.m_MessageData.account().c_str(),msgReqLogin.m_MessageData.validateinfo().c_str());
 
 		__LEAVE_FUNCTION
-	}
-
-	bool HttpManagerService::SendMsgToNetServer(const Message* pkMessage)
-	{
-		__ENTER_FUNCTION
-
-		m_kMsgHead.m_nSrcServiceType = GetServiceType();
-		m_kMsgHead.m_nScrServiceID = GetServiceID();
-		m_kMsgHead.m_nDstServiceType = ServiceType::LOGIN;
-		m_kMsgHead.m_nDstServiceID = -1;
-
-		if(!m_kMsgEncoder.Encode(pkMessage,m_kMsgHead))
-			return false;
-
-		m_kMCHttp2Login.SendMessageInput(m_kMsgEncoder.GetBuff(),m_kMsgEncoder.GetSize());
-		return true;
-
-		__LEAVE_FUNCTION
-
-		return false;
 	}
 
 	HttpService* HttpManagerService::NewHttpService()

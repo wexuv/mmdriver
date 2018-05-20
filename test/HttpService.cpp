@@ -12,6 +12,7 @@ namespace driver
 	HttpService::HttpService()
 	{
 		m_pCurl = null_ptr;
+		m_bFree = true;
 	}
 
 	HttpService::~HttpService()
@@ -33,14 +34,22 @@ namespace driver
 
 		m_stLogEngine.init(0xFF, szLogFile);
 
-		luaobject* pChannelKey = g_Config.GetLuaObject("MessageChannel.LOGIN_HTTP.key");
+		luaobject* pChannelKey = g_Config.GetLuaObject("Service.Http.msgchannel.channel1.key");
 		if(pChannelKey == null_ptr)
 			return false;
 
-		m_kMCHttp2Login.InitMessageQueue(pChannelKey->ToInt());
+		m_kMCHttp2Login.InitMessageQueue(GetServiceID()*10000 + pChannelKey->ToInt());
 
 		if(!InitCurl())
 			return false;
+
+		for(tint32 i = MESSAGE_ID_MIN; i < MESSAGE_ID_MAX; ++ i)
+		{
+			m_pMessageDispatcher[i] = &HttpService::HandleMsgDefault;
+		}
+		m_pMessageDispatcher[MSG_NH_REQ_LOGIN] = &HttpService::HandleMsgUserLogin;
+
+		m_bFree = true;
 
 		return true;
 	}
@@ -134,14 +143,28 @@ namespace driver
 			if(kMessageHead.m_nSize != nBufSize)
 				return;
 
-			HandleMsgUserLogin(kMessageHead,pBodyBuff);
+			MessageID msgID = kMessageHead.m_usMessageID;
+			if(msgID >= 0 && msgID < MESSAGE_ID_MAX)
+			{
+				if(m_pMessageDispatcher[msgID] != null_ptr)
+				{
+					(this->*m_pMessageDispatcher[msgID])(kMessageHead,pBodyBuff);
+				}
+				else
+				{
+					m_stLogEngine.log(log_mask_info, "[HttpService::%s] unhandler message %d\n", __FUNCTION_NAME__,msgID);
+				}
+			}
+			else
+			{
+				m_stLogEngine.log(log_mask_info, "[HttpService::%s] unknown message %d\n", __FUNCTION_NAME__,msgID);
+			}
 
 			++nMsgCount;
-
 		}
 	}
 
-	void HttpService::TestCurl(tuint32 uid, const tstring& strAccount,const tstring& strValidateInfo)
+	void HttpService::Verify(tuint32 uid, const tstring& strAccount,const tstring& strValidateInfo)
 	{
 		__ENTER_FUNCTION
 
@@ -229,6 +252,17 @@ namespace driver
 		__LEAVE_FUNCTION
 	}
 
+	void HttpService::HandleMsgDefault(const MessageHead& rkMsgHead,const tchar* pBuff)
+	{
+		__ENTER_FUNCTION
+
+			m_stLogEngine.log(log_mask_info, "[HttpService::%s] undefind message id:%d,len:%d,info(%d,%d,%d,%d)\n", __FUNCTION_NAME__
+			,rkMsgHead.m_usMessageID,rkMsgHead.m_nSize
+			,rkMsgHead.m_nSrcServiceType,rkMsgHead.m_nScrServiceID,rkMsgHead.m_nDstServiceType,rkMsgHead.m_nDstServiceID);
+
+		__LEAVE_FUNCTION
+	}
+
 	void HttpService::HandleMsgUserLogin(const MessageHead& rkMsgHead,const tchar* pBuff)
 	{
 		__ENTER_FUNCTION
@@ -239,7 +273,9 @@ namespace driver
 
 		printf("User Verification:%s,%s\n",msgReqLogin.m_MessageData.account().c_str(),msgReqLogin.m_MessageData.validateinfo().c_str());
 
-		TestCurl(msgReqLogin.m_MessageData.uid(),msgReqLogin.m_MessageData.account().c_str(),msgReqLogin.m_MessageData.validateinfo().c_str());
+		m_bFree = false;
+		Verify(msgReqLogin.m_MessageData.uid(),msgReqLogin.m_MessageData.account().c_str(),msgReqLogin.m_MessageData.validateinfo().c_str());
+		m_bFree = true;
 
 		__LEAVE_FUNCTION
 	}

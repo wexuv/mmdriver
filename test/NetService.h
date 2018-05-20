@@ -13,11 +13,15 @@
 
 namespace driver
 {
+	template<class T>
+	class PacketHandler
+	{
+	public:
+		typedef void (T::*Handler)(Connection* pConnect,const PacketHead& rkPacketHead,const tchar* pBuff); 
+	};
+
 	class NetService : public Service
 	{
-		typedef void (NetService::*PacketHandler)(Connection* pConnect,const PacketHead& rkPacketHead,const tchar* pBuff); 
-		typedef void (NetService::*MessageHandler)(const MessageHead& rkMsgHead,const tchar* pBuff); 
-
 	public:
 		NetService();
 		virtual ~NetService();
@@ -74,8 +78,8 @@ namespace driver
 		ServerSocket		m_ServerSocket;
 		ConnectionPool		m_ConnectionPool;
 
-		PacketHandler		m_pPacketDispatcher[PACKET_ID_MAX];
-		MessageHandler		m_pMessageDispatcher[MESSAGE_ID_MAX];
+		PacketHandler<NetService>::Handler	m_pPacketDispatcher[PACKET_ID_MAX];
+		MessageHandler<NetService>::Handler	m_pMessageDispatcher[MESSAGE_ID_MAX];
 
 		Log_Engine		m_stLogEngine;
 		MessageChannel	m_kMCLogin2Http;

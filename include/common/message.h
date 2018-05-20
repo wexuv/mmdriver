@@ -79,6 +79,13 @@ namespace driver
 		tchar	m_szMsgBuf[MESSAGE_BUF_SIZE];
 		tuint16	m_usMsgSize;
 	};
+
+	template<class T>
+	class MessageHandler
+	{
+	public:
+		typedef void (T::*Handler)(const MessageHead& rkMsgHead,const tchar* pBuff); 
+	};
 }
 
 #endif //_MESSAGE_H_

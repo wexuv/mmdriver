@@ -22,11 +22,34 @@ Service = {
 		channel={MessageChannel.LOGIN_HTTP};
 	};
 
+	HttpManager =
+	{
+		type=ServiceType.HTTPMANAGER;
+		count=1;
+		server=ServerSettings.Server1;
+		msgchannel =
+		{
+			channel1=
+			{
+				key=200;
+				input=1048576;
+				output=1048576;
+			}
+		}
+	};
 	Http =
 	{
 		type=ServiceType.HTTP;
 		count=1;
 		server=ServerSettings.Server1;
-		channel={MessageChannel.LOGIN_HTTP};
+		msgchannel =
+		{
+			channel1=
+			{
+				key=100;
+				input=65536;
+				output=65536;
+			}
+		}
 	};
 };

@@ -23,7 +23,7 @@ namespace driver
 
 		m_stLogEngine.init(0xFF, szLogFile);
 
-		luaobject* pChannelKey = g_Config.GetLuaObject("MessageChannel.LOGIN_HTTP.key");
+		luaobject* pChannelKey = g_Config.GetLuaObject("Service.HttpManager.msgchannel.channel1.key");
 		if(pChannelKey == null_ptr)
 			return false;
 		m_kMCLogin2Http.InitMessageQueue(pChannelKey->ToInt());
@@ -113,7 +113,7 @@ namespace driver
 			MessageID msgID = kMessageHead.m_usMessageID;
 			if(msgID >= 0 && msgID < MESSAGE_ID_MAX)
 			{
-				if(m_pPacketDispatcher[msgID] != null_ptr)
+				if(m_pMessageDispatcher[msgID] != null_ptr)
 				{
 					(this->*m_pMessageDispatcher[msgID])(kMessageHead,pBodyBuff);
 				}
