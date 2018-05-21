@@ -273,9 +273,7 @@ namespace driver
 
 		printf("User Verification:%s,%s\n",msgReqLogin.m_MessageData.account().c_str(),msgReqLogin.m_MessageData.validateinfo().c_str());
 
-		m_bFree = false;
 		Verify(msgReqLogin.m_MessageData.uid(),msgReqLogin.m_MessageData.account().c_str(),msgReqLogin.m_MessageData.validateinfo().c_str());
-		m_bFree = true;
 
 		__LEAVE_FUNCTION
 	}
@@ -297,6 +295,28 @@ namespace driver
 
 		__LEAVE_FUNCTION
 
+		return false;
+	}
+
+	bool HttpService::RecvMessasgeInput(tchar* pMsgBuff, tuint16& usMsgSize)
+	{
+		__ENTER_FUNCTION
+
+		m_bFree = true;
+
+		return m_kMCHttp2Login.RecvMessasgeInput(pMsgBuff,usMsgSize);
+		__LEAVE_FUNCTION
+		return false;
+	}
+
+	bool HttpService::SendMessageOutput(const tchar* pMsgBuff, tuint16 usMsgSize)
+	{
+		__ENTER_FUNCTION
+
+		m_bFree = false;
+
+		return m_kMCHttp2Login.SendMessageOutput(pMsgBuff,usMsgSize);
+		__LEAVE_FUNCTION
 		return false;
 	}
 }

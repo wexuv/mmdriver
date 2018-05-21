@@ -35,6 +35,9 @@ namespace driver
 
 		bool SendMsgToNetServer(const Message* pkMessage);
 
+		bool RecvMessasgeInput(tchar* pMsgBuff, tuint16& usMsgSize);
+		bool SendMessageOutput(const tchar* pMsgBuff, tuint16 usMsgSize);
+
 	//message handler
 	private:
 		void HandleMsgDefault(const MessageHead& rkMsgHead,const tchar* pBuff);

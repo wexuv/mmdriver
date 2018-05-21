@@ -38,6 +38,9 @@ namespace driver
 			AssertEx(false,"load thread info failed");
 			return;
 		}
+		luaobject* pHttpServiceCount = g_Config.GetLuaObject("Service.HttpManager.count");
+		if(pHttpServiceCount == null_ptr)
+			return;
 
 		tint32 nThreadCount = pLuaThreadObj->ToInt();
 		gServiceManager.Create(nThreadCount);
@@ -47,7 +50,7 @@ namespace driver
 
 		HttpManagerService* pHttpManagerService = new HttpManagerService();
 		gServiceManager.Register(pHttpManagerService);
-		for(tint32 i = 0; i < 1; ++ i)
+		for(tint32 i = 0; i < pHttpServiceCount->ToInt(); ++ i)
 		{
 			HttpService* pHttpService = pHttpManagerService->NewHttpService();
 			gServiceManager.Register(pHttpService);

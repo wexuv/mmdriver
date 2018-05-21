@@ -67,9 +67,7 @@ namespace driver
 			MessageHead kMessageHead;
 			kMessageHead.Decode(buf,bufSize);
 
-			char* pBodyBuff = buf + sizeof(MessageHead);
 			tint32 nBufSize = bufSize - sizeof(MessageHead);
-
 			if(kMessageHead.m_nSize != nBufSize)
 				return;
 
@@ -79,9 +77,11 @@ namespace driver
 			{
 				if(*iter == null_ptr)
 					continue;
+				//注意此处多线程IsFree的判定
 				if((*iter)->IsFree())
 				{
-					(*iter)->m_kMCHttp2Login.SendMessageOutput(buf,bufSize);
+					(*iter)->SendMessageOutput(buf,bufSize);
+					break;
 				}
 			}
 
@@ -95,12 +95,11 @@ namespace driver
 			if(*iter == null_ptr)
 				continue;
 			HttpService& rHttpService = *(*iter);
-			while(rHttpService.m_kMCHttp2Login.RecvMessasgeInput(buf,bufSize))
+			while(rHttpService.RecvMessasgeInput(buf,bufSize))
 			{
 				MessageHead kMessageHead;
 				kMessageHead.Decode(buf,bufSize);
 
-				char* pBodyBuff = buf + sizeof(MessageHead);
 				tint32 nBufSize = bufSize - sizeof(MessageHead);
 
 				if(kMessageHead.m_nSize != nBufSize)
@@ -111,19 +110,6 @@ namespace driver
 				++m_nOutputMsgCount;
 			}
 		}
-	}
-
-	void HttpManagerService::TranslateMsg(const MessageHead& rkMsgHead,const tchar* pBuff)
-	{
-		__ENTER_FUNCTION
-
-		M_REQ_Login msgReqLogin;
-		if(!msgReqLogin.Decode(pBuff,rkMsgHead.m_nSize))
-			return;
-
-		printf("User Verification:%s,%s\n",msgReqLogin.m_MessageData.account().c_str(),msgReqLogin.m_MessageData.validateinfo().c_str());
-
-		__LEAVE_FUNCTION
 	}
 
 	HttpService* HttpManagerService::NewHttpService()

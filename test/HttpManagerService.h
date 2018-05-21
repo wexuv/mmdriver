@@ -27,10 +27,6 @@ namespace driver
 
 		virtual bool IsShutdownOK();
 
-	//message handler
-	private:
-		void TranslateMsg(const MessageHead& rkMsgHead,const tchar* pBuff);
-
 	private:
 		Log_Engine		m_stLogEngine;
 		MessageChannel	m_kMsgChannel;
