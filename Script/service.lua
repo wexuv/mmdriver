@@ -10,6 +10,7 @@ ServiceType=
 	HTTPMANAGER = 2,	--http调度服务
 	MONITOR = 3;		--监控
 	CLIENT = 4;			--主动发起连接
+	DBSERVICE = 5;		--DBService
 	MAX = 20,
 };
 
@@ -49,6 +50,21 @@ Service = {
 				key=100;
 				input=65536;
 				output=65536;
+			}
+		}
+	};
+	DBService =
+	{
+		type=ServiceType.DBSERVICE;
+		count=1;
+		server=ServerSettings.Server1;
+		msgchannel =
+		{
+			channel1=
+			{
+				key=500;
+				input=1048576;
+				output=1048576;
 			}
 		}
 	};

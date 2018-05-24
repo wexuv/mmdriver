@@ -68,7 +68,7 @@ namespace driver
 
 	bool OutputStreamBuffer::Open( const char* fileName,const char* _Mode)
 	{
-		fileName;
+		(void)fileName;
 		return true;
 	}
 

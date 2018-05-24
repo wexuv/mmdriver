@@ -1,0 +1,16 @@
+下载mysql-connector-c-6.1.11-winx64.zip
+
+解压，拿到include和lib两个目录
+
+linux下开启3306端口的防火墙 
+iptables -I INPUT -p tcp --dport 3306 -j ACCEPT
+防火墙规则列表 
+iptables -L -n
+
+
+mysql开放连接权限
+grant all privileges on *.* to '用户名'@'192.168.1.1' identified by '密码';  
+指定数据库
+grant all privileges on mtlbbdb_2329.* to 'test'@'192.168.137.1' identified by '123456';  
+刷新权限
+flush privileges;

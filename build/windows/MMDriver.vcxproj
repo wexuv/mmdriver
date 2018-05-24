@@ -49,6 +49,7 @@
     <ClCompile Include="..\..\lib\lua\include\lvm.c" />
     <ClCompile Include="..\..\lib\lua\include\lzio.c" />
     <ClCompile Include="..\..\lib\lua\include\print.c" />
+    <ClCompile Include="..\..\lib\sqlite3\sqlite3.c" />
     <ClCompile Include="..\..\src\common\base64.cpp" />
     <ClCompile Include="..\..\src\common\cpumemstat.cpp" />
     <ClCompile Include="..\..\src\common\exception.cpp" />
@@ -68,6 +69,11 @@
     <ClCompile Include="..\..\src\common\timer_ex.cpp" />
     <ClCompile Include="..\..\src\common\time_ex.cpp" />
     <ClCompile Include="..\..\src\common\types.cpp" />
+    <ClCompile Include="..\..\src\db\mysql_handler.cpp" />
+    <ClCompile Include="..\..\src\db\mysql_result.cpp" />
+    <ClCompile Include="..\..\src\db\mysql_utility.cpp" />
+    <ClCompile Include="..\..\src\db\sqlite_handler.cpp" />
+    <ClCompile Include="..\..\src\db\sqlite_result.cpp" />
     <ClCompile Include="..\..\src\network\clientsocket.cpp" />
     <ClCompile Include="..\..\src\network\packet.cpp" />
     <ClCompile Include="..\..\src\network\serversocket.cpp" />
@@ -77,6 +83,7 @@
     <ClCompile Include="..\..\test\ClientService.cpp" />
     <ClCompile Include="..\..\test\Config.cpp" />
     <ClCompile Include="..\..\test\ConnectionPool.cpp" />
+    <ClCompile Include="..\..\test\DBService.cpp" />
     <ClCompile Include="..\..\test\HttpManagerService.cpp" />
     <ClCompile Include="..\..\test\HttpService.cpp" />
     <ClCompile Include="..\..\test\Item.cpp" />
@@ -114,6 +121,11 @@
     <ClInclude Include="..\..\include\common\timer_ex.h" />
     <ClInclude Include="..\..\include\common\time_ex.h" />
     <ClInclude Include="..\..\include\common\types.h" />
+    <ClInclude Include="..\..\include\db\mysql_handler.h" />
+    <ClInclude Include="..\..\include\db\mysql_result.h" />
+    <ClInclude Include="..\..\include\db\mysql_utility.h" />
+    <ClInclude Include="..\..\include\db\sqlite_handler.h" />
+    <ClInclude Include="..\..\include\db\sqlite_result.h" />
     <ClInclude Include="..\..\include\network\clientsocket.h" />
     <ClInclude Include="..\..\include\network\packet.h" />
     <ClInclude Include="..\..\include\network\serversocket.h" />
@@ -146,6 +158,7 @@
     <ClInclude Include="..\..\test\ClientService.h" />
     <ClInclude Include="..\..\test\Config.h" />
     <ClInclude Include="..\..\test\ConnectionPool.h" />
+    <ClInclude Include="..\..\test\DBService.h" />
     <ClInclude Include="..\..\test\HttpManagerService.h" />
     <ClInclude Include="..\..\test\HttpService.h" />
     <ClInclude Include="..\..\test\Item.h" />
@@ -242,14 +255,14 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;__WINDOWS__;_CRT_SECURE_NO_WARNINGS;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\include\common\;..\..\include\service\;..\..\include\network\;..\..\lib\threadpool\;..\..\lib\boost\;..\..\lib\;..\..\lib\lua\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\include\common\;..\..\include\service\;..\..\include\network\;..\..\lib\threadpool\;..\..\lib\boost\;..\..\lib\;..\..\lib\lua\include;..\..\include\db\;..\..\lib\mysql\include;..\..\lib\sqlite3;..\..\lib\tinyxml</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\lib\google\libs\;..\..\lib\curl\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libmysql.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\lib\google\libs\;..\..\lib\curl\lib\;..\..\lib\mysql\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Lib>
       <TargetMachine>MachineX64</TargetMachine>

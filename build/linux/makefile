@@ -3,7 +3,7 @@ include ./makefile_public
 TARGET = $(BIN_DIR)/MMDriver
 INSTALL= $(BIN_DIR)/
 
-CPP_BASE_FILE = ../../src/common/*.cpp ../../src/service/*.cpp ../../src/network/*.cpp
+CPP_BASE_FILE = ../../src/common/*.cpp ../../src/service/*.cpp ../../src/network/*.cpp ../../src/db/*.cpp ../../lib/sqlite3/*.c
 CPP_FILE = $(wildcard ../../test/*.cpp ../../test/*.cc $(CPP_BASE_FILE) ../../lib/lua/include/*.c)
 
 O_CPPFILE = $(patsubst %.c, %.o, $(patsubst %.cpp, %.o, $(patsubst %.cc, %.o, $(CPP_FILE)))) 
@@ -13,7 +13,7 @@ MYSQL_INC_DIR = /usr/local/mysql/include
 MYSQL_LIB_DIR = /usr/local/mysql/lib
  
 SERVER_CPPFLAGS = $(CPPFLAGS) -I$(MYSQL_INC_DIR) -DDEBUG -D__LINUX__ -std=c++0x
-SERVER_LDFLAGS = $(LDFLAGS) -lpthread -L$(MYSQL_LIB_DIR) -lmysqlclient_r
+SERVER_LDFLAGS = $(LDFLAGS) -lpthread -L$(MYSQL_LIB_DIR) -lmysqlclient_r -ldl
  
 all : $(TARGET)
 

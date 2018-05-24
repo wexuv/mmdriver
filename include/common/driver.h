@@ -8,7 +8,11 @@
 
 namespace driver
 {
-
+	enum
+	{
+		fail	= (tint32)-1,
+		success	= (tint32)0,
+	};
 }
 
 #endif //_DRIVER_H_

@@ -46,6 +46,12 @@
     <Filter Include="3rd\lua">
       <UniqueIdentifier>{7ad26f4c-20dc-4f9c-b8c4-375cb7dd265c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\db">
+      <UniqueIdentifier>{b4ef78a9-894e-4f21-b61b-7131936a089b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\db">
+      <UniqueIdentifier>{179718c0-e237-49e8-941c-4125ad6d70f5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\lib\lua\include\lapi.c">
@@ -258,6 +264,27 @@
     <ClCompile Include="..\..\test\HttpManagerService.cpp">
       <Filter>test</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\db\mysql_handler.cpp">
+      <Filter>src\db</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\db\mysql_result.cpp">
+      <Filter>src\db</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\db\mysql_utility.cpp">
+      <Filter>src\db</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\db\sqlite_handler.cpp">
+      <Filter>src\db</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\db\sqlite_result.cpp">
+      <Filter>src\db</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\sqlite3\sqlite3.c">
+      <Filter>src\db</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\DBService.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\lib\lua\include\lapi.h">
@@ -462,6 +489,24 @@
       <Filter>include\common</Filter>
     </ClInclude>
     <ClInclude Include="..\..\test\HttpManagerService.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\db\mysql_handler.h">
+      <Filter>include\db</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\db\mysql_result.h">
+      <Filter>include\db</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\db\mysql_utility.h">
+      <Filter>include\db</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\db\sqlite_handler.h">
+      <Filter>include\db</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\db\sqlite_result.h">
+      <Filter>include\db</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\DBService.h">
       <Filter>test</Filter>
     </ClInclude>
   </ItemGroup>

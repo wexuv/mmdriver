@@ -28,7 +28,7 @@ namespace driver
 		m_file.Close();
 	}
 
-	bool Log_Engine::init (int32_t log_mask, const char* file_prefix)
+	bool Log_Engine::init (tint32 log_mask, const char* file_prefix)
 	{
 		m_log_mask = log_mask;
 
@@ -51,7 +51,7 @@ namespace driver
 		return re;
 	}
 
-	bool Log_Engine::log (int32_t log_level, const char* content, ...)
+	bool Log_Engine::log (tint32 log_level, const char* content, ...)
 	{
 		if (whether_do_log(log_level) && check_file())
 		{
@@ -72,7 +72,7 @@ namespace driver
 		return false;
 	}
 
-	bool Log_Engine::dump_bin (int32_t log_level, const char* buff, uint32_t size)
+	bool Log_Engine::dump_bin (tint32 log_level, const char* buff, uint32_t size)
 	{
 		if (whether_do_log(log_level) && check_file())
 		{
@@ -188,7 +188,7 @@ namespace driver
 		return true;
 	}
 
-	char* Log_Engine::get_log_level_title(int32_t log_level)
+	char* Log_Engine::get_log_level_title(tint32 log_level)
 	{
 		if (log_level <= log_mask_none)
 		{

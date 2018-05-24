@@ -5,6 +5,7 @@
 #include "ClientService.h"
 #include "ScriptService.h"
 #include "HttpManagerService.h"
+#include "DBService.h"
 #include "Config.h"
 
 using namespace driver;
@@ -65,8 +66,12 @@ namespace driver
 		gServiceManager.Register(pClientService1);
 		gServiceManager.Register(pClientService2);
 
+		DBService* pDBService = new DBService();
+		gServiceManager.Register(pDBService);
+
 		gServiceManager.Run();
 
+		SAFE_DELETE(pDBService);
 		SAFE_DELETE(pClientService2);
 		SAFE_DELETE(pClientService1);
 		SAFE_DELETE(pNetService);
