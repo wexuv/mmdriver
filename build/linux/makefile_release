@@ -12,7 +12,7 @@ O_FILE    = $(O_CPPFILE)
 MYSQL_INC_DIR = /usr/local/mysql/include
 MYSQL_LIB_DIR = /usr/local/mysql/lib
  
-SERVER_CPPFLAGS = $(CPPFLAGS) -I$(MYSQL_INC_DIR)
+SERVER_CPPFLAGS = $(CPPFLAGS) -I$(MYSQL_INC_DIR) -D__LINUX__ -std=c++0x -O2
 SERVER_LDFLAGS = $(LDFLAGS) -lpthread -L$(MYSQL_LIB_DIR) -lmysqlclient_r
  
 all : $(TARGET)
