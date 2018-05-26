@@ -1,0 +1,10 @@
+syntax = "proto3";
+package google.protobuf;
+//DBStruct
+//@NH
+message DBCharTitle
+{
+	int32	version		= 1;
+	repeated uint32	uid			= 2;	//称号ID
+	repeated string	title		= 3;	//称号内容
+}

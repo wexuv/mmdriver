@@ -71,7 +71,6 @@
     <ClCompile Include="..\..\src\common\types.cpp" />
     <ClCompile Include="..\..\src\db\mysql_handler.cpp" />
     <ClCompile Include="..\..\src\db\mysql_result.cpp" />
-    <ClCompile Include="..\..\src\db\mysql_utility.cpp" />
     <ClCompile Include="..\..\src\db\sqlite_handler.cpp" />
     <ClCompile Include="..\..\src\db\sqlite_result.cpp" />
     <ClCompile Include="..\..\src\network\clientsocket.cpp" />
@@ -84,6 +83,8 @@
     <ClCompile Include="..\..\test\Config.cpp" />
     <ClCompile Include="..\..\test\ConnectionPool.cpp" />
     <ClCompile Include="..\..\test\DBService.cpp" />
+    <ClCompile Include="..\..\test\DBStruct.cpp" />
+    <ClCompile Include="..\..\test\DBStruct.pb.cc" />
     <ClCompile Include="..\..\test\HttpManagerService.cpp" />
     <ClCompile Include="..\..\test\HttpService.cpp" />
     <ClCompile Include="..\..\test\Item.cpp" />
@@ -92,6 +93,7 @@
     <ClCompile Include="..\..\test\MessageTest.cpp" />
     <ClCompile Include="..\..\test\MonitorService.cpp" />
     <ClCompile Include="..\..\test\NetService.cpp" />
+    <ClCompile Include="..\..\test\Object.cpp" />
     <ClCompile Include="..\..\test\Packet.pb.cc" />
     <ClCompile Include="..\..\test\PacketTest.cpp" />
     <ClCompile Include="..\..\test\ScriptService.cpp" />
@@ -123,7 +125,6 @@
     <ClInclude Include="..\..\include\common\types.h" />
     <ClInclude Include="..\..\include\db\mysql_handler.h" />
     <ClInclude Include="..\..\include\db\mysql_result.h" />
-    <ClInclude Include="..\..\include\db\mysql_utility.h" />
     <ClInclude Include="..\..\include\db\sqlite_handler.h" />
     <ClInclude Include="..\..\include\db\sqlite_result.h" />
     <ClInclude Include="..\..\include\network\clientsocket.h" />
@@ -159,6 +160,8 @@
     <ClInclude Include="..\..\test\Config.h" />
     <ClInclude Include="..\..\test\ConnectionPool.h" />
     <ClInclude Include="..\..\test\DBService.h" />
+    <ClInclude Include="..\..\test\DBStruct.h" />
+    <ClInclude Include="..\..\test\DBStruct.pb.h" />
     <ClInclude Include="..\..\test\HttpManagerService.h" />
     <ClInclude Include="..\..\test\HttpService.h" />
     <ClInclude Include="..\..\test\Item.h" />
@@ -166,11 +169,13 @@
     <ClInclude Include="..\..\test\MessageTest.h" />
     <ClInclude Include="..\..\test\MonitorService.h" />
     <ClInclude Include="..\..\test\NetService.h" />
+    <ClInclude Include="..\..\test\Object.h" />
     <ClInclude Include="..\..\test\Packet.pb.h" />
     <ClInclude Include="..\..\test\PacketTest.h" />
     <ClInclude Include="..\..\test\ProjectDefine.h" />
     <ClInclude Include="..\..\test\ScriptService.h" />
     <ClInclude Include="..\..\test\ServiceDefine.h" />
+    <ClInclude Include="..\..\test\SystemError.h" />
     <ClInclude Include="..\..\test\User.h" />
   </ItemGroup>
   <ItemGroup>

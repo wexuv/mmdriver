@@ -52,8 +52,10 @@ namespace driver
 		switch(m_enmServiceState)
 		{
 		case SS_START:
-			m_enmServiceState = SS_START_PROCESS;
-			Init();
+			if(Init())
+			{
+				m_enmServiceState = SS_START_PROCESS;
+			}
 			break;
 		case SS_START_PROCESS:
 			if(IsStartOK())

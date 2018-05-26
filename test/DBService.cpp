@@ -3,6 +3,9 @@
 #include "Config.h"
 
 #include "MessageTest.h"
+#include "mysql_result.h"
+#include "User.h"
+#include "SystemError.h"
 
 namespace driver
 {
@@ -25,14 +28,27 @@ namespace driver
 
 		m_stLogEngine.init(0xFF, szLogFile);
 
-		if(m_kMysqlHandler.init("192.168.137.129", "test", "123456", "mtlbbdb_2329") != success)
+		if(m_kMysqlHandler.init("192.168.137.129", "test", "123456", "mm_test") != success)
 		{
 			const char *szError = m_kMysqlHandler.get_last_error();
 			m_stLogEngine.log(log_mask_info, "[DBService_::%s] mysql error:%d,%s\n", __FUNCTION_NAME__,m_kMysqlHandler.get_last_errno(),szError);
 			return false;
 		}
 
-		LoadCharInfo(1);
+		CharData kCharData;
+		kCharData.m_nID = 1;
+		tsnprintf(kCharData.m_szCharName,sizeof(kCharData.m_szCharName),"%s","dadada");
+		kCharData.m_TitleData.set_version(1);
+		kCharData.m_TitleData.add_uid(1);
+		kCharData.m_TitleData.add_title("aaaaa");
+		kCharData.m_TitleData.add_uid(2);
+		kCharData.m_TitleData.add_title("bbbbb");
+
+		CreateChar(1,kCharData);
+
+		LoadCharInfo(1,kCharData);
+
+		UpdateCharInfo(kCharData);
 
 		luaobject* pChannelKey = g_Config.GetLuaObject("Service.DBService.msgchannel.channel1.key");
 		if(pChannelKey == null_ptr)
@@ -164,62 +180,92 @@ namespace driver
 		return false;
 	}
 
-	bool DBService::LoadCharInfo(tuint64 uCharGuid)
+	uint32_t DBService::CreateChar (uint32_t uiUserID, const CharData& rkCharData)
 	{
-		/*MySQL_Utility::_makeSQLString("select c_uid, c_type, c_name, c_career, c_weapon, c_level, c_exp, c_headpic, c_cash, c_yb, c_citizenship, c_reg_time, c_off_time, c_basic_info from t_char_basic where c_cid=%u and c_delete_flag=0", uiCharID);
+		tchar m_szEscapeCharName[2*CHAR_NAME_LENGTH+1]={0};
+		m_kMysqlHandler.make_real_escape_string(m_szEscapeCharName, rkCharData.m_szCharName, (tint32)strlen(rkCharData.m_szCharName));
 
-		DUMP_LOG(log_mask_detail, "[DB_Role_Handler::%s]select from t_char_basic SQL: %s\n",__FUNCTION__, MySQL_Utility::_getSQLString());
+		tint32 usBlobSize = MAX_BLOB_INFO_LENGTH;
+		EncodeBlob(rkCharData.m_TitleData, m_szBlobBuff, usBlobSize);
+
+		m_kMysqlHandler.make_real_escape_string(m_szEscapedBlobBuff, m_szBlobBuff, usBlobSize);
+
+		// 基础信息
+		m_kMysqlHandler.make_sql_string("insert into t_char (charguid, accname, charname, hp, mp, title, isvalid) values (%lu, '%s', '%s', %d, %d, '%s', 1)", 
+			uiUserID, m_szEscapeCharName, m_szEscapeCharName, 100,100, m_szEscapedBlobBuff);
+
+		m_stLogEngine.log(log_mask_detail, "[DBService_::%s]insert into t_char SQL: %s\n", __FUNCTION_NAME__, m_kMysqlHandler.get_sql_string());
+
+		u_int NumAffect = 0;
+		u_int LastID = 0;
+		u_int Errno = 0;
+		int32_t iRet = m_kMysqlHandler.executeSQL(NumAffect, LastID);
+		if (success != iRet)
+		{
+			Errno = m_kMysqlHandler.get_last_errno();
+			m_stLogEngine.log(log_mask_warning, "[DBService_::%s]insert into t_char fail, char name : %s, MySQL err(%d):%s.\n", __FUNCTION_NAME__, 
+				rkCharData.m_szCharName, Errno,m_kMysqlHandler.get_last_error());
+
+			if (ER_DUP_ENTRY == Errno)
+			{
+				return RE_LOGIN_NAME_ALREADY_USED;
+			}
+			else
+			{
+				return RE_LOGIN_CREATE_CHAR_FAIL;
+			}
+		}
+
+		// 技能信息
+		m_kMysqlHandler.make_sql_string("insert into t_char_skill (charguid, isvalid) values (%lu, 1)", uiUserID);
+		m_kMysqlHandler.executeSQL(NumAffect, LastID);
+
+		return RE_LOGIN_CREATE_CHAR_SUCCESS;
+	}
+
+	tint32 DBService::LoadCharInfo(tuint64 uCharGuid,CharData& rkCharData)
+	{
+		m_kMysqlHandler.make_sql_string("select charname,title from t_char where charguid=%lu and isvalid=1", uCharGuid);
+
+		m_stLogEngine.log(log_mask_detail, "[DBService_::%s] select from t_char SQL: %s\n", __FUNCTION_NAME__,m_kMysqlHandler.get_sql_string());
 
 		Mysql_Result kDBResult;
 		u_int NumAffect = 0;
-		int32_t iRet = MySQL_Utility::_executeSQL(NumAffect, kDBResult);
+		int32_t iRet = m_kMysqlHandler.executeSQL(NumAffect, kDBResult);
 		if (success == iRet && NumAffect > 0 && kDBResult.fetch_next_row())
 		{
-		kDBResult >> rkCharInfo.m_uiUserID;
-		kDBResult >> rkCharBaseInfo.m_byCharType;
-		kDBResult.get_string(rkCharBaseInfo.m_szCharName, sizeof(rkCharBaseInfo.m_szCharName));
-		kDBResult >> rkCharBaseInfo.m_byCareer;
-		kDBResult >> rkCharBaseInfo.m_byWeapon;
-		kDBResult >> rkCharBaseInfo.m_usCharLevel;
-		kDBResult >> rkCharBaseInfo.m_uiCharExp;
-		kDBResult >> rkCharBaseInfo.m_uiHeadPic;
-		kDBResult >> rkCharBaseInfo.m_llUnBindCash;
-		kDBResult >> rkCharBaseInfo.m_llYuanBaoPiao;
-		kDBResult >> rkCharBaseInfo.m_iCitizenship;
-		kDBResult >> rkCharBaseInfo.m_uiRegTime;
-		kDBResult >> rkCharBaseInfo.m_uiLastOfflineTime;
+			//kDBResult >> rkCharData.m_nID;
+			kDBResult.get_string(rkCharData.m_szCharName, sizeof(rkCharData.m_szCharName));
 
-		size_t tBlobSize = MAX_BLOB_INFO_LENGTH;
-		kDBResult.get_blob(m_szBlobBuff, tBlobSize);
-		if (tBlobSize > 0)
-		{
-		if (false == DecodeBlob(rkCharBaseInfo, m_szBlobBuff, tBlobSize))
-		{
+			size_t tBlobSize = MAX_BLOB_INFO_LENGTH;
+			kDBResult.get_blob(m_szBlobBuff, tBlobSize);
+			if (tBlobSize > 0)
+			{
+				if (false == DecodeBlob(rkCharData.m_TitleData, m_szBlobBuff, (tint32)tBlobSize))
+				{
+					return fail;
+				}
+			}
+			return success;
+		}
+
 		return fail;
-		}
-		}
-
-		return success;
-		}
-		*/
-		return true;
 	}
-	bool DBService::UpdateCharInfo(tuint64 uCharGuid)
+
+	tint32 DBService::UpdateCharInfo(const CharData& rkCharData)
 	{
+		tint32 usBlobSize = MAX_BLOB_INFO_LENGTH;
+		if (false == EncodeBlob(rkCharData.m_TitleData, m_szBlobBuff, usBlobSize))
+		{
+			return fail;
+		}
+		m_kMysqlHandler.make_real_escape_string(m_szEscapedBlobBuff, m_szBlobBuff, usBlobSize);
+		m_kMysqlHandler.make_sql_string("update t_char set title='%s' where charguid=%lu", m_szEscapedBlobBuff, rkCharData.m_nID);
+		u_int NumAffect = 0;
+		u_int LastID = 0;
+		int32_t iRet = m_kMysqlHandler.executeSQL(NumAffect, LastID);
 
-		//uint16_t usBlobSize = MAX_BLOB_INFO_LENGTH;
-		//if (false == EncodeBlob(rkCharInfo.m_kBaseInfo, m_szBlobBuff, usBlobSize))
-		//{
-		//	return fail;
-		//}
-		//MySQL_Utility::_makeRealEscapeString(m_szEscapedBlobBuff, m_szBlobBuff, usBlobSize);
-		//MySQL_Utility::_makeSQLString("update t_char_basic set c_career=%d, c_level=%u, c_exp=%u, c_cash=%lld, c_yb=%lld, c_citizenship=%d, c_basic_info='%s' where c_cid=%u", 
-		//	rkCharInfo.m_kBaseInfo.m_byCareer, rkCharInfo.m_kBaseInfo.m_usCharLevel, rkCharInfo.m_kBaseInfo.m_uiCharExp, rkCharInfo.m_kBaseInfo.m_llUnBindCash, rkCharInfo.m_kBaseInfo.m_llYuanBaoPiao, rkCharInfo.m_kBaseInfo.m_iCitizenship, m_szEscapedBlobBuff, uiCharID);
-		//u_int NumAffect = 0;
-		//u_int LastID = 0;
-		//int32_t iRet = MySQL_Utility::_executeSQL(NumAffect, LastID);
-
-		//DUMP_LOG(log_mask_detail, "[DB_Role_Handler::%s]update t_char_basic result : %d, SQL: %s\n",__FUNCTION__, iRet, MySQL_Utility::_getSQLString());
+		m_stLogEngine.log(log_mask_detail, "[DB_Role_Handler::%s]update t_char result : %d, SQL: %s\n",__FUNCTION_NAME__, iRet, m_kMysqlHandler.get_sql_string());
 
 		return true;
 	}

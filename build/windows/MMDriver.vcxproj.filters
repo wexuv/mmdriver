@@ -270,9 +270,6 @@
     <ClCompile Include="..\..\src\db\mysql_result.cpp">
       <Filter>src\db</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\db\mysql_utility.cpp">
-      <Filter>src\db</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\db\sqlite_handler.cpp">
       <Filter>src\db</Filter>
     </ClCompile>
@@ -283,6 +280,15 @@
       <Filter>src\db</Filter>
     </ClCompile>
     <ClCompile Include="..\..\test\DBService.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\Object.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\DBStruct.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\DBStruct.pb.cc">
       <Filter>test</Filter>
     </ClCompile>
   </ItemGroup>
@@ -497,9 +503,6 @@
     <ClInclude Include="..\..\include\db\mysql_result.h">
       <Filter>include\db</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\db\mysql_utility.h">
-      <Filter>include\db</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\db\sqlite_handler.h">
       <Filter>include\db</Filter>
     </ClInclude>
@@ -507,6 +510,18 @@
       <Filter>include\db</Filter>
     </ClInclude>
     <ClInclude Include="..\..\test\DBService.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\Object.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\DBStruct.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\DBStruct.pb.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\SystemError.h">
       <Filter>test</Filter>
     </ClInclude>
   </ItemGroup>

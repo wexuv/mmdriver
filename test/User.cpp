@@ -5,7 +5,7 @@ namespace driver
 {
 	ObjUser::ObjUser()
 	{
-		m_kUserData.Clear();
+		m_kCharData.Clear();
 	}
 
 	ObjUser::~ObjUser()

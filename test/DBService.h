@@ -8,6 +8,7 @@
 #include "msg_channel.h"
 #include "MessageTest.h"
 #include "mysql_handler.h"
+#include "DBStruct.h"
 
 namespace driver
 {
@@ -39,8 +40,9 @@ namespace driver
 		void HandleMsgUserLogin(const MessageHead& rkMsgHead,const tchar* pBuff);
 
 	private:
-		bool LoadCharInfo(tuint64 uCharGuid);
-		bool UpdateCharInfo(tuint64 uCharGuid);
+		uint32_t CreateChar (uint32_t uiUserID, const CharData& rkCharData);
+		tint32 LoadCharInfo(tuint64 uCharGuid,CharData& rkCharData);
+		tint32 UpdateCharInfo(const CharData& rkCharData);
 
 	private:
 		Log_Engine		m_stLogEngine;
@@ -54,6 +56,9 @@ namespace driver
 		bool		m_bFree;
 
 		Mysql_Handler m_kMysqlHandler;
+
+		char m_szBlobBuff[MAX_BLOB_INFO_LENGTH];
+		char m_szEscapedBlobBuff[2*MAX_BLOB_INFO_LENGTH + 1];
 	};
 }
 
