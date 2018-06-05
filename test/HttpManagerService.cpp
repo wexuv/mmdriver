@@ -43,12 +43,23 @@ namespace driver
 		return true;
 	}
 
+	bool HttpManagerService::IsStartOK()
+	{
+		bsvector<HttpService*>::iterator iter = m_HttpServicePool.begin();
+		for( ; iter != m_HttpServicePool.end(); ++ iter)
+		{
+			if(!(*iter)->IsStartOK())
+				return false;
+		}
+		return true;
+	}
+
 	bool HttpManagerService::IsShutdownOK()
 	{
 		bsvector<HttpService*>::iterator iter = m_HttpServicePool.begin();
 		for( ; iter != m_HttpServicePool.end(); ++ iter)
 		{
-			if((*iter)->NeedSchedule())
+			if((*iter)->IsShutdownOK())
 				return false;
 		}
 		return true;

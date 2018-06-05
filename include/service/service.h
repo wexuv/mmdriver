@@ -17,6 +17,7 @@ namespace driver
 
 		SS_START,
 		SS_START_PROCESS,
+		SS_START_FAIL,
 		SS_START_OK,
 
 		SS_RUN,
@@ -80,7 +81,6 @@ namespace driver
 		virtual void Tick(const TimeData& rkTimeData);		 
 
 		virtual bool Shutdown();
-
 
 	protected:
 		TimerExPtrVec		m_TimerExPtrVec;

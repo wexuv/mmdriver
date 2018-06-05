@@ -16,6 +16,7 @@ namespace driver
 			HTTPMANAGER,	//HTTPService调度服务
 			MONITOR,		//监控
 			CLIENT,			//主动发起连接
+			DBSERVICE = 5,	//DBService
 			MAX,
 		};
 	};

@@ -9,6 +9,7 @@
 #include "MessageTest.h"
 #include "mysql_handler.h"
 #include "DBStruct.h"
+#include "redis_handler.h"
 
 namespace driver
 {
@@ -19,14 +20,15 @@ namespace driver
 		virtual ~DBService();
 
 	protected:
-		tint32	GetServiceType() {return ServiceType::HTTP;};
+		tint32	GetServiceType() {return ServiceType::DBSERVICE;};
 
 		virtual bool Init();
 		virtual bool Shutdown();
 
-		virtual void Tick(const TimeData& rkTimeData);
+		virtual void	Tick(const TimeData& rkTimeData);
+		void			TickConnect(const TimeData& rkTimeData);
 
-		bool		IsFree() {return m_bFree;}; 
+		bool			IsFree() {return m_bFree;}; 
 
 	private:
 		bool SendMsgToNetServer(const Message* pkMessage);
@@ -59,6 +61,8 @@ namespace driver
 
 		char m_szBlobBuff[MAX_BLOB_INFO_LENGTH];
 		char m_szEscapedBlobBuff[2*MAX_BLOB_INFO_LENGTH + 1];
+
+		Redis_Handler m_kRedisHandler;
 	};
 }
 

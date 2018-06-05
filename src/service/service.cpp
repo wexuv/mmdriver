@@ -52,9 +52,10 @@ namespace driver
 		switch(m_enmServiceState)
 		{
 		case SS_START:
-			if(Init())
+			m_enmServiceState = SS_START_PROCESS;
+			if(!Init())
 			{
-				m_enmServiceState = SS_START_PROCESS;
+				m_enmServiceState = SS_START_FAIL;
 			}
 			break;
 		case SS_START_PROCESS:
@@ -63,9 +64,10 @@ namespace driver
 				m_enmServiceState = SS_START_OK;
 			}
 			break;
+		case SS_START_FAIL:
+			break;
 		case SS_START_OK:
 			break;
-
 		case SS_RUN:
 			Tick(rkTimeData);
 			break;
@@ -84,7 +86,6 @@ namespace driver
 
 		case SS_SHUTDOWN_OK:
 			break;
-
 		default:
 			break;
 		}
@@ -96,17 +97,17 @@ namespace driver
 
 	bool Service::NeedSchedule()
 	{
-		return m_enmServiceState != SS_SHUTDOWN_OK;
+		return m_enmServiceState != SS_NONE && m_enmServiceState != SS_SHUTDOWN_OK;
 	}
 
 	bool Service::IsStartOK()
 	{
-		return true;
+		return m_enmServiceState == SS_START_OK || m_enmServiceState != SS_RUN;
 	}
 
 	bool Service::IsShutdownOK()
 	{
-		return true;
+		return m_enmServiceState == SS_SHUTDOWN_OK;
 	}
 
 	void Service::Tick(const TimeData& rkTimeData)

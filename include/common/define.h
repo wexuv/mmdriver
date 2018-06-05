@@ -6,6 +6,7 @@ namespace driver
 
 #define MAX_FILE_NAME_LENGTH	256
 #define MAX_TIME_STRING_LENGTH	32
+#define	MAX_IP_LENGTH			64
 
 #define null_ptr (0)
 #define invalid_id (-1)

@@ -4,6 +4,8 @@ windows 64位
 解压，拿到include和lib两个目录
 
 linux下安装mysql
+启动mysql
+service mysqld start
 开启3306端口的防火墙 
 iptables -I INPUT -p tcp --dport 3306 -j ACCEPT
 防火墙规则列表 

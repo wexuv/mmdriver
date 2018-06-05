@@ -1,0 +1,45 @@
+服务器：
+1>linux下下载最新redis版本
+wget http://download.redis.io/releases/redis-4.0.9.tar.gz
+
+2>解压
+tar -zxvf redis-4.0.9.tar.gz
+
+3>进redis-4.0.9目录编译
+make
+make install
+
+4>测试
+make test
+如果没有tcl,安装一下
+yum install tcl
+
+5>复制配置文件到/etc/目录：
+cp redis.conf /etc/
+修改redis.conf文件 
+vi /etc/redis.conf
+修改daemonize配置项为yes，使Redis进程在后台运行
+daemonize yes
+添加绑定的主机地址
+bind 127.0.01 192.168.137.129
+
+6>启动Redis 
+# cd /usr/local/bin
+# ./redis-server /etc/redis.conf
+
+7>执行redis-cli客户端查看端口，并执行查询
+
+8>redis重启
+apt-get或者yum install安装的redis，可以直接通过下面的命令停止/启动/重启redis
+/etc/init.d/redis-server stop
+/etc/init.d/redis-server start
+/etc/init.d/redis-server restart
+如果是通过源码安装的redis，则可以通过redis的客户端程序redis-cli的shutdown命令来重启redis
+redis-cli -h 127.0.0.1 -p 6379 shutdown
+
+
+客户端c++,下载hiredis
+https://github.com/redis/hiredis
+
+linux: https://github.com/mrpi/redis-cplusplus-client
+windows: 编译3rd目录下RedisClient,生成相关lib文件

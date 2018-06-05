@@ -48,7 +48,7 @@ namespace driver
 		if(curTickCount - m_nLastTickTime > 3000)
 		{
 			m_nLastTickTime = curTickCount;
-			return true;
+			return Service::NeedSchedule();
 		}
 		return false;
 	}

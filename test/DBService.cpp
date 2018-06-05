@@ -35,6 +35,21 @@ namespace driver
 			return false;
 		}
 
+		if(m_kRedisHandler.Open("192.168.137.129",6379) != success)
+		{
+			m_stLogEngine.log(log_mask_info, "[DBService_::%s] open redis error\n", __FUNCTION_NAME__);
+			return false;
+		}
+
+		TimerExPtr ptrTimerEx = TimerExPtr(new TimerEx());
+		AssertEx(ptrTimerEx,"");
+
+		ptrTimerEx->SetInterval(60000);
+		ptrTimerEx->SetCallBack(&DBService::TickConnect,this);
+
+		AddTimer(ptrTimerEx);
+
+		//mysql test
 		CharData kCharData;
 		kCharData.m_nID = 1;
 		tsnprintf(kCharData.m_szCharName,sizeof(kCharData.m_szCharName),"%s","dadada");
@@ -49,6 +64,54 @@ namespace driver
 		LoadCharInfo(1,kCharData);
 
 		UpdateCharInfo(kCharData);
+		//mysql test
+
+		//redis test
+		//save
+		tchar szKey[32] = {0};
+		tsnprintf(szKey,32,"%d",kCharData.m_nID);
+		redisReply* pRedisReply = m_kRedisHandler.ExecuteRedisCommand("HSET USER %s %b",szKey,(tchar*)&kCharData, sizeof(kCharData));
+		if (NULL == pRedisReply)
+			return false;
+
+		if (REDIS_REPLY_ERROR == pRedisReply->type)
+		{
+			m_stLogEngine.log(log_mask_info, "[DBService_::%s] redis error:%d,%s\n", __FUNCTION_NAME__,kCharData.m_nID,pRedisReply->str);
+			m_kRedisHandler.FreeReply(pRedisReply);
+			return false;
+		}
+
+		m_kRedisHandler.FreeReply(pRedisReply);
+
+		//load
+		pRedisReply = m_kRedisHandler.ExecuteRedisCommand("HGET USER %s",szKey);
+
+		if (NULL == pRedisReply)
+		{
+			m_stLogEngine.log(log_mask_info, "[DBService_::%s] redis execute error:%d\n",__FUNCTION_NAME__,kCharData.m_nID);
+			return false;
+		}
+
+		if (REDIS_REPLY_STRING != pRedisReply->type)
+		{
+			m_stLogEngine.log(log_mask_info, "[DBService_::%s] redis get data type error:%d,len:%d\n",__FUNCTION_NAME__,kCharData.m_nID,pRedisReply->type);
+			m_kRedisHandler.FreeReply(pRedisReply);
+			return false;
+		}
+
+		if(pRedisReply->len != sizeof(CharData))
+		{
+			m_stLogEngine.log(log_mask_info, "[DBService_::%s] redis get data len error:%d,len:%d\n",__FUNCTION_NAME__,kCharData.m_nID,pRedisReply->len);
+			m_kRedisHandler.FreeReply(pRedisReply);
+			return false;
+		}
+
+		CharData kLoadData;
+		memcpy(&kLoadData, pRedisReply->str,pRedisReply->len);
+
+		// Õ∑≈
+		m_kRedisHandler.FreeReply(pRedisReply);
+		//redis test
 
 		luaobject* pChannelKey = g_Config.GetLuaObject("Service.DBService.msgchannel.channel1.key");
 		if(pChannelKey == null_ptr)
@@ -64,12 +127,16 @@ namespace driver
 
 		m_bFree = true;
 
+
+
 		return true;
 	}
 
 	bool DBService::Shutdown()
 	{
 		m_kMysqlHandler.fini();
+
+		m_kRedisHandler.Close();
 
 		return Service::Shutdown();
 	}
@@ -112,6 +179,13 @@ namespace driver
 
 			++nMsgCount;
 		}
+	}
+
+	void DBService::TickConnect(const TimeData& rkTimeData)
+	{
+		redisReply *pRedisReply = m_kRedisHandler.ExecuteRedisCommand("TIME");
+		if(pRedisReply)
+			m_kRedisHandler.FreeReply(pRedisReply);
 	}
 
 	void DBService::HandleMsgDefault(const MessageHead& rkMsgHead,const tchar* pBuff)

@@ -291,6 +291,9 @@
     <ClCompile Include="..\..\test\DBStruct.pb.cc">
       <Filter>test</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\db\redis_handler.cpp">
+      <Filter>src\db</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\lib\lua\include\lapi.h">
@@ -523,6 +526,9 @@
     </ClInclude>
     <ClInclude Include="..\..\test\SystemError.h">
       <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\db\redis_handler.h">
+      <Filter>include\db</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

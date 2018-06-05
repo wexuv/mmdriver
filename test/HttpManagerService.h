@@ -25,6 +25,7 @@ namespace driver
 		virtual bool Init();
 		virtual void Tick(const TimeData& rkTimeData);
 
+		virtual bool IsStartOK();
 		virtual bool IsShutdownOK();
 
 	private:

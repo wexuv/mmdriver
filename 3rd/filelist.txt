@@ -8,3 +8,4 @@ protobuf-master.zip
 threadpool-0_2_5-src.zip
 mysql-connector-c-6.1.11-winx64.zip
 sqlite-amalgamation-3230100.zip
+RedisClient.rar
