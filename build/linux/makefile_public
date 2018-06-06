@@ -13,11 +13,11 @@ ARFLAGS = cr
 CPPFLAGS= -g -Wall -I${BASE_DIR} -I$(LS_INC_DIR) ${INCFLAGS} ${THIRDINCFLAGS} -I$(PJ_INC_DIR)/include
 
 INCFLAGS = -I$(PJ_INC_DIR)/common -I$(PJ_INC_DIR)/network -I$(PJ_INC_DIR)/service -I$(PJ_INC_DIR)/db 
-THIRDINCFLAGS = -I$(LIB_DIR)/ -I$(LIB_DIR)/boost/ -I$(LIB_DIR)/lua/include -I$(LIB_DIR)/threadpool -I$(LIB_DIR)/sqlite3 -I$(LIB_DIR)/redis
+THIRDINCFLAGS = -I$(LIB_DIR)/ -I$(LIB_DIR)/boost/ -I$(LIB_DIR)/lua/include -I$(LIB_DIR)/threadpool -I$(LIB_DIR)/sqlite3 -I$(LIB_DIR)/redis/include
 
 #-I$(MYSQL_INC_DIR) -I$(SQLITE_INC_DIR)
 
-LDFLAGS = -g -L${LIB_DIR} -lcurl -lprotobuf
+LDFLAGS = -g -L${LIB_DIR} -lcurl -lprotobuf -lhiredis
 
 ###########################################################
 #some path definition

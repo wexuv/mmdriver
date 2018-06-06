@@ -1,6 +1,8 @@
+#include "driver.h"
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdarg.h>
 
 #include "redis_handler.h"
 
@@ -11,7 +13,7 @@ namespace driver
 		host_ip_[0]  = '\0';
 		account_[0]  = '\0';
 		password_[0] = '\0';
-
+			
 		m_pRedisContext = null_ptr;
 	}
 
@@ -86,6 +88,20 @@ namespace driver
 		}
 	}
 
+	redisReply* Redis_Handler::ExecuteCommand(const tchar* szCommand)
+	{
+		return ExecuteRedisCommand(szCommand);
+	}
+	redisReply* Redis_Handler::HSet(const tchar* szKey,const tchar* szField, const tchar* szValue, size_t nValueSize)
+	{
+		//此处严重注意,传入的二进制长度类型必须是size_t,否则在hiredis的转换中会出错
+		//封装此函数，以免调用错误
+		return ExecuteRedisCommand("HSET %s %s %b",szKey,szField,szValue, nValueSize);
+	}
+	redisReply* Redis_Handler::HGet(const tchar* szKey,const tchar* szField)
+	{
+		return ExecuteRedisCommand("HGET %s %s",szKey,szField);
+	}
 }
 
 

@@ -25,6 +25,7 @@ namespace driver
 			return false;
 		}
 		usSize = rkInfo.ByteSize();
+		pBuff[usSize]=0;
 
 		return true;
 	}

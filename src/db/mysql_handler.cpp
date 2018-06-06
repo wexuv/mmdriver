@@ -2,6 +2,7 @@
 #include "mysql_handler.h"
 #include "mysql_result.h"
 #include <string.h>
+#include <stdarg.h>
 
 namespace driver
 {

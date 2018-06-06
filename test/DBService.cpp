@@ -70,7 +70,12 @@ namespace driver
 		//save
 		tchar szKey[32] = {0};
 		tsnprintf(szKey,32,"%d",kCharData.m_nID);
-		redisReply* pRedisReply = m_kRedisHandler.ExecuteRedisCommand("HSET USER %s %b",szKey,(tchar*)&kCharData, sizeof(kCharData));
+		
+		tint32 usBlobSize = MAX_BLOB_INFO_LENGTH;
+		if (false == EncodeBlob(kCharData.m_TitleData, m_szBlobBuff, usBlobSize))
+			return false;
+
+		redisReply* pRedisReply = m_kRedisHandler.HSet("USER",szKey,(tchar*)m_szBlobBuff, usBlobSize);
 		if (NULL == pRedisReply)
 			return false;
 
@@ -84,7 +89,7 @@ namespace driver
 		m_kRedisHandler.FreeReply(pRedisReply);
 
 		//load
-		pRedisReply = m_kRedisHandler.ExecuteRedisCommand("HGET USER %s",szKey);
+		pRedisReply = m_kRedisHandler.HGet("USER",szKey);
 
 		if (NULL == pRedisReply)
 		{
@@ -99,16 +104,18 @@ namespace driver
 			return false;
 		}
 
-		if(pRedisReply->len != sizeof(CharData))
-		{
-			m_stLogEngine.log(log_mask_info, "[DBService_::%s] redis get data len error:%d,len:%d\n",__FUNCTION_NAME__,kCharData.m_nID,pRedisReply->len);
-			m_kRedisHandler.FreeReply(pRedisReply);
-			return false;
-		}
+		//if(pRedisReply->len != sizeof(CharData))
+		//{
+		//	m_stLogEngine.log(log_mask_info, "[DBService_::%s] redis get data len error:%d,len:%d\n",__FUNCTION_NAME__,kCharData.m_nID,pRedisReply->len);
+		//	m_kRedisHandler.FreeReply(pRedisReply);
+		//	return false;
+		//}
 
 		CharData kLoadData;
-		memcpy(&kLoadData, pRedisReply->str,pRedisReply->len);
-
+		if (false == DecodeBlob(kLoadData.m_TitleData, pRedisReply->str, pRedisReply->len))
+		{
+			return false;
+		}
 		// Õ∑≈
 		m_kRedisHandler.FreeReply(pRedisReply);
 		//redis test
@@ -183,9 +190,16 @@ namespace driver
 
 	void DBService::TickConnect(const TimeData& rkTimeData)
 	{
-		redisReply *pRedisReply = m_kRedisHandler.ExecuteRedisCommand("TIME");
+		redisReply *pRedisReply = m_kRedisHandler.ExecuteCommand("TIME");
 		if(pRedisReply)
+		{
 			m_kRedisHandler.FreeReply(pRedisReply);
+		}
+		else
+		{
+			m_kRedisHandler.Close();
+			m_kRedisHandler.Open("192.168.137.129",6379);
+		}
 	}
 
 	void DBService::HandleMsgDefault(const MessageHead& rkMsgHead,const tchar* pBuff)

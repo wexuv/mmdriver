@@ -39,7 +39,6 @@ redis-cli -h 127.0.0.1 -p 6379 shutdown
 
 
 客户端c++,下载hiredis
-https://github.com/redis/hiredis
-
-linux: https://github.com/mrpi/redis-cplusplus-client
+linux:
+ https://github.com/redis/hiredis   下载hiredis-master.zip,解压make，生成libhiredis.a
 windows: 编译3rd目录下RedisClient,生成相关lib文件

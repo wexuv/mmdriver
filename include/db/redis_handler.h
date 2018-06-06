@@ -39,12 +39,17 @@ namespace driver
 		tint32 Open(const tchar* pszIP, tuint16 uPort);
 		//关闭
 		void Close();
-
-		//执一条Redis指令
-		redisReply* ExecuteRedisCommand(const tchar *format, ...);
-
 		//释放上下文
 		void FreeReply(redisReply*&);
+
+	public:
+		redisReply* ExecuteCommand(const tchar* szCommand);
+		redisReply* HSet(const tchar* szKey,const tchar* szField, const tchar* szValue, size_t nValueSize);
+		redisReply* HGet(const tchar* szKey,const tchar* szField);
+
+	protected:
+		//执一条Redis指令
+		redisReply* ExecuteRedisCommand(const tchar *format, ...);
 	};
 }
 
