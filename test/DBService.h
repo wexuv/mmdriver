@@ -3,13 +3,13 @@
 
 #include "ServiceDefine.h"
 #include "service.h"
-#include "log.h"
+#include "common/log.h"
 #include "ProjectDefine.h"
-#include "msg_channel.h"
+#include "common/msg_channel.h"
 #include "MessageTest.h"
-#include "mysql_handler.h"
+#include "db/mysql_handler.h"
 #include "DBStruct.h"
-#include "redis_handler.h"
+#include "db/redis_handler.h"
 
 namespace driver
 {

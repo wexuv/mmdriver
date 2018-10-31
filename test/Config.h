@@ -1,8 +1,8 @@
 #ifndef _CONFIG_H_
 #define _CONFIG_H_
 
-#include "driver.h"
-#include "luaobject.h"
+#include "common/driver.h"
+#include "common/luaobject.h"
 
 namespace driver
 {

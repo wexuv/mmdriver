@@ -3,9 +3,9 @@
 
 #include "ServiceDefine.h"
 #include "service.h"
-#include "log.h"
+#include "common/log.h"
 #include "ProjectDefine.h"
-#include "msg_channel.h"
+#include "common/msg_channel.h"
 #include "MessageTest.h"
 
 namespace driver

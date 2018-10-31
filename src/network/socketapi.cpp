@@ -1,5 +1,5 @@
-#include "socketapi.h"
-#include "lib.h"
+#include "network/socketapi.h"
+#include "common/lib.h"
 
 namespace driver
 {

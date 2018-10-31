@@ -1,4 +1,4 @@
-#include "msg_channel.h"
+#include "common/msg_channel.h"
 
 namespace driver
 {

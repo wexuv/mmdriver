@@ -1,6 +1,6 @@
-#include "packet.h"
-#include "define.h"
-#include "exception.h"
+#include "network/packet.h"
+#include "common/define.h"
+#include "common/exception.h"
 
 namespace driver
 {

@@ -1,7 +1,7 @@
 #ifndef __MYSQL_HANDLER_H__
 #define __MYSQL_HANDLER_H__
 
-#include "types.h"
+#include "common/types.h"
 #include <mysql.h>
 #include <mysqld_error.h>
 

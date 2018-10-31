@@ -2,7 +2,7 @@
 #define _PACKET_TEST_H_
 
 #include "ProjectDefine.h"
-#include "packet.h"
+#include "network/packet.h"
 #include "Packet.pb.h"
 
 namespace driver

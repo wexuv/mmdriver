@@ -1,5 +1,5 @@
-#include "serversocket.h"
-#include "std_ex.h"
+#include "network/serversocket.h"
+#include "common/std_ex.h"
 
 namespace driver 
 {

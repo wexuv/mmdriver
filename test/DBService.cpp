@@ -3,7 +3,7 @@
 #include "Config.h"
 
 #include "MessageTest.h"
-#include "mysql_result.h"
+#include "db/mysql_result.h"
 #include "User.h"
 #include "SystemError.h"
 

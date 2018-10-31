@@ -191,7 +191,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -247,7 +247,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;__WINDOWS__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.\include\;.\include\common;.\include\network;.\include\service;.\lib\boost;.\lib\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\include\;..\..\include\service;..\..\lib\boost;..\..\lib\;..\..\lib\lua\include\;..\..\lib\threadpool\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -262,7 +262,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;__WINDOWS__;_CRT_SECURE_NO_WARNINGS;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\include\common\;..\..\include\service\;..\..\include\network\;..\..\lib\threadpool\;..\..\lib\boost\;..\..\lib\;..\..\lib\lua\include;..\..\include\db\;..\..\lib\mysql\include;..\..\lib\sqlite3;..\..\lib\tinyxml;..\..\lib\redis\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\include\;..\..\include\service\;..\..\lib\threadpool\;..\..\lib\boost\;..\..\lib\;..\..\lib\lua\include;..\..\lib\mysql\include;..\..\lib\sqlite3;..\..\lib\tinyxml;..\..\lib\redis\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>

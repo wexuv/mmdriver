@@ -1,5 +1,5 @@
 #include "Config.h"
-#include "luabinder.h"
+#include "common/luabinder.h"
 
 namespace driver
 {

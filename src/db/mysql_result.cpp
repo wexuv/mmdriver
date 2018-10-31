@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "mysql_result.h"
+#include "db/mysql_result.h"
 
 namespace driver
 {

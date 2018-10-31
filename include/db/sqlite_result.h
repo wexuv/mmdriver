@@ -1,10 +1,8 @@
 #ifndef __SQLITE_RESULT_H__
 #define __SQLITE_RESULT_H__
 
-#include <sqlite3.h>
-#include <string.h>
 #include <string>
-#include "sqlite_handler.h"
+#include "common/driver.h"
 
 namespace driver
 {
@@ -33,7 +31,7 @@ namespace driver
 
 		SQLite_Result& operator >> (int8_t& val);
 		SQLite_Result& operator >> (int16_t& val);
-		SQLite_Result& operator >> (tint32& val);
+		SQLite_Result& operator >> (int32_t& val);
 		SQLite_Result& operator >> (int64_t& val);
 
 		SQLite_Result& operator >> (uint8_t& val);

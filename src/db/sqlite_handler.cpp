@@ -1,6 +1,6 @@
-#include "driver.h"
-#include "sqlite_handler.h"
-#include "sqlite_result.h"
+#include "common/driver.h"
+#include "db/sqlite_handler.h"
+#include "db/sqlite_result.h"
 
 namespace driver
 {
@@ -23,7 +23,7 @@ namespace driver
 		this->open ();
 	}
 
-	tint32 SQLite_Handler::open (const char* file_name)
+	int32_t SQLite_Handler::open (const char* file_name)
 	{
 		if (is_opened_)
 		{
@@ -35,7 +35,7 @@ namespace driver
 		return this->open ();
 	}
 
-	tint32 SQLite_Handler::open (void)
+	int32_t SQLite_Handler::open (void)
 	{
 		if (is_opened_)
 		{
@@ -56,7 +56,7 @@ namespace driver
 		return fail;
 	}
 
-	tint32 SQLite_Handler::close (void)
+	int32_t SQLite_Handler::close (void)
 	{
 		if (NULL != handler_)
 		{
@@ -68,7 +68,7 @@ namespace driver
 		return success;
 	}
 
-	tint32 SQLite_Handler::execute (const char* sql)
+	int32_t SQLite_Handler::execute (const char* sql)
 	{
 		if (NULL == sql)
 		{
@@ -98,7 +98,7 @@ namespace driver
 		return fail;
 	}
 
-	tint32 SQLite_Handler::execute (const char* sql, SQLite_Result& dbresult)
+	int32_t SQLite_Handler::execute (const char* sql, SQLite_Result& dbresult)
 	{
 		if (NULL == sql)
 		{

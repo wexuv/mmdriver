@@ -3,12 +3,12 @@
 
 #include "ServiceDefine.h"
 #include "service.h"
-#include "log.h"
-#include "serversocket.h"
+#include "common/log.h"
+#include "network/serversocket.h"
 #include "ConnectionPool.h"
-#include "packet.h"
+#include "network/packet.h"
 #include "PacketTest.h"
-#include "msg_channel.h"
+#include "common/msg_channel.h"
 #include "MessageTest.h"
 
 namespace driver

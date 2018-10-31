@@ -1,4 +1,4 @@
-#include "outputstream.h"
+#include "common/outputstream.h"
 #include <stdarg.h>
 
 namespace driver 

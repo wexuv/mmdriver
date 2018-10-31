@@ -1,9 +1,9 @@
 #ifndef __CLIENT_SOCKET_H__
 #define __CLIENT_SOCKET_H__
 
-#include "types.h"
-#include "lib.h"
-#include "socketapi.h"
+#include "common/types.h"
+#include "common/lib.h"
+#include "network/socketapi.h"
 
 namespace driver 
 {

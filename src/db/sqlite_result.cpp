@@ -1,5 +1,6 @@
 #include <stdlib.h>
-#include "sqlite_result.h"
+#include <sqlite3.h>
+#include "db/sqlite_result.h"
 
 namespace driver
 {
@@ -98,14 +99,14 @@ namespace driver
 		return *this;
 	}
 
-	SQLite_Result& SQLite_Result::operator >> (tint32& val)
+	SQLite_Result& SQLite_Result::operator >> (int32_t& val)
 	{
 		if (current_row_ <= row_count_ && current_col_ < col_count_)
 		{
 			size_t current_index_ = (current_row_ * col_count_) + current_col_;
 			if (NULL != result_[current_index_])
 			{
-				val = (tint32)atoi(result_[current_index_]);
+				val = (int32_t)atoi(result_[current_index_]);
 			}
 
 			++current_col_;

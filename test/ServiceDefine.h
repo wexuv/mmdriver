@@ -1,7 +1,7 @@
 #ifndef _SERVICE_DEFINE_H_
 #define _SERVICE_DEFINE_H_
 
-#include "driver.h"
+#include "common/driver.h"
 
 namespace driver
 {

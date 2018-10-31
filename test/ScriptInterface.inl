@@ -2,7 +2,7 @@
 #define _SCRIPT_INTERFACE_INL_
 
 #include "ScriptService.h"
-#include "luabinder.h"
+#include "common/luabinder.h"
 #include "User.h"
 
 namespace driver

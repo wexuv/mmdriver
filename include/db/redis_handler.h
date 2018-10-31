@@ -1,9 +1,9 @@
 #ifndef _REDIS_HANDLER_H_
 #define _REDIS_HANDLER_H_
 
-#include "driver.h"
+#include "common/driver.h"
 #include <string>
-#include "socketapi.h"
+#include "network/socketapi.h"
 #include "hiredis.h"
 
 namespace driver

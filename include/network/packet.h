@@ -1,8 +1,8 @@
 #ifndef _PACKET_H_
 #define _PACKET_H_
 
-#include "types.h"
-#include "lib.h"
+#include "common/types.h"
+#include "common/lib.h"
 
 namespace driver
 {

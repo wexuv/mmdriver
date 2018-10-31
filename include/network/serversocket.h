@@ -1,8 +1,8 @@
 #ifndef __SERVER_SOCKET_H__
 #define __SERVER_SOCKET_H__
 
-#include "lib.h"
-#include "clientsocket.h"
+#include "common/lib.h"
+#include "network/clientsocket.h"
 
 namespace driver 
 {

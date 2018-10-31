@@ -2,8 +2,8 @@
 #define _SCRIPT_SERVICE_H_
 
 #include "service.h"
-#include "log.h"
-#include "luabinder.h"
+#include "common/log.h"
+#include "common/luabinder.h"
 #include "User.h"
 
 namespace driver

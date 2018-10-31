@@ -3,8 +3,8 @@
 
 #include "ServiceDefine.h"
 #include "service.h"
-#include "cpumemstat.h"
-#include "log.h"
+#include "common/cpumemstat.h"
+#include "common/log.h"
 
 namespace driver
 {

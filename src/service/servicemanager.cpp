@@ -1,8 +1,8 @@
-#include "servicemanager.h"
-#include "log.h"
-#include "misc.h"
-#include "cpumemstat.h"
-#include "time_ex.h"
+#include "service/servicemanager.h"
+#include "common/log.h"
+#include "common/misc.h"
+#include "common/cpumemstat.h"
+#include "common/time_ex.h"
 
 namespace driver
 {

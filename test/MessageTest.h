@@ -1,7 +1,7 @@
 #ifndef _MESSAGE_TEST_H_
 #define _MESSAGE_TEST_H_
 
-#include "message.h"
+#include "common/message.h"
 #include <string>
 #include "Message.pb.h"
 

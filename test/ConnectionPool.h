@@ -1,8 +1,8 @@
 #ifndef _CONNECTION_POOL_H_
 #define _CONNECTION_POOL_H_
 
-#include "clientsocket.h"
-#include "std_ex.h"
+#include "network/clientsocket.h"
+#include "common/std_ex.h"
 
 namespace driver
 {

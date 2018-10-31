@@ -1,5 +1,5 @@
-#include "share_memory_api.h"
-#include "exception.h"
+#include "common/share_memory_api.h"
+#include "common/exception.h"
 
 namespace driver {
 

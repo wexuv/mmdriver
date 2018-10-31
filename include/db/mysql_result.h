@@ -2,7 +2,7 @@
 #define _MYSQL_DB_RESULT_H_
 
 #include <mysql.h>
-#include "driver.h"
+#include "common/driver.h"
 #include <string>
 
 namespace driver

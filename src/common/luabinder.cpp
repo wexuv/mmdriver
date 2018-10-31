@@ -1,4 +1,4 @@
-#include "luabinder.h"
+#include "common/luabinder.h"
 //#include "..\test\ScriptInterface.inl"
 
 namespace driver

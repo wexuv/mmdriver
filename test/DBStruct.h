@@ -2,7 +2,7 @@
 #define _DB_STRUCT_H_
 
 #include "Object.h"
-#include "time_ex.h"
+#include "common/time_ex.h"
 #include "DBStruct.pb.h"
 
 namespace driver

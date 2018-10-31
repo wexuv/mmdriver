@@ -1,6 +1,6 @@
-#include "driver.h"
-#include "mysql_handler.h"
-#include "mysql_result.h"
+#include "common/driver.h"
+#include "db/mysql_handler.h"
+#include "db/mysql_result.h"
 #include <string.h>
 #include <stdarg.h>
 

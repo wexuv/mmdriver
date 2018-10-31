@@ -1,8 +1,8 @@
 #ifndef __SOCKET_API_H__
 #define __SOCKET_API_H__
 
-#include "define.h"
-#include "types.h"
+#include "common/define.h"
+#include "common/types.h"
 
 #if defined(__WINDOWS__)
 
