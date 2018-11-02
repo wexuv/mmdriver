@@ -65,6 +65,11 @@ namespace driver
 			}
 			break;
 		case SS_START_FAIL:
+			{
+				char szError[64] = {0};
+				tsnprintf(szError,64,"Service Type(%d),ID(%d) init failed",GetServiceType(),GetServiceID());
+				AssertEx(false,szError);
+			}
 			break;
 		case SS_START_OK:
 			break;

@@ -11,6 +11,10 @@ iptables -I INPUT -p tcp --dport 3306 -j ACCEPT
 防火墙规则列表 
 iptables -L -n
 
+查看mysql初始密码：
+grep 'temporary password' /var/log/mysqld.log 
+修改密码
+alter user root@localhost identified by 'tyzZ001!';
 
 mysql开放连接权限
 grant all privileges on *.* to '用户名'@'192.168.1.1' identified by '密码';  
