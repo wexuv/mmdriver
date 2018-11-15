@@ -1,11 +1,32 @@
+Protobuf 是Google的一个开源序列化库，因为使用的数据压缩算法等优化，序列化的数据较Xml更小，速度更快，因为序列化后数据是以紧凑的二进制流形式展现的，所以几乎不可直接查看。
+
+源代码下载：
+https://github.com/protocolbuffers/protobuf/
+
+vs2015
+下载protobuf-3.3.x版本
+安装vs2015
+安装DotNetCore.1.0.1-VS2015Tools.Preview2.0.3
+修改csharp\src\Google.Protobuf\project.json,添加net35的配置，"net35": {}  
+打开\csharp\src\Google.Protobuf.sln或者csharp\src\Google.Protobuf\Google.Protobuf.xproj
+编译Google.Protobuf生成Release版本Google.Protobuf.dll
+
+vs2017
+安装vs2017
+可下载protobuf最新版本
+修改Google.Protobuf.csproj，在TargetFrameworks标签里添加net35
+编译Google.Protobuf生成Release版本Google.Protobuf.dll
+
+c++及工具的编译：
 下载cmake
 
 windows:
-source code用protobuf-master/cmake
+source code用protobuf-3.3.x/cmake
 选择路径生成相应的vs工程文件.
 不要选择 protobuf_BUILD_TESTS,没有gmock
 
 linux:
 安装cmake
-在protobuf-master目录下执行cmake ./cmake
+在protobuf-3.3.x目录下执行cmake ./cmake
 makefile生成libprotobuf.a
+
