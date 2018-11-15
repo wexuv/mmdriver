@@ -19,94 +19,116 @@
 
 namespace google {
 namespace protobuf {
+class DBCharTitleDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<DBCharTitle> {
+} _DBCharTitle_default_instance_;
+
+namespace protobuf_DBStruct_2eproto {
+
 
 namespace {
 
-const ::google::protobuf::Descriptor* DBCharTitle_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  DBCharTitle_reflection_ = NULL;
+::google::protobuf::Metadata file_level_metadata[1];
 
 }  // namespace
 
+PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTableField
+    const TableStruct::entries[] = {
+  {0, 0, 0, ::google::protobuf::internal::kInvalidMask, 0, 0},
+};
 
-void protobuf_AssignDesc_DBStruct_2eproto() {
-  protobuf_AddDesc_DBStruct_2eproto();
-  const ::google::protobuf::FileDescriptor* file =
-    ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
-      "DBStruct.proto");
-  GOOGLE_CHECK(file != NULL);
-  DBCharTitle_descriptor_ = file->message_type(0);
-  static const int DBCharTitle_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBCharTitle, version_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBCharTitle, uid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBCharTitle, title_),
-  };
-  DBCharTitle_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      DBCharTitle_descriptor_,
-      DBCharTitle::default_instance_,
-      DBCharTitle_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(DBCharTitle),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBCharTitle, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBCharTitle, _is_default_instance_));
-}
+PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
+    const TableStruct::aux[] = {
+  ::google::protobuf::internal::AuxillaryParseTableField(),
+};
+PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
+    TableStruct::schema[] = {
+  { NULL, NULL, 0, -1, -1, false },
+};
+
+const ::google::protobuf::uint32 TableStruct::offsets[] = {
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBCharTitle, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBCharTitle, version_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBCharTitle, uid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DBCharTitle, title_),
+};
+
+static const ::google::protobuf::internal::MigrationSchema schemas[] = {
+  { 0, -1, sizeof(DBCharTitle)},
+};
+
+static ::google::protobuf::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::google::protobuf::Message*>(&_DBCharTitle_default_instance_),
+};
 
 namespace {
 
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
-inline void protobuf_AssignDescriptorsOnce() {
-  ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
-                 &protobuf_AssignDesc_DBStruct_2eproto);
+void protobuf_AssignDescriptors() {
+  AddDescriptors();
+  ::google::protobuf::MessageFactory* factory = NULL;
+  AssignDescriptors(
+      "DBStruct.proto", schemas, file_default_instances, TableStruct::offsets, factory,
+      file_level_metadata, NULL, NULL);
 }
 
+void protobuf_AssignDescriptorsOnce() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &protobuf_AssignDescriptors);
+}
+
+void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      DBCharTitle_descriptor_, &DBCharTitle::default_instance());
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 1);
 }
 
 }  // namespace
 
-void protobuf_ShutdownFile_DBStruct_2eproto() {
-  delete DBCharTitle::default_instance_;
-  delete DBCharTitle_reflection_;
+void TableStruct::Shutdown() {
+  _DBCharTitle_default_instance_.Shutdown();
+  delete file_level_metadata[0].reflection;
 }
 
-void protobuf_AddDesc_DBStruct_2eproto() {
-  static bool already_here = false;
-  if (already_here) return;
-  already_here = true;
+void TableStruct::InitDefaultsImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
+  ::google::protobuf::internal::InitProtobufDefaults();
+  _DBCharTitle_default_instance_.DefaultConstruct();
+}
+
+void InitDefaults() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &TableStruct::InitDefaultsImpl);
+}
+void AddDescriptorsImpl() {
+  InitDefaults();
+  static const char descriptor[] = {
+      "\n\016DBStruct.proto\022\017google.protobuf\":\n\013DBC"
+      "harTitle\022\017\n\007version\030\001 \001(\005\022\013\n\003uid\030\002 \003(\r\022\r"
+      "\n\005title\030\003 \003(\tb\006proto3"
+  };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\016DBStruct.proto\022\017google.protobuf\":\n\013DBC"
-    "harTitle\022\017\n\007version\030\001 \001(\005\022\013\n\003uid\030\002 \003(\r\022\r"
-    "\n\005title\030\003 \003(\tb\006proto3", 101);
+      descriptor, 101);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "DBStruct.proto", &protobuf_RegisterTypes);
-  DBCharTitle::default_instance_ = new DBCharTitle();
-  DBCharTitle::default_instance_->InitAsDefaultInstance();
-  ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_DBStruct_2eproto);
+  ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
 }
 
+void AddDescriptors() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &AddDescriptorsImpl);
+}
 // Force AddDescriptors() to be called at static initialization time.
-struct StaticDescriptorInitializer_DBStruct_2eproto {
-  StaticDescriptorInitializer_DBStruct_2eproto() {
-    protobuf_AddDesc_DBStruct_2eproto();
+struct StaticDescriptorInitializer {
+  StaticDescriptorInitializer() {
+    AddDescriptors();
   }
-} static_descriptor_initializer_DBStruct_2eproto_;
+} static_descriptor_initializer;
 
-namespace {
-
-static void MergeFromFail(int line) GOOGLE_ATTRIBUTE_COLD;
-static void MergeFromFail(int line) {
-  GOOGLE_CHECK(false) << __FILE__ << ":" << line;
-}
-
-}  // namespace
+}  // namespace protobuf_DBStruct_2eproto
 
 
 // ===================================================================
@@ -119,27 +141,26 @@ const int DBCharTitle::kTitleFieldNumber;
 
 DBCharTitle::DBCharTitle()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_DBStruct_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:google.protobuf.DBCharTitle)
 }
-
-void DBCharTitle::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 DBCharTitle::DBCharTitle(const DBCharTitle& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      uid_(from.uid_),
+      title_(from.title_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  version_ = from.version_;
   // @@protoc_insertion_point(copy_constructor:google.protobuf.DBCharTitle)
 }
 
 void DBCharTitle::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
   version_ = 0;
+  _cached_size_ = 0;
 }
 
 DBCharTitle::~DBCharTitle() {
@@ -148,8 +169,6 @@ DBCharTitle::~DBCharTitle() {
 }
 
 void DBCharTitle::SharedDtor() {
-  if (this != default_instance_) {
-  }
 }
 
 void DBCharTitle::SetCachedSize(int size) const {
@@ -158,16 +177,14 @@ void DBCharTitle::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* DBCharTitle::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return DBCharTitle_descriptor_;
+  protobuf_DBStruct_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_DBStruct_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
 const DBCharTitle& DBCharTitle::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_DBStruct_2eproto();
-  return *default_instance_;
+  protobuf_DBStruct_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-DBCharTitle* DBCharTitle::default_instance_ = NULL;
 
 DBCharTitle* DBCharTitle::New(::google::protobuf::Arena* arena) const {
   DBCharTitle* n = new DBCharTitle;
@@ -178,57 +195,58 @@ DBCharTitle* DBCharTitle::New(::google::protobuf::Arena* arena) const {
 }
 
 void DBCharTitle::Clear() {
-  version_ = 0;
+// @@protoc_insertion_point(message_clear_start:google.protobuf.DBCharTitle)
   uid_.Clear();
   title_.Clear();
+  version_ = 0;
 }
 
 bool DBCharTitle::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:google.protobuf.DBCharTitle)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 version = 1;
+      // int32 version = 1;
       case 1: {
-        if (tag == 8) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &version_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_uid;
         break;
       }
 
       // repeated uint32 uid = 2;
       case 2: {
-        if (tag == 18) {
-         parse_uid:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u)) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, this->mutable_uid())));
-        } else if (tag == 16) {
+        } else if (static_cast< ::google::protobuf::uint8>(tag) ==
+                   static_cast< ::google::protobuf::uint8>(16u)) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 1, 18, input, this->mutable_uid())));
+                 1, 18u, input, this->mutable_uid())));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_title;
         break;
       }
 
       // repeated string title = 3;
       case 3: {
-        if (tag == 26) {
-         parse_title:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->add_title()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -239,8 +257,6 @@ bool DBCharTitle::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_title;
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -268,7 +284,10 @@ failure:
 void DBCharTitle::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:google.protobuf.DBCharTitle)
-  // optional int32 version = 1;
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 version = 1;
   if (this->version() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->version(), output);
   }
@@ -278,13 +297,13 @@ void DBCharTitle::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteTag(2, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
     output->WriteVarint32(_uid_cached_byte_size_);
   }
-  for (int i = 0; i < this->uid_size(); i++) {
+  for (int i = 0, n = this->uid_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32NoTag(
       this->uid(i), output);
   }
 
   // repeated string title = 3;
-  for (int i = 0; i < this->title_size(); i++) {
+  for (int i = 0, n = this->title_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->title(i).data(), this->title(i).length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
@@ -296,10 +315,14 @@ void DBCharTitle::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:google.protobuf.DBCharTitle)
 }
 
-::google::protobuf::uint8* DBCharTitle::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* DBCharTitle::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:google.protobuf.DBCharTitle)
-  // optional int32 version = 1;
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 version = 1;
   if (this->version() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->version(), target);
   }
@@ -312,14 +335,12 @@ void DBCharTitle::SerializeWithCachedSizes(
       target);
     target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
       _uid_cached_byte_size_, target);
-  }
-  for (int i = 0; i < this->uid_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteUInt32NoTagToArray(this->uid(i), target);
+      WriteUInt32NoTagToArray(this->uid_, target);
   }
 
   // repeated string title = 3;
-  for (int i = 0; i < this->title_size(); i++) {
+  for (int i = 0, n = this->title_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->title(i).data(), this->title(i).length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
@@ -332,60 +353,69 @@ void DBCharTitle::SerializeWithCachedSizes(
   return target;
 }
 
-int DBCharTitle::ByteSize() const {
-  int total_size = 0;
+size_t DBCharTitle::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:google.protobuf.DBCharTitle)
+  size_t total_size = 0;
 
-  // optional int32 version = 1;
+  // repeated uint32 uid = 2;
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      UInt32Size(this->uid_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _uid_cached_byte_size_ = cached_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
+  }
+
+  // repeated string title = 3;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->title_size());
+  for (int i = 0, n = this->title_size(); i < n; i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->title(i));
+  }
+
+  // int32 version = 1;
   if (this->version() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->version());
   }
 
-  // repeated uint32 uid = 2;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->uid_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        UInt32Size(this->uid(i));
-    }
-    if (data_size > 0) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
-    }
-    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-    _uid_cached_byte_size_ = data_size;
-    GOOGLE_SAFE_CONCURRENT_WRITES_END();
-    total_size += data_size;
-  }
-
-  // repeated string title = 3;
-  total_size += 1 * this->title_size();
-  for (int i = 0; i < this->title_size(); i++) {
-    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
-      this->title(i));
-  }
-
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void DBCharTitle::MergeFrom(const ::google::protobuf::Message& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const DBCharTitle* source = 
+// @@protoc_insertion_point(generalized_merge_from_start:google.protobuf.DBCharTitle)
+  GOOGLE_DCHECK_NE(&from, this);
+  const DBCharTitle* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const DBCharTitle>(
           &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:google.protobuf.DBCharTitle)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:google.protobuf.DBCharTitle)
     MergeFrom(*source);
   }
 }
 
 void DBCharTitle::MergeFrom(const DBCharTitle& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(class_specific_merge_from_start:google.protobuf.DBCharTitle)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
   uid_.MergeFrom(from.uid_);
   title_.MergeFrom(from.title_);
   if (from.version() != 0) {
@@ -394,19 +424,20 @@ void DBCharTitle::MergeFrom(const DBCharTitle& from) {
 }
 
 void DBCharTitle::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:google.protobuf.DBCharTitle)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void DBCharTitle::CopyFrom(const DBCharTitle& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:google.protobuf.DBCharTitle)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 bool DBCharTitle::IsInitialized() const {
-
   return true;
 }
 
@@ -415,33 +446,29 @@ void DBCharTitle::Swap(DBCharTitle* other) {
   InternalSwap(other);
 }
 void DBCharTitle::InternalSwap(DBCharTitle* other) {
+  uid_.InternalSwap(&other->uid_);
+  title_.InternalSwap(&other->title_);
   std::swap(version_, other->version_);
-  uid_.UnsafeArenaSwap(&other->uid_);
-  title_.UnsafeArenaSwap(&other->title_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata DBCharTitle::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = DBCharTitle_descriptor_;
-  metadata.reflection = DBCharTitle_reflection_;
-  return metadata;
+  protobuf_DBStruct_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_DBStruct_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // DBCharTitle
 
-// optional int32 version = 1;
+// int32 version = 1;
 void DBCharTitle::clear_version() {
   version_ = 0;
 }
- ::google::protobuf::int32 DBCharTitle::version() const {
+::google::protobuf::int32 DBCharTitle::version() const {
   // @@protoc_insertion_point(field_get:google.protobuf.DBCharTitle.version)
   return version_;
 }
- void DBCharTitle::set_version(::google::protobuf::int32 value) {
+void DBCharTitle::set_version(::google::protobuf::int32 value) {
   
   version_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.DBCharTitle.version)
@@ -454,24 +481,24 @@ int DBCharTitle::uid_size() const {
 void DBCharTitle::clear_uid() {
   uid_.Clear();
 }
- ::google::protobuf::uint32 DBCharTitle::uid(int index) const {
+::google::protobuf::uint32 DBCharTitle::uid(int index) const {
   // @@protoc_insertion_point(field_get:google.protobuf.DBCharTitle.uid)
   return uid_.Get(index);
 }
- void DBCharTitle::set_uid(int index, ::google::protobuf::uint32 value) {
+void DBCharTitle::set_uid(int index, ::google::protobuf::uint32 value) {
   uid_.Set(index, value);
   // @@protoc_insertion_point(field_set:google.protobuf.DBCharTitle.uid)
 }
- void DBCharTitle::add_uid(::google::protobuf::uint32 value) {
+void DBCharTitle::add_uid(::google::protobuf::uint32 value) {
   uid_.Add(value);
   // @@protoc_insertion_point(field_add:google.protobuf.DBCharTitle.uid)
 }
- const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
 DBCharTitle::uid() const {
   // @@protoc_insertion_point(field_list:google.protobuf.DBCharTitle.uid)
   return uid_;
 }
- ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
 DBCharTitle::mutable_uid() {
   // @@protoc_insertion_point(field_mutable_list:google.protobuf.DBCharTitle.uid)
   return &uid_;
@@ -484,48 +511,63 @@ int DBCharTitle::title_size() const {
 void DBCharTitle::clear_title() {
   title_.Clear();
 }
- const ::std::string& DBCharTitle::title(int index) const {
+const ::std::string& DBCharTitle::title(int index) const {
   // @@protoc_insertion_point(field_get:google.protobuf.DBCharTitle.title)
   return title_.Get(index);
 }
- ::std::string* DBCharTitle::mutable_title(int index) {
+::std::string* DBCharTitle::mutable_title(int index) {
   // @@protoc_insertion_point(field_mutable:google.protobuf.DBCharTitle.title)
   return title_.Mutable(index);
 }
- void DBCharTitle::set_title(int index, const ::std::string& value) {
+void DBCharTitle::set_title(int index, const ::std::string& value) {
   // @@protoc_insertion_point(field_set:google.protobuf.DBCharTitle.title)
   title_.Mutable(index)->assign(value);
 }
- void DBCharTitle::set_title(int index, const char* value) {
+#if LANG_CXX11
+void DBCharTitle::set_title(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:google.protobuf.DBCharTitle.title)
+  title_.Mutable(index)->assign(std::move(value));
+}
+#endif
+void DBCharTitle::set_title(int index, const char* value) {
+  GOOGLE_DCHECK(value != NULL);
   title_.Mutable(index)->assign(value);
   // @@protoc_insertion_point(field_set_char:google.protobuf.DBCharTitle.title)
 }
- void DBCharTitle::set_title(int index, const char* value, size_t size) {
+void DBCharTitle::set_title(int index, const char* value, size_t size) {
   title_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
   // @@protoc_insertion_point(field_set_pointer:google.protobuf.DBCharTitle.title)
 }
- ::std::string* DBCharTitle::add_title() {
+::std::string* DBCharTitle::add_title() {
+  // @@protoc_insertion_point(field_add_mutable:google.protobuf.DBCharTitle.title)
   return title_.Add();
 }
- void DBCharTitle::add_title(const ::std::string& value) {
+void DBCharTitle::add_title(const ::std::string& value) {
   title_.Add()->assign(value);
   // @@protoc_insertion_point(field_add:google.protobuf.DBCharTitle.title)
 }
- void DBCharTitle::add_title(const char* value) {
+#if LANG_CXX11
+void DBCharTitle::add_title(::std::string&& value) {
+  title_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:google.protobuf.DBCharTitle.title)
+}
+#endif
+void DBCharTitle::add_title(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
   title_.Add()->assign(value);
   // @@protoc_insertion_point(field_add_char:google.protobuf.DBCharTitle.title)
 }
- void DBCharTitle::add_title(const char* value, size_t size) {
+void DBCharTitle::add_title(const char* value, size_t size) {
   title_.Add()->assign(reinterpret_cast<const char*>(value), size);
   // @@protoc_insertion_point(field_add_pointer:google.protobuf.DBCharTitle.title)
 }
- const ::google::protobuf::RepeatedPtrField< ::std::string>&
+const ::google::protobuf::RepeatedPtrField< ::std::string>&
 DBCharTitle::title() const {
   // @@protoc_insertion_point(field_list:google.protobuf.DBCharTitle.title)
   return title_;
 }
- ::google::protobuf::RepeatedPtrField< ::std::string>*
+::google::protobuf::RepeatedPtrField< ::std::string>*
 DBCharTitle::mutable_title() {
   // @@protoc_insertion_point(field_mutable_list:google.protobuf.DBCharTitle.title)
   return &title_;

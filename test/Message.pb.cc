@@ -19,122 +19,134 @@
 
 namespace google {
 namespace protobuf {
+class NH_REQ_LOGINDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<NH_REQ_LOGIN> {
+} _NH_REQ_LOGIN_default_instance_;
+class HN_RET_LOGINDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<HN_RET_LOGIN> {
+} _HN_RET_LOGIN_default_instance_;
+
+namespace protobuf_Message_2eproto {
+
 
 namespace {
 
-const ::google::protobuf::Descriptor* NH_REQ_LOGIN_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  NH_REQ_LOGIN_reflection_ = NULL;
-const ::google::protobuf::Descriptor* HN_RET_LOGIN_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  HN_RET_LOGIN_reflection_ = NULL;
+::google::protobuf::Metadata file_level_metadata[2];
 
 }  // namespace
 
+PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTableField
+    const TableStruct::entries[] = {
+  {0, 0, 0, ::google::protobuf::internal::kInvalidMask, 0, 0},
+};
 
-void protobuf_AssignDesc_Message_2eproto() {
-  protobuf_AddDesc_Message_2eproto();
-  const ::google::protobuf::FileDescriptor* file =
-    ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
-      "Message.proto");
-  GOOGLE_CHECK(file != NULL);
-  NH_REQ_LOGIN_descriptor_ = file->message_type(0);
-  static const int NH_REQ_LOGIN_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NH_REQ_LOGIN, uid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NH_REQ_LOGIN, account_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NH_REQ_LOGIN, validateinfo_),
-  };
-  NH_REQ_LOGIN_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      NH_REQ_LOGIN_descriptor_,
-      NH_REQ_LOGIN::default_instance_,
-      NH_REQ_LOGIN_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(NH_REQ_LOGIN),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NH_REQ_LOGIN, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NH_REQ_LOGIN, _is_default_instance_));
-  HN_RET_LOGIN_descriptor_ = file->message_type(1);
-  static const int HN_RET_LOGIN_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HN_RET_LOGIN, uid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HN_RET_LOGIN, account_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HN_RET_LOGIN, result_),
-  };
-  HN_RET_LOGIN_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      HN_RET_LOGIN_descriptor_,
-      HN_RET_LOGIN::default_instance_,
-      HN_RET_LOGIN_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(HN_RET_LOGIN),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HN_RET_LOGIN, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HN_RET_LOGIN, _is_default_instance_));
-}
+PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
+    const TableStruct::aux[] = {
+  ::google::protobuf::internal::AuxillaryParseTableField(),
+};
+PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
+    TableStruct::schema[] = {
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+};
+
+const ::google::protobuf::uint32 TableStruct::offsets[] = {
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NH_REQ_LOGIN, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NH_REQ_LOGIN, uid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NH_REQ_LOGIN, account_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NH_REQ_LOGIN, validateinfo_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HN_RET_LOGIN, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HN_RET_LOGIN, uid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HN_RET_LOGIN, account_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HN_RET_LOGIN, result_),
+};
+
+static const ::google::protobuf::internal::MigrationSchema schemas[] = {
+  { 0, -1, sizeof(NH_REQ_LOGIN)},
+  { 8, -1, sizeof(HN_RET_LOGIN)},
+};
+
+static ::google::protobuf::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::google::protobuf::Message*>(&_NH_REQ_LOGIN_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_HN_RET_LOGIN_default_instance_),
+};
 
 namespace {
 
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
-inline void protobuf_AssignDescriptorsOnce() {
-  ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
-                 &protobuf_AssignDesc_Message_2eproto);
+void protobuf_AssignDescriptors() {
+  AddDescriptors();
+  ::google::protobuf::MessageFactory* factory = NULL;
+  AssignDescriptors(
+      "Message.proto", schemas, file_default_instances, TableStruct::offsets, factory,
+      file_level_metadata, NULL, NULL);
 }
 
+void protobuf_AssignDescriptorsOnce() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &protobuf_AssignDescriptors);
+}
+
+void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      NH_REQ_LOGIN_descriptor_, &NH_REQ_LOGIN::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      HN_RET_LOGIN_descriptor_, &HN_RET_LOGIN::default_instance());
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 2);
 }
 
 }  // namespace
 
-void protobuf_ShutdownFile_Message_2eproto() {
-  delete NH_REQ_LOGIN::default_instance_;
-  delete NH_REQ_LOGIN_reflection_;
-  delete HN_RET_LOGIN::default_instance_;
-  delete HN_RET_LOGIN_reflection_;
+void TableStruct::Shutdown() {
+  _NH_REQ_LOGIN_default_instance_.Shutdown();
+  delete file_level_metadata[0].reflection;
+  _HN_RET_LOGIN_default_instance_.Shutdown();
+  delete file_level_metadata[1].reflection;
 }
 
-void protobuf_AddDesc_Message_2eproto() {
-  static bool already_here = false;
-  if (already_here) return;
-  already_here = true;
+void TableStruct::InitDefaultsImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
+  ::google::protobuf::internal::InitProtobufDefaults();
+  _NH_REQ_LOGIN_default_instance_.DefaultConstruct();
+  _HN_RET_LOGIN_default_instance_.DefaultConstruct();
+}
+
+void InitDefaults() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &TableStruct::InitDefaultsImpl);
+}
+void AddDescriptorsImpl() {
+  InitDefaults();
+  static const char descriptor[] = {
+      "\n\rMessage.proto\022\017google.protobuf\"B\n\014NH_R"
+      "EQ_LOGIN\022\013\n\003uid\030\001 \001(\r\022\017\n\007account\030\002 \001(\t\022\024"
+      "\n\014validateinfo\030\003 \001(\t\"<\n\014HN_RET_LOGIN\022\013\n\003"
+      "uid\030\001 \001(\r\022\017\n\007account\030\002 \001(\t\022\016\n\006result\030\003 \001"
+      "(\005b\006proto3"
+  };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\rMessage.proto\022\017google.protobuf\"B\n\014NH_R"
-    "EQ_LOGIN\022\013\n\003uid\030\001 \001(\r\022\017\n\007account\030\002 \001(\t\022\024"
-    "\n\014validateinfo\030\003 \001(\t\"<\n\014HN_RET_LOGIN\022\013\n\003"
-    "uid\030\001 \001(\r\022\017\n\007account\030\002 \001(\t\022\016\n\006result\030\003 \001"
-    "(\005b\006proto3", 170);
+      descriptor, 170);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Message.proto", &protobuf_RegisterTypes);
-  NH_REQ_LOGIN::default_instance_ = new NH_REQ_LOGIN();
-  HN_RET_LOGIN::default_instance_ = new HN_RET_LOGIN();
-  NH_REQ_LOGIN::default_instance_->InitAsDefaultInstance();
-  HN_RET_LOGIN::default_instance_->InitAsDefaultInstance();
-  ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_Message_2eproto);
+  ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
 }
 
+void AddDescriptors() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &AddDescriptorsImpl);
+}
 // Force AddDescriptors() to be called at static initialization time.
-struct StaticDescriptorInitializer_Message_2eproto {
-  StaticDescriptorInitializer_Message_2eproto() {
-    protobuf_AddDesc_Message_2eproto();
+struct StaticDescriptorInitializer {
+  StaticDescriptorInitializer() {
+    AddDescriptors();
   }
-} static_descriptor_initializer_Message_2eproto_;
+} static_descriptor_initializer;
 
-namespace {
-
-static void MergeFromFail(int line) GOOGLE_ATTRIBUTE_COLD;
-static void MergeFromFail(int line) {
-  GOOGLE_CHECK(false) << __FILE__ << ":" << line;
-}
-
-}  // namespace
+}  // namespace protobuf_Message_2eproto
 
 
 // ===================================================================
@@ -147,29 +159,34 @@ const int NH_REQ_LOGIN::kValidateinfoFieldNumber;
 
 NH_REQ_LOGIN::NH_REQ_LOGIN()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Message_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:google.protobuf.NH_REQ_LOGIN)
 }
-
-void NH_REQ_LOGIN::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 NH_REQ_LOGIN::NH_REQ_LOGIN(const NH_REQ_LOGIN& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  account_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.account().size() > 0) {
+    account_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.account_);
+  }
+  validateinfo_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.validateinfo().size() > 0) {
+    validateinfo_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.validateinfo_);
+  }
+  uid_ = from.uid_;
   // @@protoc_insertion_point(copy_constructor:google.protobuf.NH_REQ_LOGIN)
 }
 
 void NH_REQ_LOGIN::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
-  uid_ = 0u;
   account_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   validateinfo_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  uid_ = 0u;
+  _cached_size_ = 0;
 }
 
 NH_REQ_LOGIN::~NH_REQ_LOGIN() {
@@ -180,8 +197,6 @@ NH_REQ_LOGIN::~NH_REQ_LOGIN() {
 void NH_REQ_LOGIN::SharedDtor() {
   account_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   validateinfo_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
-  }
 }
 
 void NH_REQ_LOGIN::SetCachedSize(int size) const {
@@ -190,16 +205,14 @@ void NH_REQ_LOGIN::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* NH_REQ_LOGIN::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return NH_REQ_LOGIN_descriptor_;
+  protobuf_Message_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Message_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
 const NH_REQ_LOGIN& NH_REQ_LOGIN::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_Message_2eproto();
-  return *default_instance_;
+  protobuf_Message_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-NH_REQ_LOGIN* NH_REQ_LOGIN::default_instance_ = NULL;
 
 NH_REQ_LOGIN* NH_REQ_LOGIN::New(::google::protobuf::Arena* arena) const {
   NH_REQ_LOGIN* n = new NH_REQ_LOGIN;
@@ -210,39 +223,40 @@ NH_REQ_LOGIN* NH_REQ_LOGIN::New(::google::protobuf::Arena* arena) const {
 }
 
 void NH_REQ_LOGIN::Clear() {
-  uid_ = 0u;
+// @@protoc_insertion_point(message_clear_start:google.protobuf.NH_REQ_LOGIN)
   account_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   validateinfo_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  uid_ = 0u;
 }
 
 bool NH_REQ_LOGIN::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:google.protobuf.NH_REQ_LOGIN)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional uint32 uid = 1;
+      // uint32 uid = 1;
       case 1: {
-        if (tag == 8) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &uid_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_account;
         break;
       }
 
-      // optional string account = 2;
+      // string account = 2;
       case 2: {
-        if (tag == 18) {
-         parse_account:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_account()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -252,14 +266,13 @@ bool NH_REQ_LOGIN::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_validateinfo;
         break;
       }
 
-      // optional string validateinfo = 3;
+      // string validateinfo = 3;
       case 3: {
-        if (tag == 26) {
-         parse_validateinfo:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_validateinfo()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -269,7 +282,6 @@ bool NH_REQ_LOGIN::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -297,12 +309,15 @@ failure:
 void NH_REQ_LOGIN::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:google.protobuf.NH_REQ_LOGIN)
-  // optional uint32 uid = 1;
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 uid = 1;
   if (this->uid() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->uid(), output);
   }
 
-  // optional string account = 2;
+  // string account = 2;
   if (this->account().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->account().data(), this->account().length(),
@@ -312,7 +327,7 @@ void NH_REQ_LOGIN::SerializeWithCachedSizes(
       2, this->account(), output);
   }
 
-  // optional string validateinfo = 3;
+  // string validateinfo = 3;
   if (this->validateinfo().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->validateinfo().data(), this->validateinfo().length(),
@@ -325,15 +340,19 @@ void NH_REQ_LOGIN::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:google.protobuf.NH_REQ_LOGIN)
 }
 
-::google::protobuf::uint8* NH_REQ_LOGIN::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* NH_REQ_LOGIN::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:google.protobuf.NH_REQ_LOGIN)
-  // optional uint32 uid = 1;
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 uid = 1;
   if (this->uid() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->uid(), target);
   }
 
-  // optional string account = 2;
+  // string account = 2;
   if (this->account().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->account().data(), this->account().length(),
@@ -344,7 +363,7 @@ void NH_REQ_LOGIN::SerializeWithCachedSizes(
         2, this->account(), target);
   }
 
-  // optional string validateinfo = 3;
+  // string validateinfo = 3;
   if (this->validateinfo().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->validateinfo().data(), this->validateinfo().length(),
@@ -359,53 +378,60 @@ void NH_REQ_LOGIN::SerializeWithCachedSizes(
   return target;
 }
 
-int NH_REQ_LOGIN::ByteSize() const {
-  int total_size = 0;
+size_t NH_REQ_LOGIN::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:google.protobuf.NH_REQ_LOGIN)
+  size_t total_size = 0;
 
-  // optional uint32 uid = 1;
-  if (this->uid() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->uid());
-  }
-
-  // optional string account = 2;
+  // string account = 2;
   if (this->account().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->account());
   }
 
-  // optional string validateinfo = 3;
+  // string validateinfo = 3;
   if (this->validateinfo().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->validateinfo());
   }
 
+  // uint32 uid = 1;
+  if (this->uid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->uid());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void NH_REQ_LOGIN::MergeFrom(const ::google::protobuf::Message& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const NH_REQ_LOGIN* source = 
+// @@protoc_insertion_point(generalized_merge_from_start:google.protobuf.NH_REQ_LOGIN)
+  GOOGLE_DCHECK_NE(&from, this);
+  const NH_REQ_LOGIN* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const NH_REQ_LOGIN>(
           &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:google.protobuf.NH_REQ_LOGIN)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:google.protobuf.NH_REQ_LOGIN)
     MergeFrom(*source);
   }
 }
 
 void NH_REQ_LOGIN::MergeFrom(const NH_REQ_LOGIN& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  if (from.uid() != 0) {
-    set_uid(from.uid());
-  }
+// @@protoc_insertion_point(class_specific_merge_from_start:google.protobuf.NH_REQ_LOGIN)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
   if (from.account().size() > 0) {
 
     account_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.account_);
@@ -414,22 +440,26 @@ void NH_REQ_LOGIN::MergeFrom(const NH_REQ_LOGIN& from) {
 
     validateinfo_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.validateinfo_);
   }
+  if (from.uid() != 0) {
+    set_uid(from.uid());
+  }
 }
 
 void NH_REQ_LOGIN::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:google.protobuf.NH_REQ_LOGIN)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void NH_REQ_LOGIN::CopyFrom(const NH_REQ_LOGIN& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:google.protobuf.NH_REQ_LOGIN)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 bool NH_REQ_LOGIN::IsInitialized() const {
-
   return true;
 }
 
@@ -438,72 +468,78 @@ void NH_REQ_LOGIN::Swap(NH_REQ_LOGIN* other) {
   InternalSwap(other);
 }
 void NH_REQ_LOGIN::InternalSwap(NH_REQ_LOGIN* other) {
-  std::swap(uid_, other->uid_);
   account_.Swap(&other->account_);
   validateinfo_.Swap(&other->validateinfo_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(uid_, other->uid_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata NH_REQ_LOGIN::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = NH_REQ_LOGIN_descriptor_;
-  metadata.reflection = NH_REQ_LOGIN_reflection_;
-  return metadata;
+  protobuf_Message_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Message_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // NH_REQ_LOGIN
 
-// optional uint32 uid = 1;
+// uint32 uid = 1;
 void NH_REQ_LOGIN::clear_uid() {
   uid_ = 0u;
 }
- ::google::protobuf::uint32 NH_REQ_LOGIN::uid() const {
+::google::protobuf::uint32 NH_REQ_LOGIN::uid() const {
   // @@protoc_insertion_point(field_get:google.protobuf.NH_REQ_LOGIN.uid)
   return uid_;
 }
- void NH_REQ_LOGIN::set_uid(::google::protobuf::uint32 value) {
+void NH_REQ_LOGIN::set_uid(::google::protobuf::uint32 value) {
   
   uid_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.NH_REQ_LOGIN.uid)
 }
 
-// optional string account = 2;
+// string account = 2;
 void NH_REQ_LOGIN::clear_account() {
   account_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& NH_REQ_LOGIN::account() const {
+const ::std::string& NH_REQ_LOGIN::account() const {
   // @@protoc_insertion_point(field_get:google.protobuf.NH_REQ_LOGIN.account)
-  return account_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return account_.GetNoArena();
 }
- void NH_REQ_LOGIN::set_account(const ::std::string& value) {
+void NH_REQ_LOGIN::set_account(const ::std::string& value) {
   
   account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:google.protobuf.NH_REQ_LOGIN.account)
 }
- void NH_REQ_LOGIN::set_account(const char* value) {
+#if LANG_CXX11
+void NH_REQ_LOGIN::set_account(::std::string&& value) {
+  
+  account_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.NH_REQ_LOGIN.account)
+}
+#endif
+void NH_REQ_LOGIN::set_account(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
   
   account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:google.protobuf.NH_REQ_LOGIN.account)
 }
- void NH_REQ_LOGIN::set_account(const char* value, size_t size) {
+void NH_REQ_LOGIN::set_account(const char* value, size_t size) {
   
   account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:google.protobuf.NH_REQ_LOGIN.account)
 }
- ::std::string* NH_REQ_LOGIN::mutable_account() {
+::std::string* NH_REQ_LOGIN::mutable_account() {
   
   // @@protoc_insertion_point(field_mutable:google.protobuf.NH_REQ_LOGIN.account)
   return account_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* NH_REQ_LOGIN::release_account() {
+::std::string* NH_REQ_LOGIN::release_account() {
+  // @@protoc_insertion_point(field_release:google.protobuf.NH_REQ_LOGIN.account)
   
   return account_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void NH_REQ_LOGIN::set_allocated_account(::std::string* account) {
+void NH_REQ_LOGIN::set_allocated_account(::std::string* account) {
   if (account != NULL) {
     
   } else {
@@ -513,40 +549,50 @@ void NH_REQ_LOGIN::clear_account() {
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.NH_REQ_LOGIN.account)
 }
 
-// optional string validateinfo = 3;
+// string validateinfo = 3;
 void NH_REQ_LOGIN::clear_validateinfo() {
   validateinfo_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& NH_REQ_LOGIN::validateinfo() const {
+const ::std::string& NH_REQ_LOGIN::validateinfo() const {
   // @@protoc_insertion_point(field_get:google.protobuf.NH_REQ_LOGIN.validateinfo)
-  return validateinfo_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return validateinfo_.GetNoArena();
 }
- void NH_REQ_LOGIN::set_validateinfo(const ::std::string& value) {
+void NH_REQ_LOGIN::set_validateinfo(const ::std::string& value) {
   
   validateinfo_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:google.protobuf.NH_REQ_LOGIN.validateinfo)
 }
- void NH_REQ_LOGIN::set_validateinfo(const char* value) {
+#if LANG_CXX11
+void NH_REQ_LOGIN::set_validateinfo(::std::string&& value) {
+  
+  validateinfo_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.NH_REQ_LOGIN.validateinfo)
+}
+#endif
+void NH_REQ_LOGIN::set_validateinfo(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
   
   validateinfo_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:google.protobuf.NH_REQ_LOGIN.validateinfo)
 }
- void NH_REQ_LOGIN::set_validateinfo(const char* value, size_t size) {
+void NH_REQ_LOGIN::set_validateinfo(const char* value, size_t size) {
   
   validateinfo_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:google.protobuf.NH_REQ_LOGIN.validateinfo)
 }
- ::std::string* NH_REQ_LOGIN::mutable_validateinfo() {
+::std::string* NH_REQ_LOGIN::mutable_validateinfo() {
   
   // @@protoc_insertion_point(field_mutable:google.protobuf.NH_REQ_LOGIN.validateinfo)
   return validateinfo_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* NH_REQ_LOGIN::release_validateinfo() {
+::std::string* NH_REQ_LOGIN::release_validateinfo() {
+  // @@protoc_insertion_point(field_release:google.protobuf.NH_REQ_LOGIN.validateinfo)
   
   return validateinfo_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void NH_REQ_LOGIN::set_allocated_validateinfo(::std::string* validateinfo) {
+void NH_REQ_LOGIN::set_allocated_validateinfo(::std::string* validateinfo) {
   if (validateinfo != NULL) {
     
   } else {
@@ -568,29 +614,32 @@ const int HN_RET_LOGIN::kResultFieldNumber;
 
 HN_RET_LOGIN::HN_RET_LOGIN()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Message_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:google.protobuf.HN_RET_LOGIN)
 }
-
-void HN_RET_LOGIN::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 HN_RET_LOGIN::HN_RET_LOGIN(const HN_RET_LOGIN& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  account_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.account().size() > 0) {
+    account_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.account_);
+  }
+  ::memcpy(&uid_, &from.uid_,
+    reinterpret_cast<char*>(&result_) -
+    reinterpret_cast<char*>(&uid_) + sizeof(result_));
   // @@protoc_insertion_point(copy_constructor:google.protobuf.HN_RET_LOGIN)
 }
 
 void HN_RET_LOGIN::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
-  uid_ = 0u;
   account_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  result_ = 0;
+  ::memset(&uid_, 0, reinterpret_cast<char*>(&result_) -
+    reinterpret_cast<char*>(&uid_) + sizeof(result_));
+  _cached_size_ = 0;
 }
 
 HN_RET_LOGIN::~HN_RET_LOGIN() {
@@ -600,8 +649,6 @@ HN_RET_LOGIN::~HN_RET_LOGIN() {
 
 void HN_RET_LOGIN::SharedDtor() {
   account_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
-  }
 }
 
 void HN_RET_LOGIN::SetCachedSize(int size) const {
@@ -610,16 +657,14 @@ void HN_RET_LOGIN::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* HN_RET_LOGIN::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return HN_RET_LOGIN_descriptor_;
+  protobuf_Message_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Message_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
 const HN_RET_LOGIN& HN_RET_LOGIN::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_Message_2eproto();
-  return *default_instance_;
+  protobuf_Message_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-HN_RET_LOGIN* HN_RET_LOGIN::default_instance_ = NULL;
 
 HN_RET_LOGIN* HN_RET_LOGIN::New(::google::protobuf::Arena* arena) const {
   HN_RET_LOGIN* n = new HN_RET_LOGIN;
@@ -630,50 +675,40 @@ HN_RET_LOGIN* HN_RET_LOGIN::New(::google::protobuf::Arena* arena) const {
 }
 
 void HN_RET_LOGIN::Clear() {
-#define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<HN_RET_LOGIN*>(16)->f)
-
-#define ZR_(first, last) do {\
-  ::memset(&first, 0,\
-           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
-} while (0)
-
-  ZR_(uid_, result_);
+// @@protoc_insertion_point(message_clear_start:google.protobuf.HN_RET_LOGIN)
   account_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-
-#undef ZR_HELPER_
-#undef ZR_
-
+  ::memset(&uid_, 0, reinterpret_cast<char*>(&result_) -
+    reinterpret_cast<char*>(&uid_) + sizeof(result_));
 }
 
 bool HN_RET_LOGIN::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:google.protobuf.HN_RET_LOGIN)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional uint32 uid = 1;
+      // uint32 uid = 1;
       case 1: {
-        if (tag == 8) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &uid_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_account;
         break;
       }
 
-      // optional string account = 2;
+      // string account = 2;
       case 2: {
-        if (tag == 18) {
-         parse_account:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_account()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -683,22 +718,20 @@ bool HN_RET_LOGIN::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_result;
         break;
       }
 
-      // optional int32 result = 3;
+      // int32 result = 3;
       case 3: {
-        if (tag == 24) {
-         parse_result:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u)) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &result_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -726,12 +759,15 @@ failure:
 void HN_RET_LOGIN::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:google.protobuf.HN_RET_LOGIN)
-  // optional uint32 uid = 1;
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 uid = 1;
   if (this->uid() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->uid(), output);
   }
 
-  // optional string account = 2;
+  // string account = 2;
   if (this->account().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->account().data(), this->account().length(),
@@ -741,7 +777,7 @@ void HN_RET_LOGIN::SerializeWithCachedSizes(
       2, this->account(), output);
   }
 
-  // optional int32 result = 3;
+  // int32 result = 3;
   if (this->result() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->result(), output);
   }
@@ -749,15 +785,19 @@ void HN_RET_LOGIN::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:google.protobuf.HN_RET_LOGIN)
 }
 
-::google::protobuf::uint8* HN_RET_LOGIN::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* HN_RET_LOGIN::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:google.protobuf.HN_RET_LOGIN)
-  // optional uint32 uid = 1;
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 uid = 1;
   if (this->uid() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->uid(), target);
   }
 
-  // optional string account = 2;
+  // string account = 2;
   if (this->account().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->account().data(), this->account().length(),
@@ -768,7 +808,7 @@ void HN_RET_LOGIN::SerializeWithCachedSizes(
         2, this->account(), target);
   }
 
-  // optional int32 result = 3;
+  // int32 result = 3;
   if (this->result() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->result(), target);
   }
@@ -777,56 +817,66 @@ void HN_RET_LOGIN::SerializeWithCachedSizes(
   return target;
 }
 
-int HN_RET_LOGIN::ByteSize() const {
-  int total_size = 0;
+size_t HN_RET_LOGIN::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:google.protobuf.HN_RET_LOGIN)
+  size_t total_size = 0;
 
-  // optional uint32 uid = 1;
-  if (this->uid() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->uid());
-  }
-
-  // optional string account = 2;
+  // string account = 2;
   if (this->account().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->account());
   }
 
-  // optional int32 result = 3;
+  // uint32 uid = 1;
+  if (this->uid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->uid());
+  }
+
+  // int32 result = 3;
   if (this->result() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->result());
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void HN_RET_LOGIN::MergeFrom(const ::google::protobuf::Message& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const HN_RET_LOGIN* source = 
+// @@protoc_insertion_point(generalized_merge_from_start:google.protobuf.HN_RET_LOGIN)
+  GOOGLE_DCHECK_NE(&from, this);
+  const HN_RET_LOGIN* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const HN_RET_LOGIN>(
           &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:google.protobuf.HN_RET_LOGIN)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:google.protobuf.HN_RET_LOGIN)
     MergeFrom(*source);
   }
 }
 
 void HN_RET_LOGIN::MergeFrom(const HN_RET_LOGIN& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  if (from.uid() != 0) {
-    set_uid(from.uid());
-  }
+// @@protoc_insertion_point(class_specific_merge_from_start:google.protobuf.HN_RET_LOGIN)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
   if (from.account().size() > 0) {
 
     account_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.account_);
+  }
+  if (from.uid() != 0) {
+    set_uid(from.uid());
   }
   if (from.result() != 0) {
     set_result(from.result());
@@ -834,19 +884,20 @@ void HN_RET_LOGIN::MergeFrom(const HN_RET_LOGIN& from) {
 }
 
 void HN_RET_LOGIN::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:google.protobuf.HN_RET_LOGIN)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void HN_RET_LOGIN::CopyFrom(const HN_RET_LOGIN& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:google.protobuf.HN_RET_LOGIN)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 bool HN_RET_LOGIN::IsInitialized() const {
-
   return true;
 }
 
@@ -855,72 +906,78 @@ void HN_RET_LOGIN::Swap(HN_RET_LOGIN* other) {
   InternalSwap(other);
 }
 void HN_RET_LOGIN::InternalSwap(HN_RET_LOGIN* other) {
-  std::swap(uid_, other->uid_);
   account_.Swap(&other->account_);
+  std::swap(uid_, other->uid_);
   std::swap(result_, other->result_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata HN_RET_LOGIN::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = HN_RET_LOGIN_descriptor_;
-  metadata.reflection = HN_RET_LOGIN_reflection_;
-  return metadata;
+  protobuf_Message_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Message_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // HN_RET_LOGIN
 
-// optional uint32 uid = 1;
+// uint32 uid = 1;
 void HN_RET_LOGIN::clear_uid() {
   uid_ = 0u;
 }
- ::google::protobuf::uint32 HN_RET_LOGIN::uid() const {
+::google::protobuf::uint32 HN_RET_LOGIN::uid() const {
   // @@protoc_insertion_point(field_get:google.protobuf.HN_RET_LOGIN.uid)
   return uid_;
 }
- void HN_RET_LOGIN::set_uid(::google::protobuf::uint32 value) {
+void HN_RET_LOGIN::set_uid(::google::protobuf::uint32 value) {
   
   uid_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.HN_RET_LOGIN.uid)
 }
 
-// optional string account = 2;
+// string account = 2;
 void HN_RET_LOGIN::clear_account() {
   account_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& HN_RET_LOGIN::account() const {
+const ::std::string& HN_RET_LOGIN::account() const {
   // @@protoc_insertion_point(field_get:google.protobuf.HN_RET_LOGIN.account)
-  return account_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return account_.GetNoArena();
 }
- void HN_RET_LOGIN::set_account(const ::std::string& value) {
+void HN_RET_LOGIN::set_account(const ::std::string& value) {
   
   account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:google.protobuf.HN_RET_LOGIN.account)
 }
- void HN_RET_LOGIN::set_account(const char* value) {
+#if LANG_CXX11
+void HN_RET_LOGIN::set_account(::std::string&& value) {
+  
+  account_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.HN_RET_LOGIN.account)
+}
+#endif
+void HN_RET_LOGIN::set_account(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
   
   account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:google.protobuf.HN_RET_LOGIN.account)
 }
- void HN_RET_LOGIN::set_account(const char* value, size_t size) {
+void HN_RET_LOGIN::set_account(const char* value, size_t size) {
   
   account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:google.protobuf.HN_RET_LOGIN.account)
 }
- ::std::string* HN_RET_LOGIN::mutable_account() {
+::std::string* HN_RET_LOGIN::mutable_account() {
   
   // @@protoc_insertion_point(field_mutable:google.protobuf.HN_RET_LOGIN.account)
   return account_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* HN_RET_LOGIN::release_account() {
+::std::string* HN_RET_LOGIN::release_account() {
+  // @@protoc_insertion_point(field_release:google.protobuf.HN_RET_LOGIN.account)
   
   return account_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void HN_RET_LOGIN::set_allocated_account(::std::string* account) {
+void HN_RET_LOGIN::set_allocated_account(::std::string* account) {
   if (account != NULL) {
     
   } else {
@@ -930,15 +987,15 @@ void HN_RET_LOGIN::clear_account() {
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.HN_RET_LOGIN.account)
 }
 
-// optional int32 result = 3;
+// int32 result = 3;
 void HN_RET_LOGIN::clear_result() {
   result_ = 0;
 }
- ::google::protobuf::int32 HN_RET_LOGIN::result() const {
+::google::protobuf::int32 HN_RET_LOGIN::result() const {
   // @@protoc_insertion_point(field_get:google.protobuf.HN_RET_LOGIN.result)
   return result_;
 }
- void HN_RET_LOGIN::set_result(::google::protobuf::int32 value) {
+void HN_RET_LOGIN::set_result(::google::protobuf::int32 value) {
   
   result_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.HN_RET_LOGIN.result)

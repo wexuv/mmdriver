@@ -301,7 +301,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;__WINDOWS__;_CRT_SECURE_NO_WARNINGS;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\include\common\;..\..\include\service\;..\..\include\network\;..\..\lib\threadpool\;..\..\lib\boost\;..\..\lib\;..\..\lib\lua\include;..\..\include\db\;..\..\lib\mysql\include;..\..\lib\sqlite3;..\..\lib\tinyxml;..\..\lib\redis\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\include\;..\..\include\service\;..\..\lib\threadpool\;..\..\lib\boost\;..\..\lib\;..\..\lib\lua\include;..\..\lib\mysql\include;..\..\lib\sqlite3;..\..\lib\tinyxml;..\..\lib\redis\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>

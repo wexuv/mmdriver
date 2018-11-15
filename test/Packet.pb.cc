@@ -19,162 +19,170 @@
 
 namespace google {
 namespace protobuf {
+class CG_LOGINDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<CG_LOGIN> {
+} _CG_LOGIN_default_instance_;
+class GC_LOGINDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<GC_LOGIN> {
+} _GC_LOGIN_default_instance_;
+
+namespace protobuf_Packet_2eproto {
+
 
 namespace {
 
-const ::google::protobuf::Descriptor* CG_LOGIN_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  CG_LOGIN_reflection_ = NULL;
-const ::google::protobuf::EnumDescriptor* CG_LOGIN_VALIDATETYPE_descriptor_ = NULL;
-const ::google::protobuf::Descriptor* GC_LOGIN_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  GC_LOGIN_reflection_ = NULL;
+::google::protobuf::Metadata file_level_metadata[2];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
 
 }  // namespace
 
+PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTableField
+    const TableStruct::entries[] = {
+  {0, 0, 0, ::google::protobuf::internal::kInvalidMask, 0, 0},
+};
 
-void protobuf_AssignDesc_Packet_2eproto() {
-  protobuf_AddDesc_Packet_2eproto();
-  const ::google::protobuf::FileDescriptor* file =
-    ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
-      "Packet.proto");
-  GOOGLE_CHECK(file != NULL);
-  CG_LOGIN_descriptor_ = file->message_type(0);
-  static const int CG_LOGIN_offsets_[22] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, vtype_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, gameversion_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, programversion_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, publicresourceversion_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, maxpacketid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, forceenter_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, deviceid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, devicetype_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, deviceversion_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, account_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, validateinfo_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, channelid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, mediachannel_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, rapidvalidatecode_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, reservedint1_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, reservedint2_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, reservedint3_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, reservedint4_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, reservedstring1_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, reservedstring2_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, reservedstring3_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, reservedstring4_),
-  };
-  CG_LOGIN_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      CG_LOGIN_descriptor_,
-      CG_LOGIN::default_instance_,
-      CG_LOGIN_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(CG_LOGIN),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, _is_default_instance_));
-  CG_LOGIN_VALIDATETYPE_descriptor_ = CG_LOGIN_descriptor_->enum_type(0);
-  GC_LOGIN_descriptor_ = file->message_type(1);
-  static const int GC_LOGIN_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GC_LOGIN, result_),
-  };
-  GC_LOGIN_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      GC_LOGIN_descriptor_,
-      GC_LOGIN::default_instance_,
-      GC_LOGIN_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(GC_LOGIN),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GC_LOGIN, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GC_LOGIN, _is_default_instance_));
-}
+PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
+    const TableStruct::aux[] = {
+  ::google::protobuf::internal::AuxillaryParseTableField(),
+};
+PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
+    TableStruct::schema[] = {
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+};
+
+const ::google::protobuf::uint32 TableStruct::offsets[] = {
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, vtype_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, gameversion_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, programversion_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, publicresourceversion_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, maxpacketid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, forceenter_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, deviceid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, devicetype_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, deviceversion_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, account_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, validateinfo_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, channelid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, mediachannel_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, rapidvalidatecode_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, reservedint1_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, reservedint2_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, reservedint3_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, reservedint4_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, reservedstring1_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, reservedstring2_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, reservedstring3_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CG_LOGIN, reservedstring4_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GC_LOGIN, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GC_LOGIN, result_),
+};
+
+static const ::google::protobuf::internal::MigrationSchema schemas[] = {
+  { 0, -1, sizeof(CG_LOGIN)},
+  { 27, -1, sizeof(GC_LOGIN)},
+};
+
+static ::google::protobuf::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::google::protobuf::Message*>(&_CG_LOGIN_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_GC_LOGIN_default_instance_),
+};
 
 namespace {
 
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
-inline void protobuf_AssignDescriptorsOnce() {
-  ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
-                 &protobuf_AssignDesc_Packet_2eproto);
+void protobuf_AssignDescriptors() {
+  AddDescriptors();
+  ::google::protobuf::MessageFactory* factory = NULL;
+  AssignDescriptors(
+      "Packet.proto", schemas, file_default_instances, TableStruct::offsets, factory,
+      file_level_metadata, file_level_enum_descriptors, NULL);
 }
 
+void protobuf_AssignDescriptorsOnce() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &protobuf_AssignDescriptors);
+}
+
+void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      CG_LOGIN_descriptor_, &CG_LOGIN::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      GC_LOGIN_descriptor_, &GC_LOGIN::default_instance());
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 2);
 }
 
 }  // namespace
 
-void protobuf_ShutdownFile_Packet_2eproto() {
-  delete CG_LOGIN::default_instance_;
-  delete CG_LOGIN_reflection_;
-  delete GC_LOGIN::default_instance_;
-  delete GC_LOGIN_reflection_;
+void TableStruct::Shutdown() {
+  _CG_LOGIN_default_instance_.Shutdown();
+  delete file_level_metadata[0].reflection;
+  _GC_LOGIN_default_instance_.Shutdown();
+  delete file_level_metadata[1].reflection;
 }
 
-void protobuf_AddDesc_Packet_2eproto() {
-  static bool already_here = false;
-  if (already_here) return;
-  already_here = true;
+void TableStruct::InitDefaultsImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
+  ::google::protobuf::internal::InitProtobufDefaults();
+  _CG_LOGIN_default_instance_.DefaultConstruct();
+  _GC_LOGIN_default_instance_.DefaultConstruct();
+}
+
+void InitDefaults() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &TableStruct::InitDefaultsImpl);
+}
+void AddDescriptorsImpl() {
+  InitDefaults();
+  static const char descriptor[] = {
+      "\n\014Packet.proto\022\017google.protobuf\"\226\004\n\010CG_L"
+      "OGIN\022\r\n\005vtype\030\001 \001(\005\022\023\n\013gameversion\030\002 \001(\005"
+      "\022\026\n\016programversion\030\003 \001(\005\022\035\n\025publicresour"
+      "ceversion\030\004 \001(\005\022\023\n\013maxpacketid\030\005 \001(\005\022\022\n\n"
+      "forceenter\030\006 \001(\005\022\020\n\010deviceid\030\007 \001(\t\022\022\n\nde"
+      "vicetype\030\010 \001(\t\022\025\n\rdeviceversion\030\t \001(\t\022\017\n"
+      "\007account\030\n \001(\t\022\024\n\014validateinfo\030\013 \001(\t\022\021\n\t"
+      "channelid\030\014 \001(\t\022\024\n\014mediachannel\030\r \001(\t\022\031\n"
+      "\021rapidvalidatecode\030\016 \001(\005\022\024\n\014reservedint1"
+      "\030\017 \001(\005\022\024\n\014reservedint2\030\020 \001(\005\022\024\n\014reserved"
+      "int3\030\021 \001(\005\022\024\n\014reservedint4\030\022 \001(\005\022\027\n\017rese"
+      "rvedstring1\030\023 \001(\t\022\027\n\017reservedstring2\030\024 \001"
+      "(\t\022\027\n\017reservedstring3\030\025 \001(\t\022\027\n\017reserveds"
+      "tring4\030\026 \001(\t\"\"\n\014VALIDATETYPE\022\010\n\004TEST\020\000\022\010"
+      "\n\004CYOU\020\001\"\032\n\010GC_LOGIN\022\016\n\006result\030\001 \001(\005b\006pr"
+      "oto3"
+  };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\014Packet.proto\022\017google.protobuf\"\226\004\n\010CG_L"
-    "OGIN\022\r\n\005vtype\030\001 \001(\005\022\023\n\013gameversion\030\002 \001(\005"
-    "\022\026\n\016programversion\030\003 \001(\005\022\035\n\025publicresour"
-    "ceversion\030\004 \001(\005\022\023\n\013maxpacketid\030\005 \001(\005\022\022\n\n"
-    "forceenter\030\006 \001(\005\022\020\n\010deviceid\030\007 \001(\t\022\022\n\nde"
-    "vicetype\030\010 \001(\t\022\025\n\rdeviceversion\030\t \001(\t\022\017\n"
-    "\007account\030\n \001(\t\022\024\n\014validateinfo\030\013 \001(\t\022\021\n\t"
-    "channelid\030\014 \001(\t\022\024\n\014mediachannel\030\r \001(\t\022\031\n"
-    "\021rapidvalidatecode\030\016 \001(\005\022\024\n\014reservedint1"
-    "\030\017 \001(\005\022\024\n\014reservedint2\030\020 \001(\005\022\024\n\014reserved"
-    "int3\030\021 \001(\005\022\024\n\014reservedint4\030\022 \001(\005\022\027\n\017rese"
-    "rvedstring1\030\023 \001(\t\022\027\n\017reservedstring2\030\024 \001"
-    "(\t\022\027\n\017reservedstring3\030\025 \001(\t\022\027\n\017reserveds"
-    "tring4\030\026 \001(\t\"\"\n\014VALIDATETYPE\022\010\n\004TEST\020\000\022\010"
-    "\n\004CYOU\020\001\"\032\n\010GC_LOGIN\022\016\n\006result\030\001 \001(\005b\006pr"
-    "oto3", 604);
+      descriptor, 604);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Packet.proto", &protobuf_RegisterTypes);
-  CG_LOGIN::default_instance_ = new CG_LOGIN();
-  GC_LOGIN::default_instance_ = new GC_LOGIN();
-  CG_LOGIN::default_instance_->InitAsDefaultInstance();
-  GC_LOGIN::default_instance_->InitAsDefaultInstance();
-  ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_Packet_2eproto);
+  ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
 }
 
+void AddDescriptors() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &AddDescriptorsImpl);
+}
 // Force AddDescriptors() to be called at static initialization time.
-struct StaticDescriptorInitializer_Packet_2eproto {
-  StaticDescriptorInitializer_Packet_2eproto() {
-    protobuf_AddDesc_Packet_2eproto();
+struct StaticDescriptorInitializer {
+  StaticDescriptorInitializer() {
+    AddDescriptors();
   }
-} static_descriptor_initializer_Packet_2eproto_;
+} static_descriptor_initializer;
 
-namespace {
-
-static void MergeFromFail(int line) GOOGLE_ATTRIBUTE_COLD;
-static void MergeFromFail(int line) {
-  GOOGLE_CHECK(false) << __FILE__ << ":" << line;
-}
-
-}  // namespace
-
-
-// ===================================================================
+}  // namespace protobuf_Packet_2eproto
 
 const ::google::protobuf::EnumDescriptor* CG_LOGIN_VALIDATETYPE_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return CG_LOGIN_VALIDATETYPE_descriptor_;
+  protobuf_Packet_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Packet_2eproto::file_level_enum_descriptors[0];
 }
 bool CG_LOGIN_VALIDATETYPE_IsValid(int value) {
-  switch(value) {
+  switch (value) {
     case 0:
     case 1:
       return true;
@@ -190,6 +198,9 @@ const CG_LOGIN_VALIDATETYPE CG_LOGIN::VALIDATETYPE_MIN;
 const CG_LOGIN_VALIDATETYPE CG_LOGIN::VALIDATETYPE_MAX;
 const int CG_LOGIN::VALIDATETYPE_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+// ===================================================================
+
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int CG_LOGIN::kVtypeFieldNumber;
 const int CG_LOGIN::kGameversionFieldNumber;
@@ -217,32 +228,68 @@ const int CG_LOGIN::kReservedstring4FieldNumber;
 
 CG_LOGIN::CG_LOGIN()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Packet_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:google.protobuf.CG_LOGIN)
 }
-
-void CG_LOGIN::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 CG_LOGIN::CG_LOGIN(const CG_LOGIN& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  deviceid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.deviceid().size() > 0) {
+    deviceid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.deviceid_);
+  }
+  devicetype_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.devicetype().size() > 0) {
+    devicetype_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.devicetype_);
+  }
+  deviceversion_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.deviceversion().size() > 0) {
+    deviceversion_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.deviceversion_);
+  }
+  account_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.account().size() > 0) {
+    account_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.account_);
+  }
+  validateinfo_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.validateinfo().size() > 0) {
+    validateinfo_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.validateinfo_);
+  }
+  channelid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.channelid().size() > 0) {
+    channelid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.channelid_);
+  }
+  mediachannel_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.mediachannel().size() > 0) {
+    mediachannel_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.mediachannel_);
+  }
+  reservedstring1_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.reservedstring1().size() > 0) {
+    reservedstring1_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.reservedstring1_);
+  }
+  reservedstring2_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.reservedstring2().size() > 0) {
+    reservedstring2_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.reservedstring2_);
+  }
+  reservedstring3_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.reservedstring3().size() > 0) {
+    reservedstring3_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.reservedstring3_);
+  }
+  reservedstring4_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.reservedstring4().size() > 0) {
+    reservedstring4_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.reservedstring4_);
+  }
+  ::memcpy(&vtype_, &from.vtype_,
+    reinterpret_cast<char*>(&reservedint4_) -
+    reinterpret_cast<char*>(&vtype_) + sizeof(reservedint4_));
   // @@protoc_insertion_point(copy_constructor:google.protobuf.CG_LOGIN)
 }
 
 void CG_LOGIN::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
-  vtype_ = 0;
-  gameversion_ = 0;
-  programversion_ = 0;
-  publicresourceversion_ = 0;
-  maxpacketid_ = 0;
-  forceenter_ = 0;
   deviceid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   devicetype_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   deviceversion_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -250,15 +297,13 @@ void CG_LOGIN::SharedCtor() {
   validateinfo_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   channelid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   mediachannel_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  rapidvalidatecode_ = 0;
-  reservedint1_ = 0;
-  reservedint2_ = 0;
-  reservedint3_ = 0;
-  reservedint4_ = 0;
   reservedstring1_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   reservedstring2_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   reservedstring3_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   reservedstring4_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&vtype_, 0, reinterpret_cast<char*>(&reservedint4_) -
+    reinterpret_cast<char*>(&vtype_) + sizeof(reservedint4_));
+  _cached_size_ = 0;
 }
 
 CG_LOGIN::~CG_LOGIN() {
@@ -278,8 +323,6 @@ void CG_LOGIN::SharedDtor() {
   reservedstring2_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   reservedstring3_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   reservedstring4_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
-  }
 }
 
 void CG_LOGIN::SetCachedSize(int size) const {
@@ -288,16 +331,14 @@ void CG_LOGIN::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* CG_LOGIN::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return CG_LOGIN_descriptor_;
+  protobuf_Packet_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Packet_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
 const CG_LOGIN& CG_LOGIN::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_Packet_2eproto();
-  return *default_instance_;
+  protobuf_Packet_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-CG_LOGIN* CG_LOGIN::default_instance_ = NULL;
 
 CG_LOGIN* CG_LOGIN::New(::google::protobuf::Arena* arena) const {
   CG_LOGIN* n = new CG_LOGIN;
@@ -308,138 +349,120 @@ CG_LOGIN* CG_LOGIN::New(::google::protobuf::Arena* arena) const {
 }
 
 void CG_LOGIN::Clear() {
-#define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<CG_LOGIN*>(16)->f)
-
-#define ZR_(first, last) do {\
-  ::memset(&first, 0,\
-           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
-} while (0)
-
-  ZR_(vtype_, forceenter_);
+// @@protoc_insertion_point(message_clear_start:google.protobuf.CG_LOGIN)
   deviceid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   devicetype_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ZR_(rapidvalidatecode_, reservedint2_);
   deviceversion_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   account_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   validateinfo_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   channelid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   mediachannel_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  reservedint3_ = 0;
-  reservedint4_ = 0;
   reservedstring1_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   reservedstring2_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   reservedstring3_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   reservedstring4_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-
-#undef ZR_HELPER_
-#undef ZR_
-
+  ::memset(&vtype_, 0, reinterpret_cast<char*>(&reservedint4_) -
+    reinterpret_cast<char*>(&vtype_) + sizeof(reservedint4_));
 }
 
 bool CG_LOGIN::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:google.protobuf.CG_LOGIN)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(16383u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 vtype = 1;
+      // int32 vtype = 1;
       case 1: {
-        if (tag == 8) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &vtype_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(16)) goto parse_gameversion;
         break;
       }
 
-      // optional int32 gameversion = 2;
+      // int32 gameversion = 2;
       case 2: {
-        if (tag == 16) {
-         parse_gameversion:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &gameversion_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_programversion;
         break;
       }
 
-      // optional int32 programversion = 3;
+      // int32 programversion = 3;
       case 3: {
-        if (tag == 24) {
-         parse_programversion:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u)) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &programversion_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(32)) goto parse_publicresourceversion;
         break;
       }
 
-      // optional int32 publicresourceversion = 4;
+      // int32 publicresourceversion = 4;
       case 4: {
-        if (tag == 32) {
-         parse_publicresourceversion:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u)) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &publicresourceversion_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(40)) goto parse_maxpacketid;
         break;
       }
 
-      // optional int32 maxpacketid = 5;
+      // int32 maxpacketid = 5;
       case 5: {
-        if (tag == 40) {
-         parse_maxpacketid:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(40u)) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &maxpacketid_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(48)) goto parse_forceenter;
         break;
       }
 
-      // optional int32 forceenter = 6;
+      // int32 forceenter = 6;
       case 6: {
-        if (tag == 48) {
-         parse_forceenter:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(48u)) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &forceenter_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(58)) goto parse_deviceid;
         break;
       }
 
-      // optional string deviceid = 7;
+      // string deviceid = 7;
       case 7: {
-        if (tag == 58) {
-         parse_deviceid:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(58u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_deviceid()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -449,14 +472,13 @@ bool CG_LOGIN::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(66)) goto parse_devicetype;
         break;
       }
 
-      // optional string devicetype = 8;
+      // string devicetype = 8;
       case 8: {
-        if (tag == 66) {
-         parse_devicetype:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(66u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_devicetype()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -466,14 +488,13 @@ bool CG_LOGIN::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(74)) goto parse_deviceversion;
         break;
       }
 
-      // optional string deviceversion = 9;
+      // string deviceversion = 9;
       case 9: {
-        if (tag == 74) {
-         parse_deviceversion:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(74u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_deviceversion()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -483,14 +504,13 @@ bool CG_LOGIN::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(82)) goto parse_account;
         break;
       }
 
-      // optional string account = 10;
+      // string account = 10;
       case 10: {
-        if (tag == 82) {
-         parse_account:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(82u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_account()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -500,14 +520,13 @@ bool CG_LOGIN::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(90)) goto parse_validateinfo;
         break;
       }
 
-      // optional string validateinfo = 11;
+      // string validateinfo = 11;
       case 11: {
-        if (tag == 90) {
-         parse_validateinfo:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(90u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_validateinfo()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -517,14 +536,13 @@ bool CG_LOGIN::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(98)) goto parse_channelid;
         break;
       }
 
-      // optional string channelid = 12;
+      // string channelid = 12;
       case 12: {
-        if (tag == 98) {
-         parse_channelid:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(98u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_channelid()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -534,14 +552,13 @@ bool CG_LOGIN::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(106)) goto parse_mediachannel;
         break;
       }
 
-      // optional string mediachannel = 13;
+      // string mediachannel = 13;
       case 13: {
-        if (tag == 106) {
-         parse_mediachannel:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(106u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_mediachannel()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -551,89 +568,83 @@ bool CG_LOGIN::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(112)) goto parse_rapidvalidatecode;
         break;
       }
 
-      // optional int32 rapidvalidatecode = 14;
+      // int32 rapidvalidatecode = 14;
       case 14: {
-        if (tag == 112) {
-         parse_rapidvalidatecode:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(112u)) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &rapidvalidatecode_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(120)) goto parse_reservedint1;
         break;
       }
 
-      // optional int32 reservedint1 = 15;
+      // int32 reservedint1 = 15;
       case 15: {
-        if (tag == 120) {
-         parse_reservedint1:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(120u)) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &reservedint1_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(128)) goto parse_reservedint2;
         break;
       }
 
-      // optional int32 reservedint2 = 16;
+      // int32 reservedint2 = 16;
       case 16: {
-        if (tag == 128) {
-         parse_reservedint2:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(128u)) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &reservedint2_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(136)) goto parse_reservedint3;
         break;
       }
 
-      // optional int32 reservedint3 = 17;
+      // int32 reservedint3 = 17;
       case 17: {
-        if (tag == 136) {
-         parse_reservedint3:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(136u)) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &reservedint3_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(144)) goto parse_reservedint4;
         break;
       }
 
-      // optional int32 reservedint4 = 18;
+      // int32 reservedint4 = 18;
       case 18: {
-        if (tag == 144) {
-         parse_reservedint4:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(144u)) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &reservedint4_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(154)) goto parse_reservedstring1;
         break;
       }
 
-      // optional string reservedstring1 = 19;
+      // string reservedstring1 = 19;
       case 19: {
-        if (tag == 154) {
-         parse_reservedstring1:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(154u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_reservedstring1()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -643,14 +654,13 @@ bool CG_LOGIN::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(162)) goto parse_reservedstring2;
         break;
       }
 
-      // optional string reservedstring2 = 20;
+      // string reservedstring2 = 20;
       case 20: {
-        if (tag == 162) {
-         parse_reservedstring2:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(162u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_reservedstring2()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -660,14 +670,13 @@ bool CG_LOGIN::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(170)) goto parse_reservedstring3;
         break;
       }
 
-      // optional string reservedstring3 = 21;
+      // string reservedstring3 = 21;
       case 21: {
-        if (tag == 170) {
-         parse_reservedstring3:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(170u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_reservedstring3()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -677,14 +686,13 @@ bool CG_LOGIN::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(178)) goto parse_reservedstring4;
         break;
       }
 
-      // optional string reservedstring4 = 22;
+      // string reservedstring4 = 22;
       case 22: {
-        if (tag == 178) {
-         parse_reservedstring4:
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(178u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_reservedstring4()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -694,7 +702,6 @@ bool CG_LOGIN::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -722,37 +729,40 @@ failure:
 void CG_LOGIN::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:google.protobuf.CG_LOGIN)
-  // optional int32 vtype = 1;
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 vtype = 1;
   if (this->vtype() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->vtype(), output);
   }
 
-  // optional int32 gameversion = 2;
+  // int32 gameversion = 2;
   if (this->gameversion() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->gameversion(), output);
   }
 
-  // optional int32 programversion = 3;
+  // int32 programversion = 3;
   if (this->programversion() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->programversion(), output);
   }
 
-  // optional int32 publicresourceversion = 4;
+  // int32 publicresourceversion = 4;
   if (this->publicresourceversion() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->publicresourceversion(), output);
   }
 
-  // optional int32 maxpacketid = 5;
+  // int32 maxpacketid = 5;
   if (this->maxpacketid() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->maxpacketid(), output);
   }
 
-  // optional int32 forceenter = 6;
+  // int32 forceenter = 6;
   if (this->forceenter() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->forceenter(), output);
   }
 
-  // optional string deviceid = 7;
+  // string deviceid = 7;
   if (this->deviceid().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->deviceid().data(), this->deviceid().length(),
@@ -762,7 +772,7 @@ void CG_LOGIN::SerializeWithCachedSizes(
       7, this->deviceid(), output);
   }
 
-  // optional string devicetype = 8;
+  // string devicetype = 8;
   if (this->devicetype().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->devicetype().data(), this->devicetype().length(),
@@ -772,7 +782,7 @@ void CG_LOGIN::SerializeWithCachedSizes(
       8, this->devicetype(), output);
   }
 
-  // optional string deviceversion = 9;
+  // string deviceversion = 9;
   if (this->deviceversion().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->deviceversion().data(), this->deviceversion().length(),
@@ -782,7 +792,7 @@ void CG_LOGIN::SerializeWithCachedSizes(
       9, this->deviceversion(), output);
   }
 
-  // optional string account = 10;
+  // string account = 10;
   if (this->account().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->account().data(), this->account().length(),
@@ -792,7 +802,7 @@ void CG_LOGIN::SerializeWithCachedSizes(
       10, this->account(), output);
   }
 
-  // optional string validateinfo = 11;
+  // string validateinfo = 11;
   if (this->validateinfo().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->validateinfo().data(), this->validateinfo().length(),
@@ -802,7 +812,7 @@ void CG_LOGIN::SerializeWithCachedSizes(
       11, this->validateinfo(), output);
   }
 
-  // optional string channelid = 12;
+  // string channelid = 12;
   if (this->channelid().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->channelid().data(), this->channelid().length(),
@@ -812,7 +822,7 @@ void CG_LOGIN::SerializeWithCachedSizes(
       12, this->channelid(), output);
   }
 
-  // optional string mediachannel = 13;
+  // string mediachannel = 13;
   if (this->mediachannel().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->mediachannel().data(), this->mediachannel().length(),
@@ -822,32 +832,32 @@ void CG_LOGIN::SerializeWithCachedSizes(
       13, this->mediachannel(), output);
   }
 
-  // optional int32 rapidvalidatecode = 14;
+  // int32 rapidvalidatecode = 14;
   if (this->rapidvalidatecode() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->rapidvalidatecode(), output);
   }
 
-  // optional int32 reservedint1 = 15;
+  // int32 reservedint1 = 15;
   if (this->reservedint1() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->reservedint1(), output);
   }
 
-  // optional int32 reservedint2 = 16;
+  // int32 reservedint2 = 16;
   if (this->reservedint2() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->reservedint2(), output);
   }
 
-  // optional int32 reservedint3 = 17;
+  // int32 reservedint3 = 17;
   if (this->reservedint3() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(17, this->reservedint3(), output);
   }
 
-  // optional int32 reservedint4 = 18;
+  // int32 reservedint4 = 18;
   if (this->reservedint4() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(18, this->reservedint4(), output);
   }
 
-  // optional string reservedstring1 = 19;
+  // string reservedstring1 = 19;
   if (this->reservedstring1().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->reservedstring1().data(), this->reservedstring1().length(),
@@ -857,7 +867,7 @@ void CG_LOGIN::SerializeWithCachedSizes(
       19, this->reservedstring1(), output);
   }
 
-  // optional string reservedstring2 = 20;
+  // string reservedstring2 = 20;
   if (this->reservedstring2().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->reservedstring2().data(), this->reservedstring2().length(),
@@ -867,7 +877,7 @@ void CG_LOGIN::SerializeWithCachedSizes(
       20, this->reservedstring2(), output);
   }
 
-  // optional string reservedstring3 = 21;
+  // string reservedstring3 = 21;
   if (this->reservedstring3().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->reservedstring3().data(), this->reservedstring3().length(),
@@ -877,7 +887,7 @@ void CG_LOGIN::SerializeWithCachedSizes(
       21, this->reservedstring3(), output);
   }
 
-  // optional string reservedstring4 = 22;
+  // string reservedstring4 = 22;
   if (this->reservedstring4().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->reservedstring4().data(), this->reservedstring4().length(),
@@ -890,40 +900,44 @@ void CG_LOGIN::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:google.protobuf.CG_LOGIN)
 }
 
-::google::protobuf::uint8* CG_LOGIN::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* CG_LOGIN::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:google.protobuf.CG_LOGIN)
-  // optional int32 vtype = 1;
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 vtype = 1;
   if (this->vtype() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->vtype(), target);
   }
 
-  // optional int32 gameversion = 2;
+  // int32 gameversion = 2;
   if (this->gameversion() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->gameversion(), target);
   }
 
-  // optional int32 programversion = 3;
+  // int32 programversion = 3;
   if (this->programversion() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->programversion(), target);
   }
 
-  // optional int32 publicresourceversion = 4;
+  // int32 publicresourceversion = 4;
   if (this->publicresourceversion() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->publicresourceversion(), target);
   }
 
-  // optional int32 maxpacketid = 5;
+  // int32 maxpacketid = 5;
   if (this->maxpacketid() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->maxpacketid(), target);
   }
 
-  // optional int32 forceenter = 6;
+  // int32 forceenter = 6;
   if (this->forceenter() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->forceenter(), target);
   }
 
-  // optional string deviceid = 7;
+  // string deviceid = 7;
   if (this->deviceid().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->deviceid().data(), this->deviceid().length(),
@@ -934,7 +948,7 @@ void CG_LOGIN::SerializeWithCachedSizes(
         7, this->deviceid(), target);
   }
 
-  // optional string devicetype = 8;
+  // string devicetype = 8;
   if (this->devicetype().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->devicetype().data(), this->devicetype().length(),
@@ -945,7 +959,7 @@ void CG_LOGIN::SerializeWithCachedSizes(
         8, this->devicetype(), target);
   }
 
-  // optional string deviceversion = 9;
+  // string deviceversion = 9;
   if (this->deviceversion().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->deviceversion().data(), this->deviceversion().length(),
@@ -956,7 +970,7 @@ void CG_LOGIN::SerializeWithCachedSizes(
         9, this->deviceversion(), target);
   }
 
-  // optional string account = 10;
+  // string account = 10;
   if (this->account().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->account().data(), this->account().length(),
@@ -967,7 +981,7 @@ void CG_LOGIN::SerializeWithCachedSizes(
         10, this->account(), target);
   }
 
-  // optional string validateinfo = 11;
+  // string validateinfo = 11;
   if (this->validateinfo().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->validateinfo().data(), this->validateinfo().length(),
@@ -978,7 +992,7 @@ void CG_LOGIN::SerializeWithCachedSizes(
         11, this->validateinfo(), target);
   }
 
-  // optional string channelid = 12;
+  // string channelid = 12;
   if (this->channelid().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->channelid().data(), this->channelid().length(),
@@ -989,7 +1003,7 @@ void CG_LOGIN::SerializeWithCachedSizes(
         12, this->channelid(), target);
   }
 
-  // optional string mediachannel = 13;
+  // string mediachannel = 13;
   if (this->mediachannel().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->mediachannel().data(), this->mediachannel().length(),
@@ -1000,32 +1014,32 @@ void CG_LOGIN::SerializeWithCachedSizes(
         13, this->mediachannel(), target);
   }
 
-  // optional int32 rapidvalidatecode = 14;
+  // int32 rapidvalidatecode = 14;
   if (this->rapidvalidatecode() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->rapidvalidatecode(), target);
   }
 
-  // optional int32 reservedint1 = 15;
+  // int32 reservedint1 = 15;
   if (this->reservedint1() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->reservedint1(), target);
   }
 
-  // optional int32 reservedint2 = 16;
+  // int32 reservedint2 = 16;
   if (this->reservedint2() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->reservedint2(), target);
   }
 
-  // optional int32 reservedint3 = 17;
+  // int32 reservedint3 = 17;
   if (this->reservedint3() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(17, this->reservedint3(), target);
   }
 
-  // optional int32 reservedint4 = 18;
+  // int32 reservedint4 = 18;
   if (this->reservedint4() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(18, this->reservedint4(), target);
   }
 
-  // optional string reservedstring1 = 19;
+  // string reservedstring1 = 19;
   if (this->reservedstring1().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->reservedstring1().data(), this->reservedstring1().length(),
@@ -1036,7 +1050,7 @@ void CG_LOGIN::SerializeWithCachedSizes(
         19, this->reservedstring1(), target);
   }
 
-  // optional string reservedstring2 = 20;
+  // string reservedstring2 = 20;
   if (this->reservedstring2().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->reservedstring2().data(), this->reservedstring2().length(),
@@ -1047,7 +1061,7 @@ void CG_LOGIN::SerializeWithCachedSizes(
         20, this->reservedstring2(), target);
   }
 
-  // optional string reservedstring3 = 21;
+  // string reservedstring3 = 21;
   if (this->reservedstring3().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->reservedstring3().data(), this->reservedstring3().length(),
@@ -1058,7 +1072,7 @@ void CG_LOGIN::SerializeWithCachedSizes(
         21, this->reservedstring3(), target);
   }
 
-  // optional string reservedstring4 = 22;
+  // string reservedstring4 = 22;
   if (this->reservedstring4().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->reservedstring4().data(), this->reservedstring4().length(),
@@ -1073,201 +1087,193 @@ void CG_LOGIN::SerializeWithCachedSizes(
   return target;
 }
 
-int CG_LOGIN::ByteSize() const {
-  int total_size = 0;
+size_t CG_LOGIN::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:google.protobuf.CG_LOGIN)
+  size_t total_size = 0;
 
-  // optional int32 vtype = 1;
-  if (this->vtype() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->vtype());
-  }
-
-  // optional int32 gameversion = 2;
-  if (this->gameversion() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->gameversion());
-  }
-
-  // optional int32 programversion = 3;
-  if (this->programversion() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->programversion());
-  }
-
-  // optional int32 publicresourceversion = 4;
-  if (this->publicresourceversion() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->publicresourceversion());
-  }
-
-  // optional int32 maxpacketid = 5;
-  if (this->maxpacketid() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->maxpacketid());
-  }
-
-  // optional int32 forceenter = 6;
-  if (this->forceenter() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->forceenter());
-  }
-
-  // optional string deviceid = 7;
+  // string deviceid = 7;
   if (this->deviceid().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->deviceid());
   }
 
-  // optional string devicetype = 8;
+  // string devicetype = 8;
   if (this->devicetype().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->devicetype());
   }
 
-  // optional string deviceversion = 9;
+  // string deviceversion = 9;
   if (this->deviceversion().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->deviceversion());
   }
 
-  // optional string account = 10;
+  // string account = 10;
   if (this->account().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->account());
   }
 
-  // optional string validateinfo = 11;
+  // string validateinfo = 11;
   if (this->validateinfo().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->validateinfo());
   }
 
-  // optional string channelid = 12;
+  // string channelid = 12;
   if (this->channelid().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->channelid());
   }
 
-  // optional string mediachannel = 13;
+  // string mediachannel = 13;
   if (this->mediachannel().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->mediachannel());
   }
 
-  // optional int32 rapidvalidatecode = 14;
-  if (this->rapidvalidatecode() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->rapidvalidatecode());
-  }
-
-  // optional int32 reservedint1 = 15;
-  if (this->reservedint1() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->reservedint1());
-  }
-
-  // optional int32 reservedint2 = 16;
-  if (this->reservedint2() != 0) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->reservedint2());
-  }
-
-  // optional int32 reservedint3 = 17;
-  if (this->reservedint3() != 0) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->reservedint3());
-  }
-
-  // optional int32 reservedint4 = 18;
-  if (this->reservedint4() != 0) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->reservedint4());
-  }
-
-  // optional string reservedstring1 = 19;
+  // string reservedstring1 = 19;
   if (this->reservedstring1().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->reservedstring1());
   }
 
-  // optional string reservedstring2 = 20;
+  // string reservedstring2 = 20;
   if (this->reservedstring2().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->reservedstring2());
   }
 
-  // optional string reservedstring3 = 21;
+  // string reservedstring3 = 21;
   if (this->reservedstring3().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->reservedstring3());
   }
 
-  // optional string reservedstring4 = 22;
+  // string reservedstring4 = 22;
   if (this->reservedstring4().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->reservedstring4());
   }
 
+  // int32 vtype = 1;
+  if (this->vtype() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->vtype());
+  }
+
+  // int32 gameversion = 2;
+  if (this->gameversion() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->gameversion());
+  }
+
+  // int32 programversion = 3;
+  if (this->programversion() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->programversion());
+  }
+
+  // int32 publicresourceversion = 4;
+  if (this->publicresourceversion() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->publicresourceversion());
+  }
+
+  // int32 maxpacketid = 5;
+  if (this->maxpacketid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->maxpacketid());
+  }
+
+  // int32 forceenter = 6;
+  if (this->forceenter() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->forceenter());
+  }
+
+  // int32 rapidvalidatecode = 14;
+  if (this->rapidvalidatecode() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->rapidvalidatecode());
+  }
+
+  // int32 reservedint1 = 15;
+  if (this->reservedint1() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->reservedint1());
+  }
+
+  // int32 reservedint2 = 16;
+  if (this->reservedint2() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->reservedint2());
+  }
+
+  // int32 reservedint3 = 17;
+  if (this->reservedint3() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->reservedint3());
+  }
+
+  // int32 reservedint4 = 18;
+  if (this->reservedint4() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->reservedint4());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void CG_LOGIN::MergeFrom(const ::google::protobuf::Message& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const CG_LOGIN* source = 
+// @@protoc_insertion_point(generalized_merge_from_start:google.protobuf.CG_LOGIN)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CG_LOGIN* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const CG_LOGIN>(
           &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:google.protobuf.CG_LOGIN)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:google.protobuf.CG_LOGIN)
     MergeFrom(*source);
   }
 }
 
 void CG_LOGIN::MergeFrom(const CG_LOGIN& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  if (from.vtype() != 0) {
-    set_vtype(from.vtype());
-  }
-  if (from.gameversion() != 0) {
-    set_gameversion(from.gameversion());
-  }
-  if (from.programversion() != 0) {
-    set_programversion(from.programversion());
-  }
-  if (from.publicresourceversion() != 0) {
-    set_publicresourceversion(from.publicresourceversion());
-  }
-  if (from.maxpacketid() != 0) {
-    set_maxpacketid(from.maxpacketid());
-  }
-  if (from.forceenter() != 0) {
-    set_forceenter(from.forceenter());
-  }
+// @@protoc_insertion_point(class_specific_merge_from_start:google.protobuf.CG_LOGIN)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
   if (from.deviceid().size() > 0) {
 
     deviceid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.deviceid_);
@@ -1296,21 +1302,6 @@ void CG_LOGIN::MergeFrom(const CG_LOGIN& from) {
 
     mediachannel_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.mediachannel_);
   }
-  if (from.rapidvalidatecode() != 0) {
-    set_rapidvalidatecode(from.rapidvalidatecode());
-  }
-  if (from.reservedint1() != 0) {
-    set_reservedint1(from.reservedint1());
-  }
-  if (from.reservedint2() != 0) {
-    set_reservedint2(from.reservedint2());
-  }
-  if (from.reservedint3() != 0) {
-    set_reservedint3(from.reservedint3());
-  }
-  if (from.reservedint4() != 0) {
-    set_reservedint4(from.reservedint4());
-  }
   if (from.reservedstring1().size() > 0) {
 
     reservedstring1_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.reservedstring1_);
@@ -1327,22 +1318,56 @@ void CG_LOGIN::MergeFrom(const CG_LOGIN& from) {
 
     reservedstring4_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.reservedstring4_);
   }
+  if (from.vtype() != 0) {
+    set_vtype(from.vtype());
+  }
+  if (from.gameversion() != 0) {
+    set_gameversion(from.gameversion());
+  }
+  if (from.programversion() != 0) {
+    set_programversion(from.programversion());
+  }
+  if (from.publicresourceversion() != 0) {
+    set_publicresourceversion(from.publicresourceversion());
+  }
+  if (from.maxpacketid() != 0) {
+    set_maxpacketid(from.maxpacketid());
+  }
+  if (from.forceenter() != 0) {
+    set_forceenter(from.forceenter());
+  }
+  if (from.rapidvalidatecode() != 0) {
+    set_rapidvalidatecode(from.rapidvalidatecode());
+  }
+  if (from.reservedint1() != 0) {
+    set_reservedint1(from.reservedint1());
+  }
+  if (from.reservedint2() != 0) {
+    set_reservedint2(from.reservedint2());
+  }
+  if (from.reservedint3() != 0) {
+    set_reservedint3(from.reservedint3());
+  }
+  if (from.reservedint4() != 0) {
+    set_reservedint4(from.reservedint4());
+  }
 }
 
 void CG_LOGIN::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:google.protobuf.CG_LOGIN)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void CG_LOGIN::CopyFrom(const CG_LOGIN& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:google.protobuf.CG_LOGIN)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 bool CG_LOGIN::IsInitialized() const {
-
   return true;
 }
 
@@ -1351,12 +1376,6 @@ void CG_LOGIN::Swap(CG_LOGIN* other) {
   InternalSwap(other);
 }
 void CG_LOGIN::InternalSwap(CG_LOGIN* other) {
-  std::swap(vtype_, other->vtype_);
-  std::swap(gameversion_, other->gameversion_);
-  std::swap(programversion_, other->programversion_);
-  std::swap(publicresourceversion_, other->publicresourceversion_);
-  std::swap(maxpacketid_, other->maxpacketid_);
-  std::swap(forceenter_, other->forceenter_);
   deviceid_.Swap(&other->deviceid_);
   devicetype_.Swap(&other->devicetype_);
   deviceversion_.Swap(&other->deviceversion_);
@@ -1364,148 +1383,160 @@ void CG_LOGIN::InternalSwap(CG_LOGIN* other) {
   validateinfo_.Swap(&other->validateinfo_);
   channelid_.Swap(&other->channelid_);
   mediachannel_.Swap(&other->mediachannel_);
+  reservedstring1_.Swap(&other->reservedstring1_);
+  reservedstring2_.Swap(&other->reservedstring2_);
+  reservedstring3_.Swap(&other->reservedstring3_);
+  reservedstring4_.Swap(&other->reservedstring4_);
+  std::swap(vtype_, other->vtype_);
+  std::swap(gameversion_, other->gameversion_);
+  std::swap(programversion_, other->programversion_);
+  std::swap(publicresourceversion_, other->publicresourceversion_);
+  std::swap(maxpacketid_, other->maxpacketid_);
+  std::swap(forceenter_, other->forceenter_);
   std::swap(rapidvalidatecode_, other->rapidvalidatecode_);
   std::swap(reservedint1_, other->reservedint1_);
   std::swap(reservedint2_, other->reservedint2_);
   std::swap(reservedint3_, other->reservedint3_);
   std::swap(reservedint4_, other->reservedint4_);
-  reservedstring1_.Swap(&other->reservedstring1_);
-  reservedstring2_.Swap(&other->reservedstring2_);
-  reservedstring3_.Swap(&other->reservedstring3_);
-  reservedstring4_.Swap(&other->reservedstring4_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata CG_LOGIN::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = CG_LOGIN_descriptor_;
-  metadata.reflection = CG_LOGIN_reflection_;
-  return metadata;
+  protobuf_Packet_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Packet_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // CG_LOGIN
 
-// optional int32 vtype = 1;
+// int32 vtype = 1;
 void CG_LOGIN::clear_vtype() {
   vtype_ = 0;
 }
- ::google::protobuf::int32 CG_LOGIN::vtype() const {
+::google::protobuf::int32 CG_LOGIN::vtype() const {
   // @@protoc_insertion_point(field_get:google.protobuf.CG_LOGIN.vtype)
   return vtype_;
 }
- void CG_LOGIN::set_vtype(::google::protobuf::int32 value) {
+void CG_LOGIN::set_vtype(::google::protobuf::int32 value) {
   
   vtype_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.CG_LOGIN.vtype)
 }
 
-// optional int32 gameversion = 2;
+// int32 gameversion = 2;
 void CG_LOGIN::clear_gameversion() {
   gameversion_ = 0;
 }
- ::google::protobuf::int32 CG_LOGIN::gameversion() const {
+::google::protobuf::int32 CG_LOGIN::gameversion() const {
   // @@protoc_insertion_point(field_get:google.protobuf.CG_LOGIN.gameversion)
   return gameversion_;
 }
- void CG_LOGIN::set_gameversion(::google::protobuf::int32 value) {
+void CG_LOGIN::set_gameversion(::google::protobuf::int32 value) {
   
   gameversion_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.CG_LOGIN.gameversion)
 }
 
-// optional int32 programversion = 3;
+// int32 programversion = 3;
 void CG_LOGIN::clear_programversion() {
   programversion_ = 0;
 }
- ::google::protobuf::int32 CG_LOGIN::programversion() const {
+::google::protobuf::int32 CG_LOGIN::programversion() const {
   // @@protoc_insertion_point(field_get:google.protobuf.CG_LOGIN.programversion)
   return programversion_;
 }
- void CG_LOGIN::set_programversion(::google::protobuf::int32 value) {
+void CG_LOGIN::set_programversion(::google::protobuf::int32 value) {
   
   programversion_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.CG_LOGIN.programversion)
 }
 
-// optional int32 publicresourceversion = 4;
+// int32 publicresourceversion = 4;
 void CG_LOGIN::clear_publicresourceversion() {
   publicresourceversion_ = 0;
 }
- ::google::protobuf::int32 CG_LOGIN::publicresourceversion() const {
+::google::protobuf::int32 CG_LOGIN::publicresourceversion() const {
   // @@protoc_insertion_point(field_get:google.protobuf.CG_LOGIN.publicresourceversion)
   return publicresourceversion_;
 }
- void CG_LOGIN::set_publicresourceversion(::google::protobuf::int32 value) {
+void CG_LOGIN::set_publicresourceversion(::google::protobuf::int32 value) {
   
   publicresourceversion_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.CG_LOGIN.publicresourceversion)
 }
 
-// optional int32 maxpacketid = 5;
+// int32 maxpacketid = 5;
 void CG_LOGIN::clear_maxpacketid() {
   maxpacketid_ = 0;
 }
- ::google::protobuf::int32 CG_LOGIN::maxpacketid() const {
+::google::protobuf::int32 CG_LOGIN::maxpacketid() const {
   // @@protoc_insertion_point(field_get:google.protobuf.CG_LOGIN.maxpacketid)
   return maxpacketid_;
 }
- void CG_LOGIN::set_maxpacketid(::google::protobuf::int32 value) {
+void CG_LOGIN::set_maxpacketid(::google::protobuf::int32 value) {
   
   maxpacketid_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.CG_LOGIN.maxpacketid)
 }
 
-// optional int32 forceenter = 6;
+// int32 forceenter = 6;
 void CG_LOGIN::clear_forceenter() {
   forceenter_ = 0;
 }
- ::google::protobuf::int32 CG_LOGIN::forceenter() const {
+::google::protobuf::int32 CG_LOGIN::forceenter() const {
   // @@protoc_insertion_point(field_get:google.protobuf.CG_LOGIN.forceenter)
   return forceenter_;
 }
- void CG_LOGIN::set_forceenter(::google::protobuf::int32 value) {
+void CG_LOGIN::set_forceenter(::google::protobuf::int32 value) {
   
   forceenter_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.CG_LOGIN.forceenter)
 }
 
-// optional string deviceid = 7;
+// string deviceid = 7;
 void CG_LOGIN::clear_deviceid() {
   deviceid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& CG_LOGIN::deviceid() const {
+const ::std::string& CG_LOGIN::deviceid() const {
   // @@protoc_insertion_point(field_get:google.protobuf.CG_LOGIN.deviceid)
-  return deviceid_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return deviceid_.GetNoArena();
 }
- void CG_LOGIN::set_deviceid(const ::std::string& value) {
+void CG_LOGIN::set_deviceid(const ::std::string& value) {
   
   deviceid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:google.protobuf.CG_LOGIN.deviceid)
 }
- void CG_LOGIN::set_deviceid(const char* value) {
+#if LANG_CXX11
+void CG_LOGIN::set_deviceid(::std::string&& value) {
+  
+  deviceid_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.CG_LOGIN.deviceid)
+}
+#endif
+void CG_LOGIN::set_deviceid(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
   
   deviceid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:google.protobuf.CG_LOGIN.deviceid)
 }
- void CG_LOGIN::set_deviceid(const char* value, size_t size) {
+void CG_LOGIN::set_deviceid(const char* value, size_t size) {
   
   deviceid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:google.protobuf.CG_LOGIN.deviceid)
 }
- ::std::string* CG_LOGIN::mutable_deviceid() {
+::std::string* CG_LOGIN::mutable_deviceid() {
   
   // @@protoc_insertion_point(field_mutable:google.protobuf.CG_LOGIN.deviceid)
   return deviceid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* CG_LOGIN::release_deviceid() {
+::std::string* CG_LOGIN::release_deviceid() {
+  // @@protoc_insertion_point(field_release:google.protobuf.CG_LOGIN.deviceid)
   
   return deviceid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void CG_LOGIN::set_allocated_deviceid(::std::string* deviceid) {
+void CG_LOGIN::set_allocated_deviceid(::std::string* deviceid) {
   if (deviceid != NULL) {
     
   } else {
@@ -1515,40 +1546,50 @@ void CG_LOGIN::clear_deviceid() {
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.CG_LOGIN.deviceid)
 }
 
-// optional string devicetype = 8;
+// string devicetype = 8;
 void CG_LOGIN::clear_devicetype() {
   devicetype_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& CG_LOGIN::devicetype() const {
+const ::std::string& CG_LOGIN::devicetype() const {
   // @@protoc_insertion_point(field_get:google.protobuf.CG_LOGIN.devicetype)
-  return devicetype_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return devicetype_.GetNoArena();
 }
- void CG_LOGIN::set_devicetype(const ::std::string& value) {
+void CG_LOGIN::set_devicetype(const ::std::string& value) {
   
   devicetype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:google.protobuf.CG_LOGIN.devicetype)
 }
- void CG_LOGIN::set_devicetype(const char* value) {
+#if LANG_CXX11
+void CG_LOGIN::set_devicetype(::std::string&& value) {
+  
+  devicetype_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.CG_LOGIN.devicetype)
+}
+#endif
+void CG_LOGIN::set_devicetype(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
   
   devicetype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:google.protobuf.CG_LOGIN.devicetype)
 }
- void CG_LOGIN::set_devicetype(const char* value, size_t size) {
+void CG_LOGIN::set_devicetype(const char* value, size_t size) {
   
   devicetype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:google.protobuf.CG_LOGIN.devicetype)
 }
- ::std::string* CG_LOGIN::mutable_devicetype() {
+::std::string* CG_LOGIN::mutable_devicetype() {
   
   // @@protoc_insertion_point(field_mutable:google.protobuf.CG_LOGIN.devicetype)
   return devicetype_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* CG_LOGIN::release_devicetype() {
+::std::string* CG_LOGIN::release_devicetype() {
+  // @@protoc_insertion_point(field_release:google.protobuf.CG_LOGIN.devicetype)
   
   return devicetype_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void CG_LOGIN::set_allocated_devicetype(::std::string* devicetype) {
+void CG_LOGIN::set_allocated_devicetype(::std::string* devicetype) {
   if (devicetype != NULL) {
     
   } else {
@@ -1558,40 +1599,50 @@ void CG_LOGIN::clear_devicetype() {
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.CG_LOGIN.devicetype)
 }
 
-// optional string deviceversion = 9;
+// string deviceversion = 9;
 void CG_LOGIN::clear_deviceversion() {
   deviceversion_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& CG_LOGIN::deviceversion() const {
+const ::std::string& CG_LOGIN::deviceversion() const {
   // @@protoc_insertion_point(field_get:google.protobuf.CG_LOGIN.deviceversion)
-  return deviceversion_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return deviceversion_.GetNoArena();
 }
- void CG_LOGIN::set_deviceversion(const ::std::string& value) {
+void CG_LOGIN::set_deviceversion(const ::std::string& value) {
   
   deviceversion_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:google.protobuf.CG_LOGIN.deviceversion)
 }
- void CG_LOGIN::set_deviceversion(const char* value) {
+#if LANG_CXX11
+void CG_LOGIN::set_deviceversion(::std::string&& value) {
+  
+  deviceversion_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.CG_LOGIN.deviceversion)
+}
+#endif
+void CG_LOGIN::set_deviceversion(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
   
   deviceversion_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:google.protobuf.CG_LOGIN.deviceversion)
 }
- void CG_LOGIN::set_deviceversion(const char* value, size_t size) {
+void CG_LOGIN::set_deviceversion(const char* value, size_t size) {
   
   deviceversion_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:google.protobuf.CG_LOGIN.deviceversion)
 }
- ::std::string* CG_LOGIN::mutable_deviceversion() {
+::std::string* CG_LOGIN::mutable_deviceversion() {
   
   // @@protoc_insertion_point(field_mutable:google.protobuf.CG_LOGIN.deviceversion)
   return deviceversion_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* CG_LOGIN::release_deviceversion() {
+::std::string* CG_LOGIN::release_deviceversion() {
+  // @@protoc_insertion_point(field_release:google.protobuf.CG_LOGIN.deviceversion)
   
   return deviceversion_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void CG_LOGIN::set_allocated_deviceversion(::std::string* deviceversion) {
+void CG_LOGIN::set_allocated_deviceversion(::std::string* deviceversion) {
   if (deviceversion != NULL) {
     
   } else {
@@ -1601,40 +1652,50 @@ void CG_LOGIN::clear_deviceversion() {
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.CG_LOGIN.deviceversion)
 }
 
-// optional string account = 10;
+// string account = 10;
 void CG_LOGIN::clear_account() {
   account_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& CG_LOGIN::account() const {
+const ::std::string& CG_LOGIN::account() const {
   // @@protoc_insertion_point(field_get:google.protobuf.CG_LOGIN.account)
-  return account_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return account_.GetNoArena();
 }
- void CG_LOGIN::set_account(const ::std::string& value) {
+void CG_LOGIN::set_account(const ::std::string& value) {
   
   account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:google.protobuf.CG_LOGIN.account)
 }
- void CG_LOGIN::set_account(const char* value) {
+#if LANG_CXX11
+void CG_LOGIN::set_account(::std::string&& value) {
+  
+  account_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.CG_LOGIN.account)
+}
+#endif
+void CG_LOGIN::set_account(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
   
   account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:google.protobuf.CG_LOGIN.account)
 }
- void CG_LOGIN::set_account(const char* value, size_t size) {
+void CG_LOGIN::set_account(const char* value, size_t size) {
   
   account_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:google.protobuf.CG_LOGIN.account)
 }
- ::std::string* CG_LOGIN::mutable_account() {
+::std::string* CG_LOGIN::mutable_account() {
   
   // @@protoc_insertion_point(field_mutable:google.protobuf.CG_LOGIN.account)
   return account_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* CG_LOGIN::release_account() {
+::std::string* CG_LOGIN::release_account() {
+  // @@protoc_insertion_point(field_release:google.protobuf.CG_LOGIN.account)
   
   return account_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void CG_LOGIN::set_allocated_account(::std::string* account) {
+void CG_LOGIN::set_allocated_account(::std::string* account) {
   if (account != NULL) {
     
   } else {
@@ -1644,40 +1705,50 @@ void CG_LOGIN::clear_account() {
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.CG_LOGIN.account)
 }
 
-// optional string validateinfo = 11;
+// string validateinfo = 11;
 void CG_LOGIN::clear_validateinfo() {
   validateinfo_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& CG_LOGIN::validateinfo() const {
+const ::std::string& CG_LOGIN::validateinfo() const {
   // @@protoc_insertion_point(field_get:google.protobuf.CG_LOGIN.validateinfo)
-  return validateinfo_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return validateinfo_.GetNoArena();
 }
- void CG_LOGIN::set_validateinfo(const ::std::string& value) {
+void CG_LOGIN::set_validateinfo(const ::std::string& value) {
   
   validateinfo_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:google.protobuf.CG_LOGIN.validateinfo)
 }
- void CG_LOGIN::set_validateinfo(const char* value) {
+#if LANG_CXX11
+void CG_LOGIN::set_validateinfo(::std::string&& value) {
+  
+  validateinfo_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.CG_LOGIN.validateinfo)
+}
+#endif
+void CG_LOGIN::set_validateinfo(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
   
   validateinfo_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:google.protobuf.CG_LOGIN.validateinfo)
 }
- void CG_LOGIN::set_validateinfo(const char* value, size_t size) {
+void CG_LOGIN::set_validateinfo(const char* value, size_t size) {
   
   validateinfo_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:google.protobuf.CG_LOGIN.validateinfo)
 }
- ::std::string* CG_LOGIN::mutable_validateinfo() {
+::std::string* CG_LOGIN::mutable_validateinfo() {
   
   // @@protoc_insertion_point(field_mutable:google.protobuf.CG_LOGIN.validateinfo)
   return validateinfo_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* CG_LOGIN::release_validateinfo() {
+::std::string* CG_LOGIN::release_validateinfo() {
+  // @@protoc_insertion_point(field_release:google.protobuf.CG_LOGIN.validateinfo)
   
   return validateinfo_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void CG_LOGIN::set_allocated_validateinfo(::std::string* validateinfo) {
+void CG_LOGIN::set_allocated_validateinfo(::std::string* validateinfo) {
   if (validateinfo != NULL) {
     
   } else {
@@ -1687,40 +1758,50 @@ void CG_LOGIN::clear_validateinfo() {
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.CG_LOGIN.validateinfo)
 }
 
-// optional string channelid = 12;
+// string channelid = 12;
 void CG_LOGIN::clear_channelid() {
   channelid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& CG_LOGIN::channelid() const {
+const ::std::string& CG_LOGIN::channelid() const {
   // @@protoc_insertion_point(field_get:google.protobuf.CG_LOGIN.channelid)
-  return channelid_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return channelid_.GetNoArena();
 }
- void CG_LOGIN::set_channelid(const ::std::string& value) {
+void CG_LOGIN::set_channelid(const ::std::string& value) {
   
   channelid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:google.protobuf.CG_LOGIN.channelid)
 }
- void CG_LOGIN::set_channelid(const char* value) {
+#if LANG_CXX11
+void CG_LOGIN::set_channelid(::std::string&& value) {
+  
+  channelid_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.CG_LOGIN.channelid)
+}
+#endif
+void CG_LOGIN::set_channelid(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
   
   channelid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:google.protobuf.CG_LOGIN.channelid)
 }
- void CG_LOGIN::set_channelid(const char* value, size_t size) {
+void CG_LOGIN::set_channelid(const char* value, size_t size) {
   
   channelid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:google.protobuf.CG_LOGIN.channelid)
 }
- ::std::string* CG_LOGIN::mutable_channelid() {
+::std::string* CG_LOGIN::mutable_channelid() {
   
   // @@protoc_insertion_point(field_mutable:google.protobuf.CG_LOGIN.channelid)
   return channelid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* CG_LOGIN::release_channelid() {
+::std::string* CG_LOGIN::release_channelid() {
+  // @@protoc_insertion_point(field_release:google.protobuf.CG_LOGIN.channelid)
   
   return channelid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void CG_LOGIN::set_allocated_channelid(::std::string* channelid) {
+void CG_LOGIN::set_allocated_channelid(::std::string* channelid) {
   if (channelid != NULL) {
     
   } else {
@@ -1730,40 +1811,50 @@ void CG_LOGIN::clear_channelid() {
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.CG_LOGIN.channelid)
 }
 
-// optional string mediachannel = 13;
+// string mediachannel = 13;
 void CG_LOGIN::clear_mediachannel() {
   mediachannel_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& CG_LOGIN::mediachannel() const {
+const ::std::string& CG_LOGIN::mediachannel() const {
   // @@protoc_insertion_point(field_get:google.protobuf.CG_LOGIN.mediachannel)
-  return mediachannel_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return mediachannel_.GetNoArena();
 }
- void CG_LOGIN::set_mediachannel(const ::std::string& value) {
+void CG_LOGIN::set_mediachannel(const ::std::string& value) {
   
   mediachannel_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:google.protobuf.CG_LOGIN.mediachannel)
 }
- void CG_LOGIN::set_mediachannel(const char* value) {
+#if LANG_CXX11
+void CG_LOGIN::set_mediachannel(::std::string&& value) {
+  
+  mediachannel_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.CG_LOGIN.mediachannel)
+}
+#endif
+void CG_LOGIN::set_mediachannel(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
   
   mediachannel_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:google.protobuf.CG_LOGIN.mediachannel)
 }
- void CG_LOGIN::set_mediachannel(const char* value, size_t size) {
+void CG_LOGIN::set_mediachannel(const char* value, size_t size) {
   
   mediachannel_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:google.protobuf.CG_LOGIN.mediachannel)
 }
- ::std::string* CG_LOGIN::mutable_mediachannel() {
+::std::string* CG_LOGIN::mutable_mediachannel() {
   
   // @@protoc_insertion_point(field_mutable:google.protobuf.CG_LOGIN.mediachannel)
   return mediachannel_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* CG_LOGIN::release_mediachannel() {
+::std::string* CG_LOGIN::release_mediachannel() {
+  // @@protoc_insertion_point(field_release:google.protobuf.CG_LOGIN.mediachannel)
   
   return mediachannel_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void CG_LOGIN::set_allocated_mediachannel(::std::string* mediachannel) {
+void CG_LOGIN::set_allocated_mediachannel(::std::string* mediachannel) {
   if (mediachannel != NULL) {
     
   } else {
@@ -1773,110 +1864,120 @@ void CG_LOGIN::clear_mediachannel() {
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.CG_LOGIN.mediachannel)
 }
 
-// optional int32 rapidvalidatecode = 14;
+// int32 rapidvalidatecode = 14;
 void CG_LOGIN::clear_rapidvalidatecode() {
   rapidvalidatecode_ = 0;
 }
- ::google::protobuf::int32 CG_LOGIN::rapidvalidatecode() const {
+::google::protobuf::int32 CG_LOGIN::rapidvalidatecode() const {
   // @@protoc_insertion_point(field_get:google.protobuf.CG_LOGIN.rapidvalidatecode)
   return rapidvalidatecode_;
 }
- void CG_LOGIN::set_rapidvalidatecode(::google::protobuf::int32 value) {
+void CG_LOGIN::set_rapidvalidatecode(::google::protobuf::int32 value) {
   
   rapidvalidatecode_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.CG_LOGIN.rapidvalidatecode)
 }
 
-// optional int32 reservedint1 = 15;
+// int32 reservedint1 = 15;
 void CG_LOGIN::clear_reservedint1() {
   reservedint1_ = 0;
 }
- ::google::protobuf::int32 CG_LOGIN::reservedint1() const {
+::google::protobuf::int32 CG_LOGIN::reservedint1() const {
   // @@protoc_insertion_point(field_get:google.protobuf.CG_LOGIN.reservedint1)
   return reservedint1_;
 }
- void CG_LOGIN::set_reservedint1(::google::protobuf::int32 value) {
+void CG_LOGIN::set_reservedint1(::google::protobuf::int32 value) {
   
   reservedint1_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.CG_LOGIN.reservedint1)
 }
 
-// optional int32 reservedint2 = 16;
+// int32 reservedint2 = 16;
 void CG_LOGIN::clear_reservedint2() {
   reservedint2_ = 0;
 }
- ::google::protobuf::int32 CG_LOGIN::reservedint2() const {
+::google::protobuf::int32 CG_LOGIN::reservedint2() const {
   // @@protoc_insertion_point(field_get:google.protobuf.CG_LOGIN.reservedint2)
   return reservedint2_;
 }
- void CG_LOGIN::set_reservedint2(::google::protobuf::int32 value) {
+void CG_LOGIN::set_reservedint2(::google::protobuf::int32 value) {
   
   reservedint2_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.CG_LOGIN.reservedint2)
 }
 
-// optional int32 reservedint3 = 17;
+// int32 reservedint3 = 17;
 void CG_LOGIN::clear_reservedint3() {
   reservedint3_ = 0;
 }
- ::google::protobuf::int32 CG_LOGIN::reservedint3() const {
+::google::protobuf::int32 CG_LOGIN::reservedint3() const {
   // @@protoc_insertion_point(field_get:google.protobuf.CG_LOGIN.reservedint3)
   return reservedint3_;
 }
- void CG_LOGIN::set_reservedint3(::google::protobuf::int32 value) {
+void CG_LOGIN::set_reservedint3(::google::protobuf::int32 value) {
   
   reservedint3_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.CG_LOGIN.reservedint3)
 }
 
-// optional int32 reservedint4 = 18;
+// int32 reservedint4 = 18;
 void CG_LOGIN::clear_reservedint4() {
   reservedint4_ = 0;
 }
- ::google::protobuf::int32 CG_LOGIN::reservedint4() const {
+::google::protobuf::int32 CG_LOGIN::reservedint4() const {
   // @@protoc_insertion_point(field_get:google.protobuf.CG_LOGIN.reservedint4)
   return reservedint4_;
 }
- void CG_LOGIN::set_reservedint4(::google::protobuf::int32 value) {
+void CG_LOGIN::set_reservedint4(::google::protobuf::int32 value) {
   
   reservedint4_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.CG_LOGIN.reservedint4)
 }
 
-// optional string reservedstring1 = 19;
+// string reservedstring1 = 19;
 void CG_LOGIN::clear_reservedstring1() {
   reservedstring1_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& CG_LOGIN::reservedstring1() const {
+const ::std::string& CG_LOGIN::reservedstring1() const {
   // @@protoc_insertion_point(field_get:google.protobuf.CG_LOGIN.reservedstring1)
-  return reservedstring1_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return reservedstring1_.GetNoArena();
 }
- void CG_LOGIN::set_reservedstring1(const ::std::string& value) {
+void CG_LOGIN::set_reservedstring1(const ::std::string& value) {
   
   reservedstring1_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:google.protobuf.CG_LOGIN.reservedstring1)
 }
- void CG_LOGIN::set_reservedstring1(const char* value) {
+#if LANG_CXX11
+void CG_LOGIN::set_reservedstring1(::std::string&& value) {
+  
+  reservedstring1_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.CG_LOGIN.reservedstring1)
+}
+#endif
+void CG_LOGIN::set_reservedstring1(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
   
   reservedstring1_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:google.protobuf.CG_LOGIN.reservedstring1)
 }
- void CG_LOGIN::set_reservedstring1(const char* value, size_t size) {
+void CG_LOGIN::set_reservedstring1(const char* value, size_t size) {
   
   reservedstring1_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:google.protobuf.CG_LOGIN.reservedstring1)
 }
- ::std::string* CG_LOGIN::mutable_reservedstring1() {
+::std::string* CG_LOGIN::mutable_reservedstring1() {
   
   // @@protoc_insertion_point(field_mutable:google.protobuf.CG_LOGIN.reservedstring1)
   return reservedstring1_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* CG_LOGIN::release_reservedstring1() {
+::std::string* CG_LOGIN::release_reservedstring1() {
+  // @@protoc_insertion_point(field_release:google.protobuf.CG_LOGIN.reservedstring1)
   
   return reservedstring1_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void CG_LOGIN::set_allocated_reservedstring1(::std::string* reservedstring1) {
+void CG_LOGIN::set_allocated_reservedstring1(::std::string* reservedstring1) {
   if (reservedstring1 != NULL) {
     
   } else {
@@ -1886,40 +1987,50 @@ void CG_LOGIN::clear_reservedstring1() {
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.CG_LOGIN.reservedstring1)
 }
 
-// optional string reservedstring2 = 20;
+// string reservedstring2 = 20;
 void CG_LOGIN::clear_reservedstring2() {
   reservedstring2_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& CG_LOGIN::reservedstring2() const {
+const ::std::string& CG_LOGIN::reservedstring2() const {
   // @@protoc_insertion_point(field_get:google.protobuf.CG_LOGIN.reservedstring2)
-  return reservedstring2_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return reservedstring2_.GetNoArena();
 }
- void CG_LOGIN::set_reservedstring2(const ::std::string& value) {
+void CG_LOGIN::set_reservedstring2(const ::std::string& value) {
   
   reservedstring2_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:google.protobuf.CG_LOGIN.reservedstring2)
 }
- void CG_LOGIN::set_reservedstring2(const char* value) {
+#if LANG_CXX11
+void CG_LOGIN::set_reservedstring2(::std::string&& value) {
+  
+  reservedstring2_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.CG_LOGIN.reservedstring2)
+}
+#endif
+void CG_LOGIN::set_reservedstring2(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
   
   reservedstring2_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:google.protobuf.CG_LOGIN.reservedstring2)
 }
- void CG_LOGIN::set_reservedstring2(const char* value, size_t size) {
+void CG_LOGIN::set_reservedstring2(const char* value, size_t size) {
   
   reservedstring2_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:google.protobuf.CG_LOGIN.reservedstring2)
 }
- ::std::string* CG_LOGIN::mutable_reservedstring2() {
+::std::string* CG_LOGIN::mutable_reservedstring2() {
   
   // @@protoc_insertion_point(field_mutable:google.protobuf.CG_LOGIN.reservedstring2)
   return reservedstring2_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* CG_LOGIN::release_reservedstring2() {
+::std::string* CG_LOGIN::release_reservedstring2() {
+  // @@protoc_insertion_point(field_release:google.protobuf.CG_LOGIN.reservedstring2)
   
   return reservedstring2_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void CG_LOGIN::set_allocated_reservedstring2(::std::string* reservedstring2) {
+void CG_LOGIN::set_allocated_reservedstring2(::std::string* reservedstring2) {
   if (reservedstring2 != NULL) {
     
   } else {
@@ -1929,40 +2040,50 @@ void CG_LOGIN::clear_reservedstring2() {
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.CG_LOGIN.reservedstring2)
 }
 
-// optional string reservedstring3 = 21;
+// string reservedstring3 = 21;
 void CG_LOGIN::clear_reservedstring3() {
   reservedstring3_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& CG_LOGIN::reservedstring3() const {
+const ::std::string& CG_LOGIN::reservedstring3() const {
   // @@protoc_insertion_point(field_get:google.protobuf.CG_LOGIN.reservedstring3)
-  return reservedstring3_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return reservedstring3_.GetNoArena();
 }
- void CG_LOGIN::set_reservedstring3(const ::std::string& value) {
+void CG_LOGIN::set_reservedstring3(const ::std::string& value) {
   
   reservedstring3_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:google.protobuf.CG_LOGIN.reservedstring3)
 }
- void CG_LOGIN::set_reservedstring3(const char* value) {
+#if LANG_CXX11
+void CG_LOGIN::set_reservedstring3(::std::string&& value) {
+  
+  reservedstring3_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.CG_LOGIN.reservedstring3)
+}
+#endif
+void CG_LOGIN::set_reservedstring3(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
   
   reservedstring3_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:google.protobuf.CG_LOGIN.reservedstring3)
 }
- void CG_LOGIN::set_reservedstring3(const char* value, size_t size) {
+void CG_LOGIN::set_reservedstring3(const char* value, size_t size) {
   
   reservedstring3_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:google.protobuf.CG_LOGIN.reservedstring3)
 }
- ::std::string* CG_LOGIN::mutable_reservedstring3() {
+::std::string* CG_LOGIN::mutable_reservedstring3() {
   
   // @@protoc_insertion_point(field_mutable:google.protobuf.CG_LOGIN.reservedstring3)
   return reservedstring3_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* CG_LOGIN::release_reservedstring3() {
+::std::string* CG_LOGIN::release_reservedstring3() {
+  // @@protoc_insertion_point(field_release:google.protobuf.CG_LOGIN.reservedstring3)
   
   return reservedstring3_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void CG_LOGIN::set_allocated_reservedstring3(::std::string* reservedstring3) {
+void CG_LOGIN::set_allocated_reservedstring3(::std::string* reservedstring3) {
   if (reservedstring3 != NULL) {
     
   } else {
@@ -1972,40 +2093,50 @@ void CG_LOGIN::clear_reservedstring3() {
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.CG_LOGIN.reservedstring3)
 }
 
-// optional string reservedstring4 = 22;
+// string reservedstring4 = 22;
 void CG_LOGIN::clear_reservedstring4() {
   reservedstring4_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& CG_LOGIN::reservedstring4() const {
+const ::std::string& CG_LOGIN::reservedstring4() const {
   // @@protoc_insertion_point(field_get:google.protobuf.CG_LOGIN.reservedstring4)
-  return reservedstring4_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return reservedstring4_.GetNoArena();
 }
- void CG_LOGIN::set_reservedstring4(const ::std::string& value) {
+void CG_LOGIN::set_reservedstring4(const ::std::string& value) {
   
   reservedstring4_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:google.protobuf.CG_LOGIN.reservedstring4)
 }
- void CG_LOGIN::set_reservedstring4(const char* value) {
+#if LANG_CXX11
+void CG_LOGIN::set_reservedstring4(::std::string&& value) {
+  
+  reservedstring4_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.CG_LOGIN.reservedstring4)
+}
+#endif
+void CG_LOGIN::set_reservedstring4(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
   
   reservedstring4_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:google.protobuf.CG_LOGIN.reservedstring4)
 }
- void CG_LOGIN::set_reservedstring4(const char* value, size_t size) {
+void CG_LOGIN::set_reservedstring4(const char* value, size_t size) {
   
   reservedstring4_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:google.protobuf.CG_LOGIN.reservedstring4)
 }
- ::std::string* CG_LOGIN::mutable_reservedstring4() {
+::std::string* CG_LOGIN::mutable_reservedstring4() {
   
   // @@protoc_insertion_point(field_mutable:google.protobuf.CG_LOGIN.reservedstring4)
   return reservedstring4_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* CG_LOGIN::release_reservedstring4() {
+::std::string* CG_LOGIN::release_reservedstring4() {
+  // @@protoc_insertion_point(field_release:google.protobuf.CG_LOGIN.reservedstring4)
   
   return reservedstring4_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void CG_LOGIN::set_allocated_reservedstring4(::std::string* reservedstring4) {
+void CG_LOGIN::set_allocated_reservedstring4(::std::string* reservedstring4) {
   if (reservedstring4 != NULL) {
     
   } else {
@@ -2025,26 +2156,24 @@ const int GC_LOGIN::kResultFieldNumber;
 
 GC_LOGIN::GC_LOGIN()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_Packet_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:google.protobuf.GC_LOGIN)
 }
-
-void GC_LOGIN::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 GC_LOGIN::GC_LOGIN(const GC_LOGIN& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  result_ = from.result_;
   // @@protoc_insertion_point(copy_constructor:google.protobuf.GC_LOGIN)
 }
 
 void GC_LOGIN::SharedCtor() {
-    _is_default_instance_ = false;
-  _cached_size_ = 0;
   result_ = 0;
+  _cached_size_ = 0;
 }
 
 GC_LOGIN::~GC_LOGIN() {
@@ -2053,8 +2182,6 @@ GC_LOGIN::~GC_LOGIN() {
 }
 
 void GC_LOGIN::SharedDtor() {
-  if (this != default_instance_) {
-  }
 }
 
 void GC_LOGIN::SetCachedSize(int size) const {
@@ -2063,16 +2190,14 @@ void GC_LOGIN::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* GC_LOGIN::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return GC_LOGIN_descriptor_;
+  protobuf_Packet_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Packet_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
 const GC_LOGIN& GC_LOGIN::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_Packet_2eproto();
-  return *default_instance_;
+  protobuf_Packet_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-GC_LOGIN* GC_LOGIN::default_instance_ = NULL;
 
 GC_LOGIN* GC_LOGIN::New(::google::protobuf::Arena* arena) const {
   GC_LOGIN* n = new GC_LOGIN;
@@ -2083,30 +2208,31 @@ GC_LOGIN* GC_LOGIN::New(::google::protobuf::Arena* arena) const {
 }
 
 void GC_LOGIN::Clear() {
+// @@protoc_insertion_point(message_clear_start:google.protobuf.GC_LOGIN)
   result_ = 0;
 }
 
 bool GC_LOGIN::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:google.protobuf.GC_LOGIN)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 result = 1;
+      // int32 result = 1;
       case 1: {
-        if (tag == 8) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &result_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -2134,7 +2260,10 @@ failure:
 void GC_LOGIN::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:google.protobuf.GC_LOGIN)
-  // optional int32 result = 1;
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 result = 1;
   if (this->result() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->result(), output);
   }
@@ -2142,10 +2271,14 @@ void GC_LOGIN::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:google.protobuf.GC_LOGIN)
 }
 
-::google::protobuf::uint8* GC_LOGIN::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* GC_LOGIN::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:google.protobuf.GC_LOGIN)
-  // optional int32 result = 1;
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 result = 1;
   if (this->result() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->result(), target);
   }
@@ -2154,55 +2287,66 @@ void GC_LOGIN::SerializeWithCachedSizes(
   return target;
 }
 
-int GC_LOGIN::ByteSize() const {
-  int total_size = 0;
+size_t GC_LOGIN::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:google.protobuf.GC_LOGIN)
+  size_t total_size = 0;
 
-  // optional int32 result = 1;
+  // int32 result = 1;
   if (this->result() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->result());
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void GC_LOGIN::MergeFrom(const ::google::protobuf::Message& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const GC_LOGIN* source = 
+// @@protoc_insertion_point(generalized_merge_from_start:google.protobuf.GC_LOGIN)
+  GOOGLE_DCHECK_NE(&from, this);
+  const GC_LOGIN* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const GC_LOGIN>(
           &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:google.protobuf.GC_LOGIN)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:google.protobuf.GC_LOGIN)
     MergeFrom(*source);
   }
 }
 
 void GC_LOGIN::MergeFrom(const GC_LOGIN& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(class_specific_merge_from_start:google.protobuf.GC_LOGIN)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
   if (from.result() != 0) {
     set_result(from.result());
   }
 }
 
 void GC_LOGIN::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:google.protobuf.GC_LOGIN)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void GC_LOGIN::CopyFrom(const GC_LOGIN& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:google.protobuf.GC_LOGIN)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 bool GC_LOGIN::IsInitialized() const {
-
   return true;
 }
 
@@ -2212,30 +2356,26 @@ void GC_LOGIN::Swap(GC_LOGIN* other) {
 }
 void GC_LOGIN::InternalSwap(GC_LOGIN* other) {
   std::swap(result_, other->result_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata GC_LOGIN::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = GC_LOGIN_descriptor_;
-  metadata.reflection = GC_LOGIN_reflection_;
-  return metadata;
+  protobuf_Packet_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Packet_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // GC_LOGIN
 
-// optional int32 result = 1;
+// int32 result = 1;
 void GC_LOGIN::clear_result() {
   result_ = 0;
 }
- ::google::protobuf::int32 GC_LOGIN::result() const {
+::google::protobuf::int32 GC_LOGIN::result() const {
   // @@protoc_insertion_point(field_get:google.protobuf.GC_LOGIN.result)
   return result_;
 }
- void GC_LOGIN::set_result(::google::protobuf::int32 value) {
+void GC_LOGIN::set_result(::google::protobuf::int32 value) {
   
   result_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.GC_LOGIN.result)
