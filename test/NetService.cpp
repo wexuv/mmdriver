@@ -235,8 +235,8 @@ namespace driver
 		if(!kPacketHead.Decode(pReadBuf,nLeftBufLen))
 			return 0;
 
-		pReadBuf += sizeof(PacketHead);
-		nLeftBufLen -= sizeof(PacketHead);
+		pReadBuf += kPacketHead.GetSize();
+		nLeftBufLen -= kPacketHead.GetSize();
 
 		if(kPacketHead.m_usPacketSize > nLeftBufLen)
 			return 0;
@@ -264,7 +264,7 @@ namespace driver
 			m_stLogEngine.log(log_mask_info, "[NetService::%s] unknown packet %d\n", __FUNCTION_NAME__,nPacketID);
 		}
 
-		return sizeof(PacketHead) + kPacketHead.m_usPacketSize;
+		return kPacketHead.GetSize() + kPacketHead.m_usPacketSize;
 	}
 
 	void NetService::HandlePacketUserLogin(Connection* pConnect,const PacketHead& rkPacketHead,const tchar* pBuff)

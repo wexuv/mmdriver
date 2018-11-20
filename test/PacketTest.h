@@ -26,6 +26,8 @@ namespace driver
 	public:
 		PacketID GetPacketID() const {return PACKET_CG_LOGIN;};
 
+		virtual tint32 GetSize() const;
+
 		virtual bool Encode(tchar* pBuff, tint32& nBufSize) const;
 
 		virtual bool Decode(const tchar* pBuff, tint32 sSize);
@@ -42,6 +44,8 @@ namespace driver
 
 	public:
 		PacketID GetPacketID() const {return PACKET_GC_LOGIN;};
+
+		virtual tint32 GetSize() const;
 
 		virtual bool Encode(tchar* pBuff, tint32& nBufSize)  const;
 

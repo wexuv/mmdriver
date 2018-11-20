@@ -11,6 +11,11 @@ namespace driver
 
 	}
 
+	tint32 P_Login::GetSize() const
+	{
+		return m_PacketData.ByteSize();
+	}
+
 	bool P_Login::Encode(tchar* pBuff, tint32& nBufSize) const
 	{ 
 		if(!m_PacketData.SerializePartialToArray(pBuff,m_PacketData.ByteSize()))
@@ -38,6 +43,11 @@ namespace driver
 	P_LoginRet::~P_LoginRet()
 	{
 
+	}
+
+	tint32 P_LoginRet::GetSize() const
+	{
+		return m_PacketData.ByteSize();
 	}
 
 	bool P_LoginRet::Encode(tchar* pBuff, tint32& nBufSize) const

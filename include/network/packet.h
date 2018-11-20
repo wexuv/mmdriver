@@ -23,6 +23,7 @@ namespace driver
 		virtual ~PacketHead(void) ;
 
 	public:
+		virtual tint16 GetSize() const;
 		virtual bool Encode(char* pBuff, tuint16& nBufSize) const;
 		virtual bool Decode(const char* pBuff, tint32 nSize);
 	};
@@ -35,6 +36,8 @@ namespace driver
 
 	public:
 		virtual PacketID GetPacketID() const = 0;
+
+		virtual tint32 GetSize() const = 0;
 
 		virtual bool Encode(tchar* pBuff, tint32& nBufSize) const = 0;
 
