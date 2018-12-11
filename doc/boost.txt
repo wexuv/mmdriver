@@ -6,5 +6,31 @@
 使用bcp工具就可以分离出想要的文件了，例如
 dist\bin\bcp shared_ptr.hpp c:\boostX
  
-参考资料：
-http://www.boost.org/doc/libs/1_49_0/tools/bcp/doc/html/index.html
+官方文档：
+https://www.boost.org/doc/
+
+编译boost-python库，需要先安装python,并配置好python路径。运行b2或者bjam进行编译
+b2.exe --with-python  --build-type=complete
+
+或者以下脚本
+
+@echo 即将编译python模块
+@pause
+bjam --toolset=msvc-14.0 architecture=x86 address-model=64 --with-python link=shared threading=multi variant=release runtime-link=shared --stagedir=".\vc14"
+bjam --toolset=msvc-14.0 architecture=x86 address-model=64 --with-python link=shared threading=multi variant=debug runtime-link=shared --stagedir=".\vc14"
+@echo 编译完成。
+@pause
+
+bjam程序的输入参数：
+--toolset：编译器类型。msvc-9.0是vs2008的c++编译器
+--with : 编译哪些模块。-python 编译python模块
+link：生成连接库类型。shared：动态链接，static：静态链接
+threading：链接的线程类型，multi多线程模式。
+variant:表示调试版还是发布版。
+runtime：运行库链接类型。shared,动态链接。
+stage：将编译好的库拷贝到state目录下。
+address-model: 64位
+
+如果还有错误，运行bjam --debug-configuration确认配置。
+参考资料
+https://www.boost.org/doc/libs/1_60_0/libs/python/doc/html/building.html

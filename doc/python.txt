@@ -1,0 +1,9 @@
+python官网下载对应的安装包或者源码
+https://www.python.org/downloads/release
+
+如果需要debug库文件python27_d.lib，需要编译python源代码。
+
+打开python源代码，PCbuild下pcbuild.sln编译python项目
+如果出现错误： error MSB8010: 指定的平台工具集(v90)需要 Visual Studio 2008
+
+修改项目属性->常规->平台工具集， 选择对应的工具集。

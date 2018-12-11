@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <sqlite3.h>
 #include "db/sqlite_result.h"
+#include "common/define.h"
 
 namespace driver
 {

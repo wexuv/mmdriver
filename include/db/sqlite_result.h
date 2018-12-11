@@ -2,7 +2,7 @@
 #define __SQLITE_RESULT_H__
 
 #include <string>
-#include "common/driver.h"
+#include <stdint.h>
 
 namespace driver
 {

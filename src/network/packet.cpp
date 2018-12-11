@@ -55,7 +55,7 @@ namespace driver
 		PacketHead kHead;
 
 		kHead.m_nPacketID = rkPacket.GetPacketID();
-		kHead.m_usPacketSize = rkPacket.GetSize();
+		kHead.m_usPacketSize = rkPacket.GetSize() + kHead.GetSize();
 
 		tuint16 usHeadLen = kHead.GetSize();
 		if(!kHead.Encode(m_szBuf,usHeadLen))
